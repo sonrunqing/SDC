@@ -1,0 +1,64 @@
+{
+  "installed_on": "2026-10-16",
+  "platform": "Debian 13 x86_64",
+  "godot": {
+    "version": "4.6.3.stable.official.7d41c59c4",
+    "source": "https://github.com/godotengine/godot-builds/releases/tag/4.6.3-stable",
+    "template_sha256": "3fbe2c0e2dec9d537ab9ec97bcf8da91dcf23357fc51f67092dd068d839290a8"
+  },
+  "java": {
+    "version": "17.0.20.1+1",
+    "source": "https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.20.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.20.1_1.tar.gz",
+    "sha256": "3808d1d15e3ec6bd5b84057fb5d84c33d8a1536a258146bcea2e603fc726e08e"
+  },
+  "android_commandline_tools": {
+    "build": "15859902",
+    "source": "https://dl.google.com/android/repository/commandlinetools-linux-15859902_latest.zip",
+    "sha256": "4e4c464f145a7512b57d088ac6c278c03c9eea610886b35a5e0804e74eedf583"
+  },
+  "android_packages": [
+    {
+      "path": "build-tools;35.0.1",
+      "revision": "35.0.1"
+    },
+    {
+      "path": "build-tools;36.0.0",
+      "revision": "36.0.0"
+    },
+    {
+      "path": "cmake;3.10.2.4988404",
+      "revision": "3.10.2"
+    },
+    {
+      "path": "ndk;28.1.13356709",
+      "revision": "28.1.13356709"
+    },
+    {
+      "path": "platform-tools",
+      "revision": "37.0.1"
+    },
+    {
+      "path": "platforms;android-35",
+      "revision": "2"
+    },
+    {
+      "path": "platforms;android-36",
+      "revision": "2"
+    }
+  ],
+  "blender": {
+    "version": "4.3.2",
+    "source": "preinstalled Debian binary"
+  },
+  "blender_mcp": {
+    "package": "mcp-for-blender",
+    "version": "2.1.9",
+    "python": "3.11",
+    "source": "https://github.com/ahujasid/mcp-for-blender"
+  },
+  "xvfb": {
+    "version": "21.1.16-1.3+deb13u3",
+    "source": "https://deb.debian.org/debian/pool/main/x/xorg-server/"
+  },
+  "assets_manifest": "resources/kenney/manifest.json"
+}

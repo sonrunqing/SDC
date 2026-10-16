@@ -10,12 +10,14 @@ Godot 4.6.3 开发的安卓 ARM64 单机 PvE 2.5D 搜打撤原型。包含人物
 
 ## 项目内容
 
-- `src/`：完整 Godot 游戏项目，包括 GDScript、场景、数据、测试、模型、贴图、音效、字体和资源许可证。用 Godot 4.6.3 打开 `src/project.godot`。
+- GitHub Release 源码 ZIP：完整 Godot 游戏项目，包括 GDScript、场景、数据、测试、模型、贴图、音效、字体和资源许可证。解压后用 Godot 4.6.3 打开 `SDC/project.godot`。
 - `previews/`：大厅、地图、商店、改枪、仓库和战局截图。
 - `development/`：构建校验记录和工具版本清单。
 - GitHub Release：SDC APK 安装包、可直接导入 Godot 的源码 ZIP 与界面演示视频。
 
-游戏与玩法细节见 [`src/README.md`](src/README.md)，资产来源与授权见 [`src/THIRD_PARTY_ASSETS.md`](src/THIRD_PARTY_ASSETS.md)。
+![SDC 人物大厅](previews/lobby.png)
+
+游戏玩法见 [`docs/README.md`](docs/README.md)，免费模型来源及授权见 [`docs/THIRD_PARTY_ASSETS.md`](docs/THIRD_PARTY_ASSETS.md)。
 
 ## 项目现状
 

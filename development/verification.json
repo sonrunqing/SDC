@@ -1,0 +1,835 @@
+{
+  "version": "0.3.0",
+  "date": "2026-10-16",
+  "mode": "offline PvE",
+  "item_count": 256,
+  "counts": {
+    "weapon": 24,
+    "attachment": 145,
+    "armor": 36,
+    "ammo": 36,
+    "consumable": 3,
+    "loot": 12
+  },
+  "independent_models": {
+    "weapons": 24,
+    "attachments": 145,
+    "factory": 62,
+    "operator_body": 1,
+    "wearable_gear": 36,
+    "prepared_environment": 230
+  },
+  "harbor": {
+    "bounds": [
+      160,
+      180
+    ],
+    "area_multiplier": 11.538461538461538,
+    "placed_objects": 261,
+    "used_model_types": 97,
+    "loot_points": 27,
+    "entries": 3
+  },
+  "frontend": "character lobby / map selection / preparation; category shop",
+  "damage_curve": {
+    "camera_pose": "normal player follow",
+    "curve": [
+      {
+        "damage": 22.8,
+        "distance": 0.0
+      },
+      {
+        "damage": 22.6826536752556,
+        "distance": 10.0
+      },
+      {
+        "damage": 22.2059342309814,
+        "distance": 20.0
+      },
+      {
+        "damage": 21.3625075218809,
+        "distance": 30.0
+      },
+      {
+        "damage": 20.4999999893818,
+        "distance": 37.4176025390625
+      },
+      {
+        "damage": 18.5755323092012,
+        "distance": 50.0
+      },
+      {
+        "damage": 11.6447650039843,
+        "distance": 80.0
+      },
+      {
+        "damage": 5.19071714304161,
+        "distance": 100.0
+      }
+    ],
+    "guard_armor": 22,
+    "model": "accelerating power curve; no positive damage floor; stops at zero",
+    "near_damage": 22.8,
+    "reference_ammo": "ammo_9x19_fmj",
+    "reference_gun": "weapon_reed9",
+    "samples": [
+      {
+        "damage": 22.8,
+        "distance": 0,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 22.8,
+        "distance": 1,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 22.8,
+        "distance": 2,
+        "loss_next_metre": 0.0018335363241313
+      },
+      {
+        "damage": 22.7981664636759,
+        "distance": 3,
+        "loss_next_metre": 0.00550060897239746
+      },
+      {
+        "damage": 22.7926658547035,
+        "distance": 4,
+        "loss_next_metre": 0.00916768162065651
+      },
+      {
+        "damage": 22.7834981730828,
+        "distance": 5,
+        "loss_next_metre": 0.0128347542689191
+      },
+      {
+        "damage": 22.7706634188139,
+        "distance": 6,
+        "loss_next_metre": 0.0165018269171817
+      },
+      {
+        "damage": 22.7541615918967,
+        "distance": 7,
+        "loss_next_metre": 0.0201688995654479
+      },
+      {
+        "damage": 22.7339926923313,
+        "distance": 8,
+        "loss_next_metre": 0.0238359722137069
+      },
+      {
+        "damage": 22.7101567201176,
+        "distance": 9,
+        "loss_next_metre": 0.0275030448619731
+      },
+      {
+        "damage": 22.6826536752556,
+        "distance": 10,
+        "loss_next_metre": 0.0311701175102357
+      },
+      {
+        "damage": 22.6514835577454,
+        "distance": 11,
+        "loss_next_metre": 0.0348371901584947
+      },
+      {
+        "damage": 22.6166463675869,
+        "distance": 12,
+        "loss_next_metre": 0.0385042628067609
+      },
+      {
+        "damage": 22.5781421047801,
+        "distance": 13,
+        "loss_next_metre": 0.0421713354550235
+      },
+      {
+        "damage": 22.5359707693251,
+        "distance": 14,
+        "loss_next_metre": 0.0458384081032861
+      },
+      {
+        "damage": 22.4901323612218,
+        "distance": 15,
+        "loss_next_metre": 0.0495054807515487
+      },
+      {
+        "damage": 22.4406268804702,
+        "distance": 16,
+        "loss_next_metre": 0.0531725533998113
+      },
+      {
+        "damage": 22.3874543270704,
+        "distance": 17,
+        "loss_next_metre": 0.0568396260480739
+      },
+      {
+        "damage": 22.3306147010224,
+        "distance": 18,
+        "loss_next_metre": 0.0605066986963401
+      },
+      {
+        "damage": 22.270108002326,
+        "distance": 19,
+        "loss_next_metre": 0.0641737713445991
+      },
+      {
+        "damage": 22.2059342309814,
+        "distance": 20,
+        "loss_next_metre": 0.0678408439928653
+      },
+      {
+        "damage": 22.1380933869885,
+        "distance": 21,
+        "loss_next_metre": 0.0715079166411279
+      },
+      {
+        "damage": 22.0665854703474,
+        "distance": 22,
+        "loss_next_metre": 0.0751749892893869
+      },
+      {
+        "damage": 21.991410481058,
+        "distance": 23,
+        "loss_next_metre": 0.0788420619376531
+      },
+      {
+        "damage": 21.9125684191204,
+        "distance": 24,
+        "loss_next_metre": 0.0825091345859121
+      },
+      {
+        "damage": 21.8300592845345,
+        "distance": 25,
+        "loss_next_metre": 0.0861762072341783
+      },
+      {
+        "damage": 21.7438830773003,
+        "distance": 26,
+        "loss_next_metre": 0.0898432798824409
+      },
+      {
+        "damage": 21.6540397974178,
+        "distance": 27,
+        "loss_next_metre": 0.0935103525307035
+      },
+      {
+        "damage": 21.5605294448871,
+        "distance": 28,
+        "loss_next_metre": 0.0971774251789697
+      },
+      {
+        "damage": 21.4633520197082,
+        "distance": 29,
+        "loss_next_metre": 0.100844497827229
+      },
+      {
+        "damage": 21.3625075218809,
+        "distance": 30,
+        "loss_next_metre": 0.104511570475491
+      },
+      {
+        "damage": 21.2579959514055,
+        "distance": 31,
+        "loss_next_metre": 0.108178643123757
+      },
+      {
+        "damage": 21.1498173082817,
+        "distance": 32,
+        "loss_next_metre": 0.111845715772017
+      },
+      {
+        "damage": 21.0379715925097,
+        "distance": 33,
+        "loss_next_metre": 0.115512788420279
+      },
+      {
+        "damage": 20.9224588040894,
+        "distance": 34,
+        "loss_next_metre": 0.119179861068542
+      },
+      {
+        "damage": 20.8032789430209,
+        "distance": 35,
+        "loss_next_metre": 0.122846933716808
+      },
+      {
+        "damage": 20.6804320093041,
+        "distance": 36,
+        "loss_next_metre": 0.12651400636507
+      },
+      {
+        "damage": 20.553918002939,
+        "distance": 37,
+        "loss_next_metre": 0.130181079013333
+      },
+      {
+        "damage": 20.4237369239256,
+        "distance": 38,
+        "loss_next_metre": 0.133848151661596
+      },
+      {
+        "damage": 20.2898887722641,
+        "distance": 39,
+        "loss_next_metre": 0.137515224309858
+      },
+      {
+        "damage": 20.1523735479542,
+        "distance": 40,
+        "loss_next_metre": 0.141182296958121
+      },
+      {
+        "damage": 20.0111912509961,
+        "distance": 41,
+        "loss_next_metre": 0.144849369606387
+      },
+      {
+        "damage": 19.8663418813897,
+        "distance": 42,
+        "loss_next_metre": 0.148516442254643
+      },
+      {
+        "damage": 19.717825439135,
+        "distance": 43,
+        "loss_next_metre": 0.152183514902912
+      },
+      {
+        "damage": 19.5656419242321,
+        "distance": 44,
+        "loss_next_metre": 0.155850587551171
+      },
+      {
+        "damage": 19.409791336681,
+        "distance": 45,
+        "loss_next_metre": 0.159517660199437
+      },
+      {
+        "damage": 19.2502736764815,
+        "distance": 46,
+        "loss_next_metre": 0.163184732847697
+      },
+      {
+        "damage": 19.0870889436338,
+        "distance": 47,
+        "loss_next_metre": 0.166851805495963
+      },
+      {
+        "damage": 18.9202371381379,
+        "distance": 48,
+        "loss_next_metre": 0.170518878144222
+      },
+      {
+        "damage": 18.7497182599936,
+        "distance": 49,
+        "loss_next_metre": 0.174185950792488
+      },
+      {
+        "damage": 18.5755323092012,
+        "distance": 50,
+        "loss_next_metre": 0.17785302344075
+      },
+      {
+        "damage": 18.3976792857604,
+        "distance": 51,
+        "loss_next_metre": 0.181520096089013
+      },
+      {
+        "damage": 18.2161591896714,
+        "distance": 52,
+        "loss_next_metre": 0.185187168737276
+      },
+      {
+        "damage": 18.0309720209341,
+        "distance": 53,
+        "loss_next_metre": 0.188854241385538
+      },
+      {
+        "damage": 17.8421177795486,
+        "distance": 54,
+        "loss_next_metre": 0.192521314033804
+      },
+      {
+        "damage": 17.6495964655148,
+        "distance": 55,
+        "loss_next_metre": 0.19618838668206
+      },
+      {
+        "damage": 17.4534080788327,
+        "distance": 56,
+        "loss_next_metre": 0.19985545933033
+      },
+      {
+        "damage": 17.2535526195024,
+        "distance": 57,
+        "loss_next_metre": 0.203522531978592
+      },
+      {
+        "damage": 17.0500300875238,
+        "distance": 58,
+        "loss_next_metre": 0.207189604626851
+      },
+      {
+        "damage": 16.8428404828969,
+        "distance": 59,
+        "loss_next_metre": 0.210856677275114
+      },
+      {
+        "damage": 16.6319838056218,
+        "distance": 60,
+        "loss_next_metre": 0.21452374992338
+      },
+      {
+        "damage": 16.4174600556984,
+        "distance": 61,
+        "loss_next_metre": 0.218190822571643
+      },
+      {
+        "damage": 16.1992692331268,
+        "distance": 62,
+        "loss_next_metre": 0.221857895219904
+      },
+      {
+        "damage": 15.9774113379069,
+        "distance": 63,
+        "loss_next_metre": 0.225524967868168
+      },
+      {
+        "damage": 15.7518863700387,
+        "distance": 64,
+        "loss_next_metre": 0.22919204051643
+      },
+      {
+        "damage": 15.5226943295223,
+        "distance": 65,
+        "loss_next_metre": 0.232859113164693
+      },
+      {
+        "damage": 15.2898352163576,
+        "distance": 66,
+        "loss_next_metre": 0.236526185812959
+      },
+      {
+        "damage": 15.0533090305446,
+        "distance": 67,
+        "loss_next_metre": 0.24019325846122
+      },
+      {
+        "damage": 14.8131157720834,
+        "distance": 68,
+        "loss_next_metre": 0.243860331109477
+      },
+      {
+        "damage": 14.569255440974,
+        "distance": 69,
+        "loss_next_metre": 0.247527403757749
+      },
+      {
+        "damage": 14.3217280372162,
+        "distance": 70,
+        "loss_next_metre": 0.251194476406004
+      },
+      {
+        "damage": 14.0705335608102,
+        "distance": 71,
+        "loss_next_metre": 0.254861549054272
+      },
+      {
+        "damage": 13.8156720117559,
+        "distance": 72,
+        "loss_next_metre": 0.258528621702535
+      },
+      {
+        "damage": 13.5571433900534,
+        "distance": 73,
+        "loss_next_metre": 0.262195694350796
+      },
+      {
+        "damage": 13.2949476957026,
+        "distance": 74,
+        "loss_next_metre": 0.265862766999058
+      },
+      {
+        "damage": 13.0290849287035,
+        "distance": 75,
+        "loss_next_metre": 0.269529839647323
+      },
+      {
+        "damage": 12.7595550890562,
+        "distance": 76,
+        "loss_next_metre": 0.273196912295587
+      },
+      {
+        "damage": 12.4863581767606,
+        "distance": 77,
+        "loss_next_metre": 0.276863984943848
+      },
+      {
+        "damage": 12.2094941918168,
+        "distance": 78,
+        "loss_next_metre": 0.28053105759211
+      },
+      {
+        "damage": 11.9289631342247,
+        "distance": 79,
+        "loss_next_metre": 0.284198130240371
+      },
+      {
+        "damage": 11.6447650039843,
+        "distance": 80,
+        "loss_next_metre": 0.287865202888637
+      },
+      {
+        "damage": 11.3568998010957,
+        "distance": 81,
+        "loss_next_metre": 0.291532275536902
+      },
+      {
+        "damage": 11.0653675255588,
+        "distance": 82,
+        "loss_next_metre": 0.295199348185159
+      },
+      {
+        "damage": 10.7701681773736,
+        "distance": 83,
+        "loss_next_metre": 0.298866420833425
+      },
+      {
+        "damage": 10.4713017565402,
+        "distance": 84,
+        "loss_next_metre": 0.302533493481688
+      },
+      {
+        "damage": 10.1687682630585,
+        "distance": 85,
+        "loss_next_metre": 0.306200566129951
+      },
+      {
+        "damage": 9.86256769692853,
+        "distance": 86,
+        "loss_next_metre": 0.309867638778217
+      },
+      {
+        "damage": 9.55270005815032,
+        "distance": 87,
+        "loss_next_metre": 0.313534711426477
+      },
+      {
+        "damage": 9.23916534672384,
+        "distance": 88,
+        "loss_next_metre": 0.317201784074738
+      },
+      {
+        "damage": 8.9219635626491,
+        "distance": 89,
+        "loss_next_metre": 0.320868856723003
+      },
+      {
+        "damage": 8.6010947059261,
+        "distance": 90,
+        "loss_next_metre": 0.324535929371264
+      },
+      {
+        "damage": 8.27655877655484,
+        "distance": 91,
+        "loss_next_metre": 0.328203002019531
+      },
+      {
+        "damage": 7.9483557745353,
+        "distance": 92,
+        "loss_next_metre": 0.33187007466779
+      },
+      {
+        "damage": 7.61648569986752,
+        "distance": 93,
+        "loss_next_metre": 0.335537147316055
+      },
+      {
+        "damage": 7.28094855255146,
+        "distance": 94,
+        "loss_next_metre": 0.339204219964316
+      },
+      {
+        "damage": 6.94174433258714,
+        "distance": 95,
+        "loss_next_metre": 0.34287129261258
+      },
+      {
+        "damage": 6.59887303997456,
+        "distance": 96,
+        "loss_next_metre": 0.346538365260842
+      },
+      {
+        "damage": 6.25233467471372,
+        "distance": 97,
+        "loss_next_metre": 0.35020543790911
+      },
+      {
+        "damage": 5.90212923680461,
+        "distance": 98,
+        "loss_next_metre": 0.353872510557366
+      },
+      {
+        "damage": 5.54825672624725,
+        "distance": 99,
+        "loss_next_metre": 0.357539583205633
+      },
+      {
+        "damage": 5.19071714304161,
+        "distance": 100,
+        "loss_next_metre": 0.361206655853892
+      },
+      {
+        "damage": 4.82951048718772,
+        "distance": 101,
+        "loss_next_metre": 0.364873728502156
+      },
+      {
+        "damage": 4.46463675868557,
+        "distance": 102,
+        "loss_next_metre": 0.368540801150425
+      },
+      {
+        "damage": 4.09609595753514,
+        "distance": 103,
+        "loss_next_metre": 0.372207873798681
+      },
+      {
+        "damage": 3.72388808373646,
+        "distance": 104,
+        "loss_next_metre": 0.375874946446945
+      },
+      {
+        "damage": 3.34801313728951,
+        "distance": 105,
+        "loss_next_metre": 0.37954201909521
+      },
+      {
+        "damage": 2.9684711181943,
+        "distance": 106,
+        "loss_next_metre": 0.383209091743471
+      },
+      {
+        "damage": 2.58526202645083,
+        "distance": 107,
+        "loss_next_metre": 0.386876164391737
+      },
+      {
+        "damage": 2.1983858620591,
+        "distance": 108,
+        "loss_next_metre": 0.390543237039996
+      },
+      {
+        "damage": 1.8078426250191,
+        "distance": 109,
+        "loss_next_metre": 0.39421030968826
+      },
+      {
+        "damage": 1.41363231533084,
+        "distance": 110,
+        "loss_next_metre": 0.397877382336522
+      },
+      {
+        "damage": 1.01575493299432,
+        "distance": 111,
+        "loss_next_metre": 0.401544454984786
+      },
+      {
+        "damage": 0.614210478009533,
+        "distance": 112,
+        "loss_next_metre": 0.405211527633052
+      },
+      {
+        "damage": 0.208998950376481,
+        "distance": 113,
+        "loss_next_metre": 0.208998950376481
+      },
+      {
+        "damage": 0.0,
+        "distance": 114,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 0.0,
+        "distance": 115,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 0.0,
+        "distance": 116,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 0.0,
+        "distance": 117,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 0.0,
+        "distance": 118,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 0.0,
+        "distance": 119,
+        "loss_next_metre": 0.0
+      },
+      {
+        "damage": 0.0,
+        "distance": 120,
+        "loss_next_metre": 0.0
+      }
+    ],
+    "screen_edge_damage": 20.5,
+    "screens": [
+      {
+        "farthest_visible_distance": 31.8218688964844,
+        "height": 720,
+        "lowest_visible_damage": 21.1693557198341,
+        "width": 1280
+      },
+      {
+        "farthest_visible_distance": 36.261157989502,
+        "height": 720,
+        "lowest_visible_damage": 20.6477456548316,
+        "width": 1600
+      },
+      {
+        "farthest_visible_distance": 37.4175987243652,
+        "height": 720,
+        "lowest_visible_damage": 20.5000004848305,
+        "width": 1680
+      }
+    ]
+  },
+  "checks": {
+    "catalog": "passed",
+    "models": "passed",
+    "ballistics": "passed",
+    "screen_damage": "passed",
+    "combat_distance": "passed",
+    "state": "passed",
+    "build_transactions": "passed",
+    "harbor_map": "passed",
+    "frontend": "passed",
+    "preview": "passed",
+    "workbench": "passed",
+    "touch": "passed",
+    "raid": "passed",
+    "runtime_boot": "passed",
+    "android_export": "passed",
+    "apk_signature": "passed",
+    "apk_catalog_layout_font_architecture": "passed",
+    "all_498_packed_model_resources": "passed",
+    "all_256_item_icons": "passed",
+    "asset_licenses_in_apk": "passed",
+    "source_archive": "passed",
+    "captures_and_frontend_demo": "passed"
+  },
+  "economy": {
+    "seed": 20261016,
+    "samples_per_scenario": 20000,
+    "assumptions": "All sampled containers fully collected and sold; capacity sufficient; no resale of equipped gear. Success rates below are hypothetical, not measured.",
+    "scenarios": [
+      {
+        "label": "常规搜集",
+        "crates": 4,
+        "guards": 0,
+        "spent_rounds": 45,
+        "spent_medkits": 1,
+        "gross_p10": 2959,
+        "gross_median": 4868,
+        "gross_p90": 7964,
+        "mean_gross": 5228,
+        "consumables": 1150,
+        "net_median": 3718,
+        "net_mean": 4078
+      },
+      {
+        "label": "深度搜集",
+        "crates": 7,
+        "guards": 2,
+        "spent_rounds": 100,
+        "spent_medkits": 2,
+        "gross_p10": 9034,
+        "gross_median": 12127,
+        "gross_p90": 16456,
+        "mean_gross": 12506,
+        "consumables": 2400,
+        "net_median": 9727,
+        "net_mean": 10106
+      }
+    ],
+    "prices": {
+      "入门握把": 850,
+      "入门冲锋枪": 3900,
+      "中档步枪": 11300,
+      "高端精确步枪整枪": 63850
+    },
+    "successful_runs_at_common_median": {
+      "入门握把": 1,
+      "入门冲锋枪": 2,
+      "中档步枪": 4,
+      "高端精确步枪整枪": 18
+    },
+    "new_save_credits": 12000,
+    "full_gun_part_armor_catalog_cost": 834150,
+    "budget_kit_replacement": 5340,
+    "risk_sensitivity": [
+      {
+        "assumed_success_rate": 0.5,
+        "expected_change_per_deployment": -631
+      },
+      {
+        "assumed_success_rate": 0.65,
+        "expected_change_per_deployment": 782
+      },
+      {
+        "assumed_success_rate": 0.8,
+        "expected_change_per_deployment": 2194
+      }
+    ],
+    "legendary_chance_per_container": 0.00427
+  },
+  "not_tested": [
+    "Physical Android performance",
+    "Physical Android touch feel",
+    "Physical audio playback"
+  ],
+  "artifacts": [
+    {
+      "path": "builds/android/sdc-v0.3.0.apk",
+      "bytes": 54772285,
+      "sha256": "199bdba465fcd2dadda25d6eb93886455b3ce84ca6060ff57df0273e339fe5d3"
+    },
+    {
+      "path": "builds/sdc-v0.3.0-source.zip",
+      "bytes": 20596724,
+      "sha256": "245e0b9336a374b1b7674a1fb5406be863ac7e7f7b7dfd413fa64e4d95393d61"
+    },
+    {
+      "path": "builds/sdc/lobby.png",
+      "bytes": 191498,
+      "sha256": "4ec50c8330a0ce40c945a71d3d03e44a34802f37ac46f3dfbeaa841a4d51abe2"
+    },
+    {
+      "path": "builds/sdc/maps.png",
+      "bytes": 180677,
+      "sha256": "dda83ad667a68963c8f949302caa7276380b57c28c5cc7d72b3c3307531312d1"
+    },
+    {
+      "path": "builds/sdc/map_detail.png",
+      "bytes": 268851,
+      "sha256": "9f6e50d4ce3811af8a86be15747aa5bd5387ca00f40e100062757065a09c02bc"
+    },
+    {
+      "path": "builds/sdc/market.png",
+      "bytes": 56076,
+      "sha256": "2d34c9b81ef7558cab3d7bf3c9472dc2775499ef15f991f10e5aa1ec6de28077"
+    },
+    {
+      "path": "builds/sdc/interface-demo.mp4",
+      "bytes": 1328891,
+      "sha256": "389ec84de844b928980e17f8f58bceb6769b631dde60086fd436f064c5607714"
+    }
+  ]
+}
