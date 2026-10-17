@@ -71,7 +71,7 @@ func _ready() -> void:
 	_ghost.custom_minimum_size=Vector2(220,64)
 	var ghost_style:=StyleBoxFlat.new()
 	ghost_style.bg_color=Color(.06,.1,.12,.94)
-	ghost_style.border_color=Color("e8c68b")
+	ghost_style.border_color=Color("d6dfdc")
 	ghost_style.set_border_width_all(2)
 	ghost_style.set_content_margin_all(12)
 	_ghost.add_theme_stylebox_override("panel",ghost_style)
@@ -114,6 +114,8 @@ func _label(caption: String,font_size: int,color: Color = Color("edf0e7")) -> La
 	return label
 
 func _rebuild_equipment() -> void:
+	_last_tap_uid=""
+	_last_tap_time=0
 	var saved_left: int = _left.scroll_vertical
 	var saved_right: int = _right.scroll_vertical
 	for box: VBoxContainer in [_left_content,_right_content]:
@@ -122,11 +124,18 @@ func _rebuild_equipment() -> void:
 			child.queue_free()
 	_views.clear()
 	_left_content.add_child(_label("携行装备",24))
-	var armor:=HFlowContainer.new()
+	var armor:=GridContainer.new()
+	armor.columns=3
 	armor.add_theme_constant_override("h_separation",8)
 	armor.add_theme_constant_override("v_separation",8)
 	_left_content.add_child(armor)
-	for slot: String in ["helmet","visor","body_armor","armored_rig","backpack"]:_equipment(armor,slot,Vector2(100,86))
+	for slot: String in ["helmet","visor","body_armor"]:_equipment(armor,slot,Vector2(100,86))
+	var carrying:=GridContainer.new()
+	carrying.columns=2
+	carrying.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	carrying.add_theme_constant_override("h_separation",8)
+	_left_content.add_child(carrying)
+	for slot: String in ["armored_rig","backpack"]:_equipment(carrying,slot,Vector2(150,86))
 	var guns:=HFlowContainer.new()
 	guns.add_theme_constant_override("h_separation",8)
 	guns.add_theme_constant_override("v_separation",8)
@@ -279,6 +288,8 @@ func _drag(point: Vector2) -> void:
 
 func _begin_drag() -> void:
 	_mode="drag"
+	_last_tap_uid=""
+	_last_tap_time=0
 	selected_uid=_source_uid
 	_left.cancel_gesture()
 	_right.cancel_gesture()
@@ -304,12 +315,14 @@ func _release(point: Vector2,cancelled: bool) -> void:
 func _tap(hit: Dictionary) -> void:
 	var uid: String = str(hit.uid)
 	var now: int = Time.get_ticks_msec()
-	if not uid.is_empty() and uid==_last_tap_uid and now-_last_tap_time<360:
+	if not uid.is_empty() and selected_uid==uid and uid==_last_tap_uid and now-_last_tap_time<360:
 		_perform(GameState.inventory_quick_transfer(uid))
-		_last_tap_uid=""
 		return
 	if not selected_uid.is_empty() and uid!=selected_uid and (uid.is_empty() or str(hit.container).begins_with("equip/") or str(_selected_record().get("item",""))==str(Grid.find_record(GameState.inventory_items,uid).get("item","?"))):
 		_perform(GameState.inventory_transfer(selected_uid,str(hit.container),str(hit.block),hit.cell))
+		# A placement is complete. A following tap must select the newly equipped
+		# item first, rather than turning the placement into a double-tap unequip.
+		return
 	else:
 		selected_uid=uid
 		refresh_inventory()
@@ -362,6 +375,8 @@ func _action(action: String) -> void:
 		if not record.is_empty():assembly_requested.emit(str(record.item))
 
 func _perform(ok: bool,clear_selection: bool = true) -> void:
+	_last_tap_uid=""
+	_last_tap_time=0
 	feedback.emit("已放置" if ok else GameState.last_error,not ok)
 	if ok and clear_selection:selected_uid=""
 	refresh_inventory()

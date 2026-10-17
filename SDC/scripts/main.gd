@@ -80,13 +80,21 @@ func _ready() -> void:
 	theme_resource.default_font_size = 20
 	for type_name: String in ["Button","OptionButton","CheckButton"]:
 		theme_resource.set_stylebox("normal",type_name,_style(PANEL_LIGHT,Color("46554f"),5))
-		theme_resource.set_stylebox("hover",type_name,_style(Color("36433e"),TEAL,5))
-		theme_resource.set_stylebox("pressed",type_name,_style(Color("535644"),TEAL,5))
+		theme_resource.set_stylebox("hover",type_name,_style(PANEL_LIGHT,Color("46554f"),5))
+		theme_resource.set_stylebox("pressed",type_name,_style(Color("35434a"),Color("6a7b7c"),5))
 		theme_resource.set_stylebox("disabled",type_name,_style(Color("182125"),Color("34413c"),5))
 		theme_resource.set_color("font_color",type_name,TEXT)
+		theme_resource.set_color("font_hover_color",type_name,TEXT)
+		theme_resource.set_color("font_focus_color",type_name,TEXT)
+		theme_resource.set_color("font_pressed_color",type_name,TEXT)
+		theme_resource.set_color("font_hover_pressed_color",type_name,TEXT)
 		theme_resource.set_font_size("font_size",type_name,20)
+	for type_name: String in ["Button","OptionButton","CheckButton","CheckBox","MenuButton","LinkButton","LineEdit","TextEdit","HSlider","VSlider","SpinBox","TabBar","Tree","ItemList","ScrollContainer"]:
+		theme_resource.set_stylebox("focus",type_name,StyleBoxEmpty.new())
 	theme_resource.set_stylebox("panel","PanelContainer",_style(PANEL,Color("3c4d4b"),5))
-	theme_resource.set_stylebox("panel","PopupMenu",_style(PANEL,TEAL,5))
+	theme_resource.set_stylebox("panel","PopupMenu",_style(PANEL,Color("46554f"),5))
+	theme_resource.set_stylebox("hover","PopupMenu",_style(PANEL_LIGHT,Color("46554f"),5))
+	theme_resource.set_color("font_hover_color","PopupMenu",TEXT)
 	theme_resource.set_font_size("font_size","PopupMenu",21)
 	theme_resource.set_constant("v_separation","PopupMenu",18)
 	theme_resource.set_stylebox("normal","LineEdit",_style(PANEL_LIGHT,Color("52625c"),5))
@@ -95,7 +103,7 @@ func _ready() -> void:
 	slider_back.content_margin_top=4
 	slider_back.content_margin_bottom=4
 	var slider_fill:=StyleBoxFlat.new()
-	slider_fill.bg_color=TEAL
+	slider_fill.bg_color=Color("b7c5c0")
 	slider_fill.content_margin_top=4
 	slider_fill.content_margin_bottom=4
 	theme_resource.set_stylebox("slider","HSlider",slider_back)
@@ -155,20 +163,29 @@ func _wrap(text_value: String, font_size: int = 15, color: Color = MUTED) -> Lab
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	return label
 
-func _button(caption: String, callback: Callable, accent: bool = false, min_width: float = 0) -> Button:
+func _button(caption: String, callback: Callable, accent: bool = false, min_width: float = 0, min_height: float = 72) -> Button:
 	var button := preload("res://scripts/touch_button.gd").new()
 	button.text = caption
-	button.add_theme_font_size_override("font_size",22)
-	button.custom_minimum_size = Vector2(min_width, 72)
+	button.minimum_touch_height = min_height
+	button.add_theme_font_size_override("font_size",20 if min_height<60 else 22)
+	button.custom_minimum_size = Vector2(min_width, min_height)
 	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	button.add_theme_color_override("font_color", BG if accent else TEXT)
-	button.add_theme_color_override("font_hover_color", BG if accent else TEAL)
+	button.add_theme_color_override("font_hover_color", BG if accent else TEXT)
+	button.add_theme_color_override("font_focus_color", BG if accent else TEXT)
 	button.add_theme_color_override("font_pressed_color", BG if accent else TEXT)
+	button.add_theme_color_override("font_hover_pressed_color", BG if accent else TEXT)
 	button.add_theme_color_override("font_disabled_color", Color("566b76"))
-	button.add_theme_stylebox_override("normal", _style(TEAL if accent else PANEL_LIGHT, TEAL if accent else Color("2a414d"), 7))
-	button.add_theme_stylebox_override("hover", _style(Color("8be8d7") if accent else Color("213b45"), TEAL, 7))
-	button.add_theme_stylebox_override("pressed", _style(Color("4cb29f") if accent else Color("2c4b52"), TEAL, 7))
+	button.add_theme_stylebox_override("normal", _style(Color("cbd5d3") if accent else PANEL_LIGHT,Color("6a7b7c") if accent else Color("46554f"),7))
+	button.add_theme_stylebox_override("hover", _style(Color("cbd5d3") if accent else PANEL_LIGHT,Color("6a7b7c") if accent else Color("46554f"),7))
+	button.add_theme_stylebox_override("pressed", _style(Color("adbdb9") if accent else Color("35434a"),Color("6a7b7c"),7))
 	button.add_theme_stylebox_override("disabled", _style(Color("152129"), Color("24323a"), 7))
+	button.add_theme_stylebox_override("focus",StyleBoxEmpty.new())
+	if min_height<60:
+		for state_name: String in ["normal","hover","pressed","disabled"]:
+			var compact_style: StyleBoxFlat=button.get_theme_stylebox(state_name) as StyleBoxFlat
+			compact_style.content_margin_top=5
+			compact_style.content_margin_bottom=5
 	button.pressed.connect(callback)
 	return button
 
@@ -233,7 +250,7 @@ func _build_lobby() -> void:
 		button.add_theme_font_size_override("font_size",20)
 		_bottom_nav.add_child(button)
 		_nav_buttons[id]=button
-	var start:=_button("开始行动  →",func() -> void:_select_tab("maps"),true,284)
+	var start:=_button("开始行动  →",_start_action,true,284)
 	start.name="StartAction"
 	start.size=Vector2(284,72)
 	start.add_theme_font_size_override("font_size",23)
@@ -267,8 +284,10 @@ func _go_back() -> void:
 	_select_tab(_loadout_parent if _tab=="loadout" else "home")
 
 func _select_tab(tab_id: String) -> void:
+	var destination: String="stash" if tab_id=="loadout" else tab_id
+	if _tab==destination:return
 	if tab_id=="loadout":_loadout_parent="maps" if _tab in ["maps","deploy"] else "home"
-	_tab = "stash" if tab_id=="loadout" else tab_id
+	_tab = destination
 	_selected = ""
 	_filter = "all"
 	_search = ""
@@ -280,6 +299,7 @@ func _state_changed() -> void:
 	if _tab in ["stash","loadout"] and is_instance_valid(_inventory_view):
 		_inventory_view.refresh_inventory()
 		return
+	if _tab in ["maps","deploy"]:return
 	if _refresh_pending:return
 	_refresh_pending=true
 	call_deferred("_refresh")
@@ -291,14 +311,17 @@ func _refresh() -> void:
 	if GameState.raid_active: return
 	_inventory_view=null
 	_clear(_content)
-	var page_scroll:=preload("res://scripts/touch_scroll.gd").new()
-	page_scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	page_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	_content.add_child(page_scroll)
+	var page_parent: Control=_content
+	if _tab not in ["maps","deploy","stash","loadout","settings"]:
+		var page_scroll:=preload("res://scripts/touch_scroll.gd").new()
+		page_scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		page_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+		_content.add_child(page_scroll)
+		page_parent=page_scroll
 	_render_host=MarginContainer.new()
 	_render_host.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	_render_host.size_flags_vertical=Control.SIZE_EXPAND_FILL
-	page_scroll.add_child(_render_host)
+	page_parent.add_child(_render_host)
 	_bottom_nav.visible = true
 	_header_back.visible = _tab!="home"
 	var names:Dictionary={"home":"SDC","maps":"行动区域","deploy":"行动区域","loadout":"出战整备","stash":"装备与仓库","market":"商店","workbench":"武器装配台","catalog":"装备图鉴","settings":"设置"}
@@ -306,7 +329,7 @@ func _refresh() -> void:
 	_header_title.position.x=0 if _tab=="home" else 132
 	_layout_screen()
 	for id: String in _nav_buttons:
-		_nav_buttons[id].add_theme_stylebox_override("normal",_style(Color("3b453c") if id==_tab else PANEL_LIGHT,TEAL if id==_tab else Color("45514f"),5))
+		_nav_buttons[id].add_theme_stylebox_override("normal",_style(PANEL_LIGHT,Color("46554f"),5))
 	match _tab:
 		"home":_render_home()
 		"maps","deploy":_render_maps()
@@ -367,25 +390,28 @@ func _render_home() -> void:
 func _render_maps() -> void:
 	var columns:=_hbox(_render_host,16)
 	var preview_panel:=_panel(columns);preview_panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_map_preview=load("res://scripts/map_preview.gd").new();_map_preview.custom_minimum_size=Vector2(590,360);_map_preview.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_map_preview.size_flags_vertical=Control.SIZE_EXPAND_FILL
+	_map_preview=load("res://scripts/map_preview.gd").new();_map_preview.custom_minimum_size=Vector2(480,240);_map_preview.size_flags_horizontal=Control.SIZE_EXPAND_FILL;_map_preview.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	preview_panel.add_child(_map_preview)
-	var side:=_panel(columns,Vector2(288,0));var box:=_vbox(side,12)
-	box.add_child(_label("灰港 · 工业港",26))
-	box.add_child(_label("160 × 180 m",14,TEAL))
-	var routes:=OptionButton.new();routes.name="EntryChoice";routes.custom_minimum_size.y=60
+	var side:=_panel(columns,Vector2(288,0));var box:=_vbox(side,8)
+	var heading:=_hbox(box,8)
+	var title:=_label("灰港 · 工业港",20)
+	title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	heading.add_child(title)
+	heading.add_child(_label("160 × 180 m",16,MUTED))
+	var routes:=OptionButton.new();routes.name="EntryChoice";routes.custom_minimum_size.y=48
 	var layout:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/harbor_layout.json"))
 	for entry:Dictionary in layout.entries:
 		routes.add_item(str(entry.name));routes.set_item_metadata(routes.item_count-1,str(entry.id))
 		if str(entry.id)==_entry_id:routes.select(routes.item_count-1)
 	routes.item_selected.connect(func(index:int) -> void: _entry_id=str(routes.get_item_metadata(index));_map_preview.set_entry_id(_entry_id))
 	box.add_child(routes)
-	box.add_child(_button("全图",func() -> void: _map_preview.show_overview()))
-	var scroll:=preload("res://scripts/touch_scroll.gd").new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;box.add_child(scroll)
-	var districts:=_vbox(scroll,7);districts.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	box.add_child(_button("全图",func() -> void: _map_preview.show_overview(),false,0,48))
+	var scroll:=preload("res://scripts/touch_scroll.gd").new();scroll.name="DistrictChoices";scroll.custom_minimum_size.y=150;scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;box.add_child(scroll)
+	var districts:=_vbox(scroll,6);districts.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	for zone:Dictionary in layout.zones:
 		var id:String=str(zone.id)
-		districts.add_child(_button(str(zone.name),func() -> void: _map_preview.focus_zone(id)))
-	var prepare:=_button("出战整备   →",func() -> void: _select_tab("loadout"),true);prepare.name="PrepareAction";box.add_child(prepare)
+		districts.add_child(_button(str(zone.name),func() -> void: _map_preview.focus_zone(id),false,0,48))
+	var prepare:=_button("出战整备   →",func() -> void: _select_tab("loadout"),false,0,52);prepare.name="PrepareAction";box.add_child(prepare)
 	_map_preview.set_entry_id(_entry_id)
 
 func _render_loadout() -> void:
@@ -505,7 +531,7 @@ func _populate_list() -> void:
 		var item:Dictionary=Catalog.get_item(item_id)
 		var row:=_button("",func() -> void: _selected=item_id;_populate_list())
 		row.custom_minimum_size=Vector2(202,188);row.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-		row.add_theme_stylebox_override("normal",_style(Color("20383d") if item_id==_selected else PANEL_LIGHT,TEAL if item_id==_selected else Color("283a41"),3))
+		row.add_theme_stylebox_override("normal",_style(Color("303e43") if item_id==_selected else PANEL_LIGHT,Color("b7c5c0") if item_id==_selected else Color("46554f"),3))
 		_list_box.add_child(row)
 		var inner:=VBoxContainer.new();inner.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);inner.offset_left=12;inner.offset_right=-12;inner.offset_top=8;inner.offset_bottom=-8;row.add_child(inner)
 		inner.add_child(_item_picture(item_id,Vector2(180,100)))
@@ -876,8 +902,8 @@ func _populate_draft_parts() -> void:
 		count += 1
 		var card := preload("res://scripts/touch_button.gd").new()
 		card.custom_minimum_size.y = 144
-		card.add_theme_stylebox_override("normal",_style(Color("1c353d") if selected == item_id else PANEL_LIGHT, TEAL if selected == item_id else Color("29414c"),7))
-		card.add_theme_stylebox_override("hover",_style(Color("213f47"),TEAL,7))
+		card.add_theme_stylebox_override("normal",_style(Color("303e43") if selected == item_id else PANEL_LIGHT,Color("b7c5c0") if selected == item_id else Color("46554f"),7))
+		card.add_theme_stylebox_override("hover",_style(Color("303e43") if selected == item_id else PANEL_LIGHT,Color("b7c5c0") if selected == item_id else Color("46554f"),7))
 		card.pressed.connect(func() -> void: _draft_choose_part(item_id))
 		var inset := MarginContainer.new()
 		inset.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -925,12 +951,23 @@ func _open_assembly(weapon_id: String) -> void:
 	_draft_target = "sidearm" if Catalog.get_item(weapon_id).get("category") == "pistol" else "primary"
 	_select_tab("workbench")
 
+func _start_action() -> void:
+	if _raid_starting or GameState.raid_active:return
+	if _tab in ["maps","deploy"]:_deploy()
+	else:_select_tab("maps")
+
 func _deploy() -> void:
 	if _raid_starting or GameState.raid_active: return
+	_raid_starting = true
+	var action: Button=_bottom_nav.get_node("StartAction") as Button
+	action.disabled=true
+	action.text="正在进入…"
 	if not GameState.begin_raid():
+		_raid_starting=false
+		action.disabled=false
+		action.text="开始行动  →"
 		_notify(str(GameState.last_error), true)
 		return
-	_raid_starting = true
 	_lobby.hide()
 	_toast.hide()
 	_toast_time = 0
@@ -946,6 +983,8 @@ func _deploy() -> void:
 	AppSettings.apply_scene(_world)
 	_update_hud(_world.get_hud())
 	_raid_starting = false
+	action.disabled=false
+	action.text="开始行动  →"
 
 func _build_hud() -> void:
 	_hud = Control.new()

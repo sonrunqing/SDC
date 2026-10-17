@@ -1,4 +1,6 @@
 * text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
 *.gd text eol=lf
 *.py text eol=lf
 *.tscn text eol=lf

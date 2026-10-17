@@ -33,7 +33,7 @@ func _populate() -> void:
 	for child: Node in _body.get_children():
 		_body.remove_child(child)
 		child.queue_free()
-	for name: String in _tabs:_tabs[name].modulate=Color("efd2a2") if name==_page else Color("8faaa8")
+	for name: String in _tabs:_tabs[name].modulate=Color.WHITE
 	var title:=Label.new()
 	title.text=_page+"设置"
 	title.add_theme_font_size_override("font_size",28)

@@ -62,7 +62,7 @@ func _draw() -> void:
 		var level: int = int(item.get("level",0))
 		var tone: Color = [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
 		draw_rect(rectangle,Color(tone,.24))
-		draw_rect(rectangle,Color("f1c37d") if str(record.uid)==selected_uid else tone,false,3 if str(record.uid)==selected_uid else 1)
+		draw_rect(rectangle,Color("dfe7e4") if str(record.uid)==selected_uid else tone,false,3 if str(record.uid)==selected_uid else 1)
 		_draw_icon(str(record.item),rectangle.grow(-4),bool(record.get("rotated",false)))
 		if int(record.qty)>1:draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color("f7ead3"))
 		if rectangle.size.x>110:draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color("f2f0e7"))

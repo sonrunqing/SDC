@@ -9,10 +9,13 @@ var _target := Vector3.ZERO
 var _yaw: float = .70
 var _zoom: float = 208.0
 var _dragging: bool = false
+var _rotating: bool = false
 var _entry_id: String = "south"
 var _zone: String = ""
 var _touches: Dictionary = {}
 var _pinch: float = 0
+var _twist_angle: float = 0
+var _gesture_center := Vector2.ZERO
 func _ready() -> void:
 	clip_contents=true
 	mouse_filter=Control.MOUSE_FILTER_STOP
@@ -64,28 +67,83 @@ func _draw() -> void:
 	var exit_array: Array=_map.layout.extraction
 	var exit_p: Vector2=_point(Vector3(float(exit_array[0]),.2,float(exit_array[2])))
 	draw_rect(Rect2(exit_p-Vector2(6,6),Vector2(12,12)),Color("70d3af"),false,2)
+	var hint: String="单指平移 · 双指缩放 / 旋转" if OS.has_feature("mobile") else "拖动平移 · 右键旋转 · 滚轮缩放"
+	draw_string(_font,Vector2(12,size.y-14),hint,HORIZONTAL_ALIGNMENT_LEFT,size.x-24,16,Color("bac9c5"))
+
+func _ground_point(local: Vector2) -> Variant:
+	if _camera==null or size.x<=0 or size.y<=0:return null
+	var point: Vector2=local*Vector2(_viewport.size)/size
+	return Plane(Vector3.UP,0).intersects_ray(_camera.project_ray_origin(point),_camera.project_ray_normal(point))
+
+func _pan(from: Vector2,to: Vector2) -> void:
+	var before: Variant=_ground_point(from)
+	var after: Variant=_ground_point(to)
+	if before is Vector3 and after is Vector3:
+		var offset: Vector3=before-after
+		_target+=offset
+		_target.x=clampf(_target.x,-100,100)
+		_target.z=clampf(_target.z,-110,110)
+		_target.y=0
+
 func _gui_input(event: InputEvent) -> void:
 	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
 	if event is InputEventMouseButton:
-		if event.button_index==MOUSE_BUTTON_LEFT:_dragging=event.pressed;accept_event()
+		if event.button_index==MOUSE_BUTTON_LEFT:
+			_dragging=event.pressed
+			accept_event()
+		elif event.button_index==MOUSE_BUTTON_RIGHT:
+			_rotating=event.pressed
+			accept_event()
 		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
 			_zoom=clampf(_zoom*(.9 if event.button_index==MOUSE_BUTTON_WHEEL_UP else 1.1),45,260);_update_camera();accept_event()
-	elif event is InputEventMouseMotion and _dragging:
-		_yaw+=event.relative.x*.006;_update_camera();accept_event()
+	elif event is InputEventMouseMotion:
+		if _rotating:_yaw+=event.relative.x*.006
+		elif _dragging:_pan(event.position-event.relative,event.position)
+		else:return
+		_update_camera()
+		accept_event()
 	elif event is InputEventScreenTouch:
-		if event.pressed:_touches[event.index]=event.position
+		if event.pressed and not event.canceled:_touches[event.index]=event.position
 		else:_touches.erase(event.index)
-		_pinch=_touch_distance();accept_event()
+		_pinch=_touch_distance()
+		_twist_angle=_touch_angle()
+		_gesture_center=_touch_center()
+		accept_event()
 	elif event is InputEventScreenDrag:
+		if not _touches.has(event.index):return
 		_touches[event.index]=event.position
 		if _touches.size()>=2:
 			var current:float=_touch_distance()
+			var angle: float=_touch_angle()
+			var center: Vector2=_touch_center()
+			_pan(_gesture_center,center)
 			if _pinch>0 and current>0:_zoom=clampf(_zoom*_pinch/current,45,260)
+			_yaw-=wrapf(angle-_twist_angle,-PI,PI)
 			_pinch=current
-		else:_yaw+=event.relative.x*.006
+			_twist_angle=angle
+			_gesture_center=center
+		else:_pan(event.position-event.relative,event.position)
 		_update_camera();accept_event()
+
 func _touch_distance() -> float:
 	var values:Array=_touches.values()
 	return values[0].distance_to(values[1]) if values.size()>=2 else 0
+
+func _touch_angle() -> float:
+	var values: Array=_touches.values()
+	return (values[1]-values[0]).angle() if values.size()>=2 else 0
+
+func _touch_center() -> Vector2:
+	var values: Array=_touches.values()
+	if values.size()>=2:return (values[0]+values[1])*.5
+	return values[0] if values.size()==1 else Vector2.ZERO
+
+func _notification(what: int) -> void:
+	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
+		_touches.clear()
+		_dragging=false
+		_rotating=false
+		_pinch=0
+
 func get_summary() -> Dictionary:
 	return _map.get_summary() if _map!=null else {}

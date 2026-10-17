@@ -74,7 +74,7 @@ func _weapon_row(slot: String) -> void:
 	ammo_picker.add_theme_font_size_override("font_size", 12)
 	ammo_picker.get_popup().add_theme_font_size_override("font_size", 12)
 	ammo_picker.add_theme_stylebox_override("normal", _style(Color("192f39"), Color("324d59"), 6))
-	ammo_picker.add_theme_stylebox_override("hover", _style(Color("213b45"), TEAL, 6))
+	ammo_picker.add_theme_stylebox_override("hover", _style(Color("192f39"), Color("324d59"), 6))
 	ammo_picker.add_item("选择装填弹药")
 	ammo_picker.set_item_disabled(0, true)
 	ammo_picker.tooltip_text = "只显示口径匹配的弹药；选择不会购买弹药或更改携弹数量"
@@ -217,11 +217,11 @@ func _button(caption: String, min_width: float) -> Button:
 	button.custom_minimum_size = Vector2(min_width, 26 if compact else 28)
 	button.add_theme_font_size_override("font_size", 12)
 	button.add_theme_color_override("font_color", TEXT)
-	button.add_theme_color_override("font_hover_color", TEAL)
+	button.add_theme_color_override("font_hover_color", TEXT)
 	button.add_theme_color_override("font_disabled_color", MUTED)
 	button.add_theme_stylebox_override("normal", _style(Color("192f39"), Color("324d59"), 6))
-	button.add_theme_stylebox_override("hover", _style(Color("213b45"), TEAL, 6))
-	button.add_theme_stylebox_override("pressed", _style(Color("2c4b52"), TEAL, 6))
+	button.add_theme_stylebox_override("hover", _style(Color("192f39"), Color("324d59"), 6))
+	button.add_theme_stylebox_override("pressed", _style(Color("35434a"), Color("6a7b7c"), 6))
 	button.add_theme_stylebox_override("disabled", _style(Color("152129"), Color("24323a"), 6))
 	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	return button
