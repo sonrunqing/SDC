@@ -1,4 +1,5 @@
 extends HBoxContainer
+signal control_layout_requested
 const TouchButton = preload("res://scripts/touch_button.gd")
 const TouchScroll = preload("res://scripts/touch_scroll.gd")
 var _page: String = "画面"
@@ -55,8 +56,13 @@ func _populate() -> void:
 			_body.add_child(preview)
 		"操控":
 			_note("三指布局：左拇指移动，右拇指控制朝向，左上按钮独立开火。摇杆不触发射击。")
-			_slider("摇杆与开火键大小","control_scale",.8,1.25,.05)
-			_slider("触控透明度","control_opacity",.3,1,.05)
+			var customize:=TouchButton.new()
+			customize.name="CustomizeControls"
+			customize.text="自定义操作按键  →"
+			customize.pressed.connect(func() -> void:control_layout_requested.emit())
+			_body.add_child(customize)
+			_control_profiles()
+			_note("可拖动移动、瞄准、开火和动作按键，分别设置大小、透明度与显示状态。支持 3 套保存方案。")
 			_slider("瞄准灵敏度","aim_sensitivity",.5,2,.1)
 			_slider("摇杆死区","deadzone",.05,.3,.01)
 			var vibration:=CheckButton.new()
@@ -69,6 +75,26 @@ func _populate() -> void:
 			_slider("界面缩放","ui_scale",.85,1.2,.05)
 			_choice("屏幕边缘留白","safe_margin",["标准","加宽","更宽","最大"],[24,30,40,48])
 			_note("界面按屏幕比例排版，刘海和圆角区域会保留安全距离。仓库与商店使用独立的手势滚动。")
+
+func _control_profiles() -> void:
+	var row: HBoxContainer=_row("按键方案")
+	var picker:=OptionButton.new()
+	picker.custom_minimum_size=Vector2(310,64)
+	picker.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	for index: int in range(3):picker.add_item("方案 %d"%(index+1))
+	picker.select(AppSettings.active_control_profile)
+	row.add_child(picker)
+	var status:=Label.new()
+	status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	status.add_theme_font_size_override("font_size",18)
+	_body.add_child(status)
+	picker.item_selected.connect(func(index: int) -> void:
+		var result: Error=AppSettings.activate_control_profile(index)
+		if result!=OK:
+			picker.select(AppSettings.active_control_profile)
+			status.text="方案未能保存，请稍后重试。"
+		else:status.text="已应用方案 %d，可进入自定义操作按键继续编辑。"%(index+1))
+
 func _row(caption: String) -> HBoxContainer:
 	var row:=HBoxContainer.new()
 	row.custom_minimum_size.y=76

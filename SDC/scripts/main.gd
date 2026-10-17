@@ -29,7 +29,6 @@ var _lobby: Control
 var _lobby_design: Control
 var _hud_mission: Control
 var _hud_bag_panel: Control
-var _hud_menu: Control
 var _render_host: MarginContainer
 var _content: MarginContainer
 var _credits_label: Label
@@ -70,6 +69,7 @@ var _loadout_parent: String = "home"
 var _inventory_view: Control
 var _settings_button: Button
 var _hud_health: Control
+var _control_layout_editor: Control
 
 func _ready() -> void:
 	get_tree().quit_on_go_back=false
@@ -262,6 +262,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func _mobile_back() -> void:
+	if is_instance_valid(_control_layout_editor):
+		_control_layout_editor.request_cancel()
+		return
 	if GameState.raid_active:
 		if is_instance_valid(_result_overlay):_resume_raid()
 		else:_show_pause()
@@ -426,7 +429,20 @@ func _render_settings() -> void:
 	var settings: Control = load("res://scripts/ui_settings.gd").new()
 	settings.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	settings.size_flags_vertical=Control.SIZE_EXPAND_FILL
+	settings.control_layout_requested.connect(_open_control_layout)
 	_render_host.add_child(settings)
+
+func _open_control_layout() -> void:
+	if is_instance_valid(_control_layout_editor):return
+	var was_enabled: bool=_controls.enabled
+	_controls.enabled=false
+	_control_layout_editor=preload("res://scripts/ui_control_layout.gd").new()
+	_control_layout_editor.theme=theme
+	_control_layout_editor.closed.connect(func(saved: bool) -> void:
+		_control_layout_editor=null
+		if was_enabled and GameState.raid_active and not is_instance_valid(_result_overlay):_controls.enabled=true
+		if saved:_notify("按键布局已保存并应用"))
+	_layer.add_child(_control_layout_editor)
 
 func _ignore_pointer(node: Node) -> void:
 	if node is Control:node.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -1025,11 +1041,6 @@ func _build_hud() -> void:
 	_hud_bag_panel = bag_panel
 	_hud_bag = _label("",15,AMBER)
 	bag_panel.add_child(_hud_bag)
-	var exit_button := _button("菜单", _show_pause)
-	exit_button.position = Vector2(1164,120)
-	exit_button.size = Vector2(90,42)
-	_hud.add_child(exit_button)
-	_hud_menu = exit_button
 	_hud_map = preload("res://scripts/ui_minimap.gd").new()
 	_hud_map.position = Vector2(1080, 176)
 	_hud_map.size = Vector2(176, 178)
@@ -1059,6 +1070,8 @@ func _build_hud() -> void:
 	_controls.interact_pressed.connect(func() -> void: if is_instance_valid(_world): _world.interact())
 	_controls.medkit_pressed.connect(func() -> void: if is_instance_valid(_world): _world.use_medkit())
 	_controls.weapon_pressed.connect(func(slot_name: String) -> void: if is_instance_valid(_world): _world.switch_weapon(slot_name))
+	_controls.menu_pressed.connect(_show_pause)
+	_controls.layout_fallback.connect(func() -> void:_notify("当前按键发生重叠，已临时使用默认布局，请在设置中调整"))
 	_hud.hide()
 
 func _update_hud(info: Dictionary) -> void:
@@ -1122,7 +1135,10 @@ func _show_raid_settings() -> void:
 	_result_overlay.add_child(margin)
 	var box:=_vbox(margin,14)
 	box.add_child(_button("‹ 返回行动",_resume_raid,false,160))
-	box.add_child(load("res://scripts/ui_settings.gd").new())
+	var settings: Control=load("res://scripts/ui_settings.gd").new()
+	settings.size_flags_vertical=Control.SIZE_EXPAND_FILL
+	settings.control_layout_requested.connect(_open_control_layout)
+	box.add_child(settings)
 
 func _modal(title_text: String) -> Control:
 	var overlay := Control.new()
@@ -1146,6 +1162,7 @@ func _modal(title_text: String) -> Control:
 	return overlay
 
 func _raid_finished(extracted: bool, details: Dictionary) -> void:
+	if is_instance_valid(_control_layout_editor):_control_layout_editor.request_cancel()
 	_controls.enabled = false
 	_hud.hide()
 	if is_instance_valid(_world):
@@ -1222,8 +1239,6 @@ func _layout_screen() -> void:
 		_hud_mission.size.x=360
 		_hud_bag_panel.position=Vector2(viewport_size.x-safe.z-270,safe.y)
 		_hud_bag_panel.size=Vector2(270,90)
-		_hud_menu.position=Vector2(viewport_size.x-safe.z-110,safe.y+104)
-		_hud_menu.size=Vector2(110,64)
 		_hud_map.position=Vector2(viewport_size.x-safe.z-186,safe.y+184)
 		_hud_map.size=Vector2(186,150)
 		_hud_extract.position=Vector2((viewport_size.x-360)*.5,safe.y+104)

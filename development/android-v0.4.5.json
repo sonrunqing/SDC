@@ -1,0 +1,15 @@
+{
+  "version": "0.4.5",
+  "version_code": 12,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "apk_file": "SDC-v0.4.5.apk",
+  "bytes": 89577266,
+  "sha256": "d655a1dd5fe8e50c14e75615ca3041b7e2a6d0db24da9d81888228270aa89647",
+  "reference_apk_file": "SDC-v0.4.4.apk",
+  "reference_version_code": 11,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-17T23:00:31.0188327+08:00",
+  "note": "Adds custom touch-control layout editing and three persistent profiles. Export and APK identity checks completed; no new tests or device run. APK and signing keys stay outside Git."
+}

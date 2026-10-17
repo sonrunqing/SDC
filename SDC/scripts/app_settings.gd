@@ -1,10 +1,14 @@
 extends Node
 signal changed
+signal controls_changed
+const ControlLayout = preload("res://scripts/control_layout.gd")
 const PATH := "user://settings.cfg"
 const DEFAULTS := {"fps":60,"resolution":1.0,"quality":1,"brightness":1.0,"master":.85,"sfx":.8,"ui_audio":.55,"control_scale":1.0,"control_opacity":.8,"aim_sensitivity":1.0,"deadzone":.14,"ui_scale":1.0,"safe_margin":24,"vibration":true}
 var values: Dictionary = DEFAULTS.duplicate(true)
 var _click: AudioStreamPlayer
 var _save_delay: float = -1
+var control_profiles: Array=[{},{},{}]
+var active_control_profile: int=0
 func _ready() -> void:
 	var file:=ConfigFile.new()
 	var loaded: bool=file.load(PATH)==OK
@@ -12,6 +16,11 @@ func _ready() -> void:
 		for key: String in DEFAULTS:
 			var stored: Variant = file.get_value("settings",key,DEFAULTS[key])
 			if typeof(stored)==typeof(DEFAULTS[key]) or (stored is int and DEFAULTS[key] is float):values[key]=stored
+		var stored_profiles: Variant=file.get_value("controls","profiles",[])
+		if stored_profiles is Array:
+			for index: int in range(mini(3,stored_profiles.size())):control_profiles[index]=ControlLayout.sanitize(stored_profiles[index])
+		var stored_profile: Variant=file.get_value("controls","active",0)
+		if stored_profile is int:active_control_profile=clampi(stored_profile,0,2)
 	elif OS.has_feature("mobile"):
 		var pixel_ratio: float=maxf(.5,float(DisplayServer.window_get_size().y)/720.0)
 		var density: float=maxf(1.0,float(DisplayServer.screen_get_dpi())/160.0)
@@ -36,11 +45,47 @@ func _process(delta: float) -> void:
 	_save_delay-=delta
 	if _save_delay<=0:
 		_save_config()
-func _save_config() -> void:
+func _save_config() -> Error:
 	_save_delay=-1
 	var file:=ConfigFile.new()
 	for field: String in values:file.set_value("settings",field,values[field])
-	file.save(PATH)
+	file.set_value("controls","version",1)
+	file.set_value("controls","active",active_control_profile)
+	file.set_value("controls","profiles",control_profiles)
+	return file.save(PATH)
+
+func get_control_layout(profile: int = -1) -> Dictionary:
+	var index: int=active_control_profile if profile<0 else clampi(profile,0,2)
+	return ControlLayout.sanitize(control_profiles[index])
+
+func activate_control_profile(index: int) -> Error:
+	if index<0 or index>2:return ERR_INVALID_PARAMETER
+	var previous: int=active_control_profile
+	active_control_profile=index
+	var result: Error=_save_config()
+	if result!=OK:
+		active_control_profile=previous
+		_save_delay=.35
+		return result
+	controls_changed.emit()
+	return OK
+
+func save_control_layout(profile: int,layout: Dictionary) -> Error:
+	if profile<0 or profile>2:return ERR_INVALID_PARAMETER
+	var sanitized: Dictionary=ControlLayout.sanitize(layout)
+	if sanitized.size()!=ControlLayout.IDS.size():return ERR_INVALID_DATA
+	var previous: Array=control_profiles.duplicate(true)
+	var previous_active: int=active_control_profile
+	control_profiles[profile]=sanitized
+	active_control_profile=profile
+	var result: Error=_save_config()
+	if result!=OK:
+		control_profiles=previous
+		active_control_profile=previous_active
+		_save_delay=.35
+		return result
+	controls_changed.emit()
+	return OK
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_APPLICATION_FOCUS_OUT] and _save_delay>=0:_save_config()
 func _exit_tree() -> void:

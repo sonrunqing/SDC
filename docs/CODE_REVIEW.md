@@ -7,6 +7,7 @@
 
 1. **Import complete SDC v0.4.3 Godot source and assets**：导入修复前的代码及运行资源，建立审查基线。
 2. **Fix mobile deployment, map navigation and equipment taps**：提交已交付的 0.4.4 修复、版本信息及审查说明。
+3. **Add customizable mobile controls and saved layout profiles**：补上 0.4.5 的布局编辑、三方案保存、命中几何共用及大厅/战局入口。
 
 可在 PR 的 Commits 中打开第二次提交，单独看本次约十个核心文件的变化；也可在 Files changed
 检查整个游戏。模型、图标及导入描述被标为生成素材，默认折叠，仍可手动展开。游戏规则数据未整体隐藏。
@@ -22,6 +23,7 @@
 | 物品事务 | `inventory_state.gd`、`inventory_grid.gd`、`game_state.gd` | 库存守恒、失败回滚、背包与弹挂共存、容器替换和存档兼容 |
 | 战局控制 | `virtual_controls.gd`、`raid_world.gd` | 移动、瞄准、开火指针独立，暂停与结束时释放输入 |
 | 签名和版本 | `SDC/export_presets.cfg`、`SDC/docs/ANDROID_UPDATES.md` | 包名、已确定的证书、递增版本、保留存档的更新流程 |
+| 自定义布局 | `control_layout.gd`、`ui_control_layout.gd`、`ui_control_layout_canvas.gd`、`app_settings.gd` | 预览不触发战局操作、保存/取消、暂停恢复、方案持久化、屏幕比例与实际命中一致 |
 
 除第一项的完整路径之外，上表文件都在 `SDC/scripts/`。
 
@@ -34,7 +36,7 @@
 
 ## 验证边界
 
-0.4.4 的 APK 已完成导出和签名/包名/版本核对，其公开记录在
-`development/android-v0.4.4.json`。未完成开发侧真机操作验证。
+0.4.4 和 0.4.5 的 APK 已完成导出和签名/包名/版本核对，其公开记录在
+`development/android-v0.4.4.json`、`development/android-v0.4.5.json`。未完成开发侧真机操作验证。
 原有 `SDC/tests/` 已保留，本次未新增或运行测试。审查不等同于自动合并；合并需后续明确决定。
 Android SDK、Blender、签名密钥、凭据、缓存和 APK 均不作为源码上传。
