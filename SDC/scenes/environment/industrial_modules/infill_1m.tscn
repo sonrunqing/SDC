@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/industrial_modular/infill_1m.glb" id="1_visual"]
+
+[sub_resource type="BoxShape3D" id="Shape_0"]
+size = Vector3(1.00000000, 3.00000000, 0.20000000)
+
+[node name="infill_1m" type="Node3D"]
+metadata/module_id = "industrial_modular/infill_1m"
+metadata/grid_metres = 4.0
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+position = Vector3(0.00055385, 0.00017861, -0.00058451)
+scale = Vector3(1.00400207, 1.00428999, 1.00816050)
+
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="Piece0" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 1.50000000, 0.00000000)
+shape = SubResource("Shape_0")

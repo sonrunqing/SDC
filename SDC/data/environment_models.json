@@ -1,0 +1,3455 @@
+{
+	"assets": [
+		{
+			"id": "industrial/building-a",
+			"min": [
+				-1.04106652736664,
+				0.0,
+				-0.620999991893768
+			],
+			"path": "res://assets/environment/industrial/building-a.glb",
+			"size": [
+				2.08358812332153,
+				1.47000002861023,
+				1.24200010299683
+			],
+			"triangles": 2046
+		},
+		{
+			"id": "industrial/building-b",
+			"min": [
+				-1.04106628894806,
+				-0.000000000000000424298337977025,
+				-0.638999938964844
+			],
+			"path": "res://assets/environment/industrial/building-b.glb",
+			"size": [
+				2.08358812332153,
+				1.47000002861023,
+				1.26200008392334
+			],
+			"triangles": 2422
+		},
+		{
+			"id": "industrial/building-c",
+			"min": [
+				-0.841793954372406,
+				-0.00000000000000227571304323452,
+				-0.91100001335144
+			],
+			"path": "res://assets/environment/industrial/building-c.glb",
+			"size": [
+				1.87593483924866,
+				1.25,
+				2.10802125930786
+			],
+			"triangles": 1928
+		},
+		{
+			"id": "industrial/building-d",
+			"min": [
+				-0.441793888807297,
+				-0.0000000000000000451194631754889,
+				-0.800000071525574
+			],
+			"path": "res://assets/environment/industrial/building-d.glb",
+			"size": [
+				0.883587837219238,
+				1.41455221176147,
+				1.42000019550323
+			],
+			"triangles": 1158
+		},
+		{
+			"id": "industrial/building-e",
+			"min": [
+				-0.841793894767761,
+				0.0,
+				-0.395999997854233
+			],
+			"path": "res://assets/environment/industrial/building-e.glb",
+			"size": [
+				1.68358790874481,
+				1.64999997615814,
+				1.2900003194809
+			],
+			"triangles": 1484
+		},
+		{
+			"id": "industrial/building-f",
+			"min": [
+				-1.34820628166199,
+				-0.000000000000000360955678934132,
+				-0.385999977588654
+			],
+			"path": "res://assets/environment/industrial/building-f.glb",
+			"size": [
+				1.79000020027161,
+				1.92499995231628,
+				1.27999997138977
+			],
+			"triangles": 1552
+		},
+		{
+			"id": "industrial/building-g",
+			"min": [
+				-0.839069128036499,
+				-0.00000000555104273658458,
+				-0.641793966293335
+			],
+			"path": "res://assets/environment/industrial/building-g.glb",
+			"size": [
+				1.678138256073,
+				1.28000009059906,
+				1.28358817100525
+			],
+			"triangles": 1242
+		},
+		{
+			"id": "industrial/building-h",
+			"min": [
+				-1.24179399013519,
+				-0.00000000000000411347066570653,
+				-0.376000046730042
+			],
+			"path": "res://assets/environment/industrial/building-h.glb",
+			"size": [
+				1.32172572612762,
+				0.733541011810303,
+				1.31000006198883
+			],
+			"triangles": 698
+		},
+		{
+			"id": "industrial/building-i",
+			"min": [
+				-0.948206007480621,
+				0.000000000000000129938109891701,
+				-0.376000046730042
+			],
+			"path": "res://assets/environment/industrial/building-i.glb",
+			"size": [
+				1.0281378030777,
+				0.733541011810303,
+				1.30000007152557
+			],
+			"triangles": 798
+		},
+		{
+			"id": "industrial/building-j",
+			"min": [
+				-0.948206067085266,
+				0.00000000000000012993813636148,
+				-0.375999987125397
+			],
+			"path": "res://assets/environment/industrial/building-j.glb",
+			"size": [
+				1.02662181854248,
+				0.861145794391632,
+				1.29999995231628
+			],
+			"triangles": 886
+		},
+		{
+			"id": "industrial/building-k",
+			"min": [
+				-0.65142959356308,
+				0.0,
+				-0.463587880134583
+			],
+			"path": "res://assets/environment/industrial/building-k.glb",
+			"size": [
+				1.30285918712616,
+				0.772741436958313,
+				0.913587927818298
+			],
+			"triangles": 702
+		},
+		{
+			"id": "industrial/building-l",
+			"min": [
+				-1.463587641716,
+				-0.0,
+				-0.711000084877014
+			],
+			"path": "res://assets/environment/industrial/building-l.glb",
+			"size": [
+				2.08358764648438,
+				1.92499995231628,
+				1.87000012397766
+			],
+			"triangles": 1896
+		},
+		{
+			"id": "industrial/building-m",
+			"min": [
+				-0.658137738704681,
+				0.0,
+				-0.850000023841858
+			],
+			"path": "res://assets/environment/industrial/building-m.glb",
+			"size": [
+				1.31627547740936,
+				1.51900660991669,
+				1.70000004768372
+			],
+			"triangles": 1694
+		},
+		{
+			"id": "industrial/building-n",
+			"min": [
+				-0.939999997615814,
+				-0.00000000685717083115378,
+				-0.150000095367432
+			],
+			"path": "res://assets/environment/industrial/building-n.glb",
+			"size": [
+				0.976621806621552,
+				1.9045557975769,
+				1.42000007629395
+			],
+			"triangles": 1262
+		},
+		{
+			"id": "industrial/building-o",
+			"min": [
+				-0.883587956428528,
+				0.0,
+				-0.0000000186264514923096
+			],
+			"path": "res://assets/environment/industrial/building-o.glb",
+			"size": [
+				0.883588016033173,
+				0.917999982833862,
+				1.24000000953674
+			],
+			"triangles": 868
+		},
+		{
+			"id": "industrial/building-p",
+			"min": [
+				-0.841793894767761,
+				0.0,
+				-0.495999991893768
+			],
+			"path": "res://assets/environment/industrial/building-p.glb",
+			"size": [
+				1.68358790874481,
+				0.714552164077759,
+				0.991999983787537
+			],
+			"triangles": 1162
+		},
+		{
+			"id": "industrial/building-q",
+			"min": [
+				-1.29820597171783,
+				0.0,
+				-0.873891472816467
+			],
+			"path": "res://assets/environment/industrial/building-q.glb",
+			"size": [
+				2.1399998664856,
+				0.879999995231628,
+				1.76989150047302
+			],
+			"triangles": 2062
+		},
+		{
+			"id": "industrial/building-r",
+			"min": [
+				-1.24179399013519,
+				0.0,
+				-0.636000275611877
+			],
+			"path": "res://assets/environment/industrial/building-r.glb",
+			"size": [
+				2.48358821868896,
+				1.39300000667572,
+				1.2720000743866
+			],
+			"triangles": 1912
+		},
+		{
+			"id": "industrial/building-s",
+			"min": [
+				-1.07000005245209,
+				0.0,
+				-0.458137691020966
+			],
+			"path": "res://assets/environment/industrial/building-s.glb",
+			"size": [
+				2.12000012397766,
+				0.836791038513184,
+				0.916275382041931
+			],
+			"triangles": 876
+		},
+		{
+			"id": "industrial/building-t",
+			"min": [
+				-0.860862851142883,
+				0.0,
+				-0.695000052452087
+			],
+			"path": "res://assets/environment/industrial/building-t.glb",
+			"size": [
+				1.72172570228577,
+				1.01455211639404,
+				1.39000034332275
+			],
+			"triangles": 1586
+		},
+		{
+			"id": "industrial/chimney-basic",
+			"min": [
+				-0.100000001490116,
+				0.0,
+				-0.100000001490116
+			],
+			"path": "res://assets/environment/industrial/chimney-basic.glb",
+			"size": [
+				0.200000002980232,
+				1.0,
+				0.200000002980232
+			],
+			"triangles": 88
+		},
+		{
+			"id": "industrial/chimney-large",
+			"min": [
+				-0.539999961853027,
+				0.0,
+				-0.539999961853027
+			],
+			"path": "res://assets/environment/industrial/chimney-large.glb",
+			"size": [
+				1.07999992370605,
+				1.70000004768372,
+				1.07999992370605
+			],
+			"triangles": 218
+		},
+		{
+			"id": "industrial/chimney-medium",
+			"min": [
+				-0.224999994039536,
+				0.0,
+				-0.224999994039536
+			],
+			"path": "res://assets/environment/industrial/chimney-medium.glb",
+			"size": [
+				0.449999988079071,
+				1.92499995231628,
+				0.449999988079071
+			],
+			"triangles": 160
+		},
+		{
+			"id": "industrial/chimney-small",
+			"min": [
+				-0.150000005960464,
+				0.0,
+				-0.150000005960464
+			],
+			"path": "res://assets/environment/industrial/chimney-small.glb",
+			"size": [
+				0.300000011920929,
+				0.75,
+				0.300000011920929
+			],
+			"triangles": 124
+		},
+		{
+			"id": "industrial/detail-tank-large",
+			"min": [
+				-0.754207968711853,
+				-0.000000000000000541433571340757,
+				-0.894207954406738
+			],
+			"path": "res://assets/environment/industrial/detail-tank-large.glb",
+			"size": [
+				1.50841593742371,
+				0.961606025695801,
+				1.64841592311859
+			],
+			"triangles": 566
+		},
+		{
+			"id": "industrial/detail-tank",
+			"min": [
+				-0.424000233411789,
+				-0.00000000000000000281996644846806,
+				-0.257647633552551
+			],
+			"path": "res://assets/environment/industrial/detail-tank.glb",
+			"size": [
+				0.848000407218933,
+				0.415295660495758,
+				0.515295684337616
+			],
+			"triangles": 310
+		},
+		{
+			"id": "industrial/shipping-container-a",
+			"min": [
+				-0.186300233006477,
+				0.000000000685730416893904,
+				-0.411300033330917
+			],
+			"path": "res://assets/environment/industrial/shipping-container-a.glb",
+			"size": [
+				0.372600138187408,
+				0.348079979419708,
+				0.822600066661835
+			],
+			"triangles": 402
+		},
+		{
+			"id": "industrial/shipping-container-b",
+			"min": [
+				-0.186300188302994,
+				0.000000000685730416893904,
+				-0.411300033330917
+			],
+			"path": "res://assets/environment/industrial/shipping-container-b.glb",
+			"size": [
+				0.372600138187408,
+				0.348079979419708,
+				0.822600066661835
+			],
+			"triangles": 402
+		},
+		{
+			"id": "industrial/shipping-container-c",
+			"min": [
+				-0.186300173401833,
+				0.000000000685730416893904,
+				-0.411300033330917
+			],
+			"path": "res://assets/environment/industrial/shipping-container-c.glb",
+			"size": [
+				0.372600138187408,
+				0.348079979419708,
+				0.822600066661835
+			],
+			"triangles": 402
+		},
+		{
+			"id": "industrial/solar-panel-flat",
+			"min": [
+				-0.209100008010864,
+				0.0,
+				-0.356700003147125
+			],
+			"path": "res://assets/environment/industrial/solar-panel-flat.glb",
+			"size": [
+				0.418200016021729,
+				0.0615000016987324,
+				0.71340000629425
+			],
+			"triangles": 164
+		},
+		{
+			"id": "industrial/solar-panel-landscape-group",
+			"min": [
+				-0.756700217723846,
+				-0.000000146005916690228,
+				-0.447525262832642
+			],
+			"path": "res://assets/environment/industrial/solar-panel-landscape-group.glb",
+			"size": [
+				1.51340079307556,
+				0.262360841035843,
+				0.89505010843277
+			],
+			"triangles": 976
+		},
+		{
+			"id": "industrial/solar-panel-landscape",
+			"min": [
+				-0.504300713539124,
+				-0.0000000670552253723145,
+				-0.324286371469498
+			],
+			"path": "res://assets/environment/industrial/solar-panel-landscape.glb",
+			"size": [
+				0.713399887084961,
+				0.262360543012619,
+				0.395050019025803
+			],
+			"triangles": 244
+		},
+		{
+			"id": "industrial/solar-panel-portrait-group",
+			"min": [
+				-0.459100157022476,
+				-0.000000178813934326172,
+				-0.624286413192749
+			],
+			"path": "res://assets/environment/industrial/solar-panel-portrait-group.glb",
+			"size": [
+				0.918200373649597,
+				0.409960627555847,
+				1.24857211112976
+			],
+			"triangles": 976
+		},
+		{
+			"id": "industrial/solar-panel-portrait",
+			"min": [
+				-0.209099963307381,
+				-0.0000000149011611938477,
+				-0.324286490678787
+			],
+			"path": "res://assets/environment/industrial/solar-panel-portrait.glb",
+			"size": [
+				0.418199956417084,
+				0.409960567951202,
+				0.648572564125061
+			],
+			"triangles": 244
+		},
+		{
+			"id": "industrial/water-tower",
+			"min": [
+				-0.426107436418533,
+				-0.00000000000000000000000648319024,
+				-0.415899753570557
+			],
+			"path": "res://assets/environment/industrial/water-tower.glb",
+			"size": [
+				0.852215766906738,
+				2.1416654586792,
+				0.831799566745758
+			],
+			"triangles": 968
+		},
+		{
+			"id": "industrial/windmill-low",
+			"min": [
+				-0.315356761217117,
+				0.0,
+				-0.566668391227722
+			],
+			"path": "res://assets/environment/industrial/windmill-low.glb",
+			"size": [
+				0.604687690734863,
+				1.79385328292847,
+				1.12686479091644
+			],
+			"triangles": 456
+		},
+		{
+			"id": "industrial/windmill",
+			"min": [
+				-0.315356731414795,
+				0.0,
+				-0.566668033599854
+			],
+			"path": "res://assets/environment/industrial/windmill.glb",
+			"size": [
+				0.604687690734863,
+				2.31385326385498,
+				1.12686491012573
+			],
+			"triangles": 456
+		},
+		{
+			"id": "factory/arrow-basic-rounded",
+			"min": [
+				-0.247487366199493,
+				0.0,
+				-0.388908714056015
+			],
+			"path": "res://assets/environment/factory/arrow-basic-rounded.glb",
+			"size": [
+				0.494974732398987,
+				0.200000002980232,
+				0.77781742811203
+			],
+			"triangles": 40
+		},
+		{
+			"id": "factory/arrow-basic",
+			"min": [
+				-0.282842725515366,
+				0.0,
+				-0.424264073371887
+			],
+			"path": "res://assets/environment/factory/arrow-basic.glb",
+			"size": [
+				0.565685451030731,
+				0.200000002980232,
+				0.848528146743774
+			],
+			"triangles": 20
+		},
+		{
+			"id": "factory/arrow-rounded",
+			"min": [
+				-0.361785978078842,
+				0.0,
+				-0.302749991416931
+			],
+			"path": "res://assets/environment/factory/arrow-rounded.glb",
+			"size": [
+				0.761785984039307,
+				0.200000002980232,
+				0.605499982833862
+			],
+			"triangles": 44
+		},
+		{
+			"id": "factory/arrow",
+			"min": [
+				-0.400000005960464,
+				0.0,
+				-0.345999985933304
+			],
+			"path": "res://assets/environment/factory/arrow.glb",
+			"size": [
+				0.800000011920929,
+				0.200000002980232,
+				0.691999971866608
+			],
+			"triangles": 24
+		},
+		{
+			"id": "factory/box-large",
+			"min": [
+				-0.550000011920929,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/box-large.glb",
+			"size": [
+				1.10000002384186,
+				0.550000011920929,
+				1.0
+			],
+			"triangles": 70
+		},
+		{
+			"id": "factory/box-long",
+			"min": [
+				-0.550000011920929,
+				0.0,
+				-0.25
+			],
+			"path": "res://assets/environment/factory/box-long.glb",
+			"size": [
+				1.10000002384186,
+				0.550000011920929,
+				0.5
+			],
+			"triangles": 70
+		},
+		{
+			"id": "factory/box-small",
+			"min": [
+				-0.297500014305115,
+				0.0,
+				-0.25
+			],
+			"path": "res://assets/environment/factory/box-small.glb",
+			"size": [
+				0.595000028610229,
+				0.550000011920929,
+				0.5
+			],
+			"triangles": 70
+		},
+		{
+			"id": "factory/box-wide",
+			"min": [
+				-0.297500014305115,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/box-wide.glb",
+			"size": [
+				0.595000028610229,
+				0.550000011920929,
+				1.0
+			],
+			"triangles": 70
+		},
+		{
+			"id": "factory/button-floor-round-small",
+			"min": [
+				-0.150000005960464,
+				-0.0000000000000116549649841141,
+				-0.150000005960464
+			],
+			"path": "res://assets/environment/factory/button-floor-round-small.glb",
+			"size": [
+				0.300000011920929,
+				0.100000001490116,
+				0.300000011920929
+			],
+			"triangles": 92
+		},
+		{
+			"id": "factory/button-floor-round",
+			"min": [
+				-0.25,
+				0.0,
+				-0.25
+			],
+			"path": "res://assets/environment/factory/button-floor-round.glb",
+			"size": [
+				0.5,
+				0.150000005960464,
+				0.5
+			],
+			"triangles": 92
+		},
+		{
+			"id": "factory/button-floor-square-small",
+			"min": [
+				-0.25,
+				0.0,
+				-0.25
+			],
+			"path": "res://assets/environment/factory/button-floor-square-small.glb",
+			"size": [
+				0.5,
+				0.174999997019768,
+				0.5
+			],
+			"triangles": 102
+		},
+		{
+			"id": "factory/button-floor-square",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/button-floor-square.glb",
+			"size": [
+				1.0,
+				0.174999997019768,
+				1.0
+			],
+			"triangles": 102
+		},
+		{
+			"id": "factory/catwalk-corner",
+			"min": [
+				-1.15411961078644,
+				-0.14724737405777,
+				0.0
+			],
+			"path": "res://assets/environment/factory/catwalk-corner.glb",
+			"size": [
+				1.15411961078644,
+				0.601366996765137,
+				1.15411949157715
+			],
+			"triangles": 486
+		},
+		{
+			"id": "factory/catwalk-cross",
+			"min": [
+				-0.5,
+				-0.00000000624447826780283,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/catwalk-cross.glb",
+			"size": [
+				1.0,
+				0.400000035762787,
+				1.0
+			],
+			"triangles": 196
+		},
+		{
+			"id": "factory/catwalk-junction",
+			"min": [
+				-0.5,
+				-0.14724737405777,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/catwalk-junction.glb",
+			"size": [
+				1.0,
+				0.601366996765137,
+				1.12774324417114
+			],
+			"triangles": 290
+		},
+		{
+			"id": "factory/catwalk-stairs-loop",
+			"min": [
+				-0.5,
+				0.0000000168132316957781,
+				-0.627743303775787
+			],
+			"path": "res://assets/environment/factory/catwalk-stairs-loop.glb",
+			"size": [
+				1.0,
+				0.900000095367432,
+				1.25548660755157
+			],
+			"triangles": 328
+		},
+		{
+			"id": "factory/catwalk-stairs",
+			"min": [
+				-0.5,
+				0.0000000168132316957781,
+				-0.627743303775787
+			],
+			"path": "res://assets/environment/factory/catwalk-stairs.glb",
+			"size": [
+				2.0,
+				1.40000009536743,
+				1.25548660755157
+			],
+			"triangles": 668
+		},
+		{
+			"id": "factory/catwalk-straight",
+			"min": [
+				-0.5,
+				-0.14724737405777,
+				-0.627743303775787
+			],
+			"path": "res://assets/environment/factory/catwalk-straight.glb",
+			"size": [
+				1.0,
+				0.601366996765137,
+				1.25548660755157
+			],
+			"triangles": 328
+		},
+		{
+			"id": "factory/cog-a",
+			"min": [
+				-0.5,
+				-0.150000005960464,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/cog-a.glb",
+			"size": [
+				1.0,
+				0.224999994039536,
+				1.0
+			],
+			"triangles": 160
+		},
+		{
+			"id": "factory/cog-b",
+			"min": [
+				-0.5,
+				-0.150000005960464,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/cog-b.glb",
+			"size": [
+				1.0,
+				0.224999994039536,
+				1.0
+			],
+			"triangles": 192
+		},
+		{
+			"id": "factory/cog-c",
+			"min": [
+				-0.5,
+				-0.150000005960464,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/cog-c.glb",
+			"size": [
+				1.0,
+				0.224999994039536,
+				1.0
+			],
+			"triangles": 160
+		},
+		{
+			"id": "factory/cog-d",
+			"min": [
+				-0.5,
+				-0.150000005960464,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/cog-d.glb",
+			"size": [
+				1.0,
+				0.224999994039536,
+				1.0
+			],
+			"triangles": 160
+		},
+		{
+			"id": "factory/cog-e",
+			"min": [
+				-0.5,
+				-0.150000005960464,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/cog-e.glb",
+			"size": [
+				1.0,
+				0.224999994039536,
+				1.0
+			],
+			"triangles": 224
+		},
+		{
+			"id": "factory/cone",
+			"min": [
+				-0.150000005960464,
+				0.0,
+				-0.150000005960464
+			],
+			"path": "res://assets/environment/factory/cone.glb",
+			"size": [
+				0.300000011920929,
+				0.30646276473999,
+				0.300000011920929
+			],
+			"triangles": 66
+		},
+		{
+			"id": "factory/conveyor-bars-fence-slope",
+			"min": [
+				-0.502796173095703,
+				0.00000000000000000000000000000513,
+				-0.600000083446503
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-fence-slope.glb",
+			"size": [
+				1.00559234619141,
+				1.15000009536743,
+				1.20000016689301
+			],
+			"triangles": 296
+		},
+		{
+			"id": "factory/conveyor-bars-fence",
+			"min": [
+				-0.502796173095703,
+				0.0,
+				-0.600000083446503
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-fence.glb",
+			"size": [
+				1.00559234619141,
+				0.800000011920929,
+				1.20000016689301
+			],
+			"triangles": 296
+		},
+		{
+			"id": "factory/conveyor-bars-high-slope",
+			"min": [
+				-0.5,
+				0.00000000000000000000000000000513,
+				-0.506147444248199
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-high-slope.glb",
+			"size": [
+				1.0,
+				0.800000011920929,
+				1.0122948884964
+			],
+			"triangles": 204
+		},
+		{
+			"id": "factory/conveyor-bars-high",
+			"min": [
+				-0.5,
+				0.0,
+				-0.506147444248199
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-high.glb",
+			"size": [
+				1.0,
+				0.419999986886978,
+				1.0122948884964
+			],
+			"triangles": 204
+		},
+		{
+			"id": "factory/conveyor-bars-sides",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-sides.glb",
+			"size": [
+				1.0,
+				0.300000011920929,
+				1.0
+			],
+			"triangles": 272
+		},
+		{
+			"id": "factory/conveyor-bars-stripe-fence-slope",
+			"min": [
+				-0.502796173095703,
+				0.00000000000000000000000000000513,
+				-0.600000083446503
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-stripe-fence-slope.glb",
+			"size": [
+				1.00559234619141,
+				1.15000009536743,
+				1.20000016689301
+			],
+			"triangles": 472
+		},
+		{
+			"id": "factory/conveyor-bars-stripe-fence",
+			"min": [
+				-0.502796173095703,
+				-0.0000000000000846374362197151,
+				-0.600000083446503
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-stripe-fence.glb",
+			"size": [
+				1.00559234619141,
+				0.800000011920929,
+				1.20000016689301
+			],
+			"triangles": 472
+		},
+		{
+			"id": "factory/conveyor-bars-stripe-high-slope",
+			"min": [
+				-0.5,
+				0.00000000000000000000000000000513,
+				-0.506147444248199
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-stripe-high-slope.glb",
+			"size": [
+				1.0,
+				0.800000011920929,
+				1.0122948884964
+			],
+			"triangles": 380
+		},
+		{
+			"id": "factory/conveyor-bars-stripe-high",
+			"min": [
+				-0.5,
+				0.0,
+				-0.506147444248199
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-stripe-high.glb",
+			"size": [
+				1.0,
+				0.419999986886978,
+				1.0122948884964
+			],
+			"triangles": 380
+		},
+		{
+			"id": "factory/conveyor-bars-stripe-side",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-stripe-side.glb",
+			"size": [
+				1.0,
+				0.300000011920929,
+				1.0
+			],
+			"triangles": 400
+		},
+		{
+			"id": "factory/conveyor-bars-stripe",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-bars-stripe.glb",
+			"size": [
+				1.0,
+				0.25,
+				1.0
+			],
+			"triangles": 368
+		},
+		{
+			"id": "factory/conveyor-bars",
+			"min": [
+				-0.5,
+				-0.00000000000000135358384894255,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-bars.glb",
+			"size": [
+				1.0,
+				0.25,
+				1.0
+			],
+			"triangles": 240
+		},
+		{
+			"id": "factory/conveyor-corner",
+			"min": [
+				-0.500000238418579,
+				-0.0000000000000846825525826177,
+				-0.499999970197678
+			],
+			"path": "res://assets/environment/factory/conveyor-corner.glb",
+			"size": [
+				1.00000047683716,
+				0.449999988079071,
+				1.00000023841858
+			],
+			"triangles": 234
+		},
+		{
+			"id": "factory/conveyor-cross",
+			"min": [
+				-0.50000011920929,
+				0.0,
+				-0.50000011920929
+			],
+			"path": "res://assets/environment/factory/conveyor-cross.glb",
+			"size": [
+				1.00000023841858,
+				0.400000005960464,
+				1.00000023841858
+			],
+			"triangles": 44
+		},
+		{
+			"id": "factory/conveyor-junction-t",
+			"min": [
+				-0.500000238418579,
+				-0.0000000000000000902389263509778,
+				-0.500000178813934
+			],
+			"path": "res://assets/environment/factory/conveyor-junction-t.glb",
+			"size": [
+				1.00000047683716,
+				0.400000005960464,
+				1.00000047683716
+			],
+			"triangles": 120
+		},
+		{
+			"id": "factory/conveyor-long-part-end",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-part-end.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 152
+		},
+		{
+			"id": "factory/conveyor-long-part-middle",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-part-middle.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 44
+		},
+		{
+			"id": "factory/conveyor-long-sides-part-end",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-sides-part-end.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 184
+		},
+		{
+			"id": "factory/conveyor-long-sides-part-middle",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-sides-part-middle.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 76
+		},
+		{
+			"id": "factory/conveyor-long-sides",
+			"min": [
+				-1.0,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-sides.glb",
+			"size": [
+				2.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 228
+		},
+		{
+			"id": "factory/conveyor-long-stripe-sides-part-end",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-stripe-sides-part-end.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 216
+		},
+		{
+			"id": "factory/conveyor-long-stripe-sides-part-middle",
+			"min": [
+				-0.25,
+				-0.0000000000000000010323393956445,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-stripe-sides-part-middle.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 92
+		},
+		{
+			"id": "factory/conveyor-long-stripe-sides",
+			"min": [
+				-1.0,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-stripe-sides.glb",
+			"size": [
+				2.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 276
+		},
+		{
+			"id": "factory/conveyor-long-stripe",
+			"min": [
+				-1.0,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long-stripe.glb",
+			"size": [
+				2.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 244
+		},
+		{
+			"id": "factory/conveyor-long",
+			"min": [
+				-1.0,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-long.glb",
+			"size": [
+				2.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 196
+		},
+		{
+			"id": "factory/conveyor-sides-cross",
+			"min": [
+				-0.50000011920929,
+				0.0,
+				-0.50000011920929
+			],
+			"path": "res://assets/environment/factory/conveyor-sides-cross.glb",
+			"size": [
+				1.00000023841858,
+				0.400000005960464,
+				1.00000023841858
+			],
+			"triangles": 44
+		},
+		{
+			"id": "factory/conveyor-sides-junction-t",
+			"min": [
+				-0.5,
+				-0.000000000000000676791924471276,
+				-0.499999970197678
+			],
+			"path": "res://assets/environment/factory/conveyor-sides-junction-t.glb",
+			"size": [
+				1.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 136
+		},
+		{
+			"id": "factory/conveyor-sides",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-sides.glb",
+			"size": [
+				1.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 228
+		},
+		{
+			"id": "factory/conveyor-stripe-corner",
+			"min": [
+				-0.500000238418579,
+				-0.0000000000000846825525826177,
+				-0.499999970197678
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-corner.glb",
+			"size": [
+				1.00000047683716,
+				0.449999988079071,
+				1.00000023841858
+			],
+			"triangles": 258
+		},
+		{
+			"id": "factory/conveyor-stripe-cross",
+			"min": [
+				-0.500000238418579,
+				-0.0000000000000000902389263509778,
+				-0.500000178813934
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-cross.glb",
+			"size": [
+				1.00000047683716,
+				0.400000005960464,
+				1.00000047683716
+			],
+			"triangles": 172
+		},
+		{
+			"id": "factory/conveyor-stripe-junction-t",
+			"min": [
+				-0.500000238418579,
+				-0.0000000000000000902389263509778,
+				-0.500000238418579
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-junction-t.glb",
+			"size": [
+				1.00000047683716,
+				0.400000005960464,
+				1.00000047683716
+			],
+			"triangles": 207
+		},
+		{
+			"id": "factory/conveyor-stripe-part-end",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-part-end.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 184
+		},
+		{
+			"id": "factory/conveyor-stripe-part-middle",
+			"min": [
+				-0.25,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-part-middle.glb",
+			"size": [
+				0.5,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 60
+		},
+		{
+			"id": "factory/conveyor-stripe-sides-cross",
+			"min": [
+				-0.500000238418579,
+				-0.0000000000000000902389263509778,
+				-0.500000178813934
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-sides-cross.glb",
+			"size": [
+				1.00000047683716,
+				0.400000005960464,
+				1.00000047683716
+			],
+			"triangles": 172
+		},
+		{
+			"id": "factory/conveyor-stripe-sides-junction-t",
+			"min": [
+				-0.5,
+				-0.000000000000000676791924471276,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-sides-junction-t.glb",
+			"size": [
+				1.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 223
+		},
+		{
+			"id": "factory/conveyor-stripe-sides",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe-sides.glb",
+			"size": [
+				1.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 276
+		},
+		{
+			"id": "factory/conveyor-stripe",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor-stripe.glb",
+			"size": [
+				1.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 244
+		},
+		{
+			"id": "factory/conveyor",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/conveyor.glb",
+			"size": [
+				1.0,
+				0.400000005960464,
+				1.0
+			],
+			"triangles": 196
+		},
+		{
+			"id": "factory/crane-lift",
+			"min": [
+				-0.358333319425583,
+				-2.24999976158142,
+				-0.358333319425583
+			],
+			"path": "res://assets/environment/factory/crane-lift.glb",
+			"size": [
+				0.716666638851166,
+				2.49999976158142,
+				0.716666638851166
+			],
+			"triangles": 304
+		},
+		{
+			"id": "factory/crane-magnet",
+			"min": [
+				-0.358333319425583,
+				0.0,
+				-0.358333319425583
+			],
+			"path": "res://assets/environment/factory/crane-magnet.glb",
+			"size": [
+				0.716666638851166,
+				0.899999976158142,
+				0.716666638851166
+			],
+			"triangles": 172
+		},
+		{
+			"id": "factory/crane",
+			"min": [
+				-0.963012754917145,
+				-0.000000000000000812150330541355,
+				-2.99012517929077
+			],
+			"path": "res://assets/environment/factory/crane.glb",
+			"size": [
+				1.92602550983429,
+				3.55331921577454,
+				3.68025016784668
+			],
+			"triangles": 564
+		},
+		{
+			"id": "factory/door-wide-closed",
+			"min": [
+				-0.899999976158142,
+				0.0000000000000000451194631754889,
+				0.400000005960464
+			],
+			"path": "res://assets/environment/factory/door-wide-closed.glb",
+			"size": [
+				1.79999995231628,
+				1.60000002384186,
+				0.0000100135803222656
+			],
+			"triangles": 22
+		},
+		{
+			"id": "factory/door-wide-half",
+			"min": [
+				-0.899999976158142,
+				0.356235802173615,
+				0.400000005960464
+			],
+			"path": "res://assets/environment/factory/door-wide-half.glb",
+			"size": [
+				1.79999995231628,
+				1.2437641620636,
+				0.300000041723251
+			],
+			"triangles": 20
+		},
+		{
+			"id": "factory/door-wide-open",
+			"min": [
+				-0.899999976158142,
+				0.81980574131012,
+				0.400000005960464
+			],
+			"path": "res://assets/environment/factory/door-wide-open.glb",
+			"size": [
+				1.79999995231628,
+				0.780194282531738,
+				0.300000041723251
+			],
+			"triangles": 16
+		},
+		{
+			"id": "factory/door",
+			"min": [
+				-0.400000005960464,
+				0.0,
+				-0.150000095367432
+			],
+			"path": "res://assets/environment/factory/door.glb",
+			"size": [
+				0.800000011920929,
+				1.60000002384186,
+				0.300000011920929
+			],
+			"triangles": 156
+		},
+		{
+			"id": "factory/floor-large",
+			"min": [
+				-1.0,
+				0.0,
+				-1.0
+			],
+			"path": "res://assets/environment/factory/floor-large.glb",
+			"size": [
+				2.0,
+				0.00000999999974737875,
+				2.0
+			],
+			"triangles": 2
+		},
+		{
+			"id": "factory/floor",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/floor.glb",
+			"size": [
+				1.0,
+				0.00000999999974737875,
+				1.0
+			],
+			"triangles": 2
+		},
+		{
+			"id": "factory/hopper-high-round",
+			"min": [
+				-0.559098780155182,
+				0.0,
+				-0.559098780155182
+			],
+			"path": "res://assets/environment/factory/hopper-high-round.glb",
+			"size": [
+				1.11819756031036,
+				1.5,
+				1.11819756031036
+			],
+			"triangles": 176
+		},
+		{
+			"id": "factory/hopper-high-square",
+			"min": [
+				-0.558600008487701,
+				0.0,
+				-0.558600008487701
+			],
+			"path": "res://assets/environment/factory/hopper-high-square.glb",
+			"size": [
+				1.1172000169754,
+				1.5,
+				1.1172000169754
+			],
+			"triangles": 120
+		},
+		{
+			"id": "factory/hopper-round",
+			"min": [
+				-0.559098780155182,
+				0.0,
+				-0.559098780155182
+			],
+			"path": "res://assets/environment/factory/hopper-round.glb",
+			"size": [
+				1.11819756031036,
+				1.0,
+				1.11819756031036
+			],
+			"triangles": 144
+		},
+		{
+			"id": "factory/hopper-square",
+			"min": [
+				-0.558600008487701,
+				0.0,
+				-0.558600008487701
+			],
+			"path": "res://assets/environment/factory/hopper-square.glb",
+			"size": [
+				1.1172000169754,
+				1.0,
+				1.1172000169754
+			],
+			"triangles": 104
+		},
+		{
+			"id": "factory/indicator-special-area",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/indicator-special-area.glb",
+			"size": [
+				1.0,
+				0.00000999999974737875,
+				1.0
+			],
+			"triangles": 18
+		},
+		{
+			"id": "factory/indicator-special-arrow",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/indicator-special-arrow.glb",
+			"size": [
+				1.0,
+				0.00000999999974737875,
+				1.0
+			],
+			"triangles": 15
+		},
+		{
+			"id": "factory/indicator-special-cross",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/indicator-special-cross.glb",
+			"size": [
+				1.0,
+				0.00000999999974737875,
+				1.0
+			],
+			"triangles": 22
+		},
+		{
+			"id": "factory/indicator-special-lines",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/indicator-special-lines.glb",
+			"size": [
+				1.0,
+				0.00000999999974737875,
+				1.0
+			],
+			"triangles": 16
+		},
+		{
+			"id": "factory/lever-double",
+			"min": [
+				-0.269999980926514,
+				0.0,
+				-0.269999980926514
+			],
+			"path": "res://assets/environment/factory/lever-double.glb",
+			"size": [
+				0.539999961853027,
+				0.375,
+				0.539999961853027
+			],
+			"triangles": 118
+		},
+		{
+			"id": "factory/lever-single",
+			"min": [
+				-0.25,
+				0.0,
+				-0.170000001788139
+			],
+			"path": "res://assets/environment/factory/lever-single.glb",
+			"size": [
+				0.5,
+				0.474999994039536,
+				0.340000003576279
+			],
+			"triangles": 102
+		},
+		{
+			"id": "factory/machine-bed",
+			"min": [
+				-0.600000023841858,
+				-0.000000000238239261651785,
+				-0.75
+			],
+			"path": "res://assets/environment/factory/machine-bed.glb",
+			"size": [
+				2.34999990463257,
+				1.29849851131439,
+				2.34999990463257
+			],
+			"triangles": 568
+		},
+		{
+			"id": "factory/machine-connection-hole",
+			"min": [
+				-0.600000023841858,
+				-0.000000000410674855233495,
+				-0.75
+			],
+			"path": "res://assets/environment/factory/machine-connection-hole.glb",
+			"size": [
+				1.20000004768372,
+				1.29299998283386,
+				1.5
+			],
+			"triangles": 294
+		},
+		{
+			"id": "factory/machine-connection-pipe",
+			"min": [
+				-0.600000023841858,
+				-0.000000000410674855233495,
+				-0.75
+			],
+			"path": "res://assets/environment/factory/machine-connection-pipe.glb",
+			"size": [
+				1.20000004768372,
+				1.75000011920929,
+				1.5
+			],
+			"triangles": 342
+		},
+		{
+			"id": "factory/machine-fortified",
+			"min": [
+				-0.600000023841858,
+				-0.000000000410674855233495,
+				-0.800000011920929
+			],
+			"path": "res://assets/environment/factory/machine-fortified.glb",
+			"size": [
+				1.20000004768372,
+				1.35049879550934,
+				1.60000002384186
+			],
+			"triangles": 320
+		},
+		{
+			"id": "factory/machine-window-bar",
+			"min": [
+				-0.600000023841858,
+				-0.000000000410674855233495,
+				-0.75
+			],
+			"path": "res://assets/environment/factory/machine-window-bar.glb",
+			"size": [
+				1.20000004768372,
+				1.28970670700073,
+				1.5
+			],
+			"triangles": 444
+		},
+		{
+			"id": "factory/machine-window",
+			"min": [
+				-0.600000023841858,
+				-0.000000000410674855233495,
+				-0.75
+			],
+			"path": "res://assets/environment/factory/machine-window.glb",
+			"size": [
+				1.20000004768372,
+				1.28970670700073,
+				1.5
+			],
+			"triangles": 428
+		},
+		{
+			"id": "factory/machine",
+			"min": [
+				-0.600000023841858,
+				-0.000000000410674855233495,
+				-0.75
+			],
+			"path": "res://assets/environment/factory/machine.glb",
+			"size": [
+				1.20000004768372,
+				1.29975187778473,
+				1.5
+			],
+			"triangles": 268
+		},
+		{
+			"id": "factory/oopi",
+			"min": [
+				-0.717290580272675,
+				0.0235895812511444,
+				0.241188213229179
+			],
+			"path": "res://assets/environment/factory/oopi.glb",
+			"size": [
+				0.421772599220276,
+				0.561789631843567,
+				0.532351315021515
+			],
+			"triangles": 938
+		},
+		{
+			"id": "factory/pipe-glass-large-bend",
+			"min": [
+				-0.899999976158142,
+				-0.000239200657233596,
+				-1.40000009536743
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-bend.glb",
+			"size": [
+				1.89999985694885,
+				1.00023925304413,
+				1.90000009536743
+			],
+			"triangles": 448
+		},
+		{
+			"id": "factory/pipe-glass-large-bump",
+			"min": [
+				-0.5,
+				-0.000000000000000902389303214447,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-bump.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"triangles": 256
+		},
+		{
+			"id": "factory/pipe-glass-large-cross",
+			"min": [
+				-0.999999940395355,
+				-0.500000178813934,
+				-0.500000059604645
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-cross.glb",
+			"size": [
+				1.99999988079071,
+				2.0,
+				1.0
+			],
+			"triangles": 384
+		},
+		{
+			"id": "factory/pipe-glass-large-curve",
+			"min": [
+				-1.00208151340485,
+				-0.000239220025832765,
+				-0.74644660949707
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-curve.glb",
+			"size": [
+				1.50208151340485,
+				1.00023925304413,
+				1.24644660949707
+			],
+			"triangles": 288
+		},
+		{
+			"id": "factory/pipe-glass-large-junction",
+			"min": [
+				-1.05563485622406,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-junction.glb",
+			"size": [
+				2.05563473701477,
+				2.05563473701477,
+				1.0
+			],
+			"triangles": 276
+		},
+		{
+			"id": "factory/pipe-glass-large-long",
+			"min": [
+				-0.999999940395355,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-long.glb",
+			"size": [
+				1.99999988079071,
+				1.0,
+				1.0
+			],
+			"triangles": 160
+		},
+		{
+			"id": "factory/pipe-glass-large-side",
+			"min": [
+				-0.999999940395355,
+				0.0,
+				-0.500000059604645
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-side.glb",
+			"size": [
+				1.99999988079071,
+				1.49999988079071,
+				1.0
+			],
+			"triangles": 276
+		},
+		{
+			"id": "factory/pipe-glass-large-valve",
+			"min": [
+				-0.5,
+				-0.000000000000000902389303214447,
+				-0.515600860118866
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large-valve.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.01560091972351
+			],
+			"triangles": 416
+		},
+		{
+			"id": "factory/pipe-glass-large",
+			"min": [
+				-0.5,
+				-0.000000000000000902389303214447,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-glass-large.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"triangles": 160
+		},
+		{
+			"id": "factory/pipe-large-bend",
+			"min": [
+				-0.899999976158142,
+				-0.000239200657233596,
+				-1.40000009536743
+			],
+			"path": "res://assets/environment/factory/pipe-large-bend.glb",
+			"size": [
+				1.89999985694885,
+				1.00023925304413,
+				1.90000009536743
+			],
+			"triangles": 448
+		},
+		{
+			"id": "factory/pipe-large-bump",
+			"min": [
+				-0.5,
+				-0.000000000000000902389303214447,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-large-bump.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"triangles": 296
+		},
+		{
+			"id": "factory/pipe-large-cross",
+			"min": [
+				-0.999999940395355,
+				-0.500000178813934,
+				-0.500000059604645
+			],
+			"path": "res://assets/environment/factory/pipe-large-cross.glb",
+			"size": [
+				1.99999988079071,
+				2.0,
+				1.0
+			],
+			"triangles": 472
+		},
+		{
+			"id": "factory/pipe-large-curve",
+			"min": [
+				-1.00208151340485,
+				-0.000239220025832765,
+				-0.74644660949707
+			],
+			"path": "res://assets/environment/factory/pipe-large-curve.glb",
+			"size": [
+				1.50208151340485,
+				1.00023925304413,
+				1.24644660949707
+			],
+			"triangles": 332
+		},
+		{
+			"id": "factory/pipe-large-junction",
+			"min": [
+				-1.05563485622406,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-large-junction.glb",
+			"size": [
+				2.05563473701477,
+				2.05563473701477,
+				1.0
+			],
+			"triangles": 412
+		},
+		{
+			"id": "factory/pipe-large-long",
+			"min": [
+				-0.999999940395355,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-large-long.glb",
+			"size": [
+				1.99999988079071,
+				1.0,
+				1.0
+			],
+			"triangles": 292
+		},
+		{
+			"id": "factory/pipe-large-side",
+			"min": [
+				-0.999999940395355,
+				0.0,
+				-0.500000059604645
+			],
+			"path": "res://assets/environment/factory/pipe-large-side.glb",
+			"size": [
+				1.99999988079071,
+				1.49999988079071,
+				1.0
+			],
+			"triangles": 364
+		},
+		{
+			"id": "factory/pipe-large-valve",
+			"min": [
+				-0.5,
+				-0.000000000000000902389303214447,
+				-0.515600860118866
+			],
+			"path": "res://assets/environment/factory/pipe-large-valve.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.01560091972351
+			],
+			"triangles": 456
+		},
+		{
+			"id": "factory/pipe-large",
+			"min": [
+				-0.5,
+				-0.000000000000000902389303214447,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/pipe-large.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"triangles": 248
+		},
+		{
+			"id": "factory/piston-round",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/piston-round.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"triangles": 276
+		},
+		{
+			"id": "factory/piston-square",
+			"min": [
+				-0.5,
+				-0.00000000000000288764564323129,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/piston-square.glb",
+			"size": [
+				1.0,
+				1.0,
+				1.0
+			],
+			"triangles": 180
+		},
+		{
+			"id": "factory/piston-thin-round",
+			"min": [
+				-0.25,
+				0.0,
+				-0.25
+			],
+			"path": "res://assets/environment/factory/piston-thin-round.glb",
+			"size": [
+				0.5,
+				1.0,
+				0.5
+			],
+			"triangles": 276
+		},
+		{
+			"id": "factory/piston-thin-square",
+			"min": [
+				-0.25,
+				-0.00000000000000288764564323129,
+				-0.25
+			],
+			"path": "res://assets/environment/factory/piston-thin-square.glb",
+			"size": [
+				0.5,
+				1.0,
+				0.5
+			],
+			"triangles": 180
+		},
+		{
+			"id": "factory/robot-arm-a",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/robot-arm-a.glb",
+			"size": [
+				1.0,
+				3.20000028610229,
+				1.0
+			],
+			"triangles": 472
+		},
+		{
+			"id": "factory/robot-arm-b",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/robot-arm-b.glb",
+			"size": [
+				1.0,
+				3.0,
+				1.0
+			],
+			"triangles": 420
+		},
+		{
+			"id": "factory/scanner-high",
+			"min": [
+				-0.241999998688698,
+				-0.00000000000000260564889333255,
+				-0.887000024318695
+			],
+			"path": "res://assets/environment/factory/scanner-high.glb",
+			"size": [
+				0.483999997377396,
+				1.26999998092651,
+				1.7739999294281
+			],
+			"triangles": 240
+		},
+		{
+			"id": "factory/scanner-low",
+			"min": [
+				-0.349999994039536,
+				-0.0000000000000000451194631754889,
+				-0.800000011920929
+			],
+			"path": "res://assets/environment/factory/scanner-low.glb",
+			"size": [
+				0.699999988079071,
+				1.07000005245209,
+				1.60000002384186
+			],
+			"triangles": 240
+		},
+		{
+			"id": "factory/screen-flat",
+			"min": [
+				-0.600000083446503,
+				0.0,
+				-0.255355358123779
+			],
+			"path": "res://assets/environment/factory/screen-flat.glb",
+			"size": [
+				1.20000028610229,
+				0.74526983499527,
+				0.644838929176331
+			],
+			"triangles": 120
+		},
+		{
+			"id": "factory/screen-hanging-small",
+			"min": [
+				-0.300000011920929,
+				0.0,
+				-0.361819863319397
+			],
+			"path": "res://assets/environment/factory/screen-hanging-small.glb",
+			"size": [
+				0.600000023841858,
+				0.69130939245224,
+				0.576552629470825
+			],
+			"triangles": 86
+		},
+		{
+			"id": "factory/screen-hanging-wide",
+			"min": [
+				-0.450000017881393,
+				0.0,
+				-0.361819863319397
+			],
+			"path": "res://assets/environment/factory/screen-hanging-wide.glb",
+			"size": [
+				0.900000035762787,
+				0.69130939245224,
+				0.576552629470825
+			],
+			"triangles": 96
+		},
+		{
+			"id": "factory/screen-panel-flat",
+			"min": [
+				-0.600000083446503,
+				0.0,
+				-0.410284876823425
+			],
+			"path": "res://assets/environment/factory/screen-panel-flat.glb",
+			"size": [
+				1.20000028610229,
+				0.74526983499527,
+				0.799768447875977
+			],
+			"triangles": 138
+		},
+		{
+			"id": "factory/screen-panel-small",
+			"min": [
+				-0.300000011920929,
+				0.0,
+				-0.328605830669403
+			],
+			"path": "res://assets/environment/factory/screen-panel-small.glb",
+			"size": [
+				0.600000023841858,
+				0.991309404373169,
+				0.657211661338806
+			],
+			"triangles": 144
+		},
+		{
+			"id": "factory/screen-panel-wide",
+			"min": [
+				-0.600000023841858,
+				0.0,
+				-0.328605860471725
+			],
+			"path": "res://assets/environment/factory/screen-panel-wide.glb",
+			"size": [
+				1.20000004768372,
+				0.991309404373169,
+				0.657211661338806
+			],
+			"triangles": 162
+		},
+		{
+			"id": "factory/screen-small",
+			"min": [
+				-0.300000011920929,
+				0.0,
+				-0.170638889074326
+			],
+			"path": "res://assets/environment/factory/screen-small.glb",
+			"size": [
+				0.600000023841858,
+				0.991309404373169,
+				0.499244719743729
+			],
+			"triangles": 126
+		},
+		{
+			"id": "factory/screen-wide",
+			"min": [
+				-0.600000023841858,
+				0.0,
+				-0.158894151449203
+			],
+			"path": "res://assets/environment/factory/screen-wide.glb",
+			"size": [
+				1.20000004768372,
+				0.991309404373169,
+				0.487499982118607
+			],
+			"triangles": 144
+		},
+		{
+			"id": "factory/structure-corner-inner",
+			"min": [
+				-0.5,
+				-0.000000000000000135358392835189,
+				-0.500000059604645
+			],
+			"path": "res://assets/environment/factory/structure-corner-inner.glb",
+			"size": [
+				2.0,
+				3.0,
+				2.0
+			],
+			"triangles": 50
+		},
+		{
+			"id": "factory/structure-corner-outer",
+			"min": [
+				-0.5,
+				0.0000000000000000451194631754889,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/structure-corner-outer.glb",
+			"size": [
+				2.0,
+				3.0,
+				2.0
+			],
+			"triangles": 50
+		},
+		{
+			"id": "factory/structure-doorway-wide",
+			"min": [
+				-1.0,
+				0.0000000000000000474382423383772,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/structure-doorway-wide.glb",
+			"size": [
+				2.0,
+				3.0,
+				2.0
+			],
+			"triangles": 46
+		},
+		{
+			"id": "factory/structure-doorway",
+			"min": [
+				-0.5,
+				0.0000000000000000474382423383772,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/structure-doorway.glb",
+			"size": [
+				1.0,
+				3.0,
+				2.0
+			],
+			"triangles": 60
+		},
+		{
+			"id": "factory/structure-high",
+			"min": [
+				-0.150000005960464,
+				-0.0000000000000000012742626346512,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-high.glb",
+			"size": [
+				0.300000011920929,
+				1.49999988079071,
+				1.10000002384186
+			],
+			"triangles": 268
+		},
+		{
+			"id": "factory/structure-medium",
+			"min": [
+				-0.150000005960464,
+				-0.0000000000000000012742626346512,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-medium.glb",
+			"size": [
+				0.300000011920929,
+				1.0,
+				1.10000002384186
+			],
+			"triangles": 268
+		},
+		{
+			"id": "factory/structure-short",
+			"min": [
+				-0.150000005960464,
+				0.0,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-short.glb",
+			"size": [
+				0.300000011920929,
+				0.5,
+				1.10000002384186
+			],
+			"triangles": 268
+		},
+		{
+			"id": "factory/structure-tall",
+			"min": [
+				-0.150000005960464,
+				0.0,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-tall.glb",
+			"size": [
+				0.300000011920929,
+				2.0,
+				1.10000002384186
+			],
+			"triangles": 268
+		},
+		{
+			"id": "factory/structure-wall",
+			"min": [
+				-0.5,
+				0.0000000000000000474382423383772,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/structure-wall.glb",
+			"size": [
+				1.0,
+				3.0,
+				2.0
+			],
+			"triangles": 26
+		},
+		{
+			"id": "factory/structure-window-wide",
+			"min": [
+				-1.0,
+				0.0000000000000000451194631754889,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/structure-window-wide.glb",
+			"size": [
+				2.0,
+				3.0,
+				2.0
+			],
+			"triangles": 274
+		},
+		{
+			"id": "factory/structure-window",
+			"min": [
+				-0.5,
+				0.0000000000000000474382423383772,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/structure-window.glb",
+			"size": [
+				1.0,
+				3.0,
+				2.0
+			],
+			"triangles": 226
+		},
+		{
+			"id": "factory/structure-yellow-high",
+			"min": [
+				-0.150000005960464,
+				-0.0000000000000000012742626346512,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-yellow-high.glb",
+			"size": [
+				0.300000011920929,
+				1.49999988079071,
+				1.10000002384186
+			],
+			"triangles": 392
+		},
+		{
+			"id": "factory/structure-yellow-medium",
+			"min": [
+				-0.150000005960464,
+				-0.0000000000000000012742626346512,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-yellow-medium.glb",
+			"size": [
+				0.300000011920929,
+				1.0,
+				1.10000002384186
+			],
+			"triangles": 392
+		},
+		{
+			"id": "factory/structure-yellow-short",
+			"min": [
+				-0.150000005960464,
+				0.0,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-yellow-short.glb",
+			"size": [
+				0.300000011920929,
+				0.5,
+				1.10000002384186
+			],
+			"triangles": 268
+		},
+		{
+			"id": "factory/structure-yellow-tall",
+			"min": [
+				-0.150000005960464,
+				0.0,
+				-0.550000011920929
+			],
+			"path": "res://assets/environment/factory/structure-yellow-tall.glb",
+			"size": [
+				0.300000011920929,
+				2.0,
+				1.10000002384186
+			],
+			"triangles": 392
+		},
+		{
+			"id": "factory/top-large-checkerboard",
+			"min": [
+				-1.0,
+				0.0,
+				-1.0
+			],
+			"path": "res://assets/environment/factory/top-large-checkerboard.glb",
+			"size": [
+				2.0,
+				0.00000999999974737875,
+				2.0
+			],
+			"triangles": 8
+		},
+		{
+			"id": "factory/top-large",
+			"min": [
+				-1.0,
+				0.0,
+				-1.0
+			],
+			"path": "res://assets/environment/factory/top-large.glb",
+			"size": [
+				2.0,
+				0.00000999999974737875,
+				2.0
+			],
+			"triangles": 2
+		},
+		{
+			"id": "factory/top",
+			"min": [
+				-0.5,
+				0.0,
+				-0.5
+			],
+			"path": "res://assets/environment/factory/top.glb",
+			"size": [
+				1.0,
+				0.00000999999974737875,
+				1.0
+			],
+			"triangles": 2
+		},
+		{
+			"id": "factory/warning-orange",
+			"min": [
+				-0.200000002980232,
+				0.0,
+				-0.200000002980232
+			],
+			"path": "res://assets/environment/factory/warning-orange.glb",
+			"size": [
+				0.400000005960464,
+				1.29035747051239,
+				0.400000005960464
+			],
+			"triangles": 154
+		},
+		{
+			"id": "factory/warning-traffic",
+			"min": [
+				-0.200000002980232,
+				0.0,
+				-0.200000002980232
+			],
+			"path": "res://assets/environment/factory/warning-traffic.glb",
+			"size": [
+				0.400000005960464,
+				1.55111527442932,
+				0.400000005960464
+			],
+			"triangles": 176
+		},
+		{
+			"id": "vehicles/ambulance",
+			"min": [
+				-0.75,
+				0.0,
+				-1.64999985694885
+			],
+			"path": "res://assets/environment/vehicles/ambulance.glb",
+			"size": [
+				1.5,
+				1.80000007152557,
+				3.24999976158142
+			],
+			"triangles": 2804
+		},
+		{
+			"id": "vehicles/box",
+			"min": [
+				-0.357499986886978,
+				0.0,
+				-0.357499986886978
+			],
+			"path": "res://assets/environment/vehicles/box.glb",
+			"size": [
+				0.714999973773956,
+				0.714999973773956,
+				0.714999973773956
+			],
+			"triangles": 124
+		},
+		{
+			"id": "vehicles/cone-flat",
+			"min": [
+				-0.238097235560417,
+				0.0,
+				-0.238097235560417
+			],
+			"path": "res://assets/environment/vehicles/cone-flat.glb",
+			"size": [
+				0.476194471120834,
+				0.280954748392105,
+				0.476194471120834
+			],
+			"triangles": 172
+		},
+		{
+			"id": "vehicles/cone",
+			"min": [
+				-0.238097235560417,
+				0.0,
+				-0.238097235560417
+			],
+			"path": "res://assets/environment/vehicles/cone.glb",
+			"size": [
+				0.476194471120834,
+				0.595243096351624,
+				0.476194471120834
+			],
+			"triangles": 172
+		},
+		{
+			"id": "vehicles/debris-bolt",
+			"min": [
+				-0.0866025388240814,
+				0.0,
+				-0.100000001490116
+			],
+			"path": "res://assets/environment/vehicles/debris-bolt.glb",
+			"size": [
+				0.173205077648163,
+				0.259999990463257,
+				0.200000002980232
+			],
+			"triangles": 36
+		},
+		{
+			"id": "vehicles/debris-bumper",
+			"min": [
+				-0.649999976158142,
+				0.0,
+				-0.224999994039536
+			],
+			"path": "res://assets/environment/vehicles/debris-bumper.glb",
+			"size": [
+				1.29999995231628,
+				0.400000005960464,
+				0.449999988079071
+			],
+			"triangles": 116
+		},
+		{
+			"id": "vehicles/debris-door-window",
+			"min": [
+				-0.0939999967813492,
+				0.00000000000000000183697003072357,
+				-0.400000005960464
+			],
+			"path": "res://assets/environment/vehicles/debris-door-window.glb",
+			"size": [
+				0.187999993562698,
+				0.899999976158142,
+				0.800000011920929
+			],
+			"triangles": 74
+		},
+		{
+			"id": "vehicles/debris-door",
+			"min": [
+				-0.0939999967813492,
+				0.00000000000000000183697003072357,
+				-0.400000005960464
+			],
+			"path": "res://assets/environment/vehicles/debris-door.glb",
+			"size": [
+				0.187999993562698,
+				0.899999976158142,
+				0.800000011920929
+			],
+			"triangles": 68
+		},
+		{
+			"id": "vehicles/debris-drivetrain-axle",
+			"min": [
+				-0.602074980735779,
+				0.0,
+				-0.17399999499321
+			],
+			"path": "res://assets/environment/vehicles/debris-drivetrain-axle.glb",
+			"size": [
+				1.20414996147156,
+				0.296000003814697,
+				0.34799998998642
+			],
+			"triangles": 200
+		},
+		{
+			"id": "vehicles/debris-drivetrain",
+			"min": [
+				-0.602074980735779,
+				0.0,
+				-0.959999918937683
+			],
+			"path": "res://assets/environment/vehicles/debris-drivetrain.glb",
+			"size": [
+				1.20414996147156,
+				0.296000003814697,
+				1.91999983787537
+			],
+			"triangles": 412
+		},
+		{
+			"id": "vehicles/debris-nut",
+			"min": [
+				-0.0866025388240814,
+				0.0,
+				-0.100000001490116
+			],
+			"path": "res://assets/environment/vehicles/debris-nut.glb",
+			"size": [
+				0.173205077648163,
+				0.100000001490116,
+				0.200000002980232
+			],
+			"triangles": 40
+		},
+		{
+			"id": "vehicles/debris-plate-a",
+			"min": [
+				-0.449999988079071,
+				0.0,
+				-0.449999988079071
+			],
+			"path": "res://assets/environment/vehicles/debris-plate-a.glb",
+			"size": [
+				0.899999976158142,
+				0.100000001490116,
+				0.899999976158142
+			],
+			"triangles": 40
+		},
+		{
+			"id": "vehicles/debris-plate-b",
+			"min": [
+				-0.449999988079071,
+				0.0,
+				-0.449999988079071
+			],
+			"path": "res://assets/environment/vehicles/debris-plate-b.glb",
+			"size": [
+				0.899999976158142,
+				0.200000002980232,
+				0.899999976158142
+			],
+			"triangles": 44
+		},
+		{
+			"id": "vehicles/debris-plate-small-a",
+			"min": [
+				-0.224999994039536,
+				0.0,
+				-0.224999994039536
+			],
+			"path": "res://assets/environment/vehicles/debris-plate-small-a.glb",
+			"size": [
+				0.449999988079071,
+				0.100000001490116,
+				0.449999988079071
+			],
+			"triangles": 28
+		},
+		{
+			"id": "vehicles/debris-plate-small-b",
+			"min": [
+				-0.224999994039536,
+				0.0,
+				-0.224999994039536
+			],
+			"path": "res://assets/environment/vehicles/debris-plate-small-b.glb",
+			"size": [
+				0.449999988079071,
+				0.200000002980232,
+				0.449999988079071
+			],
+			"triangles": 44
+		},
+		{
+			"id": "vehicles/debris-spoiler-a",
+			"min": [
+				-0.550000011920929,
+				0.0,
+				-0.118686191737652
+			],
+			"path": "res://assets/environment/vehicles/debris-spoiler-a.glb",
+			"size": [
+				1.10000002384186,
+				0.300000011920929,
+				0.237372383475304
+			],
+			"triangles": 48
+		},
+		{
+			"id": "vehicles/debris-spoiler-b",
+			"min": [
+				-0.5,
+				0.0,
+				-0.168686196208
+			],
+			"path": "res://assets/environment/vehicles/debris-spoiler-b.glb",
+			"size": [
+				1.0,
+				0.349999994039536,
+				0.337372392416
+			],
+			"triangles": 88
+		},
+		{
+			"id": "vehicles/debris-tire",
+			"min": [
+				-0.174999997019768,
+				-0.300000011920929,
+				-0.300000011920929
+			],
+			"path": "res://assets/environment/vehicles/debris-tire.glb",
+			"size": [
+				0.349999994039536,
+				0.600000023841858,
+				0.600000023841858
+			],
+			"triangles": 288
+		},
+		{
+			"id": "vehicles/delivery-flat",
+			"min": [
+				-0.75,
+				0.0,
+				-1.64999985694885
+			],
+			"path": "res://assets/environment/vehicles/delivery-flat.glb",
+			"size": [
+				1.5,
+				1.34999990463257,
+				3.24999976158142
+			],
+			"triangles": 2574
+		},
+		{
+			"id": "vehicles/delivery",
+			"min": [
+				-0.75,
+				0.0,
+				-1.64999985694885
+			],
+			"path": "res://assets/environment/vehicles/delivery.glb",
+			"size": [
+				1.5,
+				1.64999985694885,
+				3.24999976158142
+			],
+			"triangles": 2476
+		},
+		{
+			"id": "vehicles/firetruck",
+			"min": [
+				-0.75,
+				0.0,
+				-1.70000016689301
+			],
+			"path": "res://assets/environment/vehicles/firetruck.glb",
+			"size": [
+				1.5,
+				1.70000004768372,
+				3.39999985694885
+			],
+			"triangles": 2767
+		},
+		{
+			"id": "vehicles/garbage-truck",
+			"min": [
+				-0.800000011920929,
+				0.0,
+				-1.69999992847443
+			],
+			"path": "res://assets/environment/vehicles/garbage-truck.glb",
+			"size": [
+				1.60000002384186,
+				1.60000002384186,
+				3.44999980926514
+			],
+			"triangles": 3124
+		},
+		{
+			"id": "vehicles/hatchback-sports",
+			"min": [
+				-0.649999976158142,
+				0.0,
+				-1.45000004768372
+			],
+			"path": "res://assets/environment/vehicles/hatchback-sports.glb",
+			"size": [
+				1.29999995231628,
+				1.10000002384186,
+				2.85000014305115
+			],
+			"triangles": 2088
+		},
+		{
+			"id": "vehicles/kart-oobi",
+			"min": [
+				-0.487149626016617,
+				0.0,
+				-0.601876258850098
+			],
+			"path": "res://assets/environment/vehicles/kart-oobi.glb",
+			"size": [
+				0.974299252033234,
+				1.32913208007812,
+				1.42775464057922
+			],
+			"triangles": 2884
+		},
+		{
+			"id": "vehicles/kart-oodi",
+			"min": [
+				-0.487149626016617,
+				0.0,
+				-0.601876258850098
+			],
+			"path": "res://assets/environment/vehicles/kart-oodi.glb",
+			"size": [
+				0.974299252033234,
+				1.32913208007812,
+				1.42775464057922
+			],
+			"triangles": 2726
+		},
+		{
+			"id": "vehicles/kart-ooli",
+			"min": [
+				-0.487149596214294,
+				0.0,
+				-0.601876258850098
+			],
+			"path": "res://assets/environment/vehicles/kart-ooli.glb",
+			"size": [
+				0.974299192428589,
+				1.32913208007812,
+				1.42775464057922
+			],
+			"triangles": 2706
+		},
+		{
+			"id": "vehicles/kart-oopi",
+			"min": [
+				-0.487149626016617,
+				0.0,
+				-0.601876258850098
+			],
+			"path": "res://assets/environment/vehicles/kart-oopi.glb",
+			"size": [
+				0.974299252033234,
+				1.32913208007812,
+				1.42775464057922
+			],
+			"triangles": 2726
+		},
+		{
+			"id": "vehicles/kart-oozi",
+			"min": [
+				-0.487149626016617,
+				0.0,
+				-0.601876258850098
+			],
+			"path": "res://assets/environment/vehicles/kart-oozi.glb",
+			"size": [
+				0.974299252033234,
+				1.32913208007812,
+				1.42775464057922
+			],
+			"triangles": 2726
+		},
+		{
+			"id": "vehicles/police",
+			"min": [
+				-0.75,
+				0.0,
+				-1.54999995231628
+			],
+			"path": "res://assets/environment/vehicles/police.glb",
+			"size": [
+				1.5,
+				1.30000007152557,
+				3.09999966621399
+			],
+			"triangles": 2304
+		},
+		{
+			"id": "vehicles/race-future",
+			"min": [
+				-0.600000023841858,
+				0.0,
+				-1.32988619804382
+			],
+			"path": "res://assets/environment/vehicles/race-future.glb",
+			"size": [
+				1.20000004768372,
+				0.832544267177582,
+				2.65977239608765
+			],
+			"triangles": 2068
+		},
+		{
+			"id": "vehicles/race",
+			"min": [
+				-0.649999976158142,
+				0.0,
+				-1.27988624572754
+			],
+			"path": "res://assets/environment/vehicles/race.glb",
+			"size": [
+				1.29999995231628,
+				0.732544302940369,
+				2.55977249145508
+			],
+			"triangles": 1952
+		},
+		{
+			"id": "vehicles/sedan-sports",
+			"min": [
+				-0.649999976158142,
+				0.0,
+				-1.29999995231628
+			],
+			"path": "res://assets/environment/vehicles/sedan-sports.glb",
+			"size": [
+				1.29999995231628,
+				1.09999990463257,
+				2.54999995231628
+			],
+			"triangles": 2088
+		},
+		{
+			"id": "vehicles/sedan",
+			"min": [
+				-0.75,
+				0.0,
+				-1.29999995231628
+			],
+			"path": "res://assets/environment/vehicles/sedan.glb",
+			"size": [
+				1.5,
+				1.29999995231628,
+				2.54999995231628
+			],
+			"triangles": 2032
+		},
+		{
+			"id": "vehicles/suv-luxury",
+			"min": [
+				-0.75,
+				0.0,
+				-1.40000009536743
+			],
+			"path": "res://assets/environment/vehicles/suv-luxury.glb",
+			"size": [
+				1.5,
+				1.29999995231628,
+				2.85000014305115
+			],
+			"triangles": 2086
+		},
+		{
+			"id": "vehicles/suv",
+			"min": [
+				-0.75,
+				0.0,
+				-1.34999990463257
+			],
+			"path": "res://assets/environment/vehicles/suv.glb",
+			"size": [
+				1.5,
+				1.30000007152557,
+				2.69999980926514
+			],
+			"triangles": 2474
+		},
+		{
+			"id": "vehicles/taxi",
+			"min": [
+				-0.75,
+				0.0,
+				-1.39999985694885
+			],
+			"path": "res://assets/environment/vehicles/taxi.glb",
+			"size": [
+				1.5,
+				1.49999988079071,
+				2.74999976158142
+			],
+			"triangles": 2072
+		},
+		{
+			"id": "vehicles/tractor-police",
+			"min": [
+				-0.671038627624512,
+				0.0,
+				-1.10077631473541
+			],
+			"path": "res://assets/environment/vehicles/tractor-police.glb",
+			"size": [
+				1.34207725524902,
+				1.70205318927765,
+				2.30155253410339
+			],
+			"triangles": 2278
+		},
+		{
+			"id": "vehicles/tractor-shovel",
+			"min": [
+				-0.830280005931854,
+				0.0,
+				-1.23503077030182
+			],
+			"path": "res://assets/environment/vehicles/tractor-shovel.glb",
+			"size": [
+				1.66056001186371,
+				1.51202499866486,
+				2.47006177902222
+			],
+			"triangles": 2646
+		},
+		{
+			"id": "vehicles/tractor",
+			"min": [
+				-0.671038508415222,
+				0.0,
+				-1.10077631473541
+			],
+			"path": "res://assets/environment/vehicles/tractor.glb",
+			"size": [
+				1.34207701683044,
+				1.60205316543579,
+				2.20155262947083
+			],
+			"triangles": 2044
+		},
+		{
+			"id": "vehicles/truck-flat",
+			"min": [
+				-0.75,
+				0.0,
+				-1.37255716323853
+			],
+			"path": "res://assets/environment/vehicles/truck-flat.glb",
+			"size": [
+				1.5,
+				1.29999995231628,
+				2.74511432647705
+			],
+			"triangles": 2488
+		},
+		{
+			"id": "vehicles/truck",
+			"min": [
+				-0.75,
+				0.0,
+				-1.49999976158142
+			],
+			"path": "res://assets/environment/vehicles/truck.glb",
+			"size": [
+				1.5,
+				1.29999995231628,
+				2.94999957084656
+			],
+			"triangles": 2082
+		},
+		{
+			"id": "vehicles/van",
+			"min": [
+				-0.75,
+				0.0,
+				-1.40000009536743
+			],
+			"path": "res://assets/environment/vehicles/van.glb",
+			"size": [
+				1.5,
+				1.35000002384186,
+				2.75000023841858
+			],
+			"triangles": 2082
+		},
+		{
+			"id": "vehicles/wheel-dark",
+			"min": [
+				-0.200000002980232,
+				-0.300000011920929,
+				-0.300000011920929
+			],
+			"path": "res://assets/environment/vehicles/wheel-dark.glb",
+			"size": [
+				0.400000005960464,
+				0.600000023841858,
+				0.600000023841858
+			],
+			"triangles": 332
+		},
+		{
+			"id": "vehicles/wheel-default",
+			"min": [
+				-0.200000002980232,
+				-0.300000011920929,
+				-0.300000011920929
+			],
+			"path": "res://assets/environment/vehicles/wheel-default.glb",
+			"size": [
+				0.400000005960464,
+				0.600000023841858,
+				0.600000023841858
+			],
+			"triangles": 332
+		},
+		{
+			"id": "vehicles/wheel-racing",
+			"min": [
+				-0.200000002980232,
+				-0.300000011920929,
+				-0.300000011920929
+			],
+			"path": "res://assets/environment/vehicles/wheel-racing.glb",
+			"size": [
+				0.400000005960464,
+				0.600000023841858,
+				0.600000023841858
+			],
+			"triangles": 332
+		},
+		{
+			"id": "vehicles/wheel-tractor-back",
+			"min": [
+				-0.268790006637573,
+				-0.437579959630966,
+				-0.437580019235611
+			],
+			"path": "res://assets/environment/vehicles/wheel-tractor-back.glb",
+			"size": [
+				0.537580013275146,
+				0.875159919261932,
+				0.875160038471222
+			],
+			"triangles": 428
+		},
+		{
+			"id": "vehicles/wheel-tractor-dark-back",
+			"min": [
+				-0.268789976835251,
+				-0.437579959630966,
+				-0.437579959630966
+			],
+			"path": "res://assets/environment/vehicles/wheel-tractor-dark-back.glb",
+			"size": [
+				0.537579953670502,
+				0.875159919261932,
+				0.875159919261932
+			],
+			"triangles": 428
+		},
+		{
+			"id": "vehicles/wheel-tractor-dark-front",
+			"min": [
+				-0.184640005230904,
+				-0.269279986619949,
+				-0.269279986619949
+			],
+			"path": "res://assets/environment/vehicles/wheel-tractor-dark-front.glb",
+			"size": [
+				0.369280010461807,
+				0.538559973239899,
+				0.538559973239899
+			],
+			"triangles": 332
+		},
+		{
+			"id": "vehicles/wheel-tractor-front",
+			"min": [
+				-0.184640005230904,
+				-0.269279986619949,
+				-0.269279986619949
+			],
+			"path": "res://assets/environment/vehicles/wheel-tractor-front.glb",
+			"size": [
+				0.369280010461807,
+				0.538559973239899,
+				0.538559973239899
+			],
+			"triangles": 332
+		},
+		{
+			"id": "vehicles/wheel-truck",
+			"min": [
+				-0.174999997019768,
+				-0.300000011920929,
+				-0.300000011920929
+			],
+			"path": "res://assets/environment/vehicles/wheel-truck.glb",
+			"size": [
+				0.350000023841858,
+				0.600000023841858,
+				0.600000023841858
+			],
+			"triangles": 428
+		}
+	],
+	"schema_version": 1
+}

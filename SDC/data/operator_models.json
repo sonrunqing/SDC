@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "units": "metres",
+  "origin": "feet, facing -Z",
+  "assets": [
+    {
+      "id": "operator",
+      "kind": "body",
+      "path": "res://assets/operator/operator.glb",
+      "triangles": 8788,
+      "sha256": "b031f71728dbe501b36ab289e5bf0d4c42c06b57883b515b457db18e5eefb83c"
+    },
+    {
+      "id": "helmet_moss_1a",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_1a.glb",
+      "triangles": 1732,
+      "sha256": "fb0f8babae5fa5a7e0132b9ff5983ce91a836daa2041da9667603827cc4e937f"
+    },
+    {
+      "id": "helmet_moss_1b",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_1b.glb",
+      "triangles": 1732,
+      "sha256": "49abe5bdb61634e7631cf17eeef6e93ad9491bd024c2163990560985d96077a5"
+    },
+    {
+      "id": "helmet_moss_1c",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_1c.glb",
+      "triangles": 1732,
+      "sha256": "43f7e1b298ff4b327a730b83291fee7809402e6ae2d436fb8aa2aba1eaa61352"
+    },
+    {
+      "id": "body_armor_fiber_1a",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_1a.glb",
+      "triangles": 4320,
+      "sha256": "2b9e96ee526730f50cec85175a0775d88ddd16e407baa6002a6752d419ae0da3"
+    },
+    {
+      "id": "body_armor_fiber_1b",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_1b.glb",
+      "triangles": 4320,
+      "sha256": "4370efc9126432aad9091ab13b11b1a663d3a71af27fef716f444aa1d44d639a"
+    },
+    {
+      "id": "body_armor_fiber_1c",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_1c.glb",
+      "triangles": 4320,
+      "sha256": "00130c6aa5d8a45ca345c794e65f051cf921ef6c3d9dfcf0344103dda5d85659"
+    },
+    {
+      "id": "helmet_moss_2a",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_2a.glb",
+      "triangles": 1732,
+      "sha256": "725f9b32e843a55e01148f733ce58a62b07007c51cc4b2c7962353b25eebf31b"
+    },
+    {
+      "id": "helmet_moss_2b",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_2b.glb",
+      "triangles": 1732,
+      "sha256": "8cfb2d8c5eed74c35cce0e8acd1422c98528fbb98246d0d795055027078c41c6"
+    },
+    {
+      "id": "helmet_moss_2c",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_2c.glb",
+      "triangles": 1732,
+      "sha256": "4edba6ac3fe7fbb88ef5257c588db45317f0f4f14e798ae7b2bde35d9431bc39"
+    },
+    {
+      "id": "body_armor_fiber_2a",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_2a.glb",
+      "triangles": 4320,
+      "sha256": "bd7e39dec19406c8bb06b0f53a922ea24eedbf569a8018d91b0e5ac459cb7305"
+    },
+    {
+      "id": "body_armor_fiber_2b",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_2b.glb",
+      "triangles": 4320,
+      "sha256": "bf96869c35d05e2a0ac2136698d690c696435a19e6111bec2005e2f7157d1349"
+    },
+    {
+      "id": "body_armor_fiber_2c",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_2c.glb",
+      "triangles": 4320,
+      "sha256": "3159fdca03edfe97842ec599f940877bc69c66cfb1a1959750f5f4a3fe2d2da3"
+    },
+    {
+      "id": "helmet_moss_3a",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_3a.glb",
+      "triangles": 1840,
+      "sha256": "b36227d060f39bbcc12612d3810569617067a366c32a850435e63bdca136fb79"
+    },
+    {
+      "id": "helmet_moss_3b",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_3b.glb",
+      "triangles": 1840,
+      "sha256": "11ecad73177ae68836ef3e4c51607f0c54a2d525f137b861e93c328b3df7d8ba"
+    },
+    {
+      "id": "helmet_moss_3c",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_3c.glb",
+      "triangles": 1840,
+      "sha256": "a4b754967749766062603394255fe73444cd0889957a9915ea9f59510f014d52"
+    },
+    {
+      "id": "body_armor_fiber_3a",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_3a.glb",
+      "triangles": 4428,
+      "sha256": "404bb3d4a1ba896f079a0ed5e84c3173aaf884d6b400a415b7b8a0842ff09dca"
+    },
+    {
+      "id": "body_armor_fiber_3b",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_3b.glb",
+      "triangles": 4428,
+      "sha256": "15d1d6ec296ccc546381b1ec001f027225761dff03b59ff2c913e0fa675362f2"
+    },
+    {
+      "id": "body_armor_fiber_3c",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_3c.glb",
+      "triangles": 4428,
+      "sha256": "42ca1de1e69f935f711d30f242691ed14c461e9f68356f505d4f73f47c199b6e"
+    },
+    {
+      "id": "helmet_moss_4a",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_4a.glb",
+      "triangles": 1840,
+      "sha256": "ad146a375a913a72ef071ab88098bb6fdc63ec18c84ad5e6a9b0844d122eb375"
+    },
+    {
+      "id": "helmet_moss_4b",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_4b.glb",
+      "triangles": 1840,
+      "sha256": "ab3da62a6143ff72c18d73ba2b1e8d984be0c514e648cd702eef41bcf74b7114"
+    },
+    {
+      "id": "helmet_moss_4c",
+      "kind": "helmet",
+      "path": "res://assets/operator/equipment/helmet_moss_4c.glb",
+      "triangles": 1840,
+      "sha256": "66031e89775dcc3e434e20b17ea080e3d9ec16f96a24a429fbec79da8deea009"
+    },
+    {
+      "id": "body_armor_fiber_4a",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_4a.glb",
+      "triangles": 4428,
+      "sha256": "7d04dd4f16f20b3090b2c1c16ebb5bc84ed033ed102b488c28de0bcb14a22907"
+    },
+    {
+      "id": "body_armor_fiber_4b",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_4b.glb",
+      "triangles": 4428,
+      "sha256": "f44250c458933aba56e1586678d0ac5fda81d0cfb95a4f043ac9b3436bca8b0b"
+    },
+    {
+      "id": "body_armor_fiber_4c",
+      "kind": "body_armor",
+      "path": "res://assets/operator/equipment/body_armor_fiber_4c.glb",
+      "triangles": 4428,
+      "sha256": "fb35f8d997383b2afd1387b49a466fbf9766e3f913eae0a00a7f6f8b2372da11"
+    },
+    {
+      "id": "backpack_daypack",
+      "kind": "backpack",
+      "path": "res://assets/operator/equipment/backpack_daypack.glb",
+      "triangles": 1512,
+      "sha256": "d481c114d117885245a58298cef079e01f32ce5c40d8846afed66551b4eee0a4"
+    },
+    {
+      "id": "backpack_scout",
+      "kind": "backpack",
+      "path": "res://assets/operator/equipment/backpack_scout.glb",
+      "triangles": 1512,
+      "sha256": "a453c5d8d990d2753ad0c3748905fc3f85536ee034008dc3eb747641b5bb97e6"
+    },
+    {
+      "id": "backpack_patrol",
+      "kind": "backpack",
+      "path": "res://assets/operator/equipment/backpack_patrol.glb",
+      "triangles": 1512,
+      "sha256": "4a06d48285707e68b64ae6f9f8dc6103025d2e78db77c34456c1e51885a433e8"
+    },
+    {
+      "id": "backpack_hauler",
+      "kind": "backpack",
+      "path": "res://assets/operator/equipment/backpack_hauler.glb",
+      "triangles": 1512,
+      "sha256": "10d343beaefcc28c754f9bd0aa81843ba4d14d90984504c7c732b8eec61f4aa3"
+    },
+    {
+      "id": "armored_rig_scout",
+      "kind": "armored_rig",
+      "path": "res://assets/operator/equipment/armored_rig_scout.glb",
+      "triangles": 4320,
+      "sha256": "dda53d8387ddb915cd5d84ee18e5963b5fa03a749c76f283305a7a9f742e541e"
+    },
+    {
+      "id": "armored_rig_patrol",
+      "kind": "armored_rig",
+      "path": "res://assets/operator/equipment/armored_rig_patrol.glb",
+      "triangles": 4320,
+      "sha256": "f9b605aad701ff2907135399ad04deac820e28b347e5a1fbdae8c4ad75abc89b"
+    },
+    {
+      "id": "armored_rig_operator",
+      "kind": "armored_rig",
+      "path": "res://assets/operator/equipment/armored_rig_operator.glb",
+      "triangles": 4536,
+      "sha256": "df46d78a94a6053a667d3fb08ded2a3a944b85e1ea48a16cf5393e8befd2cb0b"
+    },
+    {
+      "id": "armored_rig_cargo",
+      "kind": "armored_rig",
+      "path": "res://assets/operator/equipment/armored_rig_cargo.glb",
+      "triangles": 4536,
+      "sha256": "32465e50f3feffe48a75268f9117c1a3b621b246b3740d169fafe60ae54c11ab"
+    },
+    {
+      "id": "visor_1a",
+      "kind": "visor",
+      "path": "res://assets/operator/equipment/visor_1a.glb",
+      "triangles": 540,
+      "sha256": "7e2e446ffd0460ba0621e659149191c1b970acd261442cd98c8b153c6011c7b5"
+    },
+    {
+      "id": "visor_1b",
+      "kind": "visor",
+      "path": "res://assets/operator/equipment/visor_1b.glb",
+      "triangles": 540,
+      "sha256": "642c60136f3bb1bab03952982ac5be8e6248a31a149c03888935a1910cb6eb19"
+    },
+    {
+      "id": "visor_2a",
+      "kind": "visor",
+      "path": "res://assets/operator/equipment/visor_2a.glb",
+      "triangles": 540,
+      "sha256": "6ab0162266942334f34ce856313351669f0319c865129445a747ac98286db2c2"
+    },
+    {
+      "id": "visor_2b",
+      "kind": "visor",
+      "path": "res://assets/operator/equipment/visor_2b.glb",
+      "triangles": 540,
+      "sha256": "976ac414837bcc46d9867978cab8230afd48f21acdf07ecf88f9c245bcbcc715"
+    }
+  ]
+}

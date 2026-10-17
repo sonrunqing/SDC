@@ -1,0 +1,28 @@
+# v0.2 assembly and three-weapon contract
+
+## Independent model pipeline
+Every weapon gets an individual GLB at res://assets/modular/weapons/<item_id>.glb, each attachment an individual GLB res://assets/modular/attachments/<item_id>.glb. 24 separate bodies +145 separate accessory assets. Original low-poly modeled assets, NOT references to one shared placeholder. Units metres, forward -Z, up +Y, mount origin defined physically. Gun body includes Node3D Socket_muzzle/grip/stock/magazine/optic/laser/handguard only if supported. No baked-on removable stock/mag/optic in body: default parts can be independent children attached when no custom part. Attachment origin at mount matches socket, so no AABB guessing to attach.
+Model generator owns assets/modular, scripts/generate_models.py, scripts/weapon_assembly.gd, data/weapon_geometry.json(optional).
+WeaponAssembly script extends Node3D (no class_name dependency): set_build(weapon_id:String,parts:Dictionary={})->bool, get_bounds()->AABB (assembly-local), get_socket(slot:String)->Node3D, build_summary()->Dictionary, validate_build()->Array. Adds gun body and separate children to actual socket anchors; removes defaults for replaced slots. Same assembler used both workbench and live raid. Gun bodies differ by weapon class, each item asset distinct.
+Catalog adds visual_model and attachment visual_model per above without changing IDs/counts; can expose model_path(item_id). Compatibility remains Catalog authority. Generator reproducibly persists changes.
+
+## GameState canonical equipment
+loadout keeps helmet/body_armor/backpack/armored_rig/visor plus primary,secondary,sidearm weapon IDs. Nonpistol primary/secondary, pistols sidearm. active_weapon_slot="primary"/"secondary"/"sidearm".
+weapon_builds:Dictionary[weapon_slot->Dictionary[attachment_slot->item_id]]. weapon_ammo:Dictionary[weapon_slot->ammo_id].
+Legacy loadout.weapon and loadout.ammo, attachments, weapon_stats(), get_selected_ammo(), raid_ammo, raid_loaded_ammo continue to reflect active slot for backward compat.
+set_active_weapon(slot:String)->bool changes hand/alias even in raid, never duplicates kit.
+equip_weapon(id:String,target_slot:String)->bool; equip(id) defaults longguns primary/pistols sidearm. unequip supports weapon slot names, weapon means active slot.
+quote_build(weapon_id:String,parts:Dictionary,target_slot:String="primary")->Dictionary {valid:bool,error:String,cost:int,can_afford:bool,missing:Dictionary[id->qty],owned:Dictionary[id->qty],required:Dictionary}. Quote reuse owned stash and pieces of replaced target kit, no mutations. Strictly validates kind/compatibility, pistol slot restrictions, target; all invalid/incomplete selections return error safely.
+buy_build(weapon_id:String,parts:Dictionary,target_slot:String="primary")->bool atomically purchases ONLY missing pieces and equips assembly into target. Returns previous target kit/pieces to stash, consumes requirements and credits once, save once; on failure no changes to cash/inventory/loadout. Default primary so completed longgun goes straight to primary. No separate buy when selecting parts in preview.
+select_weapon_ammo(slot:String,ammo_id:String)->bool validates caliber and selection.
+ammo_carry_plan:Dictionary[ammo_id->round_count], set_ammo_carry(ammo_id:String,quantity:int)->bool before raid.
+Raid reserves each planned ammo ID once (shared caliber guns share same reserve), rejects quantities above owned and overweight before any mutation. raid_ammo_by_id:Dictionary; raid_loaded_by_slot:Dictionary. get_raid_ammo(slot:String="")->int; consume_raid_ammo(q:int) active caliber; set_raid_loaded_ammo(q:int) active slot; get_loaded_ammo(slot:String="")->int. reserve/loaded summed once for weight.
+Beginning raid each equipped gun can load a magazine from its selected ammo reserve without minting ammo. All carried guns, build parts, planned ammo and meds count in raid_weight and all are lost on death/kept after extraction. Successful finish returns all loaded/reserve ammo once (not just currentlyheldgun). Save schema migration old weapon+attachments ->primary; preserve old save, no reset or silent free gear. Tests isolate saves.
+
+## Workbench UI draft
+Main owns _draft_weapon:String,_draft_parts:Dictionary,_draft_target:String. Select any catalog gun (not just owned), pick valid socket then compatible parts, update live preview immediately WITHOUT changing stash/cash/loadout. Remove/change preview parts, rotate/zoom preview. Show quote (owned vs missing, total), final one button to buy missing parts and equip complete build. Installed equipment only changes on successful buy_build. Choosing handgun target sidearm; longgun defaultprimary with explicitsecondaryoption.
+Workbench has socket buttons showing current parts, compatible list and detail. Clearly distinguish draft and currentlycarried kit. Do NOT immediately buy each clicked part.
+Deployment/stash show3slots and pergun ammo selection/carried rounds; ammo quantity controls. Active gun alone legacy for stats; all3 visible. Inventory actions explicit equip toprimary/secondary/sidearm. HUD firearm buttons1/2/3, keyboard1/2/3; world switching real magazine/stat/model and reserve, no free reload or ammo duplication. Root owns interactive weapon_preview.gd which calls same assembler; UI uses set_weapon(id,parts), must update existingpreview rather than reconstruct after everymouse drag.
+
+## Display and tuning in 0.2.2
+The workbench and weapon details display one 0–100 composite performance bar. Internal damage, velocity and distance curves stay out of the HUD. Catalog.shot_profile/shot_damage use scripts/ballistics.gd. Economy tuning is centralized in balance_rules.py and generated items.json; see BALLISTICS_AND_ECONOMY.md.

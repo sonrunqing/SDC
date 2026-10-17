@@ -1,0 +1,26 @@
+[
+  {
+    "name": "city-kit-industrial",
+    "source": "https://kenney.nl/assets/city-kit-industrial",
+    "download": "https://kenney.nl/media/pages/assets/city-kit-industrial/0ec35b139d-1788171848/kenney_city-kit-industrial_2.0.zip",
+    "license": "CC0-1.0",
+    "sha256": "5b381164e5760f3830a2dbee43b972deee38b2a695d091b56e238ab2910c96d2",
+    "model_count": 37
+  },
+  {
+    "name": "factory-kit",
+    "source": "https://kenney.nl/assets/factory-kit",
+    "download": "https://kenney.nl/media/pages/assets/factory-kit/edaac9d4f6-1777639602/kenney_factory-kit_3.0.zip",
+    "license": "CC0-1.0",
+    "sha256": "7e31fb2308e90304672bd15cd18fa9d9f02c03731a8cbc57a8e3e1c181dfb0a7",
+    "model_count": 143
+  },
+  {
+    "name": "car-kit",
+    "source": "https://kenney.nl/assets/car-kit",
+    "download": "https://kenney.nl/media/pages/assets/car-kit/1a312ec241-1775131960/kenney_car-kit.zip",
+    "license": "CC0-1.0",
+    "sha256": "fac7dacac5c7874348cf19729af3ef205f3d366493edaf0a827d93f4fdf3d0c4",
+    "model_count": 50
+  }
+]

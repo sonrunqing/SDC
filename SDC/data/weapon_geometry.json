@@ -1,0 +1,2915 @@
+{
+  "schema_version": 1,
+  "units": "metres",
+  "up": "+Y",
+  "forward": "-Z",
+  "origin": "receiver center, attachments at physical mount",
+  "provenance": {
+    "author": "SDC original procedural hard-surface models",
+    "license": "CC0-1.0",
+    "external_meshes": false
+  },
+  "weapons": {
+    "weapon_reed9": {
+      "front": 0.39,
+      "back": 0.135,
+      "width": 0.073,
+      "variant": 0,
+      "category": "smg",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.39
+        ],
+        "grip": [
+          0,
+          -0.044,
+          -0.23
+        ],
+        "stock": [
+          0,
+          0,
+          0.135
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.040499999999999994,
+          0,
+          -0.25
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_reed9_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_reed9_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_reed9_handguard.glb"
+      }
+    },
+    "weapon_lynx45": {
+      "front": 0.415,
+      "back": 0.14700000000000002,
+      "width": 0.073,
+      "variant": 1,
+      "category": "smg",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.415
+        ],
+        "grip": [
+          0,
+          -0.044,
+          -0.23
+        ],
+        "stock": [
+          0,
+          0,
+          0.14700000000000002
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.040499999999999994,
+          0,
+          -0.25
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_lynx45_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_lynx45_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_lynx45_handguard.glb"
+      }
+    },
+    "weapon_kestrel57": {
+      "front": 0.365,
+      "back": 0.135,
+      "width": 0.073,
+      "variant": 2,
+      "category": "smg",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.365
+        ],
+        "stock": [
+          0,
+          0,
+          0.135
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.040499999999999994,
+          0,
+          -0.25
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_kestrel57_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_kestrel57_magazine.glb"
+      }
+    },
+    "weapon_swift9": {
+      "front": 0.345,
+      "back": 0.127,
+      "width": 0.073,
+      "variant": 3,
+      "category": "smg",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.345
+        ],
+        "stock": [
+          0,
+          0,
+          0.127
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.040499999999999994,
+          0,
+          -0.25
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_swift9_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_swift9_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_swift9_handguard.glb"
+      }
+    },
+    "weapon_badger556": {
+      "front": 0.56,
+      "back": 0.15,
+      "width": 0.078,
+      "variant": 0,
+      "category": "rifle",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.56
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.15
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.043,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_badger556_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_badger556_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_badger556_handguard.glb"
+      }
+    },
+    "weapon_cedar545": {
+      "front": 0.585,
+      "back": 0.162,
+      "width": 0.078,
+      "variant": 1,
+      "category": "rifle",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.585
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.162
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.043,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_cedar545_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_cedar545_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_cedar545_handguard.glb"
+      }
+    },
+    "weapon_jackal762": {
+      "front": 0.535,
+      "back": 0.15,
+      "width": 0.078,
+      "variant": 2,
+      "category": "rifle",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.535
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.15
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.043,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_jackal762_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_jackal762_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_jackal762_handguard.glb"
+      }
+    },
+    "weapon_manta300": {
+      "front": 0.49,
+      "back": 0.142,
+      "width": 0.078,
+      "variant": 3,
+      "category": "rifle",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.49
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.142
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.043,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_manta300_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_manta300_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_manta300_handguard.glb"
+      }
+    },
+    "weapon_heron308": {
+      "front": 0.78,
+      "back": 0.17,
+      "width": 0.072,
+      "variant": 0,
+      "category": "sniper",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.78
+        ],
+        "grip": [
+          0,
+          -0.048,
+          -0.5694
+        ],
+        "stock": [
+          0,
+          0,
+          0.17
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.039999999999999994,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_heron308_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_heron308_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_heron308_handguard.glb"
+      }
+    },
+    "weapon_falcon762r": {
+      "front": 0.805,
+      "back": 0.18200000000000002,
+      "width": 0.072,
+      "variant": 1,
+      "category": "sniper",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.805
+        ],
+        "stock": [
+          0,
+          0,
+          0.18200000000000002
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_falcon762r_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_falcon762r_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_falcon762r_handguard.glb"
+      }
+    },
+    "weapon_osprey338": {
+      "front": 0.755,
+      "back": 0.17,
+      "width": 0.072,
+      "variant": 2,
+      "category": "sniper",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.755
+        ],
+        "grip": [
+          0,
+          -0.048,
+          -0.55115
+        ],
+        "stock": [
+          0,
+          0,
+          0.17
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.039999999999999994,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_osprey338_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_osprey338_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_osprey338_handguard.glb"
+      }
+    },
+    "weapon_wren556": {
+      "front": 0.68,
+      "back": 0.162,
+      "width": 0.072,
+      "variant": 3,
+      "category": "sniper",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.68
+        ],
+        "grip": [
+          0,
+          -0.048,
+          -0.4964
+        ],
+        "stock": [
+          0,
+          0,
+          0.162
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_wren556_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_wren556_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_wren556_handguard.glb"
+      }
+    },
+    "weapon_boar12": {
+      "front": 0.7,
+      "back": 0.16,
+      "width": 0.066,
+      "variant": 0,
+      "category": "shotgun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.7
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.16
+        ],
+        "magazine": [
+          0,
+          -0.038,
+          -0.14
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.037000000000000005,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_boar12_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_boar12_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_boar12_handguard.glb"
+      }
+    },
+    "weapon_ram12": {
+      "front": 0.725,
+      "back": 0.17200000000000001,
+      "width": 0.066,
+      "variant": 1,
+      "category": "shotgun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.725
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.17200000000000001
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.037000000000000005,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_ram12_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_ram12_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_ram12_handguard.glb"
+      }
+    },
+    "weapon_fox20": {
+      "front": 0.675,
+      "back": 0.16,
+      "width": 0.066,
+      "variant": 2,
+      "category": "shotgun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.675
+        ],
+        "stock": [
+          0,
+          0,
+          0.16
+        ],
+        "magazine": [
+          0,
+          -0.038,
+          -0.14
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.037000000000000005,
+          -0.004,
+          -0.26
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_fox20_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_fox20_magazine.glb"
+      }
+    },
+    "weapon_elk12": {
+      "front": 0.76,
+      "back": 0.152,
+      "width": 0.066,
+      "variant": 3,
+      "category": "shotgun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.76
+        ],
+        "stock": [
+          0,
+          0,
+          0.152
+        ],
+        "magazine": [
+          0,
+          0,
+          -0.12
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_elk12_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_elk12_magazine.glb"
+      }
+    },
+    "weapon_bison556": {
+      "front": 0.7,
+      "back": 0.18,
+      "width": 0.105,
+      "variant": 0,
+      "category": "machine_gun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.7
+        ],
+        "grip": [
+          0,
+          -0.048,
+          -0.511
+        ],
+        "stock": [
+          0,
+          0,
+          0.18
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.056499999999999995,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_bison556_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_bison556_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_bison556_handguard.glb"
+      }
+    },
+    "weapon_yak762": {
+      "front": 0.725,
+      "back": 0.192,
+      "width": 0.105,
+      "variant": 1,
+      "category": "machine_gun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.725
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.192
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.056499999999999995,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_yak762_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_yak762_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_yak762_handguard.glb"
+      }
+    },
+    "weapon_rhino762r": {
+      "front": 0.675,
+      "back": 0.18,
+      "width": 0.105,
+      "variant": 2,
+      "category": "machine_gun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.675
+        ],
+        "grip": [
+          0,
+          -0.048,
+          -0.49275
+        ],
+        "stock": [
+          0,
+          0,
+          0.18
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.056499999999999995,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_rhino762r_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_rhino762r_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_rhino762r_handguard.glb"
+      }
+    },
+    "weapon_aurochs556": {
+      "front": 0.655,
+      "back": 0.172,
+      "width": 0.105,
+      "variant": 3,
+      "category": "machine_gun",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.655
+        ],
+        "grip": [
+          0,
+          -0.047,
+          -0.29
+        ],
+        "stock": [
+          0,
+          0,
+          0.172
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          -0.035
+        ],
+        "optic": [
+          0,
+          0.077,
+          -0.012
+        ],
+        "laser": [
+          0.056499999999999995,
+          -0.004,
+          -0.26
+        ],
+        "handguard": [
+          0,
+          0,
+          -0.16
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_aurochs556_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_aurochs556_magazine.glb",
+        "handguard": "res://assets/modular/defaults/weapon_aurochs556_handguard.glb"
+      }
+    },
+    "weapon_finch9": {
+      "front": 0.16,
+      "back": 0.065,
+      "width": 0.035,
+      "variant": 0,
+      "category": "pistol",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.16
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          0.04
+        ],
+        "optic": [
+          0,
+          0.05,
+          -0.012
+        ],
+        "laser": [
+          0,
+          -0.035,
+          -0.085
+        ]
+      },
+      "defaults": {
+        "magazine": "res://assets/modular/defaults/weapon_finch9_magazine.glb"
+      }
+    },
+    "weapon_ember45": {
+      "front": 0.185,
+      "back": 0.077,
+      "width": 0.035,
+      "variant": 1,
+      "category": "pistol",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.185
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          0.04
+        ],
+        "laser": [
+          0,
+          -0.035,
+          -0.085
+        ]
+      },
+      "defaults": {
+        "magazine": "res://assets/modular/defaults/weapon_ember45_magazine.glb"
+      }
+    },
+    "weapon_moth57": {
+      "front": 0.135,
+      "back": 0.065,
+      "width": 0.035,
+      "variant": 2,
+      "category": "pistol",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.135
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          0.04
+        ],
+        "optic": [
+          0,
+          0.05,
+          -0.012
+        ],
+        "laser": [
+          0,
+          -0.035,
+          -0.085
+        ]
+      },
+      "defaults": {
+        "magazine": "res://assets/modular/defaults/weapon_moth57_magazine.glb"
+      }
+    },
+    "weapon_raven9": {
+      "front": 0.115,
+      "back": 0.057,
+      "width": 0.035,
+      "variant": 3,
+      "category": "pistol",
+      "sockets": {
+        "muzzle": [
+          0,
+          0,
+          -0.115
+        ],
+        "stock": [
+          0,
+          0,
+          0.057
+        ],
+        "magazine": [
+          0,
+          -0.057,
+          0.04
+        ],
+        "optic": [
+          0,
+          0.05,
+          -0.012
+        ],
+        "laser": [
+          0,
+          -0.035,
+          -0.085
+        ]
+      },
+      "defaults": {
+        "stock": "res://assets/modular/defaults/weapon_raven9_stock.glb",
+        "magazine": "res://assets/modular/defaults/weapon_raven9_magazine.glb"
+      }
+    }
+  },
+  "assets": [
+    {
+      "id": "weapon_reed9",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_reed9.glb",
+      "triangles": 1560,
+      "bytes": 87236,
+      "sha256": "1307942fcf1455b5a78d774cbbf416acd08e3db0f65a1c53f735c1d15ce24123"
+    },
+    {
+      "id": "weapon_lynx45",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_lynx45.glb",
+      "triangles": 1560,
+      "bytes": 87236,
+      "sha256": "0f1657c1a233e962b4b686fd4ee4e24072d194e4a82c92febacf1cec05775f10"
+    },
+    {
+      "id": "weapon_kestrel57",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_kestrel57.glb",
+      "triangles": 1484,
+      "bytes": 82212,
+      "sha256": "33c92b8504a829d43f98a2478e0b5b73c351b15ef7db59756f3eb476416b63e5"
+    },
+    {
+      "id": "weapon_swift9",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_swift9.glb",
+      "triangles": 1560,
+      "bytes": 87152,
+      "sha256": "a78c128edf7c1e1746b56bb18b5ea4e85bde223a5ef37e19a7ef6cf874fbc412"
+    },
+    {
+      "id": "weapon_badger556",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_badger556.glb",
+      "triangles": 1560,
+      "bytes": 87280,
+      "sha256": "cfbd02ae8021048225e5169c283fdf066b9ac289236f28962417498257ffd9fb"
+    },
+    {
+      "id": "weapon_cedar545",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_cedar545.glb",
+      "triangles": 1560,
+      "bytes": 87272,
+      "sha256": "9e9d136dc6187865da73171de9934d268243c7d5b3c4cd7e8595951e59ac47d8"
+    },
+    {
+      "id": "weapon_jackal762",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_jackal762.glb",
+      "triangles": 1560,
+      "bytes": 86464,
+      "sha256": "ad77f3f2cb6830a2aad0595676729012ff2da4f231411e934aa2138547ab1cf0"
+    },
+    {
+      "id": "weapon_manta300",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_manta300.glb",
+      "triangles": 1560,
+      "bytes": 87280,
+      "sha256": "c382925cd5a51000d163f3e33d51468e376820764a9e72e50c1c07cb14f61e52"
+    },
+    {
+      "id": "weapon_heron308",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_heron308.glb",
+      "triangles": 1444,
+      "bytes": 79764,
+      "sha256": "24730e7b1b76303506237a31c5c26d3cf845b894ff6369bf38834623fb685fb4"
+    },
+    {
+      "id": "weapon_falcon762r",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_falcon762r.glb",
+      "triangles": 1472,
+      "bytes": 81956,
+      "sha256": "e63c556821fdaf93eed150420affc893d8a021af491435eb188b5a53a7efa48f"
+    },
+    {
+      "id": "weapon_osprey338",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_osprey338.glb",
+      "triangles": 1444,
+      "bytes": 78960,
+      "sha256": "c23ab47c12335c4e58c153ab0cd8aa18c6677142422d4bb84bea97909e941c7e"
+    },
+    {
+      "id": "weapon_wren556",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_wren556.glb",
+      "triangles": 1472,
+      "bytes": 82040,
+      "sha256": "1742060424c36cb8f9d98b214f217668b55b75661f1b93f585f0fd7bf22f3ac8"
+    },
+    {
+      "id": "weapon_boar12",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_boar12.glb",
+      "triangles": 1472,
+      "bytes": 82144,
+      "sha256": "114f2a663497c29efebf454f8b4a2453887f3d0c645115a4234adb16f77bde7b"
+    },
+    {
+      "id": "weapon_ram12",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_ram12.glb",
+      "triangles": 1472,
+      "bytes": 82136,
+      "sha256": "cf4940fded40dbb1d50e945e2c5cdc70a35b78e53fb0a17fad23a36f4d923ad9"
+    },
+    {
+      "id": "weapon_fox20",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_fox20.glb",
+      "triangles": 1516,
+      "bytes": 83736,
+      "sha256": "fcfee52bec60be277a63ecc91ee71e1daa87304ce93e544315d9fb414455ab0c"
+    },
+    {
+      "id": "weapon_elk12",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_elk12.glb",
+      "triangles": 1564,
+      "bytes": 84988,
+      "sha256": "0fcb88bad768629014a79f8ec240533b5ff39811a4b768d489ef394e8832e244"
+    },
+    {
+      "id": "weapon_bison556",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_bison556.glb",
+      "triangles": 1688,
+      "bytes": 93812,
+      "sha256": "010d3524ee0e321146c2bc815c5128beda64ee9a673acb693e1761a2ee3e9855"
+    },
+    {
+      "id": "weapon_yak762",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_yak762.glb",
+      "triangles": 1688,
+      "bytes": 93808,
+      "sha256": "bca05c942ae2a3b299944ef900c0511534cfe5ceb0b73b6ac3ba834059b2f44f"
+    },
+    {
+      "id": "weapon_rhino762r",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_rhino762r.glb",
+      "triangles": 1688,
+      "bytes": 92992,
+      "sha256": "43d9c2d0c13873d7ab38d42e4b4c2f3ee5b7ae01b4accd4b8487f3142ee829e8"
+    },
+    {
+      "id": "weapon_aurochs556",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_aurochs556.glb",
+      "triangles": 1688,
+      "bytes": 93816,
+      "sha256": "ca2356cd5f3a222376937240e3a0edca0a607c2a3a4fb033716bfcc172ab14ab"
+    },
+    {
+      "id": "weapon_finch9",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_finch9.glb",
+      "triangles": 724,
+      "bytes": 44440,
+      "sha256": "69cb8c9605dba66dca86cac0206f640d56014408a8c9da100182dc7e87829181"
+    },
+    {
+      "id": "weapon_ember45",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_ember45.glb",
+      "triangles": 724,
+      "bytes": 44344,
+      "sha256": "fc1e0e04d6d44dee53c9cf3fa1f7be0f53c18820cfba625c2807cdb1f87a6eee"
+    },
+    {
+      "id": "weapon_moth57",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_moth57.glb",
+      "triangles": 724,
+      "bytes": 43620,
+      "sha256": "6eb9d6b202825875b953a68ebf4f24e45c1f635c47594238cacfbb4b468e5d43"
+    },
+    {
+      "id": "weapon_raven9",
+      "kind": "weapon",
+      "path": "res://assets/modular/weapons/weapon_raven9.glb",
+      "triangles": 724,
+      "bytes": 44500,
+      "sha256": "8b5fd94a98dc796c43fe8ba5fe169f71055b6653c779297861ea7894f979276d"
+    },
+    {
+      "id": "att_suppressor_9_13",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_9_13.glb",
+      "triangles": 1600,
+      "bytes": 70092,
+      "sha256": "94e87b5e0c35452e06c0b875a29ce36ec7a976c231d0581ee08161843f7f4c45"
+    },
+    {
+      "id": "att_flash_hider_9_13",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_9_13.glb",
+      "triangles": 368,
+      "bytes": 20480,
+      "sha256": "b0df5fb4f6af8eb513a8f88be31780d11a025938feae00c5d2632fc0b91533bb"
+    },
+    {
+      "id": "att_compensator_9_13",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_9_13.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "a91b630e0fd44c5dae47c5fa5b90cdabf8a8324bf1a8e0cd17c8dd69dfae60aa"
+    },
+    {
+      "id": "att_muzzle_brake_9_13",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_9_13.glb",
+      "triangles": 588,
+      "bytes": 34044,
+      "sha256": "d5cfb51968ab69aea59d9571119f3e67527f7ef7dbcc83e3be5c98c03fc94b7e"
+    },
+    {
+      "id": "att_suppressor_45_16",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_45_16.glb",
+      "triangles": 1600,
+      "bytes": 70092,
+      "sha256": "d012f5c010d232efd1af538df444b9ad1c1d72f7d674281ebc5cf6711653761f"
+    },
+    {
+      "id": "att_flash_hider_45_16",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_45_16.glb",
+      "triangles": 368,
+      "bytes": 20480,
+      "sha256": "775999a6f6b6873fb51968e6e8c6c8d850e1d054f7bd9749b5f61c022e9b3e1c"
+    },
+    {
+      "id": "att_compensator_45_16",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_45_16.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "93770af805d20d95aff644240eb04fb5aaedfa91f6c46ddc79113ebe296e37eb"
+    },
+    {
+      "id": "att_muzzle_brake_45_16",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_45_16.glb",
+      "triangles": 588,
+      "bytes": 34048,
+      "sha256": "8cb2c2273d0f04ba80b99417d5c7ff1edbd8ce1108f035f3d05e3f8356155e47"
+    },
+    {
+      "id": "att_suppressor_57_10",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_57_10.glb",
+      "triangles": 1600,
+      "bytes": 70096,
+      "sha256": "5e86646a880a8fad03d07443e043cdabcc5ab28d3e1b8633c94c3d584b0f12ab"
+    },
+    {
+      "id": "att_flash_hider_57_10",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_57_10.glb",
+      "triangles": 368,
+      "bytes": 20480,
+      "sha256": "e00c8e831a9e18ca32906880fcd4ab4b665fe0f08fa13b87c29d705b968ad318"
+    },
+    {
+      "id": "att_compensator_57_10",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_57_10.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "21a4d4ee7176a6a03614b7dd217cd9022da58e5d95987edaf64592141d8b3ba9"
+    },
+    {
+      "id": "att_muzzle_brake_57_10",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_57_10.glb",
+      "triangles": 588,
+      "bytes": 34044,
+      "sha256": "d579212c215a659ff807a33dfa37a63d3146580747643225f536eb0e128f8131"
+    },
+    {
+      "id": "att_suppressor_556_12",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_556_12.glb",
+      "triangles": 1600,
+      "bytes": 70092,
+      "sha256": "79dc9bf9ebd1bbfd0eb0a92f7674023277e023f41abdbf213cf26a1837ea6c1b"
+    },
+    {
+      "id": "att_flash_hider_556_12",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_556_12.glb",
+      "triangles": 368,
+      "bytes": 20484,
+      "sha256": "24f7b7beac7f094c5ca5bbbca7a67dd66ac69c254529471298df06b5820ac264"
+    },
+    {
+      "id": "att_compensator_556_12",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_556_12.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "35a0f4eb5144559aa818345799c58a6149193f2e66bc6f7db86220265e8c834d"
+    },
+    {
+      "id": "att_muzzle_brake_556_12",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_556_12.glb",
+      "triangles": 588,
+      "bytes": 34048,
+      "sha256": "c394cea38c6fe71e1fc268ffd2354e67b9be6ef389a578f2209f8f4ef1368c3e"
+    },
+    {
+      "id": "att_suppressor_545_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_545_14.glb",
+      "triangles": 1600,
+      "bytes": 70092,
+      "sha256": "c703a661363697d2c8675354cf47d7829227fc91d5bab3e6813d0129dc174251"
+    },
+    {
+      "id": "att_flash_hider_545_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_545_14.glb",
+      "triangles": 368,
+      "bytes": 20484,
+      "sha256": "c9d539a1eb98135f7f4f1fedd810c8c139d6241ddcca786c2244e162d8dbf73e"
+    },
+    {
+      "id": "att_compensator_545_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_545_14.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "e10ce88ae25b052d53fd7c499f23f00f723c433b447603713f10ba62da6831dc"
+    },
+    {
+      "id": "att_muzzle_brake_545_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_545_14.glb",
+      "triangles": 588,
+      "bytes": 34048,
+      "sha256": "8e36c552db224b55727b9e9fa5722f8c5e5afde94f1f5f282b231b3c7e3e92f4"
+    },
+    {
+      "id": "att_suppressor_762_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_762_14.glb",
+      "triangles": 1600,
+      "bytes": 70096,
+      "sha256": "d67264fe06753b59685af7f81984af15b18586f84047fec85d43f99cb4ac8d49"
+    },
+    {
+      "id": "att_flash_hider_762_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_762_14.glb",
+      "triangles": 368,
+      "bytes": 20476,
+      "sha256": "f88de9a247d067dbf4a07467355b1d7b93e9fb95818a7ba19c2bef5dacf5bb15"
+    },
+    {
+      "id": "att_compensator_762_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_762_14.glb",
+      "triangles": 492,
+      "bytes": 30012,
+      "sha256": "bae41c89f89b904ac65a7014adec1ad6dfacfde975d7d501c150fa73bf944b75"
+    },
+    {
+      "id": "att_muzzle_brake_762_14",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_762_14.glb",
+      "triangles": 588,
+      "bytes": 34052,
+      "sha256": "7be910f22935bbdd8662c24b598f20e68b60080da144688447b143def4947cfc"
+    },
+    {
+      "id": "att_suppressor_308_58",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_308_58.glb",
+      "triangles": 1600,
+      "bytes": 70096,
+      "sha256": "390a6bba8e1e1bbaefbf153ef521e4c2a0cb76ad71ccaa57d45bd7215af89e56"
+    },
+    {
+      "id": "att_flash_hider_308_58",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_308_58.glb",
+      "triangles": 368,
+      "bytes": 20476,
+      "sha256": "d604be9c4f8fa4987c8ed7c57b4bac8b5cf5513b7937b739e8e0878c47006e20"
+    },
+    {
+      "id": "att_compensator_308_58",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_308_58.glb",
+      "triangles": 492,
+      "bytes": 30012,
+      "sha256": "5cce9c1e0cc4c9246c45b2e5665ae7f352bdbb6d47e3d9ab9ea9d7f51bfd5339"
+    },
+    {
+      "id": "att_muzzle_brake_308_58",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_308_58.glb",
+      "triangles": 588,
+      "bytes": 34052,
+      "sha256": "99d1a89a69c84be9ba9510863ec0836043e384132433fa3bfe9e528a0faadd69"
+    },
+    {
+      "id": "att_suppressor_338_34",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_338_34.glb",
+      "triangles": 1600,
+      "bytes": 70096,
+      "sha256": "ca2956c309676dc9c67a75fd2b9c8b46dca1213409bee836eda4efaa589d0de4"
+    },
+    {
+      "id": "att_flash_hider_338_34",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_338_34.glb",
+      "triangles": 368,
+      "bytes": 20476,
+      "sha256": "5442d56e4554f3b62a2798dca0af11e69e6972fbf1a6ce7ffc40d2339cdacbf7"
+    },
+    {
+      "id": "att_compensator_338_34",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_338_34.glb",
+      "triangles": 492,
+      "bytes": 30012,
+      "sha256": "7209cfe3822c6be8e5f4fcfdf01e31fb7ed05a5ecbba88314fbc19fb398bb2b2"
+    },
+    {
+      "id": "att_muzzle_brake_338_34",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_338_34.glb",
+      "triangles": 588,
+      "bytes": 34052,
+      "sha256": "df1a89163f8e4f2a4638326abe9a4d8344e0917ab2e5913699463650b28b92b2"
+    },
+    {
+      "id": "att_suppressor_12_m22",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_12_m22.glb",
+      "triangles": 1600,
+      "bytes": 70096,
+      "sha256": "f29e7fba857360916c41b548a16849ecf5b20112b518ceb98f4e1d0154e34f0f"
+    },
+    {
+      "id": "att_flash_hider_12_m22",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_12_m22.glb",
+      "triangles": 368,
+      "bytes": 20468,
+      "sha256": "3d110791a64f04a09884a5f27e020af27202c0eead401f2402792db9825c0a11"
+    },
+    {
+      "id": "att_compensator_12_m22",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_12_m22.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "dbc0281dedf09061e5d3f9f90e48174ce9edd5e7a60991016da3016724555a23"
+    },
+    {
+      "id": "att_muzzle_brake_12_m22",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_12_m22.glb",
+      "triangles": 588,
+      "bytes": 34048,
+      "sha256": "86c8279c406843a08a6a86422ba6faae41dd0145c6d856c77597907de04b1a58"
+    },
+    {
+      "id": "att_suppressor_20_m20",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_suppressor_20_m20.glb",
+      "triangles": 1600,
+      "bytes": 70096,
+      "sha256": "d36551981a0e8c4c6502786d8dbd91c534ce99073bbe6b1629ff8e889e5bf405"
+    },
+    {
+      "id": "att_flash_hider_20_m20",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_flash_hider_20_m20.glb",
+      "triangles": 368,
+      "bytes": 20468,
+      "sha256": "e822e6c2cba93015593bf47c94569b510ebc841331b8e9badde1c17f5a530dc4"
+    },
+    {
+      "id": "att_compensator_20_m20",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_compensator_20_m20.glb",
+      "triangles": 492,
+      "bytes": 30008,
+      "sha256": "ec1942a2ff39f2cc6e54a7487562379a339715fe76c175fc55e2ebdc98a2384a"
+    },
+    {
+      "id": "att_muzzle_brake_20_m20",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_muzzle_brake_20_m20.glb",
+      "triangles": 588,
+      "bytes": 34048,
+      "sha256": "0eb18f13373d546c15900ff7c34c572016e65011e6772928eed7aa7a5fc930eb"
+    },
+    {
+      "id": "att_grip_vertical",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_vertical.glb",
+      "triangles": 348,
+      "bytes": 23644,
+      "sha256": "b4900169e5764b590399922ac27b242335ff13c812059b8400d597fff0c59717"
+    },
+    {
+      "id": "att_grip_angled",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_angled.glb",
+      "triangles": 84,
+      "bytes": 7424,
+      "sha256": "3f87b63f806319073950eec72adb8e9f0cdd98594fe9b3e1a97c142124e55ff7"
+    },
+    {
+      "id": "att_grip_mlok_rubber",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_mlok_rubber.glb",
+      "triangles": 348,
+      "bytes": 23640,
+      "sha256": "07b3ea0622121d7becdd75013fb5cc4accb60541da951e741b9182c28bc97462"
+    },
+    {
+      "id": "att_grip_mlok_stop",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_mlok_stop.glb",
+      "triangles": 128,
+      "bytes": 10396,
+      "sha256": "84deaa59cd2671ee50506d304c9b3f90b18778fd27b3ae65ef7ee3d45be32d95"
+    },
+    {
+      "id": "att_grip_keymod",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_keymod.glb",
+      "triangles": 348,
+      "bytes": 23636,
+      "sha256": "259eebe003e8c55e352c829f2dbf73dfdc5f5f6bde31108cdfe936219ab6141a"
+    },
+    {
+      "id": "att_grip_bipod",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_bipod.glb",
+      "triangles": 392,
+      "bytes": 23332,
+      "sha256": "53aeef315003b182c53d39beaf34a0b13c551e13f4015c4bb18719ed3938b2b8"
+    },
+    {
+      "id": "att_grip_bipod_carbon",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_bipod_carbon.glb",
+      "triangles": 392,
+      "bytes": 23340,
+      "sha256": "60ffa5a39178ce78ea0c4334d97b570b362e0ec708b52c165ce33885adf53fa6"
+    },
+    {
+      "id": "att_grip_pump",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_grip_pump.glb",
+      "triangles": 424,
+      "bytes": 27724,
+      "sha256": "77becedbab321d7d1dd610ab2b2908859b1fb4481911b99b3d6c2417f3a340ef"
+    },
+    {
+      "id": "att_stock_ar_light",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_ar_light.glb",
+      "triangles": 224,
+      "bytes": 14912,
+      "sha256": "81c6641c37517ee5554865eb4edc3cd48635ac8b1d1f275a063a301e14b42973"
+    },
+    {
+      "id": "att_stock_ar_heavy",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_ar_heavy.glb",
+      "triangles": 304,
+      "bytes": 19148,
+      "sha256": "62ef66ea7e1b9c4e550d3878b7459b90bfdf6d327c4614e02193e6df800d8df6"
+    },
+    {
+      "id": "att_stock_pdw_compact",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_pdw_compact.glb",
+      "triangles": 216,
+      "bytes": 14016,
+      "sha256": "bd11edab130c141080a37a85178d3279cce9323558790a1977de1fb0bf0b4ff7"
+    },
+    {
+      "id": "att_stock_pdw_padded",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_pdw_padded.glb",
+      "triangles": 260,
+      "bytes": 17012,
+      "sha256": "ffccd966e9cb776490af56edbca17fec5604459a4ff88db65f8256fd95f7eb1d"
+    },
+    {
+      "id": "att_stock_fold_light",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_fold_light.glb",
+      "triangles": 216,
+      "bytes": 14012,
+      "sha256": "f696000ff48237eea99ac9544ad894219ede2bc8d6d1389d0d0f7b460884b791"
+    },
+    {
+      "id": "att_stock_fold_braced",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_fold_braced.glb",
+      "triangles": 216,
+      "bytes": 14016,
+      "sha256": "c116e917d205d578b67eb86b125f628ecaeb6d107b454d654021125f4671d885"
+    },
+    {
+      "id": "att_stock_swift",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_swift.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "48316b1fa0073e51e86e0c28450442f640c99a16e59eb75b5d34bafd46c695af"
+    },
+    {
+      "id": "att_stock_cedar",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_cedar.glb",
+      "triangles": 224,
+      "bytes": 14912,
+      "sha256": "47e0371503e0654343c3c110f7d8016b8438a4644f16a6ded72e2a373767efc6"
+    },
+    {
+      "id": "att_stock_bolt",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_bolt.glb",
+      "triangles": 304,
+      "bytes": 19144,
+      "sha256": "af8f92a1c11852bb4df3154c19939264c1633e6ea7d09b53ae441b3468f6f9c2"
+    },
+    {
+      "id": "att_stock_falcon",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_falcon.glb",
+      "triangles": 304,
+      "bytes": 19148,
+      "sha256": "cad4fa8ae455e343f64ac57e979dca35cbc1b4053d264838ac5a9db64963d091"
+    },
+    {
+      "id": "att_stock_shotgun",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_shotgun.glb",
+      "triangles": 304,
+      "bytes": 19148,
+      "sha256": "4c8152e60d55a551426353f533d0da73c41cd2b7e203c5360de8f630885ea6c7"
+    },
+    {
+      "id": "att_stock_fox",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_fox.glb",
+      "triangles": 224,
+      "bytes": 14908,
+      "sha256": "685bb1256bf3fa090b5f2fe5ebaf2b640e233dd81117731f76b1d77d1a48de14"
+    },
+    {
+      "id": "att_stock_bison",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_bison.glb",
+      "triangles": 304,
+      "bytes": 19144,
+      "sha256": "e5f3a2d9fc2b3bc928f51bc56a28d5662eab5a75fb3a75333934ca44d924edcd"
+    },
+    {
+      "id": "att_stock_yak",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_yak.glb",
+      "triangles": 224,
+      "bytes": 14908,
+      "sha256": "dfbdff4e7420ac79f8c74023f6d87a4ed24fa86c2366a57c24fdc391fa624343"
+    },
+    {
+      "id": "att_stock_rhino",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_rhino.glb",
+      "triangles": 304,
+      "bytes": 19144,
+      "sha256": "6f156b6dc49bb78816a1368338b6880bddc18d3282f4d437ad54117f0468494e"
+    },
+    {
+      "id": "att_stock_brace",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_stock_brace.glb",
+      "triangles": 216,
+      "bytes": 14008,
+      "sha256": "5e412c8021d34753117aa2408d024763f61202e3bfa6f034ee25305699d0bb05"
+    },
+    {
+      "id": "att_mag_reed9_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_reed9_quick.glb",
+      "triangles": 408,
+      "bytes": 24572,
+      "sha256": "b17c1cafd179866d6b34ef72a175f8e0c3b5ffc6389d581d5768ceecaa2444eb"
+    },
+    {
+      "id": "att_mag_reed9_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_reed9_extended.glb",
+      "triangles": 452,
+      "bytes": 27568,
+      "sha256": "c8b1cfb97c018db79132aa594f406a9f178eec3c69dd196fe40ecebf5e2a84ad"
+    },
+    {
+      "id": "att_mag_lynx45_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_lynx45_quick.glb",
+      "triangles": 408,
+      "bytes": 24572,
+      "sha256": "4fcb9a11f65ea9f9b4162e0edd8b03668ce34cc243d4e8994ab70890fd766d3c"
+    },
+    {
+      "id": "att_mag_lynx45_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_lynx45_extended.glb",
+      "triangles": 452,
+      "bytes": 27568,
+      "sha256": "80fd77af178eb97d4824f7ddd7cf8c402e1a84cd3e648ca61de5d649aedfce0a"
+    },
+    {
+      "id": "att_mag_kestrel57_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_kestrel57_quick.glb",
+      "triangles": 408,
+      "bytes": 24576,
+      "sha256": "84a3bae50137c772af155ed8ad4f99479eeb25c5a7f33498b8271da71d74b7d4"
+    },
+    {
+      "id": "att_mag_kestrel57_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_kestrel57_extended.glb",
+      "triangles": 452,
+      "bytes": 27572,
+      "sha256": "f15892729cb43355cf0db04ef31814cb0cda6727c77877d8f2916aa63d7e3140"
+    },
+    {
+      "id": "att_mag_swift9_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_swift9_quick.glb",
+      "triangles": 408,
+      "bytes": 24572,
+      "sha256": "37e4dcb89c3ae34a5153154519a4d1726b89ada7a9cc6fcd3051f20b3858be78"
+    },
+    {
+      "id": "att_mag_swift9_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_swift9_extended.glb",
+      "triangles": 452,
+      "bytes": 27568,
+      "sha256": "38becc032182c50757a8b23299e5b62fd4831149180612d507240dde4932afa0"
+    },
+    {
+      "id": "att_mag_badger556_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_badger556_quick.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "fbd69b98dac3cef2d3625c1fa2d35c889935273908277a0d6816f73f13b445fa"
+    },
+    {
+      "id": "att_mag_badger556_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_badger556_extended.glb",
+      "triangles": 540,
+      "bytes": 32708,
+      "sha256": "0a89365863f73d88503b8abc20ca459f9e8cc9db5052bb2222722b9d9f29cfa5"
+    },
+    {
+      "id": "att_mag_cedar545_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_cedar545_quick.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "ff53c9c714b1b15332309bbef04ec994c90e26883924c921efab64239cddd0e9"
+    },
+    {
+      "id": "att_mag_cedar545_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_cedar545_extended.glb",
+      "triangles": 540,
+      "bytes": 32708,
+      "sha256": "96fd229416039ce7439788132b2173d3a24eb028cd455419ad7c6cdeafe601b4"
+    },
+    {
+      "id": "att_mag_jackal762_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_jackal762_quick.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "d7e8955a0109b02ae5745fbceeabbc599c43ba9fe3e8cf961ca15fd31e546819"
+    },
+    {
+      "id": "att_mag_jackal762_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_jackal762_extended.glb",
+      "triangles": 540,
+      "bytes": 32708,
+      "sha256": "4640f3feec215cc1e368776e4d578f1a2f57c7de7343a1e26f621c35af4fd7de"
+    },
+    {
+      "id": "att_mag_manta300_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_manta300_quick.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "6826b7fbf2c70da8663bc211da98044d30ba69f5e7334a837f70f33832623b93"
+    },
+    {
+      "id": "att_mag_manta300_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_manta300_extended.glb",
+      "triangles": 540,
+      "bytes": 32704,
+      "sha256": "688881db16993690bcd43de317e8beba1844fa9e4120c7cf5992c00a8fad7c71"
+    },
+    {
+      "id": "att_mag_heron308_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_heron308_quick.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "f4032ef139337833940cc5fba54a6bafcd1bb800f225d955021973c15b308285"
+    },
+    {
+      "id": "att_mag_heron308_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_heron308_extended.glb",
+      "triangles": 540,
+      "bytes": 32708,
+      "sha256": "6166226c890b6793e6846f991a40aaa4b08b347510cd61e6df4276ff6270222a"
+    },
+    {
+      "id": "att_mag_falcon762r_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_falcon762r_quick.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "5c0446c17f3980a7afa0c895a8a103599a36549c3c84ede166e367d9724fa754"
+    },
+    {
+      "id": "att_mag_falcon762r_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_falcon762r_extended.glb",
+      "triangles": 540,
+      "bytes": 32708,
+      "sha256": "63e5a7e76c3e850ac7999e776b29503eb668b310a306b1675675e75d8fe08394"
+    },
+    {
+      "id": "att_mag_osprey338_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_osprey338_quick.glb",
+      "triangles": 496,
+      "bytes": 29708,
+      "sha256": "24129f9046d85478296dbd9774edcb9e088c88d9e9381eeee4b249814db96c2e"
+    },
+    {
+      "id": "att_mag_osprey338_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_osprey338_extended.glb",
+      "triangles": 540,
+      "bytes": 32704,
+      "sha256": "2dd02db1ced7ce5d4aa587df50e42d0d1a62ab9943884d8c04809d0ece4d7b08"
+    },
+    {
+      "id": "att_mag_boar12_follower",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_boar12_follower.glb",
+      "triangles": 288,
+      "bytes": 13548,
+      "sha256": "5373c5353c2fa443fbebd2ab96d98e9e762ce011ccb98bc540c45ebe42b6fc06"
+    },
+    {
+      "id": "att_mag_boar12_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_boar12_extended.glb",
+      "triangles": 192,
+      "bytes": 9404,
+      "sha256": "f7f533b0f191850a7536fbd1599e3561b3ee3681b48f012b8f548eab9d95fca4"
+    },
+    {
+      "id": "att_mag_ram12_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_ram12_quick.glb",
+      "triangles": 496,
+      "bytes": 29708,
+      "sha256": "a8499997d738b3986c3a4aa4977e1a590556aaa4078b05e5fb22ddb0457f1c82"
+    },
+    {
+      "id": "att_mag_ram12_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_ram12_extended.glb",
+      "triangles": 540,
+      "bytes": 32700,
+      "sha256": "9f202389aa2440ed300f95d4f073decc609da5327ea454a1673716614d1147e0"
+    },
+    {
+      "id": "att_mag_fox20_follower",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_fox20_follower.glb",
+      "triangles": 288,
+      "bytes": 13552,
+      "sha256": "49ec4f5572e98269f1fd3c2c732386a4d2c51988a57fb5ba3765feb13708987d"
+    },
+    {
+      "id": "att_mag_fox20_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_fox20_extended.glb",
+      "triangles": 192,
+      "bytes": 9408,
+      "sha256": "bc19cd372e283e03e18be3eb1e5a08c2bd44ea7d3682f3fa0aa8ff028ebb27d5"
+    },
+    {
+      "id": "att_mag_elk12_speed",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_elk12_speed.glb",
+      "triangles": 176,
+      "bytes": 10124,
+      "sha256": "035faf46d3a180ba52efdc5344960c8a427e1cb28fb71a0625ea00cae69f557a"
+    },
+    {
+      "id": "att_mag_elk12_reinforced",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_elk12_reinforced.glb",
+      "triangles": 176,
+      "bytes": 10128,
+      "sha256": "d11f33f81634504bf9a90d6ba5815edf0af45351db0d1fea779b101f128f212a"
+    },
+    {
+      "id": "att_mag_bison556_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_bison556_quick.glb",
+      "triangles": 308,
+      "bytes": 20892,
+      "sha256": "db1ea558ee1fe0ec47f5c5d3fbd33a5397e81a531a9c364171f5b63e1e9ce3b7"
+    },
+    {
+      "id": "att_mag_bison556_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_bison556_extended.glb",
+      "triangles": 308,
+      "bytes": 20896,
+      "sha256": "0995aed3b88706c30f93aec5f58909232ccbf5ac25d5eb122ef395ff61c0ef3b"
+    },
+    {
+      "id": "att_mag_yak762_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_yak762_quick.glb",
+      "triangles": 516,
+      "bytes": 31392,
+      "sha256": "b8278fd6a28b2218729f09311d085d8d66972b1c770d30595585dcabdecf3966"
+    },
+    {
+      "id": "att_mag_yak762_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_yak762_extended.glb",
+      "triangles": 516,
+      "bytes": 31392,
+      "sha256": "e46958127577e8c254d92b40a652a11909e912a528e601c330585b3f5fab59fd"
+    },
+    {
+      "id": "att_mag_rhino762r_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_rhino762r_quick.glb",
+      "triangles": 308,
+      "bytes": 20892,
+      "sha256": "3dde024589122207330cc6b74b4ebcff89303c60b484c2c4cc7108f73996d267"
+    },
+    {
+      "id": "att_mag_rhino762r_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_rhino762r_extended.glb",
+      "triangles": 308,
+      "bytes": 20896,
+      "sha256": "d1ce5077364cb51647947efdaa8e53ff536a59a81758e58650f653982bef4477"
+    },
+    {
+      "id": "att_mag_aurochs556_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_aurochs556_quick.glb",
+      "triangles": 308,
+      "bytes": 20892,
+      "sha256": "11384cd8ed864caab4204df1aa6dc3ac7e50a8b49c10629956c6cf53c2acfa7e"
+    },
+    {
+      "id": "att_mag_aurochs556_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_aurochs556_extended.glb",
+      "triangles": 516,
+      "bytes": 31396,
+      "sha256": "f19ecfdfbb76dbe50c7b53c441f1295fe528c6b8a1c4f31866053cc9aeab2794"
+    },
+    {
+      "id": "att_mag_finch9_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_finch9_quick.glb",
+      "triangles": 496,
+      "bytes": 28800,
+      "sha256": "6d34d180b27fc0c61edf799c94a8f93883e93bb61596e93451fae3297c06da94"
+    },
+    {
+      "id": "att_mag_finch9_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_finch9_extended.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "266949902723a899cafe27c426f7a9ca818e0aeb6ff69e718cba387e45d610d9"
+    },
+    {
+      "id": "att_mag_ember45_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_ember45_quick.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "e6025ef114c26c1f320276f3fd41bae664198983ef2804117446e675a1a1bd7f"
+    },
+    {
+      "id": "att_mag_ember45_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_ember45_extended.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "0ebe4b18c116cb757ee6aa03194271c5f05aef72f46408305c28fea085a0250f"
+    },
+    {
+      "id": "att_mag_moth57_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_moth57_quick.glb",
+      "triangles": 496,
+      "bytes": 28800,
+      "sha256": "19ffcb3a239a90127fc41cab7142b14e25febafd468b41806cf8b2f83ed63e3b"
+    },
+    {
+      "id": "att_mag_moth57_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_moth57_extended.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "79fcd0019da680da0b66380a3348727060e4961fd1c0ddb85bbde4d6b4a59445"
+    },
+    {
+      "id": "att_mag_raven9_quick",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_raven9_quick.glb",
+      "triangles": 496,
+      "bytes": 28800,
+      "sha256": "c79eff4ae57b275062394ae039784642a3ad748c51157b6f8f4b58d8a7f1b349"
+    },
+    {
+      "id": "att_mag_raven9_extended",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_mag_raven9_extended.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "eacb67b5f8801f4ed09bee42715ab0c4cf19622826e6e70731db22783d5c39b6"
+    },
+    {
+      "id": "att_optic_red_dot",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_red_dot.glb",
+      "triangles": 292,
+      "bytes": 20060,
+      "sha256": "b7f57e83b9374b97888faf7e76cbc54f3f6868bbf8f6c9168925cad8d73057e2"
+    },
+    {
+      "id": "att_optic_holo",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_holo.glb",
+      "triangles": 336,
+      "bytes": 23036,
+      "sha256": "0c58a8009be7b7b56fd8d54f2cf290be96ebe4faa7b5ef34fa95f39b94f3627b"
+    },
+    {
+      "id": "att_optic_scope2",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_scope2.glb",
+      "triangles": 1056,
+      "bytes": 50956,
+      "sha256": "3b4ce5e7a0b7c5b50fb9b9cb5b65b8e3c29cb6d8b94cf67ed6f31d95c41b4adb"
+    },
+    {
+      "id": "att_optic_scope4",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_scope4.glb",
+      "triangles": 1056,
+      "bytes": 50956,
+      "sha256": "d6fc81de6a36ca7ffe9c6b30110de2156528557ff7635c310009588ac8eca241"
+    },
+    {
+      "id": "att_optic_scope8",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_scope8.glb",
+      "triangles": 1056,
+      "bytes": 50956,
+      "sha256": "f9f8683e18cad032b35b781c1feef471e6ada77847c1478da25a75224ecbbd1b"
+    },
+    {
+      "id": "att_optic_thermal",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_thermal.glb",
+      "triangles": 1188,
+      "bytes": 59472,
+      "sha256": "eab6b2924ec92ab828430350d9e13a53793ce77d2e8cc88fee4e211e954ef197"
+    },
+    {
+      "id": "att_optic_dove_dot",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_dove_dot.glb",
+      "triangles": 340,
+      "bytes": 19872,
+      "sha256": "922e2fdbd9a60302314d5fe7e9d4fdc82d02db1d49dcb96f7c062d532b47971a"
+    },
+    {
+      "id": "att_optic_dove_scope",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_dove_scope.glb",
+      "triangles": 1056,
+      "bytes": 50960,
+      "sha256": "d3e3d33f30433308930cd58f3b3d079f284b5cd6f542fd2b36e05a0baa4d4889"
+    },
+    {
+      "id": "att_optic_side_dot",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_side_dot.glb",
+      "triangles": 428,
+      "bytes": 25012,
+      "sha256": "c50e23f512de056057bf45dc190d85b348fa61d5a453780947a61f3c6cf18369"
+    },
+    {
+      "id": "att_optic_side_scope",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_side_scope.glb",
+      "triangles": 1144,
+      "bytes": 56096,
+      "sha256": "44f66be55c304fc5abadce738830c4cc8442a2f09ece469bdf64113f2c6482a1"
+    },
+    {
+      "id": "att_optic_micro_dot",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_micro_dot.glb",
+      "triangles": 292,
+      "bytes": 20056,
+      "sha256": "5d7f18f452f81ffb758a2dae6a85f125abdcaf30ac86929f8d738cfc78009228"
+    },
+    {
+      "id": "att_optic_micro_enclosed",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_optic_micro_enclosed.glb",
+      "triangles": 340,
+      "bytes": 19876,
+      "sha256": "7e88182ce590783f60e2c0e36b11490b1e1403a95e1a5a783b14fba7fa956566"
+    },
+    {
+      "id": "att_laser_rail_red",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_rail_red.glb",
+      "triangles": 248,
+      "bytes": 16724,
+      "sha256": "80b7fa5f45be791361a325649aa0291f47d55bb04eb33df4d215be623b47ce9e"
+    },
+    {
+      "id": "att_laser_rail_green",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_rail_green.glb",
+      "triangles": 248,
+      "bytes": 16724,
+      "sha256": "7a334d7c561251653fa75db0f1d61b93679b09f7de9b504d80bf6eb6f5693efc"
+    },
+    {
+      "id": "att_laser_mlok",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_mlok.glb",
+      "triangles": 248,
+      "bytes": 16712,
+      "sha256": "b3dfcd230eee396161faea983df593dcfc2b85fa1108fe0f4634135d9a6f58ac"
+    },
+    {
+      "id": "att_laser_keymod",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_keymod.glb",
+      "triangles": 248,
+      "bytes": 16720,
+      "sha256": "2a1e0d82fa181d5d7c67b71e779105aee027b0041e583c8c5b75e61e7c89ee90"
+    },
+    {
+      "id": "att_laser_trigger",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_trigger.glb",
+      "triangles": 248,
+      "bytes": 16688,
+      "sha256": "0dbeaff420ebd7e2ab1efab313196746941b9087934a7288d4363e9aa5d12eaf"
+    },
+    {
+      "id": "att_laser_pistol_red",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_pistol_red.glb",
+      "triangles": 248,
+      "bytes": 16688,
+      "sha256": "cd165e75f283325780abc51be907a377dbcb6c06d11dca41c21ecf21ebb3d318"
+    },
+    {
+      "id": "att_laser_pistol_green",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_pistol_green.glb",
+      "triangles": 248,
+      "bytes": 16692,
+      "sha256": "0b734d3560b68d869ad597b00bfe73c81522bc37a72970fb9e714cd7a8c4299a"
+    },
+    {
+      "id": "att_laser_rail_ir",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_laser_rail_ir.glb",
+      "triangles": 292,
+      "bytes": 19116,
+      "sha256": "88ba60150e7cff383885c86b9cec711323d6d03b912e041a183ef90320bda3ab"
+    },
+    {
+      "id": "att_handguard_reed9",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_reed9.glb",
+      "triangles": 968,
+      "bytes": 56804,
+      "sha256": "c9b247d397d89ffd3af0cd16253293f9a28da9ce9fc88867e50885149a39a8b8"
+    },
+    {
+      "id": "att_handguard_lynx45",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_lynx45.glb",
+      "triangles": 1156,
+      "bytes": 67148,
+      "sha256": "3ca3c3b7aacf97b3989fe8a990779e7c2b641cc7da659a3519383611b303ca65"
+    },
+    {
+      "id": "att_handguard_swift9",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_swift9.glb",
+      "triangles": 880,
+      "bytes": 51672,
+      "sha256": "65ce49f9f5199aa8d5b291761c33467d76edede9cfbc488475d59df2a577c91b"
+    },
+    {
+      "id": "att_handguard_badger556",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_badger556.glb",
+      "triangles": 1664,
+      "bytes": 95552,
+      "sha256": "5a90ebd770f17a96bada860ebc10f73e263915ed4a572c83a697e234ee5f6777"
+    },
+    {
+      "id": "att_handguard_cedar545",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_cedar545.glb",
+      "triangles": 1664,
+      "bytes": 95552,
+      "sha256": "a4386b71d11f7b307f558b52295735e5056bcaef9d387be32b0d0f9067706169"
+    },
+    {
+      "id": "att_handguard_jackal762",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_jackal762.glb",
+      "triangles": 1664,
+      "bytes": 95552,
+      "sha256": "d70f4db522c68f867f1f0b12a7494e5ea62066c5c1248be6e1fdf9dffc7cb45a"
+    },
+    {
+      "id": "att_handguard_heron308",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_heron308.glb",
+      "triangles": 2084,
+      "bytes": 117992,
+      "sha256": "ef0453dd97dffe60f5d6dc2fcdd0d958d994844c0f7daa9f50ac22916f01fbf4"
+    },
+    {
+      "id": "att_handguard_falcon762r",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_falcon762r.glb",
+      "triangles": 2084,
+      "bytes": 117996,
+      "sha256": "983562bbb5f5adc26d0213f96c848517679319e5a7f2f0fc010b3e342b612f1c"
+    },
+    {
+      "id": "att_handguard_osprey338",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_osprey338.glb",
+      "triangles": 2084,
+      "bytes": 117996,
+      "sha256": "6d262de903055aaf86d1b1f89549be9e5aac8142f27387390ba889f9ebba6046"
+    },
+    {
+      "id": "att_handguard_boar12",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_boar12.glb",
+      "triangles": 2016,
+      "bytes": 116076,
+      "sha256": "2de1e0f4303939b1d0f6437e1c0da56111090a9fe841eeed028ea26c05338c27"
+    },
+    {
+      "id": "att_handguard_ram12",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_ram12.glb",
+      "triangles": 2016,
+      "bytes": 116076,
+      "sha256": "bba0da2f1ebd6fde2ffad4295e1d99c50bd4133698f4d816cb51f44d71144547"
+    },
+    {
+      "id": "att_handguard_bison556",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_bison556.glb",
+      "triangles": 1896,
+      "bytes": 107652,
+      "sha256": "7583cdb337ce5d1bd372a0b460f61257d3afc423194ebf53081158bae390343e"
+    },
+    {
+      "id": "att_handguard_yak762",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_yak762.glb",
+      "triangles": 1896,
+      "bytes": 107652,
+      "sha256": "72516eb8c2a9a5df95945fe807b81cacb60f80191cf5d08a7a5115073f70aa51"
+    },
+    {
+      "id": "att_handguard_rhino762r",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_rhino762r.glb",
+      "triangles": 1896,
+      "bytes": 107652,
+      "sha256": "d041230e2330af8e2bcb3cbe41464ae8771e26bb0537d17d95497da7520e55ba"
+    },
+    {
+      "id": "att_handguard_aurochs556",
+      "kind": "attachment",
+      "path": "res://assets/modular/attachments/att_handguard_aurochs556.glb",
+      "triangles": 1896,
+      "bytes": 107656,
+      "sha256": "c0136aad0dbc1fc497f6afb14d0465a43b14252682c7274df9fd45ddd42cd43f"
+    },
+    {
+      "id": "weapon_reed9_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_reed9_stock.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "360dd954791c58513ab6f0b25f288372a7d078bab82e211fdcd8964312ae01de"
+    },
+    {
+      "id": "weapon_reed9_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_reed9_magazine.glb",
+      "triangles": 408,
+      "bytes": 24572,
+      "sha256": "4d8b66a937f34d837b0ef2a6eb11d3eb387eea3671f273534f7e6bcb514373f5"
+    },
+    {
+      "id": "weapon_reed9_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_reed9_handguard.glb",
+      "triangles": 968,
+      "bytes": 56808,
+      "sha256": "de827730c168e2eb9c60c7d85b737194fc5c637edf4fa1e8163486884da69cc1"
+    },
+    {
+      "id": "weapon_lynx45_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_lynx45_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "861f48e9669c3c52383738cebb10042c092512ab76657652ca64e121ee1d6746"
+    },
+    {
+      "id": "weapon_lynx45_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_lynx45_magazine.glb",
+      "triangles": 408,
+      "bytes": 24576,
+      "sha256": "723ea51e8aa7a47ee153a34aeebea7de1746b272938f3682d257d80a477c6ca1"
+    },
+    {
+      "id": "weapon_lynx45_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_lynx45_handguard.glb",
+      "triangles": 1156,
+      "bytes": 67152,
+      "sha256": "3e9d357844952ab856d5e9274441b492e74bf0f2d04ed03ca708b60addd8e427"
+    },
+    {
+      "id": "weapon_kestrel57_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_kestrel57_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "8796c26c93edcd643a141058a0670bd6a00ab0544f37223400a851faeb52d637"
+    },
+    {
+      "id": "weapon_kestrel57_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_kestrel57_magazine.glb",
+      "triangles": 408,
+      "bytes": 24576,
+      "sha256": "1f84a53c9eff041cb10917a69b686a1fcc3cc95911ea573a703a4a70f73732d2"
+    },
+    {
+      "id": "weapon_swift9_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_swift9_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "ba85da9aa031408202280bb9393b2f7bf3b037b0e641dcb0a75146ff50ef7100"
+    },
+    {
+      "id": "weapon_swift9_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_swift9_magazine.glb",
+      "triangles": 408,
+      "bytes": 24576,
+      "sha256": "aa3829af811070f5898d049fe255b94d5442c2cd1a069337af4c21faf1cbb214"
+    },
+    {
+      "id": "weapon_swift9_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_swift9_handguard.glb",
+      "triangles": 880,
+      "bytes": 51676,
+      "sha256": "922d6abe48cd876a5e9185d692af1fc7a5153ff06aff0eddd6dc0e5a44102352"
+    },
+    {
+      "id": "weapon_badger556_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_badger556_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "cfc63059fd0a448c775fef5d2f677c59f73dfa69f35ba37fa3763d2545e21a6c"
+    },
+    {
+      "id": "weapon_badger556_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_badger556_magazine.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "0b203d254a417abe0e2b92d436309ea51dbee42d3adc299b5bf9d896b4cf324d"
+    },
+    {
+      "id": "weapon_badger556_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_badger556_handguard.glb",
+      "triangles": 1664,
+      "bytes": 95560,
+      "sha256": "e618f1262a67c24fc6a3616ea9576adf023146a8b711c4914749e93ba1718db3"
+    },
+    {
+      "id": "weapon_cedar545_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_cedar545_stock.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "825f9f887f02fc1eb792891a948a429235230da27048e0ff7668584d2e4af869"
+    },
+    {
+      "id": "weapon_cedar545_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_cedar545_magazine.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "0735a69142e0fb4b2450f7c4010944c34910ab39764b20aea019b8a44f08554b"
+    },
+    {
+      "id": "weapon_cedar545_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_cedar545_handguard.glb",
+      "triangles": 1664,
+      "bytes": 95556,
+      "sha256": "57bda590cf802724eace54ff6c32fa9ffb46745f1e05b5a5f7d873ff60137c93"
+    },
+    {
+      "id": "weapon_jackal762_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_jackal762_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "688a5291d35c27165072bb5beeae62d488960c0b483f8f87309ced2aa6a33c12"
+    },
+    {
+      "id": "weapon_jackal762_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_jackal762_magazine.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "896ecae09cb2e6d996fc57e59f95b9631f114deaa226799151742ce646e95659"
+    },
+    {
+      "id": "weapon_jackal762_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_jackal762_handguard.glb",
+      "triangles": 1664,
+      "bytes": 95560,
+      "sha256": "07b53adb3a088a8a6f32c00a7b174d361bb3bd3512733c0f5a849585f5af2240"
+    },
+    {
+      "id": "weapon_manta300_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_manta300_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "6502152649812e256e49495eb6546f46c754fc425fdc039c22b3564c34ab7e68"
+    },
+    {
+      "id": "weapon_manta300_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_manta300_magazine.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "f464fecdfc9bb33ff9beff84df24355b9eb713014f7adf3eb08d07a995871e73"
+    },
+    {
+      "id": "weapon_manta300_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_manta300_handguard.glb",
+      "triangles": 1664,
+      "bytes": 95556,
+      "sha256": "8f43db4ec39c7943533162d4b4a67418bee0abf361de4d986b32450cd9146feb"
+    },
+    {
+      "id": "weapon_heron308_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_heron308_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "f814a6e513b2a8660bb9b1ed7b792ff83cbab75fedb17060ff8a50d34b50ced2"
+    },
+    {
+      "id": "weapon_heron308_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_heron308_magazine.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "59ffcc984a0bd1d337dd281f26b0d1d00a5877007062bc0b36f432e47fcba588"
+    },
+    {
+      "id": "weapon_heron308_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_heron308_handguard.glb",
+      "triangles": 2084,
+      "bytes": 118816,
+      "sha256": "e695a038bb164734bf0ff9f3b13911da333d41b4ce6deb0ba916250029fea96b"
+    },
+    {
+      "id": "weapon_falcon762r_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_falcon762r_stock.glb",
+      "triangles": 304,
+      "bytes": 19156,
+      "sha256": "e023b516b9c20be78668e7dccdf150b76c1d8954f5c2110098fd4f7553cacc6d"
+    },
+    {
+      "id": "weapon_falcon762r_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_falcon762r_magazine.glb",
+      "triangles": 496,
+      "bytes": 29716,
+      "sha256": "6234714d07f4b711c4db4cb84ff5655204bd72fab9dae9ab39d33c60ebf378cc"
+    },
+    {
+      "id": "weapon_falcon762r_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_falcon762r_handguard.glb",
+      "triangles": 2084,
+      "bytes": 118816,
+      "sha256": "fe8f395e47cb7b940542df51f43e378c778fc2d6fa5647dc9256dd3e72c8e4ad"
+    },
+    {
+      "id": "weapon_osprey338_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_osprey338_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "a1867a427916a2c0fdf075f3cf32caae2e2a65e61ac4e9f0a7516754932a297e"
+    },
+    {
+      "id": "weapon_osprey338_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_osprey338_magazine.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "c90555d67a9bfbd038911b0990a9daf86b8a6454d781097bbd5ce2aa5536da17"
+    },
+    {
+      "id": "weapon_osprey338_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_osprey338_handguard.glb",
+      "triangles": 2084,
+      "bytes": 118816,
+      "sha256": "d65e466bdc86ae661ce50d42b101a811440bcee6a34b1a2d90d79b8e8977c9b8"
+    },
+    {
+      "id": "weapon_wren556_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_wren556_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "d9458cfd35271d049e3075dd69848d7d215bdbec17c28f6f680b81c30a746704"
+    },
+    {
+      "id": "weapon_wren556_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_wren556_magazine.glb",
+      "triangles": 496,
+      "bytes": 29712,
+      "sha256": "49784513aa8120788511be83112c384e44d68086b1b784fbb4d36d77b9c66ee7"
+    },
+    {
+      "id": "weapon_wren556_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_wren556_handguard.glb",
+      "triangles": 1664,
+      "bytes": 95556,
+      "sha256": "ba0eff271766fb8bd9ec743061bae47e4ed5504b40a72ef9075d6597dd22fa75"
+    },
+    {
+      "id": "weapon_boar12_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_boar12_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "d9b074141c8ae167a4986f5821810b13777ed43a51f26e324a24709ca9de180e"
+    },
+    {
+      "id": "weapon_boar12_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_boar12_magazine.glb",
+      "triangles": 192,
+      "bytes": 9404,
+      "sha256": "611fbd55450013b09fbac470b3bfdaee68f5e699906d50eec059f2d0f2f11feb"
+    },
+    {
+      "id": "weapon_boar12_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_boar12_handguard.glb",
+      "triangles": 2016,
+      "bytes": 116900,
+      "sha256": "50e44e593c7e2302508b1c3c1a3abab8391d451fc654742c33625cfa89b73e06"
+    },
+    {
+      "id": "weapon_ram12_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_ram12_stock.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "3c308bf7a41308c6723845bfd417f0eb54f29f46ce3e6b4ae3a49e2bdbfe1e8d"
+    },
+    {
+      "id": "weapon_ram12_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_ram12_magazine.glb",
+      "triangles": 496,
+      "bytes": 29708,
+      "sha256": "4c20e3d03539e20b83de4c40d745bd00371e618264458de8a0e4720f677ae9a1"
+    },
+    {
+      "id": "weapon_ram12_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_ram12_handguard.glb",
+      "triangles": 2016,
+      "bytes": 116900,
+      "sha256": "9e5df67c5c7d33b46e413ea84c46c132e8af99887a67700d2c3a1444c058a80d"
+    },
+    {
+      "id": "weapon_fox20_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_fox20_stock.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "8a8848b39e565379137e1a0362d7c774df02e83f97e07c59ec22c89244fa2b1d"
+    },
+    {
+      "id": "weapon_fox20_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_fox20_magazine.glb",
+      "triangles": 192,
+      "bytes": 9408,
+      "sha256": "85d41965d03575fb7d57869b32698b8029e7ee4c0e41fc8882f51c52c9bc1c9f"
+    },
+    {
+      "id": "weapon_elk12_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_elk12_stock.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "ba2092d2bf06965cc5b18fba63c05e30118cd8fa77e9cf1edfdb900d9c12ae8c"
+    },
+    {
+      "id": "weapon_elk12_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_elk12_magazine.glb",
+      "triangles": 176,
+      "bytes": 10124,
+      "sha256": "a9610e2b84e6f31b7e77801fdb74e2e0fe8b80a96c18a9f394fe9424843decd9"
+    },
+    {
+      "id": "weapon_bison556_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_bison556_stock.glb",
+      "triangles": 304,
+      "bytes": 19156,
+      "sha256": "6ccfa9530186193dda1b83a0e20dd76ed52a46ae93f755e5c3d6059933f1b1d8"
+    },
+    {
+      "id": "weapon_bison556_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_bison556_magazine.glb",
+      "triangles": 308,
+      "bytes": 20892,
+      "sha256": "6cbcac20ed1d9269f9ccf299bd63a8e1fd80cbe814ff221adf9b9fc21b323565"
+    },
+    {
+      "id": "weapon_bison556_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_bison556_handguard.glb",
+      "triangles": 1896,
+      "bytes": 108472,
+      "sha256": "708ae8a5b6d210b8aa4903ee0b085766dcf36238d87108bbca5ea80a98c12826"
+    },
+    {
+      "id": "weapon_yak762_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_yak762_stock.glb",
+      "triangles": 224,
+      "bytes": 14916,
+      "sha256": "420497cc31a8bbacf260b86e35be8dc9951c1e73757f07fc0d4450717359a8ce"
+    },
+    {
+      "id": "weapon_yak762_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_yak762_magazine.glb",
+      "triangles": 516,
+      "bytes": 31396,
+      "sha256": "1eea5a455a905b601f301391255fbe3ca8e625c7e9e02486bdf068f2b04701af"
+    },
+    {
+      "id": "weapon_yak762_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_yak762_handguard.glb",
+      "triangles": 1896,
+      "bytes": 108472,
+      "sha256": "98604d42de4da64c51d1adbb3528df7dae1d7b5a0d6e61579b0d00db070a64d6"
+    },
+    {
+      "id": "weapon_rhino762r_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_rhino762r_stock.glb",
+      "triangles": 304,
+      "bytes": 19156,
+      "sha256": "90d35a1c181767b09628eeba8fbf2b91cb1db88f4c9d6eff3567143edaa414f5"
+    },
+    {
+      "id": "weapon_rhino762r_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_rhino762r_magazine.glb",
+      "triangles": 308,
+      "bytes": 20892,
+      "sha256": "d29fff84b9966543c1a641389098bc4c5be9fb698ce82f40810cc46d83ae9dc5"
+    },
+    {
+      "id": "weapon_rhino762r_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_rhino762r_handguard.glb",
+      "triangles": 1896,
+      "bytes": 108476,
+      "sha256": "157165876e729354f3b84abceb3801db315156ee6faf8b9ec732fafa601e7f94"
+    },
+    {
+      "id": "weapon_aurochs556_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_aurochs556_stock.glb",
+      "triangles": 224,
+      "bytes": 14924,
+      "sha256": "0c4fb8f6345e16d02f8a8e8a92a1c33b8860e263c1972bcc21681194b1761dd0"
+    },
+    {
+      "id": "weapon_aurochs556_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_aurochs556_magazine.glb",
+      "triangles": 308,
+      "bytes": 20896,
+      "sha256": "931b26ce90fe718afd3417ac881afae6f63ae8bf27cbda13781958a0314ee1e2"
+    },
+    {
+      "id": "weapon_aurochs556_handguard",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_aurochs556_handguard.glb",
+      "triangles": 1896,
+      "bytes": 108476,
+      "sha256": "027fbba7969d400810042d6f2d059f857dea68cb29d9b3ee41aa5b795c02aafe"
+    },
+    {
+      "id": "weapon_finch9_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_finch9_magazine.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "a77887c3bebc3a18d1770b7e36ee25c0f4942c4ff0f0b18c1a06e09a2b10a323"
+    },
+    {
+      "id": "weapon_ember45_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_ember45_magazine.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "4fc086c321105dbb4e5f137bfc35d270ef8d89948de9902ae367c94ad73888d7"
+    },
+    {
+      "id": "weapon_moth57_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_moth57_magazine.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "c5d3de0541be2b6e3eb5c7450ba4ef6422f57cd403c066be5c65b7844f045361"
+    },
+    {
+      "id": "weapon_raven9_stock",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_raven9_stock.glb",
+      "triangles": 224,
+      "bytes": 14920,
+      "sha256": "500ab6e219f9b39d80b11391b4ec4e9c714f679c58571905cccd38e5d56c79d9"
+    },
+    {
+      "id": "weapon_raven9_magazine",
+      "kind": "factory",
+      "path": "res://assets/modular/defaults/weapon_raven9_magazine.glb",
+      "triangles": 496,
+      "bytes": 28804,
+      "sha256": "aa34da5e0387b7efc4a9fba04963e4eadbae79801cd9cb9f7f7f35c8e41e6320"
+    }
+  ]
+}

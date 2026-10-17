@@ -1,0 +1,6 @@
+# Godot generated imports and editor state
+.godot/
+*.tmp
+*.keystore
+*.jks
+.DS_Store

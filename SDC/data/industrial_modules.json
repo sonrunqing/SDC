@@ -1,0 +1,1809 @@
+{
+  "schema_version": 1,
+  "units": "metres",
+  "grid": 4,
+  "assets": [
+    {
+      "id": "industrial_modular/wall_straight",
+      "key": "wall_straight",
+      "source_file": "工业港仓库直墙模块.glb",
+      "path": "res://assets/environment/industrial_modular/wall_straight.glb",
+      "min": [
+        -2,
+        0,
+        -0.1
+      ],
+      "size": [
+        4,
+        3,
+        0.2
+      ],
+      "triangles": 552,
+      "texture_resolution": 0,
+      "object": "Industrial_wall_straight",
+      "repair": "Reconstructed continuous corrugation, frame and plinth",
+      "collision_size": [
+        4,
+        3,
+        0.2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            4,
+            3,
+            0.2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "289ff6914a39f51a7db3295ac4dc9568248f56e160826f5f114d48980a57c2b4",
+      "export_sha256": "cb939fd3c249f70f4748ae308d197346983c6ab136135cd414bae1715286cbcc",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/wall_window",
+      "key": "wall_window",
+      "source_file": "工业仓库带窗墙体glb.glb",
+      "path": "res://assets/environment/industrial_modular/wall_window.glb",
+      "min": [
+        -2,
+        0.0002117223630193621,
+        -0.11005846410989761
+      ],
+      "size": [
+        4,
+        2.999788284301758,
+        0.22005847096443176
+      ],
+      "triangles": 3500,
+      "texture_resolution": 1024,
+      "object": "Industrial_wall_window",
+      "collision_size": [
+        4,
+        3,
+        0.22
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            4,
+            3,
+            0.22
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "7db27530603fc181bcbbf4d6934d48e0ff8045b74de004fb6a910a59d484c86a",
+      "export_sha256": "b536610ad48ffbf6dce159e117c449047bd17fb23ff004661d75ae00de13015b",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/wall_doorway",
+      "key": "wall_doorway",
+      "source_file": "工业建筑门洞墙体.glb",
+      "path": "res://assets/environment/industrial_modular/wall_doorway.glb",
+      "min": [
+        -1.9999998807907104,
+        0,
+        -0.12000000476837158
+      ],
+      "size": [
+        3.999999761581421,
+        3,
+        0.24000000953674316
+      ],
+      "triangles": 3500,
+      "texture_resolution": 1024,
+      "object": "Industrial_wall_doorway",
+      "collision_size": [
+        4,
+        3,
+        0.24
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            -1.25,
+            1.5,
+            0
+          ],
+          "size": [
+            1.5,
+            3,
+            0.24
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            1.25,
+            1.5,
+            0
+          ],
+          "size": [
+            1.5,
+            3,
+            0.24
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            2.6,
+            0
+          ],
+          "size": [
+            1,
+            0.8,
+            0.24
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "dd4967e1ff741dea569196bb05d47b756af0a539091b462a705df166c2ef6b74",
+      "export_sha256": "81b6f3e5650ff2b1de28721b42baa3216cc97460eecc1849b7ae8a47ce83326f",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/corner",
+      "key": "corner",
+      "source_file": "工业仓库L形墙角模块.glb",
+      "path": "res://assets/environment/industrial_modular/corner.glb",
+      "min": [
+        -1.0003118515014648,
+        0.000746697885915637,
+        -0.9995253682136536
+      ],
+      "size": [
+        2.000227928161621,
+        2.9972927570343018,
+        1.9996728897094727
+      ],
+      "triangles": 4500,
+      "texture_resolution": 1024,
+      "object": "Industrial_corner",
+      "collision_size": [
+        2,
+        3,
+        2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0.9,
+            1.5,
+            0
+          ],
+          "size": [
+            0.2,
+            3,
+            2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            -0.9
+          ],
+          "size": [
+            2,
+            3,
+            0.2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "65d940916bfc60cd9e90b8d00918224f144830ed4b36ec1436de8ba5582c2c9f",
+      "export_sha256": "a71c57d18befcbfeca0281a9f953753b231b3f4e16502277363e5e3aeb5efe6b",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/partition",
+      "key": "partition",
+      "source_file": "工业办公楼室内隔断墙.glb",
+      "path": "res://assets/environment/industrial_modular/partition.glb",
+      "min": [
+        -2.003797769546509,
+        -0.009360591880977154,
+        -0.08491009473800659
+      ],
+      "size": [
+        4.0152387619018555,
+        3.024707555770874,
+        0.18136407434940338
+      ],
+      "triangles": 2000,
+      "texture_resolution": 1024,
+      "object": "Industrial_partition",
+      "collision_size": [
+        4,
+        3,
+        0.18
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            4,
+            3,
+            0.18
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "2d4498650d0d76effab1c319130f129266a000f96db1b640de0b904e0ca7738c",
+      "export_sha256": "d8e6b55974f8ab5e33721cf952b008ed8fbbf68eb3d90405d0e7cbf6cc08f0cb",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/floor",
+      "key": "floor",
+      "source_file": "正方形工业建筑地板模块.glb",
+      "path": "res://assets/environment/industrial_modular/floor.glb",
+      "min": [
+        -1.99628484249115,
+        -0.01044384017586708,
+        -1.9983959197998047
+      ],
+      "size": [
+        3.9968018531799316,
+        0.10479244589805603,
+        4.002799034118652
+      ],
+      "triangles": 800,
+      "texture_resolution": 512,
+      "object": "Industrial_floor",
+      "collision_size": [
+        4,
+        0.08,
+        4
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.04,
+            0
+          ],
+          "size": [
+            4,
+            0.08,
+            4
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.68,
+        0.73,
+        0.72
+      ],
+      "source_sha256": "512f6e366bd0126bc75aab961343112bfe3617d7ce62be99269979653de95d0d",
+      "export_sha256": "ba4ccbcb181de6ed77bd021d047dfba852320a72a55fb570f65e04883b5cd496",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/roof_edge",
+      "key": "roof_edge",
+      "source_file": "工业建筑屋顶边缘模块.glb",
+      "path": "res://assets/environment/industrial_modular/roof_edge.glb",
+      "min": [
+        -2.0024497509002686,
+        -0.0011170028010383248,
+        -0.17842817306518555
+      ],
+      "size": [
+        4.001880168914795,
+        0.28013020753860474,
+        0.35557109117507935
+      ],
+      "triangles": 1200,
+      "texture_resolution": 512,
+      "object": "Industrial_roof_edge",
+      "collision_size": [
+        4,
+        0.28,
+        0.35
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.14,
+            0
+          ],
+          "size": [
+            4,
+            0.28,
+            0.35
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.6,
+        0.68,
+        0.74
+      ],
+      "source_sha256": "98ebdc2ebb715a8b922e7d7ef062892d719844eec90bcee6823c71d68a934d36",
+      "export_sha256": "e33044bb9414463bcd20bfa42931566ee2dc2f304baa551b2221959877c67992",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/pillar",
+      "key": "pillar",
+      "source_file": "工业仓库方形支撑柱.glb",
+      "path": "res://assets/environment/industrial_modular/pillar.glb",
+      "min": [
+        -0.2097964882850647,
+        0.00018994837591890246,
+        -0.2098381370306015
+      ],
+      "size": [
+        0.4196378290653229,
+        2.9997386932373047,
+        0.41969698667526245
+      ],
+      "triangles": 1799,
+      "texture_resolution": 512,
+      "object": "Industrial_pillar",
+      "collision_size": [
+        0.42,
+        3,
+        0.42
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            0.42,
+            3,
+            0.42
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "431c4407531384d13bdebf6b78e4d74f54fb471c75e776711e166e72eaf4fe31",
+      "export_sha256": "0b6b410da550308b1519acc3ed7c94a82c06ef0c62ca9c63efd21960700c9f4d",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/beam",
+      "key": "beam",
+      "source_file": "工业建筑横向钢梁.glb",
+      "path": "res://assets/environment/industrial_modular/beam.glb",
+      "min": [
+        -1.9996556043624878,
+        -0.00011609159264480695,
+        -0.1395580917596817
+      ],
+      "size": [
+        3.9982337951660156,
+        0.3543289005756378,
+        0.2870083451271057
+      ],
+      "triangles": 1600,
+      "texture_resolution": 512,
+      "object": "Industrial_beam",
+      "collision_size": [
+        4,
+        0.34,
+        0.28
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.17,
+            0
+          ],
+          "size": [
+            4,
+            0.34,
+            0.28
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.6,
+        0.68,
+        0.74
+      ],
+      "source_sha256": "5331e10592c3a59c1b0ae24dddb95389a6b61e4d924fb42b4ea7688a02eef474",
+      "export_sha256": "39785d30d1cdba76398f3f4c426426da3faf12b59519092b11727f29aab183f6",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/stairs",
+      "key": "stairs",
+      "source_file": "工业建筑直线金属楼梯.glb",
+      "path": "res://assets/environment/industrial_modular/stairs.glb",
+      "min": [
+        -0.7991790771484375,
+        -0.00011859466758323833,
+        -2.3010478019714355
+      ],
+      "size": [
+        1.611147165298462,
+        3.794513702392578,
+        4.5998101234436035
+      ],
+      "triangles": 5999,
+      "texture_resolution": 1024,
+      "object": "Industrial_stairs",
+      "collision_size": [
+        1.6,
+        3.795,
+        4.6
+      ],
+      "colliders": [
+        {
+          "type": "ramp",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            1.6,
+            3,
+            4.6
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.77,
+            2.05,
+            0
+          ],
+          "size": [
+            0.08,
+            0.65,
+            5.49
+          ],
+          "navigation": false,
+          "rotation": [
+            33.11,
+            0,
+            0
+          ]
+        },
+        {
+          "type": "box",
+          "position": [
+            0.77,
+            2.05,
+            0
+          ],
+          "size": [
+            0.08,
+            0.65,
+            5.49
+          ],
+          "navigation": false,
+          "rotation": [
+            33.11,
+            0,
+            0
+          ]
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "3c952f91aa8ac5f4d6841c1823f2908c9830051c10a8dc8c1dfbe0410c4e82dc",
+      "export_sha256": "a6e010685b509980a03934e534df95cb680bbc97695523522d3a1ec18bc75e6c",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/platform",
+      "key": "platform",
+      "source_file": "工业建筑二层金属平台.glb",
+      "path": "res://assets/environment/industrial_modular/platform.glb",
+      "min": [
+        -1.0199999809265137,
+        0,
+        -1.0199999809265137
+      ],
+      "size": [
+        2.0399999618530273,
+        3.8600001335144043,
+        2.0399999618530273
+      ],
+      "triangles": 5850,
+      "texture_resolution": 1024,
+      "object": "Industrial_platform",
+      "collision_size": [
+        2.04,
+        3.86,
+        2.04
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            2.94,
+            0
+          ],
+          "size": [
+            2,
+            0.14,
+            2
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.82,
+            1.45,
+            -0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.82,
+            1.45,
+            0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.82,
+            1.45,
+            -0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.82,
+            1.45,
+            0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            3.43,
+            -0.97
+          ],
+          "size": [
+            2,
+            0.85,
+            0.07
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.97,
+            3.43,
+            0
+          ],
+          "size": [
+            0.07,
+            0.85,
+            2
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            0.97,
+            3.43,
+            0
+          ],
+          "size": [
+            0.07,
+            0.85,
+            2
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "314f3ce236155f716147ebbe41b796f8bb8bfe914748ca76327b58be7f2ac500",
+      "export_sha256": "936e1d01b424ebd79bcce129cf0997cb096fc6147d6ccfc2726f7ec8ebbe7b35",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/door",
+      "key": "door",
+      "source_file": "工业建筑单扇铁门.glb",
+      "path": "res://assets/environment/industrial_modular/door.glb",
+      "min": [
+        -0.5992279052734375,
+        -0.00021960012963972986,
+        -0.07956881076097488
+      ],
+      "size": [
+        1.1990065574645996,
+        2.199836015701294,
+        0.16006170213222504
+      ],
+      "triangles": 3500,
+      "texture_resolution": 1024,
+      "object": "Industrial_door",
+      "collision_size": [
+        1.2,
+        2.2,
+        0.16
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.1,
+            0
+          ],
+          "size": [
+            1.2,
+            2.2,
+            0.16
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "a458b9ba6c0b36303ebf4151c1ab58fde45dc71acbf1edbac272dbe0f508daf7",
+      "export_sha256": "c91236cf5120ed217d50b635150f819c2c142782b571620464bddc666287a3f3",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/ceiling",
+      "key": "ceiling",
+      "source_file": "工业建筑室内天花板模块.glb",
+      "path": "res://assets/environment/industrial_modular/ceiling.glb",
+      "min": [
+        -2.0002944469451904,
+        -0.0017146884929388762,
+        -1.996352195739746
+      ],
+      "size": [
+        3.9973678588867188,
+        0.12254105508327484,
+        3.9955973625183105
+      ],
+      "triangles": 600,
+      "texture_resolution": 512,
+      "object": "Industrial_ceiling",
+      "collision_size": [
+        4,
+        0.12,
+        4
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.06,
+            0
+          ],
+          "size": [
+            4,
+            0.12,
+            4
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.6,
+        0.68,
+        0.74
+      ],
+      "source_sha256": "375de75b8cae2e052048014a24f5f6e938d62b9672a8d965cfbc8d02628de501",
+      "export_sha256": "716feb8c886cf9a0c3c636aec9deb2e8f1cbc077e77c3ff6a9ce44d78a6bc95a",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/infill_1m",
+      "key": "infill_1m",
+      "source_file": "工业仓库一米补墙模块.glb",
+      "path": "res://assets/environment/industrial_modular/infill_1m.glb",
+      "min": [
+        -0.49855858087539673,
+        -0.0001778494188329205,
+        -0.0986107811331749
+      ],
+      "size": [
+        0.996013879776001,
+        2.987185001373291,
+        0.19838111102581024
+      ],
+      "triangles": 1400,
+      "texture_resolution": 512,
+      "object": "Industrial_infill_1m",
+      "repair": "Grounded, axes aligned, optimised; source retained.",
+      "collision_size": [
+        1,
+        3,
+        0.2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            1,
+            3,
+            0.2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "5b118c296dac5b669ce9f205b5d74df0ad8ec1aac05c5e506a99e666a47ffc17",
+      "export_sha256": "ea363111f49a221f077f4a760da98654f0cd4153b68136b81fdea611f0b86115",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/infill_2m",
+      "key": "infill_2m",
+      "source_file": "工业仓库两米补墙模块.glb",
+      "path": "res://assets/environment/industrial_modular/infill_2m.glb",
+      "min": [
+        -1.001059889793396,
+        -0.006247079465538263,
+        -0.1040220707654953
+      ],
+      "size": [
+        2.0000052452087402,
+        3.002285957336426,
+        0.2066088765859604
+      ],
+      "triangles": 1800,
+      "texture_resolution": 512,
+      "object": "Industrial_infill_2m",
+      "repair": "Grounded, axes aligned, optimised; source retained.",
+      "collision_size": [
+        2,
+        3,
+        0.2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            2,
+            3,
+            0.2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "4d3b863a441a01d6271e85d111ad6dde3cc32d94c75bb8330cbb64ef2a6044da",
+      "export_sha256": "9e7d39580ba9e30bdbdb423d4dc8412efedc1ee2a02052627f9871aa0f274325",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/inner_corner",
+      "key": "inner_corner",
+      "source_file": "工业仓库内转角模块.glb",
+      "path": "res://assets/environment/industrial_modular/inner_corner.glb",
+      "min": [
+        -0.4992586672306061,
+        0.0025881240144371986,
+        -0.5017648935317993
+      ],
+      "size": [
+        1.0006729364395142,
+        3.0004799365997314,
+        1.0027464628219604
+      ],
+      "triangles": 2800,
+      "texture_resolution": 512,
+      "object": "Industrial_inner_corner",
+      "repair": "Grounded, axes aligned, optimised; source retained.",
+      "collision_size": [
+        1,
+        3,
+        1
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0.425,
+            1.5,
+            0
+          ],
+          "size": [
+            0.15,
+            3,
+            1
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            -0.425
+          ],
+          "size": [
+            1,
+            3,
+            0.15
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "36f6b44e597630f4bafac7728fd0c23f81d246fa9bd7a17487008fc273113114",
+      "export_sha256": "8201affd72625555e7056802394cf3babf108d03bf8fdeb35eb23ccc2f4a3b2a",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/window_panel",
+      "key": "window_panel",
+      "source_file": "工业仓库带窗墙体模块.glb",
+      "path": "res://assets/environment/industrial_modular/window_panel.glb",
+      "min": [
+        -2.000162124633789,
+        -0.0002704320359043777,
+        -0.1001148670911789
+      ],
+      "size": [
+        4.000400543212891,
+        3.0002713203430176,
+        0.20130419731140137
+      ],
+      "triangles": 3200,
+      "texture_resolution": 1024,
+      "object": "Industrial_window_panel",
+      "repair": "Single window wall extracted from generated room; roof and return walls removed, cuts capped.",
+      "collision_size": [
+        4,
+        3,
+        0.2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.5,
+            0
+          ],
+          "size": [
+            4,
+            3,
+            0.2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.7,
+        0.8,
+        0.86
+      ],
+      "source_sha256": "cf52cf6dd4061e5041782c36f1452d3dce4af79668a6dd8db80da811b3cc7f82",
+      "export_sha256": "9c688cddc9f95b83db32064c6436bc559f9c56706ed9d2f82e2bad5844f9429c",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/freight_frame",
+      "key": "freight_frame",
+      "source_file": "工业仓库货运卷帘门框.glb",
+      "path": "res://assets/environment/industrial_modular/freight_frame.glb",
+      "min": [
+        -2.249844551086426,
+        0.0002800991933327168,
+        -0.08301094174385071
+      ],
+      "size": [
+        4.499629020690918,
+        2.999748945236206,
+        0.16673971712589264
+      ],
+      "triangles": 3199,
+      "texture_resolution": 1024,
+      "object": "Industrial_freight_frame",
+      "repair": "Freight opening cleared to 4 x 2.6 m; no door leaf or floor remains.",
+      "collision_size": [
+        4.5,
+        3,
+        0.28
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            -2.125,
+            1.5,
+            0
+          ],
+          "size": [
+            0.25,
+            3,
+            0.28
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            2.125,
+            1.5,
+            0
+          ],
+          "size": [
+            0.25,
+            3,
+            0.28
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            2.8,
+            0
+          ],
+          "size": [
+            4,
+            0.4,
+            0.28
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "c3c86af6b3ff988571130bf6ee3fe99e6b5048de58b7ed4feba0b1d0cbce55fb",
+      "export_sha256": "403b4416c3617fd153f3dde5bc94412321385d97bfd66edf2d2ee982e9b150ec",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/roller_shutter",
+      "key": "roller_shutter",
+      "source_file": "工业仓库卷帘门帘.glb",
+      "path": "res://assets/environment/industrial_modular/roller_shutter.glb",
+      "min": [
+        -2.0000293254852295,
+        0.00023918342776596546,
+        -0.05000978335738182
+      ],
+      "size": [
+        4.0000762939453125,
+        2.599762439727783,
+        0.10286886245012283
+      ],
+      "triangles": 1999,
+      "texture_resolution": 512,
+      "object": "Industrial_roller_shutter",
+      "repair": "Only curtain retained; side jambs and top roller removed; independent 4 x 2.6 m panel.",
+      "collision_size": [
+        4,
+        2.6,
+        0.1
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.3,
+            0
+          ],
+          "size": [
+            4,
+            2.6,
+            0.1
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "38a5baa002c0ccf3dc3165a9a048cb95f2aa8344429a446c5a7360c7e84110bb",
+      "export_sha256": "206d4699b23cd79001ebb4f068113a4acf22147ce94fa76240b8d76df33352c3",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/loading_dock",
+      "key": "loading_dock",
+      "source_file": "工业仓库装卸台模块.glb",
+      "path": "res://assets/environment/industrial_modular/loading_dock.glb",
+      "min": [
+        -1.9996216297149658,
+        0.00013158020738046616,
+        -1.0001804828643799
+      ],
+      "size": [
+        3.999293327331543,
+        0.9793256521224976,
+        2.001823902130127
+      ],
+      "triangles": 2200,
+      "texture_resolution": 1024,
+      "object": "Industrial_loading_dock",
+      "repair": "Dock surface calibrated at 0.8 m; central front rail opened for the ramp.",
+      "collision_size": [
+        4,
+        0.98,
+        2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.4,
+            0
+          ],
+          "size": [
+            4,
+            0.8,
+            2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.89,
+            -0.94
+          ],
+          "size": [
+            4,
+            0.18,
+            0.12
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            -1.45,
+            0.89,
+            0.94
+          ],
+          "size": [
+            1.1,
+            0.18,
+            0.12
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            1.45,
+            0.89,
+            0.94
+          ],
+          "size": [
+            1.1,
+            0.18,
+            0.12
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "b8709c71089281558e0fe307658758011c2b3e5be0500dc7c0bd505574422f46",
+      "export_sha256": "d9906c508d27fd0508835042c7a723adfad4d457185d826082110e44cd481d9b",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/catwalk",
+      "key": "catwalk",
+      "source_file": "工业建筑二层直线栈桥模块.glb",
+      "path": "res://assets/environment/industrial_modular/catwalk.glb",
+      "min": [
+        -2.0100960731506348,
+        -0.021927829831838608,
+        -1.0032280683517456
+      ],
+      "size": [
+        4.010178565979004,
+        1.138197660446167,
+        2.002192974090576
+      ],
+      "triangles": 3800,
+      "texture_resolution": 1024,
+      "object": "Industrial_catwalk",
+      "repair": "Support legs removed; floor top calibrated at 0.12 m; open ends retained.",
+      "collision_size": [
+        4,
+        1.12,
+        2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.06,
+            0
+          ],
+          "size": [
+            4,
+            0.12,
+            2
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.62,
+            -0.96
+          ],
+          "size": [
+            4,
+            1,
+            0.08
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.62,
+            0.96
+          ],
+          "size": [
+            4,
+            1,
+            0.08
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "a669994d5a6e554c99c748c4704e276ac65e2f8032cfdccee0abfd7bbf30b2ef",
+      "export_sha256": "a3c5c5cbc777d3af843d27f87a4e0c52dbe6d2a5b438cf80b05f627cea2e9d9a",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/guardrail",
+      "key": "guardrail",
+      "source_file": "工业建筑护栏直线模块.glb",
+      "path": "res://assets/environment/industrial_modular/guardrail.glb",
+      "min": [
+        -0.9987420439720154,
+        -0.00022972040460444987,
+        -0.09982645511627197
+      ],
+      "size": [
+        1.9973111152648926,
+        1.0001908540725708,
+        0.20240959525108337
+      ],
+      "triangles": 1799,
+      "texture_resolution": 512,
+      "object": "Industrial_guardrail",
+      "repair": "Grounded, axes aligned, optimised; source retained.",
+      "collision_size": [
+        2,
+        1,
+        0.2
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.5,
+            0
+          ],
+          "size": [
+            2,
+            1,
+            0.2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "8f04ab91c97516eed5b69c01f6b6c08ff71e60db05babbe7a32f0f58d857146d",
+      "export_sha256": "26d0a673402018207217035a869de082a12fd36bdf28e8201bc13ed149fdbf88",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/storage_rack",
+      "key": "storage_rack",
+      "source_file": "工业仓库三层货架.glb",
+      "path": "res://assets/environment/industrial_modular/storage_rack.glb",
+      "min": [
+        -0.9983733892440796,
+        -0.000787785102147609,
+        -0.39857223629951477
+      ],
+      "size": [
+        1.9996168613433838,
+        2.3989081382751465,
+        0.7977869510650635
+      ],
+      "triangles": 4000,
+      "texture_resolution": 1024,
+      "object": "Industrial_storage_rack",
+      "repair": "Grounded, axes aligned, optimised; source retained.",
+      "collision_size": [
+        2,
+        2.4,
+        0.8
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            -0.94,
+            1.2,
+            -0.34
+          ],
+          "size": [
+            0.12,
+            2.4,
+            0.12
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.94,
+            1.2,
+            0.34
+          ],
+          "size": [
+            0.12,
+            2.4,
+            0.12
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.94,
+            1.2,
+            -0.34
+          ],
+          "size": [
+            0.12,
+            2.4,
+            0.12
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.94,
+            1.2,
+            0.34
+          ],
+          "size": [
+            0.12,
+            2.4,
+            0.12
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.28,
+            0
+          ],
+          "size": [
+            2,
+            0.12,
+            0.8
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            1.2,
+            0
+          ],
+          "size": [
+            2,
+            0.12,
+            0.8
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            2.18,
+            0
+          ],
+          "size": [
+            2,
+            0.12,
+            0.8
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "0e6d8f255aa461023eecc88c9cc9cb8a8b84b2de36053d181fc8c65f7b686573",
+      "export_sha256": "f750176cce08e95a1a64594cefed34159f91b1341e0f4b5f523520d571123d6b",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/workbench",
+      "key": "workbench",
+      "source_file": "工业维修工作台.glb",
+      "path": "res://assets/environment/industrial_modular/workbench.glb",
+      "min": [
+        -0.9993467330932617,
+        -0.0019699446856975555,
+        -0.39953964948654175
+      ],
+      "size": [
+        2.000210762023926,
+        1.1812313795089722,
+        0.8007451295852661
+      ],
+      "triangles": 4000,
+      "texture_resolution": 1024,
+      "object": "Industrial_workbench",
+      "repair": "Grounded, axes aligned, optimised; source retained.",
+      "collision_size": [
+        2,
+        1.18,
+        0.8
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            0.85,
+            0
+          ],
+          "size": [
+            2,
+            0.1,
+            0.8
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.62,
+            0.42,
+            0
+          ],
+          "size": [
+            0.68,
+            0.84,
+            0.75
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.92,
+            0.42,
+            -0.33
+          ],
+          "size": [
+            0.1,
+            0.84,
+            0.1
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.92,
+            0.42,
+            0.33
+          ],
+          "size": [
+            0.1,
+            0.84,
+            0.1
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.58,
+            1.03,
+            0
+          ],
+          "size": [
+            0.38,
+            0.3,
+            0.35
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "7a12b13da52240db89bcc815b074e8eb15c8b9dc260b490e6856575db4a26d22",
+      "export_sha256": "cb59ea72707a7c6fe8466765cf152c44aa5f0fc372aeecfac840b8b707f7a522",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/platform_access",
+      "key": "platform_access",
+      "source_file": "工业建筑二层金属平台.glb",
+      "path": "res://assets/environment/industrial_modular/platform_access.glb",
+      "min": [
+        -1.0199999809265137,
+        0,
+        -1.0199999809265137
+      ],
+      "size": [
+        2.0399999618530273,
+        3.8600001335144043,
+        2.0399999618530273
+      ],
+      "triangles": 4783,
+      "texture_resolution": 1024,
+      "object": "Industrial_platform_access",
+      "repair": "Existing platform east rail opened for a continuous stair-to-catwalk route.",
+      "collision_size": [
+        2.04,
+        3.86,
+        2.04
+      ],
+      "colliders": [
+        {
+          "type": "box",
+          "position": [
+            0,
+            2.94,
+            0
+          ],
+          "size": [
+            2,
+            0.14,
+            2
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.82,
+            1.45,
+            -0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.82,
+            1.45,
+            0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.82,
+            1.45,
+            -0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0.82,
+            1.45,
+            0.82
+          ],
+          "size": [
+            0.2,
+            2.9,
+            0.2
+          ],
+          "navigation": true
+        },
+        {
+          "type": "box",
+          "position": [
+            0,
+            3.43,
+            -0.97
+          ],
+          "size": [
+            2,
+            0.85,
+            0.07
+          ],
+          "navigation": false
+        },
+        {
+          "type": "box",
+          "position": [
+            -0.97,
+            3.43,
+            0
+          ],
+          "size": [
+            0.07,
+            0.85,
+            2
+          ],
+          "navigation": false
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "314f3ce236155f716147ebbe41b796f8bb8bfe914748ca76327b58be7f2ac500",
+      "export_sha256": "5fd0795a3d055f405b960acd129202ad6c1bdf61f149f27b6b8154a12b045dfd",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    },
+    {
+      "id": "industrial_modular/dock_ramp",
+      "key": "dock_ramp",
+      "source_file": "工业仓库装卸台模块.glb",
+      "path": "res://assets/environment/industrial_modular/dock_ramp.glb",
+      "min": [
+        -0.800000011920929,
+        0,
+        -1
+      ],
+      "size": [
+        1.600000023841858,
+        0.8050000071525574,
+        2
+      ],
+      "triangles": 48,
+      "texture_resolution": 0,
+      "object": "Industrial_dock_ramp",
+      "repair": "Authored 1.6 x 2 m access ramp; high end matches 0.8 m dock surface.",
+      "collision_size": [
+        1.6,
+        0.805,
+        2
+      ],
+      "colliders": [
+        {
+          "type": "ramp",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            1.6,
+            0.8,
+            2
+          ],
+          "navigation": true
+        }
+      ],
+      "preserve_materials": true,
+      "material_tint": [
+        0.84,
+        0.88,
+        0.92
+      ],
+      "source_sha256": "b8709c71089281558e0fe307658758011c2b3e5be0500dc7c0bd505574422f46",
+      "export_sha256": "719d0356827e92e514881a8d5181b672751cb4a3dca80769ec16af8b5a5608c0",
+      "source": "User supplied Hunyuan 3D asset; original retained in D:/aa/模型库"
+    }
+  ]
+}

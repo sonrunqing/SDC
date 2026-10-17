@@ -1,0 +1,30 @@
+[
+  {
+    "name": "blaster-kit",
+    "source": "https://kenney.nl/assets/blaster-kit",
+    "download": "https://kenney.nl/media/pages/assets/blaster-kit/261d80a716-1753959510/kenney_blaster-kit_2.1.zip",
+    "license": "CC0-1.0",
+    "sha256": "91e3093e95427d59625e7e2ce2d0399b861600160fd0b4ada7714796b67cea8c"
+  },
+  {
+    "name": "prototype-kit",
+    "source": "https://kenney.nl/assets/prototype-kit",
+    "download": "https://kenney.nl/media/pages/assets/prototype-kit/4d3b7073ed-1724832076/kenney_prototype-kit.zip",
+    "license": "CC0-1.0",
+    "sha256": "213b522fb12bcc9b9ac66c4f7581f7c74623293272212e40a70c39936ad3da95"
+  },
+  {
+    "name": "interface-sounds",
+    "source": "https://kenney.nl/assets/interface-sounds",
+    "download": "https://kenney.nl/media/pages/assets/interface-sounds/fa43c1dd4d-1677589452/kenney_interface-sounds.zip",
+    "license": "CC0-1.0",
+    "sha256": "f2193d072726d6758a5f7871b2dcc54dcce0d5c35c6f0a62f92549b327c81232"
+  },
+  {
+    "name": "mobile-controls",
+    "source": "https://kenney.nl/assets/mobile-controls",
+    "download": "https://kenney.nl/media/pages/assets/mobile-controls/0d047b3be4-1754738457/mobile-controls-1.zip",
+    "license": "CC0-1.0",
+    "sha256": "7331c648651858fb3186a8c76e0e360e4d3ea71cfec9b502eb5cbb04a02e192b"
+  }
+]

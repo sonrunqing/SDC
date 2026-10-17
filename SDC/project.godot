@@ -1,0 +1,40 @@
+; SDC: a mobile 2.5D extraction shooter prototype.
+config_version=5
+
+[application]
+config/name="SDC"
+config/version="0.4.3"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+Catalog="*res://scripts/catalog.gd"
+GameState="*res://scripts/game_state.gd"
+AppSettings="*res://scripts/app_settings.gd"
+
+[input_devices]
+pointing/emulate_mouse_from_touch=true
+pointing/emulate_touch_from_mouse=false
+
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=0
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.035, 0.055, 0.085, 1)
+
+[audio]
+driver/enable_input=false
+
+[gui]
+theme/custom_font="res://assets/fonts/NotoSansSC.ttf"

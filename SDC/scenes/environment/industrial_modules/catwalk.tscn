@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/industrial_modular/catwalk.glb" id="1_visual"]
+
+[sub_resource type="BoxShape3D" id="Shape_0"]
+size = Vector3(4.00000000, 0.12000000, 2.00000000)
+
+[sub_resource type="BoxShape3D" id="Shape_1"]
+size = Vector3(4.00000000, 1.00000000, 0.08000000)
+
+[sub_resource type="BoxShape3D" id="Shape_2"]
+size = Vector3(4.00000000, 1.00000000, 0.08000000)
+
+[node name="catwalk" type="Node3D"]
+metadata/module_id = "industrial_modular/catwalk"
+metadata/grid_metres = 4.0
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+position = Vector3(0.00499408, 0.02157724, 0.00212925)
+scale = Vector3(0.99746182, 0.98401186, 0.99890471)
+
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="Piece0" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.06000000, 0.00000000)
+shape = SubResource("Shape_0")
+
+[node name="Piece1" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.62000000, -0.96000000)
+shape = SubResource("Shape_1")
+
+[node name="Piece2" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.62000000, 0.96000000)
+shape = SubResource("Shape_2")

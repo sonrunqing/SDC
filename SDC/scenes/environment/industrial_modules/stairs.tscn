@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/industrial_modular/stairs.glb" id="1_visual"]
+
+[sub_resource type="ConvexPolygonShape3D" id="Shape_0"]
+points = PackedVector3Array(-0.8, 0, -2.3, 0.8, 0, -2.3, -0.8, 3, -2.3, 0.8, 3, -2.3, -0.8, 0, 2.3, 0.8, 0, 2.3)
+
+[sub_resource type="BoxShape3D" id="Shape_1"]
+size = Vector3(0.08000000, 0.65000000, 5.49000000)
+
+[sub_resource type="BoxShape3D" id="Shape_2"]
+size = Vector3(0.08000000, 0.65000000, 5.49000000)
+
+[node name="stairs" type="Node3D"]
+metadata/module_id = "industrial_modular/stairs"
+metadata/grid_metres = 4.0
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+position = Vector3(-0.00635026, 0.00011861, 0.00114279)
+scale = Vector3(0.99308122, 1.00012816, 1.00004128)
+
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="Piece0" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.00000000, 0.00000000)
+shape = SubResource("Shape_0")
+
+[node name="Piece1" type="CollisionShape3D" parent="Collision"]
+position = Vector3(-0.77000000, 2.05000000, 0.00000000)
+shape = SubResource("Shape_1")
+rotation = Vector3(0.57787852, 0.00000000, 0.00000000)
+
+[node name="Piece2" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.77000000, 2.05000000, 0.00000000)
+shape = SubResource("Shape_2")
+rotation = Vector3(0.57787852, 0.00000000, 0.00000000)

@@ -1,0 +1,264 @@
+{
+  "assets": [
+    {
+      "id": "industrial_modular/infill_1m",
+      "key": "infill_1m",
+      "source_file": "工业仓库一米补墙模块.glb",
+      "path": "res://assets/environment/industrial_modular/infill_1m.glb",
+      "min": [
+        -0.49855858087539673,
+        -0.0001778494188329205,
+        -0.0986107811331749
+      ],
+      "size": [
+        0.996013879776001,
+        2.987185001373291,
+        0.19838111102581024
+      ],
+      "triangles": 1400,
+      "texture_resolution": 512,
+      "object": "Industrial_infill_1m",
+      "repair": "Grounded, axes aligned, optimised; source retained."
+    },
+    {
+      "id": "industrial_modular/infill_2m",
+      "key": "infill_2m",
+      "source_file": "工业仓库两米补墙模块.glb",
+      "path": "res://assets/environment/industrial_modular/infill_2m.glb",
+      "min": [
+        -1.001059889793396,
+        -0.006247079465538263,
+        -0.1040220707654953
+      ],
+      "size": [
+        2.0000052452087402,
+        3.002285957336426,
+        0.2066088765859604
+      ],
+      "triangles": 1800,
+      "texture_resolution": 512,
+      "object": "Industrial_infill_2m",
+      "repair": "Grounded, axes aligned, optimised; source retained."
+    },
+    {
+      "id": "industrial_modular/inner_corner",
+      "key": "inner_corner",
+      "source_file": "工业仓库内转角模块.glb",
+      "path": "res://assets/environment/industrial_modular/inner_corner.glb",
+      "min": [
+        -0.4992586672306061,
+        0.0025881240144371986,
+        -0.5017648935317993
+      ],
+      "size": [
+        1.0006729364395142,
+        3.0004799365997314,
+        1.0027464628219604
+      ],
+      "triangles": 2800,
+      "texture_resolution": 512,
+      "object": "Industrial_inner_corner",
+      "repair": "Grounded, axes aligned, optimised; source retained."
+    },
+    {
+      "id": "industrial_modular/window_panel",
+      "key": "window_panel",
+      "source_file": "工业仓库带窗墙体模块.glb",
+      "path": "res://assets/environment/industrial_modular/window_panel.glb",
+      "min": [
+        -2.000162124633789,
+        -0.0002704320359043777,
+        -0.1001148670911789
+      ],
+      "size": [
+        4.000400543212891,
+        3.0002713203430176,
+        0.20130419731140137
+      ],
+      "triangles": 3200,
+      "texture_resolution": 1024,
+      "object": "Industrial_window_panel",
+      "repair": "Single window wall extracted from generated room; roof and return walls removed, cuts capped."
+    },
+    {
+      "id": "industrial_modular/freight_frame",
+      "key": "freight_frame",
+      "source_file": "工业仓库货运卷帘门框.glb",
+      "path": "res://assets/environment/industrial_modular/freight_frame.glb",
+      "min": [
+        -2.249844551086426,
+        0.0002800991933327168,
+        -0.08301094174385071
+      ],
+      "size": [
+        4.499629020690918,
+        2.999748945236206,
+        0.16673971712589264
+      ],
+      "triangles": 3199,
+      "texture_resolution": 1024,
+      "object": "Industrial_freight_frame",
+      "repair": "Freight opening cleared to 4 x 2.6 m; no door leaf or floor remains."
+    },
+    {
+      "id": "industrial_modular/roller_shutter",
+      "key": "roller_shutter",
+      "source_file": "工业仓库卷帘门帘.glb",
+      "path": "res://assets/environment/industrial_modular/roller_shutter.glb",
+      "min": [
+        -2.0000293254852295,
+        0.00023918342776596546,
+        -0.05000978335738182
+      ],
+      "size": [
+        4.0000762939453125,
+        2.599762439727783,
+        0.10286886245012283
+      ],
+      "triangles": 1999,
+      "texture_resolution": 512,
+      "object": "Industrial_roller_shutter",
+      "repair": "Only curtain retained; side jambs and top roller removed; independent 4 x 2.6 m panel."
+    },
+    {
+      "id": "industrial_modular/loading_dock",
+      "key": "loading_dock",
+      "source_file": "工业仓库装卸台模块.glb",
+      "path": "res://assets/environment/industrial_modular/loading_dock.glb",
+      "min": [
+        -1.9996216297149658,
+        0.00013158020738046616,
+        -1.0001804828643799
+      ],
+      "size": [
+        3.999293327331543,
+        0.9793256521224976,
+        2.001823902130127
+      ],
+      "triangles": 2200,
+      "texture_resolution": 1024,
+      "object": "Industrial_loading_dock",
+      "repair": "Dock surface calibrated at 0.8 m; central front rail opened for the ramp."
+    },
+    {
+      "id": "industrial_modular/catwalk",
+      "key": "catwalk",
+      "source_file": "工业建筑二层直线栈桥模块.glb",
+      "path": "res://assets/environment/industrial_modular/catwalk.glb",
+      "min": [
+        -2.0100960731506348,
+        -0.021927829831838608,
+        -1.0032280683517456
+      ],
+      "size": [
+        4.010178565979004,
+        1.138197660446167,
+        2.002192974090576
+      ],
+      "triangles": 3800,
+      "texture_resolution": 1024,
+      "object": "Industrial_catwalk",
+      "repair": "Support legs removed; floor top calibrated at 0.12 m; open ends retained."
+    },
+    {
+      "id": "industrial_modular/guardrail",
+      "key": "guardrail",
+      "source_file": "工业建筑护栏直线模块.glb",
+      "path": "res://assets/environment/industrial_modular/guardrail.glb",
+      "min": [
+        -0.9987420439720154,
+        -0.00022972040460444987,
+        -0.09982645511627197
+      ],
+      "size": [
+        1.9973111152648926,
+        1.0001908540725708,
+        0.20240959525108337
+      ],
+      "triangles": 1799,
+      "texture_resolution": 512,
+      "object": "Industrial_guardrail",
+      "repair": "Grounded, axes aligned, optimised; source retained."
+    },
+    {
+      "id": "industrial_modular/storage_rack",
+      "key": "storage_rack",
+      "source_file": "工业仓库三层货架.glb",
+      "path": "res://assets/environment/industrial_modular/storage_rack.glb",
+      "min": [
+        -0.9983733892440796,
+        -0.000787785102147609,
+        -0.39857223629951477
+      ],
+      "size": [
+        1.9996168613433838,
+        2.3989081382751465,
+        0.7977869510650635
+      ],
+      "triangles": 4000,
+      "texture_resolution": 1024,
+      "object": "Industrial_storage_rack",
+      "repair": "Grounded, axes aligned, optimised; source retained."
+    },
+    {
+      "id": "industrial_modular/workbench",
+      "key": "workbench",
+      "source_file": "工业维修工作台.glb",
+      "path": "res://assets/environment/industrial_modular/workbench.glb",
+      "min": [
+        -0.9993467330932617,
+        -0.0019699446856975555,
+        -0.39953964948654175
+      ],
+      "size": [
+        2.000210762023926,
+        1.1812313795089722,
+        0.8007451295852661
+      ],
+      "triangles": 4000,
+      "texture_resolution": 1024,
+      "object": "Industrial_workbench",
+      "repair": "Grounded, axes aligned, optimised; source retained."
+    },
+    {
+      "id": "industrial_modular/platform_access",
+      "key": "platform_access",
+      "source_file": "工业建筑二层金属平台.glb",
+      "path": "res://assets/environment/industrial_modular/platform_access.glb",
+      "min": [
+        -1.0199999809265137,
+        0,
+        -1.0199999809265137
+      ],
+      "size": [
+        2.0399999618530273,
+        3.8600001335144043,
+        2.0399999618530273
+      ],
+      "triangles": 4783,
+      "texture_resolution": 1024,
+      "object": "Industrial_platform_access",
+      "repair": "Existing platform east rail opened for a continuous stair-to-catwalk route."
+    },
+    {
+      "id": "industrial_modular/dock_ramp",
+      "key": "dock_ramp",
+      "source_file": "工业仓库装卸台模块.glb",
+      "path": "res://assets/environment/industrial_modular/dock_ramp.glb",
+      "min": [
+        -0.800000011920929,
+        0,
+        -1
+      ],
+      "size": [
+        1.600000023841858,
+        0.8050000071525574,
+        2
+      ],
+      "triangles": 48,
+      "texture_resolution": 0,
+      "object": "Industrial_dock_ramp",
+      "repair": "Authored 1.6 x 2 m access ramp; high end matches 0.8 m dock surface."
+    }
+  ]
+}

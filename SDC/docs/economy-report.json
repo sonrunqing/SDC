@@ -1,0 +1,65 @@
+{
+  "seed": 20261016,
+  "samples_per_scenario": 20000,
+  "assumptions": "All sampled containers fully collected and sold; capacity sufficient; no resale of equipped gear. Success rates below are hypothetical, not measured.",
+  "scenarios": [
+    {
+      "label": "常规搜集",
+      "crates": 4,
+      "guards": 0,
+      "spent_rounds": 45,
+      "spent_medkits": 1,
+      "gross_p10": 2959,
+      "gross_median": 4868,
+      "gross_p90": 7964,
+      "mean_gross": 5228,
+      "consumables": 1150,
+      "net_median": 3718,
+      "net_mean": 4078
+    },
+    {
+      "label": "深度搜集",
+      "crates": 7,
+      "guards": 2,
+      "spent_rounds": 100,
+      "spent_medkits": 2,
+      "gross_p10": 9034,
+      "gross_median": 12127,
+      "gross_p90": 16456,
+      "mean_gross": 12506,
+      "consumables": 2400,
+      "net_median": 9727,
+      "net_mean": 10106
+    }
+  ],
+  "prices": {
+    "入门握把": 850,
+    "入门冲锋枪": 3900,
+    "中档步枪": 11300,
+    "高端精确步枪整枪": 63850
+  },
+  "successful_runs_at_common_median": {
+    "入门握把": 1,
+    "入门冲锋枪": 2,
+    "中档步枪": 4,
+    "高端精确步枪整枪": 18
+  },
+  "new_save_credits": 12000,
+  "full_gun_part_armor_catalog_cost": 834150,
+  "budget_kit_replacement": 5340,
+  "risk_sensitivity": [
+    {
+      "assumed_success_rate": 0.5,
+      "expected_change_per_deployment": -631
+    },
+    {
+      "assumed_success_rate": 0.65,
+      "expected_change_per_deployment": 782
+    },
+    {
+      "assumed_success_rate": 0.8,
+      "expected_change_per_deployment": 2194
+    }
+  ],
+  "legendary_chance_per_container": 0.00427
+}

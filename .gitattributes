@@ -1,0 +1,21 @@
+* text=auto
+*.gd text eol=lf
+*.py text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.godot text eol=lf
+*.cfg text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
+*.uid text eol=lf linguist-generated=true
+*.import text eol=lf linguist-generated=true
+
+# Keep generated artwork available in a checkout while collapsing it in PRs.
+SDC/assets/** linguist-generated=true
+SDC/data/*_exports.json linguist-generated=true
+*.glb binary
+*.png binary
+*.jpg binary
+*.ogg binary
+*.ttf binary
