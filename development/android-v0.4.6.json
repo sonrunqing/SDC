@@ -1,0 +1,15 @@
+{
+  "version": "0.4.6",
+  "version_code": 13,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "apk_file": "SDC-v0.4.6.apk",
+  "bytes": 89577266,
+  "sha256": "b22d5f0732595f8b0af4bd77bf9e71ad4ae0726d4c5dcd6ef1b1e16aa557f5eb",
+  "reference_apk_file": "SDC-v0.4.5.apk",
+  "reference_version_code": 12,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-17T23:21:22.8429859+08:00",
+  "note": "Fixes buttons stuck after a mobile tap by ignoring touch-emulated mouse events by source, including inventory, scroll and layout-editor gestures. Export and APK identity checks completed; no new tests or device run. APK and signing keys stay outside Git."
+}

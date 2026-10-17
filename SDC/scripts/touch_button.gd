@@ -3,7 +3,6 @@ extends Button
 var _pointer: int = -99
 var _start: Vector2
 var _cancelled: bool = false
-var _touch_at: int = -1000
 var minimum_touch_height: float = 72
 func _ready() -> void:
 	button_mask=0
@@ -17,17 +16,18 @@ func _ready() -> void:
 	focus_mode=Control.FOCUS_NONE
 	custom_minimum_size.y=maxf(minimum_touch_height,custom_minimum_size.y)
 func _gui_input(event: InputEvent) -> void:
+	# Godot dispatches touch-emulated mouse events before the original touch.
+	# Handle the touch itself; accepting its mouse copy can strand _pointer at -2.
+	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
 	if disabled:return
 	if event is InputEventScreenTouch:
-		_touch_at=Time.get_ticks_msec()
 		if event.pressed and not event.canceled:_begin(event.index,event.position)
 		elif event.index==_pointer:_end(event.position,event.canceled)
 	elif event is InputEventScreenDrag and event.index==_pointer:
 		if event.position.distance_to(_start)>12:cancel_tap()
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.device==-1 and Time.get_ticks_msec()-_touch_at<500:return
 		if event.pressed:_begin(-2,event.position)
-		elif _pointer==-2:_end(event.position,false)
+		elif _pointer==-2:_end(event.position,event.canceled)
 	elif event is InputEventMouseMotion and _pointer==-2:
 		if event.position.distance_to(_start)>12:cancel_tap()
 func _begin(pointer: int, at: Vector2) -> void:
@@ -53,6 +53,6 @@ func cancel_tap() -> void:
 	_cancelled=true
 	self_modulate=Color.WHITE
 func _notification(what: int) -> void:
-	if what==NOTIFICATION_APPLICATION_FOCUS_OUT or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
 		_pointer=-99
 		cancel_tap()

@@ -1,4 +1,4 @@
-# SDC 0.4.5
+# SDC 0.4.6
 
 Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型。
 当前完整工程、运行素材和来源说明已纳入 Git，入口为 [`SDC/project.godot`](SDC/project.godot)。
@@ -17,20 +17,21 @@ Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型�
 - 自定义操作按键：拖动位置、单独大小与透明度、辅助键显隐、重置与 3 套保存方案。
 - 实时枪械拼装、三武器栏、七项枪械性能，以及画面、声音和操控设置。
 - 0.4.4 修正预览页无法出击、重复点击重建地图、背包误卸下等问题；地图支持单指平移、双指缩放与旋转。
+- 0.4.6 修正大厅按钮按下后不恢复且不执行动作：触摸与模拟鼠标不再抢占同一次操作。
 
-详情见 [`SDC/README.md`](SDC/README.md)、[0.4.4 修改记录](SDC/docs/MOBILE_FIXES_0_4_4.md)
-和[代码审查入口](docs/CODE_REVIEW.md)。
+详情见 [`SDC/README.md`](SDC/README.md)、[0.4.4 修改记录](SDC/docs/MOBILE_FIXES_0_4_4.md)、
+[0.4.6 按钮修复](SDC/docs/TOUCH_INPUT_FIX_0_4_6.md)和[代码审查入口](docs/CODE_REVIEW.md)。
 
 ## Android 安装与更新
 
-当前交付版本为 **0.4.5 / versionCode 12**，包名保持 `org.prototype.shooter25d`。
+当前交付版本为 **0.4.6 / versionCode 13**，包名保持 `org.prototype.shooter25d`。
 已安装固定签名的 0.4.3 时，可直接覆盖更新；后续沿用同一密钥并增加版本。
 
 旧 GitHub Release 的云端 0.3.0 使用另一签名，是历史产物；它不能被本机新签名直接覆盖。
 用户已同意在 0.4.3 迁移时进行一次卸载重装。不要把这种一次迁移变成今后每次更新的流程。
 详见[签名与更新记录](SDC/docs/ANDROID_UPDATES.md)。
 
-0.4.5 APK 已在本机导出，本 PR 不新增 GitHub Release。APK 和签名私钥不存放于 Git 源码目录。
+APK 在本机导出，本 PR 不新增 GitHub Release。APK 和签名私钥不存放于 Git 源码目录。
 
 ## 项目内容
 
@@ -48,5 +49,5 @@ Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型�
 ## 项目现状
 
 这是离线单人开发原型，尚未实现多人服务器、账号和联网经济系统。
-0.4.5 已完成 Android 导出及包名、版本、签名核对；开发侧尚未完成这版的真机操作验证。
+各版本的导出和 APK 身份记录见 `development/android-v*.json`；开发侧尚未完成这版的真机操作验证。
 既有检查脚本已随源码保留，本次为建立代码审查入口没有新增或执行测试，也没有自动合并 PR。

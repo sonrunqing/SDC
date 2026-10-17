@@ -10,7 +10,6 @@ var _preview: Control
 var _font: Font
 var _pointer: int=-99
 var _grab_offset := Vector2.ZERO
-var _touch_at: int=-1000
 
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_STOP
@@ -51,8 +50,9 @@ func move_selected(offset: Vector2) -> void:
 	layout_changed.emit()
 
 func _gui_input(event: InputEvent) -> void:
+	# The emulated mouse press precedes the touch and must not claim its drag.
+	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
 	if event is InputEventScreenTouch:
-		_touch_at=Time.get_ticks_msec()
 		if event.pressed and not event.canceled:_press(event.index,event.position)
 		elif _pointer==event.index:_pointer=-99
 		accept_event()
@@ -60,7 +60,6 @@ func _gui_input(event: InputEvent) -> void:
 		_drag(event.position)
 		accept_event()
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.device==-1 and Time.get_ticks_msec()-_touch_at<500:return
 		if event.pressed:_press(-2,event.position)
 		elif _pointer==-2:_pointer=-99
 		accept_event()

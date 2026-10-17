@@ -22,7 +22,6 @@ var _point: Vector2
 var _start_time: int = 0
 var _mode: String = ""
 var _source_uid: String = ""
-var _touch_at: int = -1000
 var _last_tap_uid: String = ""
 var _last_tap_time: int = 0
 var _font: Font
@@ -255,18 +254,19 @@ func _hit(point: Vector2) -> Dictionary:
 
 func _input(event: InputEvent) -> void:
 	if not is_visible_in_tree():return
+	# Ignore the mouse copy even when it arrives before the original touch.
+	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
 	if event is InputEventScreenTouch:
-		_touch_at=Time.get_ticks_msec()
 		if event.pressed and not event.canceled:_press(event.index,event.position)
 		elif _pointer==event.index:_release(event.position,event.canceled)
 	elif event is InputEventScreenDrag and event.index==_pointer:_drag(event.position)
 	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.device==-1 and Time.get_ticks_msec()-_touch_at<500:return
 		if event.pressed:_press(-2,event.position)
-		elif _pointer==-2:_release(event.position,false)
+		elif _pointer==-2:_release(event.position,event.canceled)
 	elif event is InputEventMouseMotion and _pointer==-2:_drag(event.position)
 
 func _press(pointer: int,point: Vector2) -> void:
+	if _pointer!=-99:return
 	var hit: Dictionary = _hit(point)
 	if hit.is_empty():return
 	_pointer=pointer

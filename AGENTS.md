@@ -11,6 +11,9 @@ included in `SDC/assets/`. Godot 4.6.3 is the established project version.
   Flag input changes that fire while moving/aiming, reuse another finger's
   release, or activate a button after a scroll/drag. Keep deliberate tap,
   double-tap and drag interactions available.
+  Widgets that handle ScreenTouch themselves must ignore emulated mouse events
+  by device ID, not by a recent-touch timer. Godot dispatches the mouse copy
+  before the original touch; it must never acquire or release touch ownership.
   Custom HUD layouts must share rendering and hit geometry, keep required
   controls accessible, and never emit gameplay actions from the layout editor.
 - Inventory/equipment changes must conserve item counts and quantities. A
