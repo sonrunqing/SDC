@@ -3,7 +3,7 @@ signal changed
 signal controls_changed
 const ControlLayout = preload("res://scripts/control_layout.gd")
 const PATH := "user://settings.cfg"
-const DEFAULTS := {"fps":60,"resolution":1.0,"quality":1,"brightness":1.0,"master":.85,"sfx":.8,"ui_audio":.55,"control_scale":1.0,"control_opacity":.8,"aim_sensitivity":1.0,"deadzone":.14,"ui_scale":1.0,"safe_margin":24,"vibration":true}
+const DEFAULTS := {"fps":60,"resolution":1.0,"quality":1,"brightness":1.0,"camera_height":31.0,"camera_pitch":55.0,"camera_fov":45.0,"camera_shake":.65,"master":.85,"sfx":.8,"ui_audio":.55,"control_scale":1.0,"control_opacity":.8,"aim_sensitivity":1.0,"deadzone":.14,"ui_scale":1.0,"safe_margin":24,"vibration":true}
 var values: Dictionary = DEFAULTS.duplicate(true)
 var _click: AudioStreamPlayer
 var _save_delay: float = -1
@@ -99,6 +99,10 @@ func apply(update_scene: bool = true) -> void:
 	values.aim_sensitivity=clampf(float(values.aim_sensitivity),.5,2)
 	values.deadzone=clampf(float(values.deadzone),.05,.3)
 	values.brightness=clampf(float(values.brightness),.6,1.4)
+	values.camera_height=clampf(float(values.camera_height),25,42)
+	values.camera_pitch=clampf(float(values.camera_pitch),40,70)
+	values.camera_fov=clampf(float(values.camera_fov),35,60)
+	values.camera_shake=clampf(float(values.camera_shake),0,1)
 	values.safe_margin=clampi(int(values.safe_margin),20,48)
 	Engine.max_fps=int(values.fps)
 	get_tree().root.scaling_3d_scale=float(values.resolution)
@@ -111,6 +115,10 @@ func apply(update_scene: bool = true) -> void:
 			AudioServer.set_bus_mute(index,volume<=.001)
 	if update_scene:apply_scene(get_tree().root)
 func apply_scene(node: Node) -> void:
+	if node is Viewport:node.msaa_3d=Viewport.MSAA_2X if int(values.quality)>0 else Viewport.MSAA_DISABLED
+	if node is WorldEnvironment and node.has_meta("ashfront_profile"):
+		preload("res://scripts/visual_profile.gd").configure_environment(node,int(values.quality))
+		node.environment.tonemap_exposure=1.15*float(values.brightness)
 	if node is SubViewport:node.scaling_3d_scale=float(values.resolution)
 	if node is DirectionalLight3D:
 		if not node.has_meta("base_energy"):node.set_meta("base_energy",node.light_energy)

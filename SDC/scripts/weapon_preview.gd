@@ -37,23 +37,9 @@ func _ready() -> void:
 	_viewport.gui_disable_input = true
 	_viewport.render_target_update_mode = SubViewport.UPDATE_WHEN_VISIBLE
 	container.add_child(_viewport)
-	var environment := WorldEnvironment.new()
-	var settings := Environment.new()
-	settings.background_mode = Environment.BG_COLOR
-	settings.background_color = Color(0.045, 0.075, 0.095, 0)
-	settings.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	settings.ambient_light_color = Color("b8c9cf")
-	settings.ambient_light_energy = 0.85
-	var sky := Sky.new()
-	var sky_material := ProceduralSkyMaterial.new()
-	sky_material.sky_top_color = Color("8295a5")
-	sky_material.sky_horizon_color = Color("d7e1e5")
-	sky_material.ground_bottom_color = Color("344854")
-	sky_material.ground_horizon_color = Color("a6b5bf")
-	sky.sky_material = sky_material
-	settings.sky = sky
-	settings.reflected_light_source = Environment.REFLECTION_SOURCE_SKY
-	environment.environment = settings
+	var environment: WorldEnvironment=preload("res://scripts/visual_profile.gd").environment(true)
+	environment.environment.background_mode=Environment.BG_COLOR
+	environment.environment.background_color=Color(0,0,0,0)
 	_viewport.add_child(environment)
 	var key := DirectionalLight3D.new()
 	key.rotation_degrees = Vector3(-35, 70, -10)

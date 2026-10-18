@@ -15,13 +15,7 @@ func _ready() -> void:
 	container.stretch=true;container.mouse_filter=Control.MOUSE_FILTER_IGNORE;add_child(container)
 	_viewport=SubViewport.new();_viewport.size=Vector2i(1280,600);_viewport.own_world_3d=true
 	_viewport.gui_disable_input=true;_viewport.render_target_update_mode=SubViewport.UPDATE_WHEN_VISIBLE;container.add_child(_viewport)
-	var environment := WorldEnvironment.new();var settings := Environment.new()
-	settings.background_mode=Environment.BG_COLOR;settings.background_color=Color("111b20")
-	settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;settings.ambient_light_color=Color("b1c2ca");settings.ambient_light_energy=.28
-	settings.tonemap_mode=Environment.TONE_MAPPER_FILMIC
-	var sky:=Sky.new();var sky_material:=ProceduralSkyMaterial.new();sky_material.sky_top_color=Color("809ca7");sky_material.sky_horizon_color=Color("a8b8bc");sky_material.ground_bottom_color=Color("343e40");sky.sky_material=sky_material
-	settings.sky=sky;settings.reflected_light_source=Environment.REFLECTION_SOURCE_SKY
-	environment.environment=settings;_viewport.add_child(environment)
+	_viewport.add_child(preload("res://scripts/visual_profile.gd").environment(true))
 	var key:=DirectionalLight3D.new();key.rotation_degrees=Vector3(-42,145,0);key.light_color=Color("ffead0");key.light_energy=.95;key.shadow_enabled=true;_viewport.add_child(key)
 	var rim:=DirectionalLight3D.new();rim.rotation_degrees=Vector3(-25,-40,0);rim.light_color=Color("80d3df");rim.light_energy=.32;_viewport.add_child(rim)
 	_room()
@@ -58,7 +52,7 @@ func _process(delta: float) -> void:
 	_time+=delta
 	if _orbit!=null:
 		_orbit.rotation.y=_yaw
-		_model.position.y=sin(_time*1.5)*.0025
+		_model.tick_visual(Vector3.ZERO,false,delta)
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed and not event.canceled:

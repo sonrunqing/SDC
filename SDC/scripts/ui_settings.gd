@@ -46,8 +46,12 @@ func _populate() -> void:
 		"画面":
 			_choice("帧率上限","fps",["30 FPS","45 FPS","60 FPS","90 FPS","120 FPS"],[30,45,60,90,120])
 			_choice("3D 渲染分辨率","resolution",["50% · 省电","67%","75%","100% · 原生"],[.5,.67,.75,1.0])
-			_choice("画质","quality",["省电 · 关闭阴影","均衡","精细 · 更远视距"],[0,1,2])
+			_choice("画质","quality",["省电 · 基础光影","均衡 · 阴影 / 辉光","精细 · 环境遮蔽"],[0,1,2])
 			_slider("场景亮度","brightness",.6,1.4,.05)
+			_numeric_slider("镜头高度","camera_height",25,42,1,"米")
+			_numeric_slider("俯视角度","camera_pitch",40,70,1,"°")
+			_numeric_slider("镜头视野","camera_fov",35,60,1,"°")
+			_slider("射击 / 受击镜头震动","camera_shake",0,1,.05)
 			_note("分辨率只影响 3D 场景，文字和按钮保持清晰。实际帧率取决于设备与场景。")
 		"声音":
 			_slider("主音量","master",0,1,.05)
@@ -147,3 +151,21 @@ func _note(text: String) -> void:
 	label.add_theme_font_size_override("font_size",18)
 	label.add_theme_color_override("font_color",Color("a3b5ad"))
 	_body.add_child(label)
+
+func _numeric_slider(caption: String,key: String,minimum: float,maximum: float,increment: float,unit: String) -> void:
+	var row: HBoxContainer=_row(caption)
+	var slider:=TouchSlider.new()
+	slider.min_value=minimum
+	slider.max_value=maximum
+	slider.step=increment
+	slider.value=float(AppSettings.values[key])
+	slider.custom_minimum_size=Vector2(250,64)
+	slider.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	row.add_child(slider)
+	var number:=Label.new()
+	number.custom_minimum_size.x=74
+	number.text="%d%s"%[roundi(slider.value),unit]
+	row.add_child(number)
+	slider.value_changed.connect(func(value: float) -> void:
+		number.text="%d%s"%[roundi(value),unit]
+		AppSettings.set_value(key,value))

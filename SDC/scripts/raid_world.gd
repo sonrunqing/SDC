@@ -10,7 +10,7 @@ const EXIT := Vector3(0.0, 0.0, -77.0)
 const RAID_DURATION := 900.0
 const EXTRACTION_DURATION := 5.0
 const WALK_SPEED := 5.3
-const CAMERA_OFFSET := Vector3(11.5, 26.0, 20.5)
+const Look = preload("res://scripts/visual_profile.gd")
 const WEAPON_SLOTS := ["primary", "secondary", "sidearm"]
 const CRATE_MODEL = preload("res://assets/kenney/blaster-kit/crate-small.glb")
 
@@ -26,6 +26,11 @@ var _nav: AStarGrid2D
 var _guards: Array[Dictionary] = []
 var _containers: Array[Dictionary] = []
 var _effects: Array[Dictionary] = []
+var _fx: Node3D
+var _presentation: Control
+var _focus:=Vector3.ZERO
+var _trauma: float=0
+var _shake_noise:=FastNoiseLite.new()
 var _obstacles: Array[Rect2] = []
 var _materials: Dictionary = {}
 var _loot_ids: Array[String] = []
@@ -120,6 +125,14 @@ func start_raid(selected_entry: String = "south") -> void:
 	_build_guards()
 	_build_containers()
 	_build_camera()
+	_fx=preload("res://scripts/raid_fx.gd").new()
+	add_child(_fx)
+	var presentation_layer:=CanvasLayer.new()
+	presentation_layer.layer=1
+	add_child(presentation_layer)
+	_presentation=preload("res://scripts/raid_presentation.gd").new()
+	_presentation.world=self
+	presentation_layer.add_child(_presentation)
 	_active = true
 	_emit_hud()
 
@@ -239,7 +252,7 @@ func get_hud() -> Dictionary:
 	for guard in _guards:
 		if float(guard["hp"]) > 0.0 and is_instance_valid(player):
 			var body: CharacterBody3D = guard["body"]
-			if body.position.distance_to(player.position) < 14.0:
+			if body.position.distance_to(player.position) < 14.0 and bool(guard.get("seen",false)):
 				dots.append({"position": Vector2(body.position.x, body.position.z), "kind": "enemy"})
 	for crate in _containers:
 		if not bool(crate["opened"]):
@@ -319,10 +332,19 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if not _active or not is_instance_valid(camera) or not is_instance_valid(player):
 		return
-	var wanted := _camera_focus() + CAMERA_OFFSET
+	var desired := _camera_focus()
 	if is_instance_valid(_harbor): _harbor.update_viewer_position(player.position)
-	camera.position = camera.position.lerp(wanted, 1.0 - exp(-delta * 7.0))
-	camera.look_at(camera.position - CAMERA_OFFSET + Vector3(0, 0.4, 0))
+	_focus.x=lerpf(_focus.x,desired.x,1-exp(-delta*11))
+	_focus.z=lerpf(_focus.z,desired.z,1-exp(-delta*11))
+	_focus.y=lerpf(_focus.y,desired.y,1-exp(-delta*4.5))
+	_trauma=maxf(0,_trauma-delta*1.9)
+	var shake: float=_trauma*_trauma*float(AppSettings.values.camera_shake)
+	var time: float=Time.get_ticks_msec()*.024
+	camera.position=_focus+Vector3(0,float(AppSettings.values.camera_height),float(AppSettings.values.camera_height)/tan(deg_to_rad(float(AppSettings.values.camera_pitch))))
+	camera.rotation=Vector3(-deg_to_rad(float(AppSettings.values.camera_pitch))+deg_to_rad(_shake_noise.get_noise_2d(31,time)*shake*1.2),0,deg_to_rad(_shake_noise.get_noise_2d(68,time)*shake*2.4))
+	camera.fov=float(AppSettings.values.camera_fov)
+	_update_weapon_pose()
+	if player_model.has_method("tick_visual"):player_model.tick_visual(player.velocity,_stick_aim.length()>.15 or _stick_firing,delta)
 	if is_instance_valid(_exit_ring):
 		var pulse := 0.97 + sin(Time.get_ticks_msec() * 0.003) * 0.035
 		_exit_ring.scale = Vector3(pulse, 1, pulse)
@@ -344,11 +366,7 @@ func _move_player(delta: float) -> void:
 	player.move_and_slide()
 	player.position.x = clampf(player.position.x, -MAP_HALF.x+1.4, MAP_HALF.x-1.4)
 	player.position.z = clampf(player.position.z, -MAP_HALF.y+1.4, MAP_HALF.y-1.4)
-	if direction.length() > 0.1:
-		var gait := sin(Time.get_ticks_msec() * 0.016) * 0.045
-		player_model.position.y = absf(gait)
-	else:
-		player_model.position.y = lerpf(player_model.position.y, 0.0, delta * 10.0)
+	# The skeleton supplies gait; keep attached equipment at the actor's origin.
 
 
 func _update_aim() -> void:
@@ -422,7 +440,10 @@ func _fire_player() -> void:
 	var muzzle_item: Dictionary = Catalog.get_item(str(GameState.attachments.get("muzzle", "")))
 	var muzzle_category := str(muzzle_item.get("category", ""))
 	if muzzle_category not in ["suppressor", "flash_hider"]:
-		_spark(muzzle_origin, Color("ffe0a0"), 0.065)
+		_fx.muzzle(muzzle_origin,direction,true)
+	else:_fx.muzzle(muzzle_origin,direction,true,false)
+	_trauma=minf(.55,_trauma+.07)
+	if player_model.has_method("shot"):player_model.shot()
 	_sound.play_shot(category, muzzle_category == "suppressor")
 	_recoil = minf(0.065, _recoil + float(_weapon_stats.get("recoil", 45.0)) * 0.00014)
 	var noise := float(_weapon_stats.get("noise", 25.0))
@@ -497,6 +518,7 @@ func _update_guards(delta: float) -> void:
 		body.velocity.y = -1.0
 		body.move_and_slide()
 		var model: Node3D = guard["model"]
+		if model.has_method("tick_visual"):model.tick_visual(body.velocity,visible,delta)
 		var facing := (player.position - body.position) if visible else direction
 		if facing.length() > 0.1:
 			model.rotation.y = lerp_angle(model.rotation.y, atan2(-facing.x, -facing.z), minf(1.0, delta * 7.0))
@@ -504,7 +526,7 @@ func _update_guards(delta: float) -> void:
 			guard["cooldown"] = _rng.randf_range(0.85, 1.3)
 			_guard_shoot(guard, from, to)
 		var indicator: MeshInstance3D = guard["ring"]
-		indicator.visible = alerted or distance < 6.0
+		indicator.visible = bool(guard.get("seen",false)) and (alerted or distance < 6.0)
 
 
 func _guard_shoot(guard: Dictionary, from: Vector3, to: Vector3) -> void:
@@ -514,6 +536,11 @@ func _guard_shoot(guard: Dictionary, from: Vector3, to: Vector3) -> void:
 		aimed_to.y = player.position.y + 1.67
 	var direction := (aimed_to - from).normalized().rotated(Vector3.UP, _rng.randf_range(-0.055, 0.055))
 	var origin := from + direction * 0.65
+	var guard_model: Node3D=guard.model
+	if guard_model.has_meta("guard_weapon"):
+		var rifle: Node3D=guard_model.get_meta("guard_weapon")
+		var muzzle_point: Node3D=rifle.find_child("MuzzlePoint",true,false)
+		if muzzle_point!=null:origin=muzzle_point.global_position
 	var hit := _ray(from, from + direction * 22.0, [body.get_rid()])
 	var endpoint := from + direction * 22.0
 	if not hit.is_empty():
@@ -523,11 +550,13 @@ func _guard_shoot(guard: Dictionary, from: Vector3, to: Vector3) -> void:
 			var incoming: float = Catalog.shot_damage("weapon_cedar545", "ammo_545x39_fmj", from.distance_to(endpoint)) * _rng.randf_range(0.47, 0.62) * (1.5 if headshot else 1.0)
 			var damage: float = GameState.damage_after_armor(incoming, 18.0, headshot)
 			_hp = maxf(0.0, _hp - damage)
+			_presentation.hurt(from)
+			_trauma=minf(.85,_trauma+.35)
 			_sound.play_event("hit")
 			_notify("受到攻击", 2.0)
 			_spark(endpoint, Color("e57762"), 0.10)
 	_tracer(origin, endpoint, Color("ed8e66"), 0.08)
-	_spark(origin, Color("ffba79"), 0.065)
+	_fx.muzzle(origin,direction,false)
 	_sound.play_shot("rifle", false, true)
 	guard["target"] = player.position
 
@@ -544,13 +573,17 @@ func _damage_guard(index: int, damage: float) -> void:
 	_hit_marker = 0.16
 	var body: CharacterBody3D = guard["body"]
 	_spark(body.position + Vector3(0, 0.9, 0), Color("ff9e71"), 0.11)
+	if guard.model.has_method("flinch"):guard.model.flinch()
+	var killed: bool=float(guard["hp"])<=0
+	_presentation.hit(body.position+Vector3(0,1.0,0),damage,killed)
+	_trauma=minf(.65,maxf(_trauma,.30 if killed else .12))
 	if float(guard["hp"]) <= 0.0:
 		_kills += 1
 		body.collision_layer = 0
 		body.collision_mask = 0
 		var model: Node3D = guard["model"]
-		model.rotation.z = PI * 0.5
-		model.position.y = 0.20
+		model.visible=true
+		if model.has_method("die"):model.die()
 		var ring: MeshInstance3D = guard["ring"]
 		ring.visible = false
 		_add_loot_container(body.position + Vector3(0.75, 0, 0.3), "守卫物资", true)
@@ -669,29 +702,8 @@ func _minimap_roads() -> Array:
 	return roads
 
 func _build_environment() -> void:
-	var environment := WorldEnvironment.new()
-	var settings := Environment.new()
-	settings.background_mode = Environment.BG_COLOR
-	settings.background_color = Color("09151f")
-	settings.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	settings.ambient_light_color = Color("7b99ae")
-	settings.ambient_light_energy = 0.24
-	settings.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	settings.fog_enabled = true
-	settings.fog_light_color = Color("203c50")
-	settings.fog_light_energy = 0.42
-	settings.fog_density = 0.009
-	settings.fog_sky_affect = 0.7
-	environment.environment = settings
-	add_child(environment)
-	var moon := DirectionalLight3D.new()
-	moon.rotation_degrees = Vector3(-56, -26, 0)
-	moon.light_color = Color("abc1d3")
-	moon.light_energy = 0.48
-	moon.shadow_enabled = true
-	moon.directional_shadow_max_distance = 65.0
-	moon.shadow_bias = 0.05
-	add_child(moon)
+	add_child(Look.environment())
+	add_child(Look.moon())
 
 
 func _build_yard() -> void:
@@ -764,6 +776,24 @@ func _build_player() -> void:
 	player = _character(entry_position, 4)
 	player.name = "Raider"
 	player_model = _soldier(player, Color("4d7372"), false)
+	var self_light:=OmniLight3D.new()
+	self_light.position=Vector3(0,1.6,0)
+	self_light.light_color=Color(.72,.82,1.0)
+	self_light.light_energy=1.5
+	self_light.omni_range=6
+	self_light.shadow_enabled=false
+	player.add_child(self_light)
+	var vision:=SpotLight3D.new()
+	vision.position=Vector3(0,12,0)
+	vision.rotation_degrees=Vector3(-50,0,0)
+	vision.light_color=Color(.95,.94,.90)
+	vision.light_energy=.8
+	vision.spot_range=42
+	vision.spot_angle=65
+	vision.spot_angle_attenuation=.55
+	vision.spot_attenuation=.35
+	vision.shadow_enabled=false
+	player_model.add_child(vision)
 	_build_carried_weapons()
 	_player_ring = _ring(player, 0.58, Vector3(0, 0.045, 0), _mat("67edce", 1.8), 0.035)
 	aim_line = MeshInstance3D.new()
@@ -838,18 +868,20 @@ func _add_loot_container(at: Vector3, title: String, corpse: bool) -> void:
 
 func _build_camera() -> void:
 	camera = Camera3D.new()
-	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
-	camera.size = 25.0
-	camera.near = 0.1
-	camera.far = 100.0
+	camera.projection = Camera3D.PROJECTION_PERSPECTIVE
+	camera.fov=Look.CAMERA_FOV
+	camera.keep_aspect=Camera3D.KEEP_HEIGHT
+	camera.near = 0.15
+	camera.far = 250.0
 	add_child(camera)
-	camera.position = _camera_focus() + CAMERA_OFFSET
-	camera.look_at(_camera_focus() + Vector3(0, 0.4, 0))
+	_focus=_camera_focus()
+	camera.position=_focus+Look.offset()
+	camera.rotation_degrees=Vector3(-Look.CAMERA_PITCH,0,0)
 	camera.current = true
 
-
 func _camera_focus() -> Vector3:
-	return Vector3(clampf(player.position.x, -MAP_HALF.x+24, MAP_HALF.x-24), player.position.y, clampf(player.position.z - 4.5, -MAP_HALF.y+20, MAP_HALF.y-20))
+	var lead: Vector3=_aim_direction*(2.5 if _stick_aim.length()>.15 else 1.2)
+	return player.position+lead+Vector3(0,.4,0)
 
 
 func _screen_direction(value: Vector2) -> Vector3:
@@ -879,42 +911,20 @@ func _character(at: Vector3, layer: int) -> CharacterBody3D:
 	return body
 
 
-func _soldier(parent: Node3D, color: Color, guard: bool) -> Node3D:
-	if not guard:
-		var operator: Node3D = load("res://scripts/operator_model.gd").new()
-		parent.add_child(operator)
-		operator.set_equipment(GameState.loadout)
-		return operator
-
-	var model := Node3D.new()
+func _soldier(parent: Node3D, _color: Color, guard: bool) -> Node3D:
+	var model: Node3D=preload("res://scripts/operator_model.gd").new()
+	if guard:model.body_asset="res://assets/ashfront/"+("sniper" if int(parent.get_meta("guard_index",0))%3==0 else "rusher")+".glb"
 	parent.add_child(model)
-	var cloth := _color_mat(color)
-	var armor := _mat("263b3e") if not guard else _mat("46483c")
-	_visual_box(model, Vector3(0.53, 0.62, 0.33), Vector3(0, 0.93, 0), cloth)
-	_visual_box(model, Vector3(0.57, 0.43, 0.12), Vector3(0, 0.99, -0.20), armor)
-	_visual_box(model, Vector3(0.42, 0.5, 0.21), Vector3(0, 0.92, 0.25), _mat("394846"))
-	_visual_box(model, Vector3(0.18, 0.52, 0.23), Vector3(-0.16, 0.34, 0.03), _mat("334144"))
-	_visual_box(model, Vector3(0.18, 0.52, 0.23), Vector3(0.16, 0.34, -0.06), _mat("334144"))
-	_visual_box(model, Vector3(0.19, 0.13, 0.34), Vector3(-0.16, 0.10, -0.035), _mat("17272c"))
-	_visual_box(model, Vector3(0.19, 0.13, 0.34), Vector3(0.16, 0.10, -0.12), _mat("17272c"))
-	_visual_box(model, Vector3(0.17, 0.40, 0.20), Vector3(-0.33, 0.98, -0.11), cloth)
-	_visual_box(model, Vector3(0.17, 0.37, 0.20), Vector3(0.33, 0.98, -0.15), cloth)
-	_visual_box(model, Vector3(0.185, 0.10, 0.22), Vector3(-0.33, 1.05, -0.11), _mat("e3b663") if not guard else _mat("a75d48"))
-	var helmet := MeshInstance3D.new()
-	var sphere := SphereMesh.new()
-	sphere.radius = 0.255
-	sphere.height = 0.42
-	sphere.radial_segments = 12
-	sphere.rings = 6
-	helmet.mesh = sphere
-	helmet.material_override = armor
-	helmet.position.y = 1.43
-	model.add_child(helmet)
-	_visual_box(model, Vector3(0.34, 0.12, 0.10), Vector3(0, 1.40, -0.22), _mat("2c555e") if not guard else _mat("706d59"))
-	if guard:
-		_visual_box(model, Vector3(0.15, 0.15, 0.75), Vector3(0.24, 1.04, -0.52), _mat("202d31"))
-		_visual_box(model, Vector3(0.07, 0.075, 0.45), Vector3(0.24, 1.08, -0.97), _mat("111d22"))
-		_visual_box(model, Vector3(0.10, 0.26, 0.15), Vector3(0.24, 0.87, -0.44), _mat("1a2528"))
+	if not guard:
+		model.set_equipment(GameState.loadout)
+	else:
+		model.set_equipment({})
+		var rifle: Node3D=load("res://assets/ashfront/guard_rifle.glb").instantiate()
+		rifle.position=Vector3(.22,1.15,-.32)
+		rifle.scale=Vector3(.9,.9,.9)
+		model.add_child(rifle)
+		model.set_meta("guard_weapon",rifle)
+		model.bind_weapon(rifle,null)
 	return model
 
 
@@ -958,6 +968,16 @@ func _update_weapon_mounts() -> void:
 			var left := str(slot) == "primary"
 			mount.position = Vector3(-0.30 if left else 0.30, 0.83, 0.43)
 			mount.rotation = Vector3(PI * 0.5, 0, -0.18 if left else 0.18)
+		mount.set_meta("visual_rest",mount.transform)
+	var active: String=GameState.active_weapon_slot
+	if _weapon_mounts.has(active):player_model.bind_weapon(_weapon_mounts[active],get_weapon_model())
+
+func _update_weapon_pose() -> void:
+	if not is_instance_valid(player_model) or not player_model.has_method("bone_delta"):return
+	var chest: Transform3D=player_model.bone_delta("Chest")
+	for mount: Node3D in _weapon_mounts.values():
+		if mount==player_model._held:continue
+		mount.transform=chest*Transform3D(mount.get_meta("visual_rest",Transform3D.IDENTITY))
 
 
 func _active_muzzle_position() -> Vector3:
@@ -1217,11 +1237,7 @@ func _nearest_container() -> int:
 
 
 func _tracer(from: Vector3, to: Vector3, color: Color, lifetime: float) -> void:
-	var node := MeshInstance3D.new()
-	node.material_override = _color_mat(color, 2.0)
-	add_child(node)
-	_set_beam(node, from, to, 0.018)
-	_effects.append({"node": node, "ttl": lifetime})
+	if is_instance_valid(_fx):_fx.tracer(from,to,color,lifetime)
 
 
 func _set_beam(node: MeshInstance3D, from: Vector3, to: Vector3, radius: float) -> void:
@@ -1243,17 +1259,7 @@ func _set_beam(node: MeshInstance3D, from: Vector3, to: Vector3, radius: float) 
 
 
 func _spark(at: Vector3, color: Color, lifetime: float) -> void:
-	var node := MeshInstance3D.new()
-	var mesh := SphereMesh.new()
-	mesh.radius = 0.09
-	mesh.height = 0.18
-	mesh.radial_segments = 6
-	mesh.rings = 3
-	node.mesh = mesh
-	node.material_override = _color_mat(color, 2.5)
-	node.position = at
-	add_child(node)
-	_effects.append({"node": node, "ttl": lifetime})
+	if is_instance_valid(_fx):_fx.impact(at,color,lifetime)
 
 
 func _update_effects(delta: float) -> void:

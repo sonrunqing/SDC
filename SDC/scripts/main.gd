@@ -3,13 +3,13 @@ extends Control
 const TouchOption = preload("res://scripts/touch_option.gd")
 const TouchQuantity = preload("res://scripts/touch_quantity.gd")
 const TouchLineEdit = preload("res://scripts/touch_line_edit.gd")
-const BG := Color("0d151b")
-const PANEL := Color("18252c")
-const PANEL_LIGHT := Color("26343a")
+const BG := Color("0d0f14")
+const PANEL := Color("171a20")
+const PANEL_LIGHT := Color("252a32")
 const TEAL := Color("dbb577")
 const AMBER := Color("e2ba76")
 const TEXT := Color("edf0e7")
-const MUTED := Color("a2b3ad")
+const MUTED := Color("b2b5bc")
 const DANGER := Color("f08677")
 const CAT_NAMES: Dictionary = {"smg":"冲锋枪", "rifle":"突击步枪", "sniper":"狙击枪", "shotgun":"霰弹枪", "machine_gun":"机枪", "pistol":"手枪", "helmet":"头盔", "body_armor":"防弹衣", "backpack":"背包", "rig":"弹挂", "armored_rig":"防弹弹挂", "visor":"面罩", "muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光指示器", "handguard":"护木", "ammo":"弹药", "loot":"物资", "consumable":"补给", "suppressor":"消音器", "flash_hider":"消焰器", "compensator":"补偿器", "muzzle_brake":"枪口制退器", "vertical_grip":"垂直握把", "angled_grip":"斜角握把", "tactical_stock":"战术枪托", "extended_mag":"扩容弹匣", "red_dot":"红点瞄具", "scope":"瞄准镜", "medical":"医疗补给", "valuable":"贵重物资"}
 const SLOT_NAMES: Dictionary = {"weapon":"当前武器", "primary":"主武器", "secondary":"副武器", "sidearm":"手枪", "helmet":"头盔", "body_armor":"防弹衣", "backpack":"背包", "armored_rig":"弹挂", "visor":"面罩", "ammo":"弹药", "muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光", "handguard":"护木"}
@@ -46,6 +46,7 @@ var _world: Node3D
 var _hud: Control
 var _controls: Control
 var _hud_hp: Label
+var _hud_health_bar: ProgressBar
 var _hud_ammo: Label
 var _hud_bag: Label
 var _hud_time: Label
@@ -1035,19 +1036,26 @@ func _build_hud() -> void:
 	var top_left := PanelContainer.new()
 	top_left.position = Vector2(24, 20)
 	top_left.size = Vector2(290, 118)
-	top_left.add_theme_stylebox_override("panel", _style(Color(0.035,0.07,0.09,0.86),Color(0.23,0.4,0.43,0.8)))
+	top_left.add_theme_stylebox_override("panel", _style(Color(.035,.040,.052,.88),Color(.55,.58,.62,.28)))
 	_hud.add_child(top_left)
 	_hud_health=top_left
 	var info := _vbox(top_left, 7)
 	_hud_hp = _label("生命 100 / 100", 22)
 	info.add_child(_hud_hp)
+	_hud_health_bar=ProgressBar.new()
+	_hud_health_bar.custom_minimum_size.y=5
+	_hud_health_bar.show_percentage=false
+	_hud_health_bar.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	_hud_health_bar.add_theme_stylebox_override("background",_style(Color("292e36"),Color.TRANSPARENT,0))
+	_hud_health_bar.add_theme_stylebox_override("fill",_style(Color("9ea894"),Color.TRANSPARENT,0))
+	info.add_child(_hud_health_bar)
 	_hud_ammo = _label("", 14, AMBER)
 	_hud_ammo.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
 	info.add_child(_hud_ammo)
 	var mission := PanelContainer.new()
 	mission.position = Vector2(442,20)
 	mission.size = Vector2(400, 82)
-	mission.add_theme_stylebox_override("panel",_style(Color(0.035,0.07,0.09,0.86),Color(0.23,0.4,0.43,0.8)))
+	mission.add_theme_stylebox_override("panel",_style(Color(.035,.040,.052,.88),Color(.55,.58,.62,.28)))
 	_hud.add_child(mission)
 	_hud_mission = mission
 	var mission_box := _vbox(mission,4)
@@ -1060,7 +1068,7 @@ func _build_hud() -> void:
 	var bag_panel := PanelContainer.new()
 	bag_panel.position = Vector2(961, 20)
 	bag_panel.size = Vector2(295, 84)
-	bag_panel.add_theme_stylebox_override("panel",_style(Color(0.035,0.07,0.09,0.86),Color(0.23,0.4,0.43,0.8)))
+	bag_panel.add_theme_stylebox_override("panel",_style(Color(.035,.040,.052,.88),Color(.55,.58,.62,.28)))
 	_hud.add_child(bag_panel)
 	_hud_bag_panel = bag_panel
 	_hud_bag = _label("",15,AMBER)
@@ -1105,6 +1113,8 @@ func _update_hud(info: Dictionary) -> void:
 	_controls.call("set_weapons",info.get("weapons",[]))
 	var hp: float = float(info.get("hp",100))
 	_hud_hp.text = "生命  %d / %d" % [int(hp),int(info.get("max_hp",100))]
+	_hud_health_bar.max_value=float(info.get("max_hp",100))
+	_hud_health_bar.value=hp
 	_hud_hp.add_theme_color_override("font_color",DANGER if hp < 35 else TEXT)
 	_hud_ammo.text = "%s  ·  %d / %d  |  备弹 %d" % [str(info.get("weapon_name","")),int(info.get("ammo",0)),int(info.get("magazine",0)),int(info.get("reserve",0))]
 	var seconds: int = maxi(0,int(info.get("seconds",0)))

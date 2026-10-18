@@ -21,11 +21,8 @@ func _ready() -> void:
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
 	var container:=SubViewportContainer.new();container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);container.stretch=true;container.mouse_filter=Control.MOUSE_FILTER_IGNORE;container.show_behind_parent=true;add_child(container)
 	_viewport=SubViewport.new();_viewport.size=Vector2i(1100,650);_viewport.own_world_3d=true;_viewport.gui_disable_input=true;_viewport.render_target_update_mode=SubViewport.UPDATE_WHEN_VISIBLE;container.add_child(_viewport)
-	var env:=WorldEnvironment.new();var settings:=Environment.new();settings.background_mode=Environment.BG_COLOR;settings.background_color=Color("142329")
-	settings.ambient_light_source=Environment.AMBIENT_SOURCE_COLOR;settings.ambient_light_color=Color("b9c8c8");settings.ambient_light_energy=.65;settings.tonemap_mode=Environment.TONE_MAPPER_FILMIC
-	env.environment=settings;_viewport.add_child(env)
-	var key:=DirectionalLight3D.new();key.rotation_degrees=Vector3(-55,-28,0);key.light_color=Color("f7e6cb");key.light_energy=1.25;key.shadow_enabled=true;key.directional_shadow_max_distance=600;_viewport.add_child(key)
-	var fill:=DirectionalLight3D.new();fill.rotation_degrees=Vector3(-35,140,0);fill.light_color=Color("91c1ce");fill.light_energy=.25;_viewport.add_child(fill)
+	_viewport.add_child(preload("res://scripts/visual_profile.gd").environment(true))
+	_viewport.add_child(preload("res://scripts/visual_profile.gd").moon(true))
 	_map=load("res://scripts/harbor_map.gd").new();_viewport.add_child(_map);_map.build(true)
 	_camera=Camera3D.new();_camera.projection=Camera3D.PROJECTION_ORTHOGONAL;_camera.far=800;_viewport.add_child(_camera);_camera.current=true
 	_update_camera()

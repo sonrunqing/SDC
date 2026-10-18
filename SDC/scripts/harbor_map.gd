@@ -8,6 +8,7 @@ var _metadata: Dictionary = {}
 var _templates: Dictionary = {}
 var _groups: Dictionary = {}
 var _materials: Dictionary = {}
+var _surface_materials: Dictionary={}
 var _preview: bool = false
 var object_count: int = 0
 var _cutaway_instances: Dictionary = {}
@@ -27,12 +28,26 @@ func build(preview: bool = false) -> void:
 	for record: Dictionary in layout.get("surfaces",[]):
 		var mesh := BoxMesh.new()
 		mesh.size = _vec(record.size)
-		_batch("surface/"+str(record.color),mesh,_material(str(record.color)),Transform3D(Basis.IDENTITY,_vec(record.position)),false)
+		_batch("surface/"+str(record.color),mesh,_surface(str(record.color)),Transform3D(Basis.IDENTITY,_vec(record.position)),false)
 	for record: Dictionary in layout.get("objects",[]):
 		_place(record)
 	_flush()
 	_building_signs()
-	if not preview: _lighting()
+	var detail:=preload("res://scripts/harbor_detail.gd").new()
+	detail.name="AshfrontHarborDetail"
+	add_child(detail)
+	detail.build(layout,preview)
+	_lighting()
+
+func _surface(color: String) -> Material:
+	if color not in ["26343b","29383e","434c4b"]:return _material(color)
+	if _surface_materials.has(color):return _surface_materials[color]
+	var material:=ShaderMaterial.new()
+	material.shader=preload("res://shaders/harbor_surface.gdshader")
+	material.set_shader_parameter("base_color",Color("37383b") if color!="434c4b" else Color("50514d"))
+	material.set_shader_parameter("wetness",.26 if color!="434c4b" else .08)
+	_surface_materials[color]=material
+	return material
 
 func _vec(value: Array) -> Vector3:
 	return Vector3(float(value[0]),float(value[1]),float(value[2]))
@@ -53,18 +68,7 @@ func _ground() -> void:
 	mesh.size = size
 	base.mesh = mesh
 	base.position.y = -.17
-	var material := _material("434c4b").duplicate() as StandardMaterial3D
-	if not _preview:
-		var noise := FastNoiseLite.new()
-		noise.frequency = .055
-		var texture := NoiseTexture2D.new()
-		texture.width = 128;texture.height = 128;texture.noise = noise
-		var gradient := Gradient.new()
-		gradient.set_color(0,Color("777e7a"));gradient.set_color(1,Color("a4aaa0"))
-		texture.color_ramp = gradient
-		material.albedo_texture = texture
-		material.uv1_scale = Vector3(40,40,40)
-	base.material_override = material
+	base.material_override = _surface("434c4b")
 	add_child(base)
 	if not _preview:
 		var body := StaticBody3D.new()
@@ -282,7 +286,7 @@ func _lighting() -> void:
 		if not cutaway.is_empty():
 			if not _cutaway_instances.has(cutaway): _cutaway_instances[cutaway] = []
 			_cutaway_instances[cutaway].append(lamp)
-		var light := OmniLight3D.new();light.position=at-Vector3(0,.5,0);light.light_color=Color(str(record.color));light.light_energy=float(record.energy);light.omni_range=float(record.radius)
+		var light := OmniLight3D.new();light.position=at-Vector3(0,.5,0);light.light_color=Color("ffcf8b") if str(record.get("fixture","pole"))=="pole" else Color(str(record.color));light.light_energy=float(record.energy)*1.3;light.omni_range=float(record.radius)
 		light.shadow_enabled=false;light.distance_fade_enabled=true;light.distance_fade_begin=38;light.distance_fade_length=10;add_child(light)
 
 func get_summary() -> Dictionary:

@@ -26,7 +26,7 @@ func _draw() -> void:
 	for road:Dictionary in info.get("map_roads",[]):
 		var start:Vector2=_point(road.position-road.size*.5)
 		var end:Vector2=_point(road.position+road.size*.5)
-		draw_rect(Rect2(start,end-start),Color("213d44"))
+		draw_rect(Rect2(start,end-start),Color("30343d"))
 	var exit_pos: Vector2 = _point(info.get("extraction_position",Vector2.ZERO))
 	draw_rect(Rect2(exit_pos-Vector2(5,5),Vector2(10,10)),Color("65d9b2"),false,1.5)
 	for marker: Dictionary in info.get("minimap",[]):
@@ -40,8 +40,8 @@ func _draw() -> void:
 
 func _box() -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.035,0.07,0.09,0.88)
-	style.border_color = Color(0.23,0.4,0.43,0.8)
+	style.bg_color = Color(.035,.040,.052,.88)
+	style.border_color = Color(.55,.58,.62,.28)
 	style.set_border_width_all(1)
 	style.set_corner_radius_all(8)
 	return style

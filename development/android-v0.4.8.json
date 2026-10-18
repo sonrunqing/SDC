@@ -1,0 +1,25 @@
+{
+  "version": "0.4.8",
+  "version_code": 15,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 92739294,
+  "sha256": "4b9c80a89f0be416fa7d5c8da6b8076e2d6f3c08aaf34e2c54ee432184de5f45",
+  "reference_version_code": 14,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T15:55:23.1094132+08:00",
+  "apk_file": "SDC-v0.4.8.apk",
+  "reference_apk_file": "SDC-v0.4.7.apk",
+  "checks": {
+    "visual_port": 139,
+    "modular_models": 1088,
+    "workbench_preview": 28,
+    "visual_captures": [
+      "road HUD",
+      "warehouse cutaway",
+      "animated operator"
+    ]
+  },
+  "note": "Ashfront presentation port: animation rig, two guard models, camera, LOS mask, bounded combat FX, surface/detail layer and unified look. Local engine rendering and focused checks passed; no physical phone installation or touch validation. APK and signing keys remain outside Git."
+}
