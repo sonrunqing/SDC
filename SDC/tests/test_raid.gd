@@ -133,9 +133,10 @@ func _run() -> void:
 	await ticks(3)
 	var magazine_before: int = world._magazine
 	var weight_before_shot: float = state.raid_weight()
-	world.set_aim(input_for_world(Vector3.FORWARD), true)
+	world.set_aim(input_for_world(Vector3.FORWARD))
+	world.set_fire(true)
 	await ticks(2)
-	world.set_aim(input_for_world(Vector3.FORWARD), false)
+	world.set_fire(false)
 	check(world._magazine == magazine_before - 1 and world._shots == 1, "one physical firing interval spends one loaded round")
 	check(float(target["hp"]) < 100.0, "actual projectile ray damages guard")
 	check(state.raid_loaded_ammo == world._magazine, "shot synchronizes state loaded-ammo count")
@@ -165,9 +166,10 @@ func _run() -> void:
 	check(world._weapon_mounts.secondary.position.is_equal_approx(Vector3(0.22, 1.05, -0.32)), "secondary authored assembly moves to hand mount")
 	var secondary_magazine: int = world._magazine
 	await ticks(14)
-	world.set_aim(input_for_world(Vector3.FORWARD), true)
+	world.set_aim(input_for_world(Vector3.FORWARD))
+	world.set_fire(true)
 	await ticks(2)
-	world.set_aim(input_for_world(Vector3.FORWARD), false)
+	world.set_fire(false)
 	check(world._magazine == secondary_magazine - 1, "secondary fires its own loaded cartridge")
 	var secondary_reserve: int = state.get_raid_ammo("secondary")
 	world.reload_weapon()
@@ -177,9 +179,10 @@ func _run() -> void:
 	check(state.raid_ammo_id == "ammo_45acp_fmj" and world._magazine == state.get_loaded_ammo("sidearm"), "pistol selects its own ammunition and magazine")
 	var pistol_magazine: int = world._magazine
 	await ticks(14)
-	world.set_aim(input_for_world(Vector3.FORWARD), true)
+	world.set_aim(input_for_world(Vector3.FORWARD))
+	world.set_fire(true)
 	await ticks(2)
-	world.set_aim(input_for_world(Vector3.FORWARD), false)
+	world.set_fire(false)
 	check(world._magazine == pistol_magazine - 1, "pistol fires its own loaded cartridge")
 	var ammo_before_cycle: int = carried_ammo_total()
 	for _cycle: int in range(3):
@@ -200,24 +203,23 @@ func _run() -> void:
 	check(is_equal_approx(world._hp, minf(100.0, 20.0 + healing)), "world heals by the carried medicine definition")
 	check(state.raid_meds == meds_before - 1, "healing consumes a real carried medical item")
 
-	# Search requires proximity and time. Movement cancels, then an uninterrupted search collects.
-	var crate: Dictionary = world._containers[0]
-	var crate_at: Vector3 = crate["position"]
-	world.player.position = crate_at + Vector3(1, 0, 0)
+	# Container search reveals records but never awards them automatically.
+	var crate: Dictionary=world._containers[0]
+	var approach: Array=world._navigation_path(world.SPAWN,crate.position)
+	world.player.position=approach[-1]
+	world.player.velocity=Vector3.ZERO
 	await ticks(2)
-	world.interact()
-	check(world._search_left > 0.0, "nearby interact begins delayed search")
+	check(world._open_container(0),"nearby interact opens the container")
 	world.set_move(Vector2.RIGHT)
-	await ticks(2)
-	world.set_move(Vector2.ZERO)
-	check(world._search_left <= 0.0 and state.raid_loot.is_empty(), "movement cancels search without granting loot")
-	world.player.position = crate_at + Vector3(1, 0, 0)
-	await ticks(2)
-	world.interact()
-	await ticks(80)
-	check(not state.raid_loot.is_empty() and bool(crate["opened"]), "completed live search transfers container contents into carried loot")
-	var carried_loot: Dictionary = state.raid_loot.duplicate(true)
-	check(int(world.get_hud().get("loot_value", 0)) > 0, "HUD values real carried loot")
+	check(world._ui_blocked and world._move==Vector2.ZERO,"search modal blocks gameplay movement")
+	await ticks(300)
+	check(bool(world.get_container_snapshot().complete) and state.raid_loot.is_empty(),"completed search reveals contents without awarding them")
+	var selected: Dictionary=crate.search.records[0]
+	check(world.take_container_item(str(selected.uid),1),"explicit selected pickup transfers one discovered item")
+	check(not state.raid_loot.is_empty() and not bool(crate.opened),"unselected contents remain in the source")
+	world.close_container()
+	var carried_loot: Dictionary=state.raid_loot.duplicate(true)
+	check(int(world.get_hud().get("loot_value",0))>0,"HUD values only the loot actually picked")
 
 	# Exercise the normal dwell timer: leaving the zone resets progress; five still seconds finish.
 	world.player.position = world.EXIT

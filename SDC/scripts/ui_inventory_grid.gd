@@ -15,6 +15,12 @@ var selected_uid: String = ""
 var hover_spot: Dictionary = {}
 var _font: Font
 var _textures: Dictionary = {}
+## Raid search views provide live carried/container records without using stash.
+var use_source_records: bool=false
+var source_records: Array=[]
+var concealed_uids: Dictionary={}
+var searching_uid: String=""
+var search_progress: float=0
 
 func _ready() -> void:
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
@@ -22,6 +28,11 @@ func _ready() -> void:
 	if equipment_slot.is_empty():custom_minimum_size=Vector2(columns*cell,rows*cell)
 
 func records() -> Array:
+	if use_source_records:
+		var matches: Array=[]
+		for record: Dictionary in source_records:
+			if int(record.get("qty",0))>0 and str(record.get("container",""))==container_id and str(record.get("block","0"))==block_id:matches.append(record)
+		return matches
 	if not display_override.is_empty():return [display_override]
 	if not equipment_slot.is_empty():
 		var id: String = str(GameState.loadout.get(equipment_slot,""))
@@ -65,6 +76,16 @@ func _draw() -> void:
 		draw_string(_font,Vector2(10,20),caption,HORIZONTAL_ALIGNMENT_LEFT,size.x-16,16,Color("b0bdbb"))
 	for record: Dictionary in records():
 		var rectangle: Rect2 = record_rect(record)
+		if concealed_uids.has(str(record.uid)):
+			draw_rect(rectangle,Color("30383e"))
+			draw_rect(rectangle,Color("64716f"),false,1)
+			var active: bool=str(record.uid)==searching_uid
+			if active:
+				var scan: float=rectangle.position.y+fmod(Time.get_ticks_msec()*.065,maxf(1,rectangle.size.y))
+				draw_rect(Rect2(rectangle.position.x,scan,rectangle.size.x,minf(3,rectangle.end.y-scan)),Color(.7,.78,.7,.65))
+				draw_rect(Rect2(rectangle.position.x,rectangle.end.y-4,rectangle.size.x*search_progress,3),Color("b3c0a7"))
+			draw_string(_font,rectangle.get_center()+Vector2(-6,6),"···" if active else "?",HORIZONTAL_ALIGNMENT_LEFT,-1,21,Color("c4cbc2"))
+			continue
 		var item: Dictionary = Catalog.get_item(str(record.item))
 		var level: int = int(item.get("level",0))
 		var tone: Color = [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]

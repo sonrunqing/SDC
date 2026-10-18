@@ -119,5 +119,8 @@ for record in loot:
 layout=dict(schema_version=1,id='gray_harbor',name='灰港 · 工业港',bounds=[160,180],previous_bounds=[48,52],area_multiplier=160*180/(48*52),objects=objects,surfaces=surfaces,lights=lights,loot=loot,zones=zones,entries=entries,extraction=[0,0,-77])
 from industrial_layout import assemble
 layout=assemble(layout)
+from loot_layout import organize
+layout=organize(layout)
+objects=layout['objects']
 (ROOT/'data/harbor_layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
-print('HARBOR_LAYOUT',len(objects),'placements',len(set(x['model'] for x in objects)),'model types',len(loot),'loot locations; area x',layout['area_multiplier'])
+print('HARBOR_LAYOUT',len(objects),'placements',len(set(x['model'] for x in objects)),'model types',len(layout['loot']),'loot locations; area x',layout['area_multiplier'])

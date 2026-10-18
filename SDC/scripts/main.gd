@@ -59,6 +59,7 @@ var _toast_time: float = 0.0
 var _refresh_pending: bool = false
 var _raid_starting: bool = false
 var _result_overlay: Control
+var _loot_overlay: Control
 var _nav_buttons: Dictionary = {}
 var _sidebar: Control
 var _header: Control
@@ -1017,6 +1018,8 @@ func _deploy() -> void:
 	add_child(_world)
 	move_child(_world, 0)
 	_world.hud_changed.connect(_update_hud)
+	_world.container_opened.connect(_show_loot_container)
+	_world.container_closed.connect(_hide_loot_container)
 	_world.raid_finished.connect(_raid_finished)
 	_hud.show()
 	_controls.enabled = true
@@ -1128,6 +1131,30 @@ func _update_hud(info: Dictionary) -> void:
 	_hud_extract.value = float(info.get("extract_progress",0))
 	_hud_extract.visible = _hud_extract.value > 0
 
+func _show_loot_container(_index: int) -> void:
+	if is_instance_valid(_loot_overlay):return
+	get_tree().call_group("mobile_touch_gesture","cancel_gesture")
+	_controls.enabled=false
+	_hud.hide()
+	_loot_overlay=preload("res://scripts/ui_loot_search.gd").new()
+	_loot_overlay.world=_world
+	_loot_overlay.theme=theme
+	_loot_overlay.close_requested.connect(func() -> void:
+		if is_instance_valid(_world):_world.close_container())
+	_layer.add_child(_loot_overlay)
+
+func _hide_loot_container(reason: String = "") -> void:
+	if is_instance_valid(_loot_overlay):
+		get_tree().call_group("mobile_touch_gesture","cancel_gesture")
+		_loot_overlay.hide()
+		_loot_overlay.remove_from_group("mobile_touch_modal")
+		_loot_overlay.queue_free()
+		_loot_overlay=null
+	if is_instance_valid(_world) and _world._active and GameState.raid_active and not is_instance_valid(_result_overlay):
+		_hud.show()
+		_controls.enabled=true
+	if not reason.is_empty():_notify(reason)
+
 func _show_pause() -> void:
 	if is_instance_valid(_result_overlay): return
 	if is_instance_valid(_world):_world.set_input_blocked(true)
@@ -1196,6 +1223,7 @@ func _modal(title_text: String) -> Control:
 	return overlay
 
 func _raid_finished(extracted: bool, details: Dictionary) -> void:
+	_hide_loot_container()
 	if is_instance_valid(_control_layout_editor):_control_layout_editor.request_cancel()
 	_controls.enabled = false
 	_hud.hide()

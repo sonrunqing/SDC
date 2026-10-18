@@ -6,13 +6,13 @@ func check(condition:bool,message:String) -> void:
 	checks+=1
 	if not condition:failures+=1;push_error(message)
 func run() -> void:
-	var state:Node=root.get_node("GameState");state.reset_progress();state.begin_raid()
+	var state:Node=root.get_node("GameState");state.save_path="user://test_harbor_layout.json";state.reset_progress();state.begin_raid()
 	var world:Node3D=load("res://scripts/raid_world.gd").new();root.add_child(world);world.start_raid();world.set_physics_process(false)
 	var summary:Dictionary=world._harbor.get_summary()
 	check(float(summary.area_multiplier)>=10,"Playable map area is at least ten times the old map")
 	check(summary.bounds==[160.0,180.0],"Physical map dimensions match selection page")
 	check(int(summary.model_types)>=70 and int(summary.objects)>=250,"Large map actually places dozens of distinct models")
-	check(world._containers.size()>=27,"Expanded districts have distributed loot")
+	check(world._containers.size()==26,"Curated loot points occupy the enterable industrial rooms")
 	check(world._guards.size()>=15,"Expanded districts have actual guards")
 	check(world._nav.region.size==Vector2i(160,180),"Navigation covers the whole expanded map")
 	for entry:Dictionary in world._harbor.layout.entries:

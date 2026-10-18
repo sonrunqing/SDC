@@ -697,24 +697,70 @@ func damage_after_armor(damage: float, penetration: float, headshot: bool = fals
 	var reduction: float = clampf((protection - maxf(0.0, penetration)) / 75.0, 0.0, 0.72)
 	return maxf(0.0, damage) * (1.0 - reduction)
 
-func add_raid_loot(id: String, quantity: int = 1) -> bool:
-	if not raid_active:
-		return _fail("当前没有进行中的行动")
-	if quantity < 1 or quantity > MAX_STACK or _item(id).is_empty():
-		return _fail("战利品无效")
-	if int(raid_loot.get(id, 0)) + quantity > MAX_STACK:
-		return _fail("携带数量超出上限")
-	if raid_weight() + float(_item(id).get("weight", 0.0)) * quantity > carry_capacity():
-		return _fail("背包已满，无法拾取更多物资")
-	var proposed: Dictionary=raid_loot.duplicate(true)
-	proposed[id]=int(proposed.get(id,0))+quantity
-	var packed: Array=_pack_raid_grid(proposed)
-	if Grid.overflow_count(packed)>0:return _fail("携行区块已满，没有适合该物品的格子")
-	raid_loot[id] = int(raid_loot.get(id, 0)) + quantity
+func add_raid_loot(id: String,quantity: int = 1) -> bool:
+	return receive_container_item(id,quantity,"","",Vector2i(-1,-1),false)
+
+func receive_container_item(id: String,quantity: int = 1,destination: String = "",block: String = "",cell: Vector2i = Vector2i(-1,-1),as_supply: bool = true) -> bool:
+	if not raid_active:return _fail("当前没有进行中的行动")
+	var item: Dictionary=_item(id)
+	if quantity<1 or quantity>MAX_STACK or item.is_empty():return _fail("物资数量无效")
+	if not destination.is_empty() and destination not in ["backpack","rig","pockets"]:return _fail("只能放入携行区块")
+	var total: int=int(raid_loot.get(id,0))+int(raid_packed_extra.get(id,0))+int(raid_ammo_by_id.get(id,0))
+	if id==raid_medkit_id:total+=raid_medkits
+	if total+quantity>MAX_STACK:return _fail("携带数量超出上限")
+	if raid_weight()+float(item.get("weight",0))*quantity>carry_capacity():return _fail("负重不足，物品仍在容器中")
+	# Work on a copy. Source container and all carried records stay unchanged if
+	# even one stack or requested block cannot fit the full selected quantity.
+	var packed: Array=raid_grid_items.duplicate(true)
+	var left: int=quantity
+	var limit: int=Grid.stack_limit(id)
+	for record: Dictionary in packed:
+		if left<=0:break
+		if str(record.item)!=id or int(record.qty)>=limit:continue
+		if not destination.is_empty() and str(record.container)!=destination:continue
+		if not block.is_empty() and str(record.block)!=block:continue
+		if cell.x>=0 and not Rect2i(Vector2i(int(record.x),int(record.y)),Grid.footprint(record,bool(record.rotated))).has_point(cell):continue
+		var amount: int=mini(left,limit-int(record.qty))
+		record.qty=int(record.qty)+amount
+		left-=amount
+	var sequence: int=0
+	while left>0:
+		var amount: int=mini(left,limit)
+		var record: Dictionary={"uid":"raid_pick_%d_%d"%[Time.get_ticks_usec(),sequence],"item":id,"qty":amount,"rotated":false}
+		var order: Array=[destination] if not destination.is_empty() else (["rig","pockets","backpack"] if str(item.get("kind",""))=="ammo" else ["backpack","rig","pockets"])
+		var spot: Dictionary={}
+		for target: String in order:
+			spot=Grid.find_spot(record,target,packed,loadout,block,cell)
+			if not spot.is_empty():break
+		if spot.is_empty():return _fail("没有合适的格子，物品仍在容器中")
+		Grid.apply_spot(record,spot)
+		packed.append(record)
+		left-=amount
+		sequence+=1
+	if as_supply and str(item.get("kind",""))=="ammo":
+		raid_ammo_by_id[id]=int(raid_ammo_by_id.get(id,0))+quantity
+	elif as_supply and str(item.get("kind",""))=="consumable" and (id==raid_medkit_id or raid_medkit_id.is_empty()):
+		raid_medkit_id=id
+		raid_medkits+=quantity
+	else:raid_loot[id]=int(raid_loot.get(id,0))+quantity
 	raid_grid_items=packed
-	last_error = ""
+	last_error=""
 	changed.emit()
 	return true
+
+func move_raid_item(uid: String,destination: String,block: String = "",cell: Vector2i = Vector2i(-1,-1)) -> bool:
+	if not raid_active or destination not in ["rig","pockets","backpack"]:return _fail("不能放到这个位置")
+	var packed: Array=raid_grid_items.duplicate(true)
+	var record: Dictionary=Grid.find_record(packed,uid)
+	if record.is_empty():return _fail("物品位置已更新")
+	var spot: Dictionary=Grid.find_spot(record,destination,packed,loadout,block,cell)
+	if spot.is_empty():return _fail("没有合适的格子")
+	Grid.apply_spot(record,spot)
+	raid_grid_items=packed
+	last_error=""
+	changed.emit()
+	return true
+
 
 func finish_raid(extracted: bool, details: Dictionary = {}) -> Dictionary:
 	if not raid_active:

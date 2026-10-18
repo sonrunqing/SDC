@@ -3,6 +3,9 @@ extends Node3D
 
 signal hud_changed(info: Dictionary)
 signal raid_finished(extracted: bool, details: Dictionary)
+signal container_opened(index: int)
+signal container_closed(reason: String)
+const ContainerState=preload("res://scripts/loot_container_state.gd")
 
 const MAP_HALF := Vector2(80.0, 90.0)
 const SPAWN := Vector3(0.0, 0.0, 78.0)
@@ -60,6 +63,7 @@ var _extract_progress := 0.0
 var _hud_clock := 0.0
 var _search_left := 0.0
 var _search_target := -1
+var _marker_clock: float=0
 var _notice := ""
 var _notice_left := 0.0
 var _hit_marker := 0.0
@@ -72,6 +76,7 @@ var _player_ring: MeshInstance3D
 
 
 func start_raid(selected_entry: String = "south") -> void:
+	close_container()
 	entry_id = selected_entry
 	entry_position = SPAWN
 	var layout_data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/harbor_layout.json"))
@@ -120,10 +125,10 @@ func start_raid(selected_entry: String = "south") -> void:
 	add_child(_sound)
 	_build_environment()
 	_build_yard()
+	_build_containers()
 	_build_navigation()
 	_build_player()
 	_build_guards()
-	_build_containers()
 	_build_camera()
 	_fx=preload("res://scripts/raid_fx.gd").new()
 	add_child(_fx)
@@ -202,15 +207,9 @@ func reload_weapon() -> void:
 
 
 func interact() -> void:
-	if not _active or _search_left > 0.0:
-		return
-	var index := _nearest_container()
-	if index < 0:
-		_notify("")
-		return
-	_search_target = index
-	_search_left = 1.15
-	_notify("", 1.2)
+	if not _active or _ui_blocked or _search_target>=0:return
+	var index: int=_nearest_container()
+	if index>=0:_open_container(index)
 
 
 func use_medkit() -> void:
@@ -292,6 +291,7 @@ func get_hud() -> Dictionary:
 
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_PAUSED]:
+		close_container("搜索已中断")
 		_move = Vector2.ZERO
 		_stick_aim = Vector2.ZERO
 		_stick_firing = false
@@ -317,6 +317,7 @@ func _physics_process(delta: float) -> void:
 		_fire_player()
 	_update_guards(delta)
 	_update_search(delta)
+	_update_container_markers(delta)
 	_update_extraction(delta)
 	_update_effects(delta)
 	if _time_left <= 0.0:
@@ -550,6 +551,7 @@ func _guard_shoot(guard: Dictionary, from: Vector3, to: Vector3) -> void:
 			var incoming: float = Catalog.shot_damage("weapon_cedar545", "ammo_545x39_fmj", from.distance_to(endpoint)) * _rng.randf_range(0.47, 0.62) * (1.5 if headshot else 1.0)
 			var damage: float = GameState.damage_after_armor(incoming, 18.0, headshot)
 			_hp = maxf(0.0, _hp - damage)
+			close_container("受到攻击，搜索已中断")
 			_presentation.hurt(from)
 			_trauma=minf(.85,_trauma+.35)
 			_sound.play_event("hit")
@@ -590,52 +592,88 @@ func _damage_guard(index: int, damage: float) -> void:
 		_notify("目标倒地", 2.0)
 
 
-func _update_search(delta: float) -> void:
-	if _search_left <= 0.0:
-		return
-	if _search_target < 0 or _search_target >= _containers.size():
-		_search_left = 0.0
-		return
-	var at: Vector3 = _containers[_search_target]["position"]
-	if player.position.distance_to(at) > 2.5:
-		_search_left = 0.0
-		_search_target = -1
-		return
-	_search_left = maxf(0.0, _search_left - delta)
-	if _search_left <= 0.0:
-		_open_container(_search_target)
-		_search_target = -1
+func _can_access_container(index: int) -> bool:
+	if index<0 or index>=_containers.size() or not is_instance_valid(player):return false
+	var crate: Dictionary=_containers[index]
+	var at: Vector3=crate.position
+	if Vector2(player.position.x-at.x,player.position.z-at.z).length()>2.5:return false
+	var query:=PhysicsRayQueryParameters3D.create(player.position+Vector3(0,.95,0),at+Vector3(0,.4,0),1,[player.get_rid(),crate.body.get_rid()])
+	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
 
+func _update_search(delta: float) -> void:
+	if _search_target<0:return
+	if not _active or not _can_access_container(_search_target):
+		close_container("已离开容器，搜索中断")
+		return
+	var crate: Dictionary=_containers[_search_target]
+	var revealed: int=ContainerState.advance(crate.search,delta)
+	var current: Dictionary=ContainerState.current(crate.search)
+	_search_left=float(crate.search.opening)+(ContainerState.duration(current)-float(crate.search.elapsed) if not current.is_empty() else 0.0)
+	if revealed>0:_sound.play_event("search")
 
 func _open_container(index: int) -> bool:
-	if index < 0 or index >= _containers.size() or bool(_containers[index]["opened"]):
-		return false
-	var crate: Dictionary = _containers[index]
-	var contents: Dictionary = crate["contents"]
-	var found: Array[String] = []
-	var remaining: Dictionary = {}
-	for item_id in contents:
-		var quantity := int(contents[item_id])
-		if GameState.add_raid_loot(str(item_id), quantity):
-			var item: Dictionary = Catalog.get_item(str(item_id))
-			found.append(str(item.get("name", item_id)) + (" ×%d" % quantity))
-			_looted += quantity
-		else:
-			remaining[item_id] = quantity
-	crate["contents"] = remaining
-	crate["opened"] = remaining.is_empty()
-	var marker: MeshInstance3D = crate["marker"]
-	marker.visible = not bool(crate["opened"])
-	var label: Label3D = crate["label"]
-	label.text = "已搜索" if bool(crate["opened"]) else "背包已满"
-	label.modulate = Color("77918f") if bool(crate["opened"]) else Color("edbd70")
-	if found.is_empty():
-		_notify("背包容量不足，无法装入这些物资。", 3.0)
-		return false
-	_notify("获得：" + "、".join(found) + (" · 仍有物资，背包已满" if not remaining.is_empty() else ""), 4.0)
+	if not _active or not _can_access_container(index) or _search_target>=0:return false
+	var crate: Dictionary=_containers[index]
+	if bool(crate.opened):return false
+	_search_target=index
+	crate.search.paused=false
+	set_input_blocked(true)
+	_search_left=maxf(.01,float(crate.search.opening))
+	var lid: Node3D=crate.lid
+	create_tween().tween_property(lid,"rotation:x",deg_to_rad(102),.35).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	container_opened.emit(index)
+	_emit_hud()
+	return true
+
+func close_container(reason: String = "") -> void:
+	if _search_target<0:return
+	var index: int=_search_target
+	_search_target=-1
+	_search_left=0
+	if index<_containers.size():
+		var lid: Node3D=_containers[index].lid
+		if is_instance_valid(lid):create_tween().tween_property(lid,"rotation:x",0.0,.25)
+	set_input_blocked(false)
+	container_closed.emit(reason)
+
+func toggle_container_search() -> void:
+	if _search_target>=0:_containers[_search_target].search.paused=not bool(_containers[_search_target].search.paused)
+
+func get_container_snapshot() -> Dictionary:
+	if _search_target<0:return {}
+	var crate: Dictionary=_containers[_search_target]
+	var snapshot: Dictionary=ContainerState.snapshot(crate.search)
+	snapshot.name=crate.name
+	snapshot.index=_search_target
+	snapshot.kind=crate.kind
+	return snapshot
+
+func take_container_item(uid: String,quantity: int,destination: String = "",block: String = "",cell: Vector2i = Vector2i(-1,-1)) -> bool:
+	if not _active or _search_target<0 or not _can_access_container(_search_target):return false
+	var crate: Dictionary=_containers[_search_target]
+	var record: Dictionary=GameState.Grid.find_record(crate.search.records,uid)
+	if record.is_empty() or not bool(record.discovered) or quantity<1 or quantity>int(record.qty):
+		return GameState._fail("物品尚未搜索或数量已更新")
+	if not GameState.receive_container_item(str(record.item),quantity,destination,block,cell):return false
+	record.qty=int(record.qty)-quantity
+	crate.contents=ContainerState.remaining(crate.search)
+	crate.opened=crate.contents.is_empty()
+	crate.marker.visible=false
+	crate.label.text="空容器" if bool(crate.opened) else str(crate.name)+" · 已搜索"
+	_looted+=quantity
 	_sound.play_event("search")
 	_emit_hud()
 	return true
+
+func _update_container_markers(delta: float) -> void:
+	_marker_clock-=delta
+	if _marker_clock>0:return
+	_marker_clock=.15
+	for index: int in range(_containers.size()):
+		var crate: Dictionary=_containers[index]
+		var nearby: bool=not bool(crate.opened) and player.position.distance_to(crate.position)<3.0
+		crate.label.visible=nearby and _can_access_container(index)
+		crate.marker.visible=nearby and crate.label.visible and _search_target!=index
 
 
 func _update_extraction(delta: float) -> void:
@@ -654,6 +692,7 @@ func _finish(extracted: bool, reason: String) -> void:
 		return
 	_finished = true
 	_active = false
+	close_container()
 	_move = Vector2.ZERO
 	_stick_aim = Vector2.ZERO
 	_stick_firing = false
@@ -828,7 +867,7 @@ func _build_containers() -> void:
 	var records: Array = _harbor.layout.get("loot",[])
 	for record: Dictionary in records:
 		var point: Array = record.position
-		_add_loot_container(Vector3(float(point[0]),0,float(point[2])),str(record.name),false)
+		_add_loot_container(Vector3(float(point[0]),float(point[1]),float(point[2])),str(record.name),false,record)
 
 
 func _weighted_loot_id() -> String:
@@ -843,27 +882,58 @@ func _weighted_loot_id() -> String:
 	return _loot_ids.back()
 
 
-func _add_loot_container(at: Vector3, title: String, corpse: bool) -> void:
-	var node := Node3D.new()
-	node.position = at
+func _add_loot_container(at: Vector3,title: String,corpse: bool,options: Dictionary = {}) -> void:
+	var kind: String=str(options.get("kind","duffel" if corpse else "supply"))
+	var node:=Node3D.new()
+	node.name="SearchContainer_%02d"%_containers.size()
+	node.position=at
+	node.rotation_degrees.y=float(options.get("rotation",0))
 	add_child(node)
-	var base_size := Vector3(0.8, 0.42, 0.55) if corpse else Vector3(1.0, 0.7, 0.65)
-	_visual_box(node, base_size, Vector3(0, base_size.y * 0.5, 0), _mat("555c4b") if corpse else _mat("656647"))
-	_visual_box(node, Vector3(base_size.x + 0.03, 0.11, base_size.z + 0.03), Vector3(0, base_size.y, 0), _mat("929074"))
-	for x in [-0.30, 0.30]:
-		_visual_box(node, Vector3(0.065, base_size.y + 0.08, base_size.z + 0.05), Vector3(x, base_size.y * 0.5, 0), _mat("b6a578"))
-	var marker := _ring(node, 0.9, Vector3(0, 0.035, 0), _mat("e2b76a", 1.2), 0.022)
-	var label := _sign(title, at + Vector3(0, 1.35, 0), 0.013, Color("e8c483"), true)
-	var contents: Dictionary = {}
-	if not _loot_ids.is_empty():
-		contents[_weighted_loot_id()] = 1
-	if not _ammo_ids.is_empty():
-		contents[_ammo_ids[0]] = _rng.randi_range(8, 20)
-	if not _attachment_ids.is_empty() and (_containers.size() % 2 == 1 or corpse):
-		contents[_attachment_ids[_rng.randi_range(0, _attachment_ids.size() - 1)]] = 1
-	if title == "医疗补给" and Catalog.items.has("medkit_field"):
-		contents["medkit_field"] = 1
-	_containers.append({"node": node, "name": title, "position": at, "opened": false, "marker": marker, "label": label, "contents": contents})
+	var dims:=Vector3(.9,.55,.65)
+	if kind=="weapon":dims=Vector3(1.2,.34,.6)
+	elif kind in ["tool","medical","archive"]:dims=Vector3(.74,.42,.52)
+	elif corpse:dims=Vector3(.85,.30,.5)
+	var tint: String=str({"supply":"485650","tool":"526272","medical":"dedaca","archive":"716449","weapon":"334545","duffel":"4c5143"}.get(kind,"485650"))
+	_visual_box(node,dims,Vector3(0,dims.y*.5,0),_mat(tint))
+	for x: float in [-dims.x*.4,dims.x*.4]:
+		_visual_box(node,Vector3(.06,dims.y,dims.z+.012),Vector3(x,dims.y*.5,0),_mat("293435"))
+	var lid:=Node3D.new()
+	lid.position=Vector3(0,dims.y,dims.z*.5)
+	node.add_child(lid)
+	_visual_box(lid,Vector3(dims.x+.025,.065,dims.z+.025),Vector3(0,.025,-dims.z*.5),_mat(tint))
+	_visual_box(lid,Vector3(.13,.07,.12),Vector3(0,.025,-dims.z-.01),_mat("b1aaa0"))
+	if kind=="medical":
+		_visual_box(lid,Vector3(.34,.012,.10),Vector3(0,.063,-dims.z*.5),_mat("963e3a"))
+		_visual_box(lid,Vector3(.1,.012,.32),Vector3(0,.065,-dims.z*.5),_mat("963e3a"))
+	var body:=StaticBody3D.new()
+	body.collision_layer=0 if corpse else 1
+	node.add_child(body)
+	var shape:=CollisionShape3D.new()
+	var box:=BoxShape3D.new()
+	box.size=dims
+	shape.shape=box
+	shape.position.y=dims.y*.5
+	body.add_child(shape)
+	if not corpse:
+		var flat:=Vector2(dims.x,dims.z)
+		if int(absf(node.rotation_degrees.y))%180==90:flat=Vector2(flat.y,flat.x)
+		_obstacles.append(Rect2(Vector2(at.x,at.z)-flat*.5,flat))
+	var marker:=_ring(node,.65,Vector3(0,.035,0),_mat("a7b6a7",.1),.015)
+	marker.visible=false
+	var label:=_sign(title,at+Vector3(0,dims.y+.35,0),.012,Color("d8dccf"),true)
+	label.visible=false
+	var contents: Dictionary={}
+	var profiles: Dictionary={"tool":["loot_tools","loot_scrap","loot_wire","loot_filter"],"medical":["medkit_field","loot_filter"],"archive":["loot_documents","loot_watch","loot_processor"],"electronics":["loot_battery","loot_radio","loot_processor","loot_lens"]}
+	var pool: Array=profiles.get(kind,[])
+	for attempt: int in range(2 if not corpse else 1):
+		var id: String=str(pool[_rng.randi_range(0,pool.size()-1)]) if not pool.is_empty() else _weighted_loot_id()
+		if Catalog.items.has(id):contents[id]=int(contents.get(id,0))+1
+	if not _ammo_ids.is_empty() and kind not in ["medical","archive"]:contents[_ammo_ids[0]]=_rng.randi_range(8,24)
+	if not _attachment_ids.is_empty() and kind in ["tool","weapon","supply","duffel"]:
+		var id: String=str(_attachment_ids[_rng.randi_range(0,_attachment_ids.size()-1)])
+		contents[id]=int(contents.get(id,0))+1
+	var search: Dictionary=ContainerState.prepare(contents,str(_containers.size()),4 if kind in ["tool","medical","archive"] else 6,4)
+	_containers.append({"node":node,"body":body,"lid":lid,"name":title,"position":at,"kind":kind,"opened":false,"marker":marker,"label":label,"contents":contents,"search":search,"building":str(options.get("building",""))})
 
 
 func _build_camera() -> void:
@@ -1230,7 +1300,7 @@ func _nearest_container() -> int:
 			continue
 		var at: Vector3 = crate["position"]
 		var distance := player.position.distance_to(at)
-		if distance < nearest:
+		if distance < nearest and _can_access_container(index):
 			chosen = index
 			nearest = distance
 	return chosen
@@ -1289,10 +1359,12 @@ func debug_test_scenario() -> Dictionary:
 	var old_hp := _hp
 	var old_player := player.position
 	var crate_at: Vector3 = _containers[0]["position"]
-	player.position = crate_at + Vector3(1.0, 0, 0)
-	interact()
-	_update_search(1.2)
-	result["loot_search"] = bool(_containers[0]["opened"]) or not GameState.raid_loot.is_empty()
+	var approach: Array=_navigation_path(SPAWN,crate_at)
+	player.position=approach[-1]
+	_open_container(0)
+	_update_search(20)
+	result["loot_search"]=bool(get_container_snapshot().get("complete",false))
+	close_container()
 	var guard: Dictionary = _guards[0]
 	var body: CharacterBody3D = guard["body"]
 	var old_guard := body.position
