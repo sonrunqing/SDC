@@ -23,7 +23,7 @@ func fit(kind: String) -> void:
 	var bounds:AABB=boxes[0]
 	for bound:AABB in boxes:bounds=bounds.merge(bound)
 	var center:Vector3=bounds.get_center();var span:float=maxf(.01,bounds.size.length())
-	camera.position=center+(Vector3(3.8,.8,.5) if kind in ["weapon","attachment"] else Vector3(.6,.35,-3.5)).normalized()*span*3
+	camera.position=center+(Vector3(3.8,.8,.5) if kind in ["weapon","attachment"] else (Vector3(2.3,4.0,4.5) if kind=="loot" else Vector3(.6,.35,-3.5))).normalized()*span*3
 	camera.look_at(center);camera.size=span*1.6
 	var projected:Rect2;var first:bool=true
 	for x:int in range(2):
@@ -63,7 +63,7 @@ func run() -> void:
 				box(Vector3(0,.03,-.13),Vector3(.25,.065,.02),"d6d7c9");box(Vector3(0,.03,-.14),Vector3(.065,.25,.02),"d6d7c9")
 				box(Vector3(0,.29,0),Vector3(.25,.09,.08),"3f4b45")
 			"loot":
-				box(Vector3.ZERO,Vector3(.65,.42,.25),"87795d");box(Vector3(0,0,-.14),Vector3(.42,.23,.02),"b2b2a1");box(Vector3(.15,.03,-.16),Vector3(.08,.13,.02),"45656d")
+				holder.add_child(load(str(item.visual_model)).instantiate())
 		fit(kind)
 		await process_frame
 		await RenderingServer.frame_post_draw

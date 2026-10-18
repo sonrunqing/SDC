@@ -3,6 +3,7 @@ extends Control
 signal close_requested
 const Grid=preload("res://scripts/inventory_grid.gd")
 const GridView=preload("res://scripts/ui_inventory_grid.gd")
+const Rarity=preload("res://scripts/item_rarity.gd")
 const ContainerState=preload("res://scripts/loot_container_state.gd")
 const TouchButton=preload("res://scripts/touch_button.gd")
 const TouchScroll=preload("res://scripts/touch_scroll.gd")
@@ -92,7 +93,7 @@ func _ready() -> void:
 	bar_background.bg_color=Color("27343b")
 	_search_bar.add_theme_stylebox_override("background",bar_background)
 	var bar_fill:=StyleBoxFlat.new()
-	bar_fill.bg_color=Color("b3c0a7")
+	bar_fill.bg_color=Color("b8bec4")
 	_search_bar.add_theme_stylebox_override("fill",bar_fill)
 	right.add_child(_search_bar)
 	_stage=_label("打开锁扣",17)
@@ -255,7 +256,8 @@ func _refresh() -> void:
 	else:
 		var item: Dictionary=Catalog.get_item(str(selected.item))
 		var cells: Vector2i=Grid.item_size(str(selected.item))
-		_details.text="%s ×%d    %d×%d 格    单件 %.2f kg    出售 ◈ %d\n%s"%[str(item.get("name","")),int(selected.qty),cells.x,cells.y,float(item.get("weight",0)),int(item.get("sell_price",0)),"容器物品 · 双击拿取，或点左侧目标格子放置。" if _selected.begins_with("loot/") else "携行物品 · 双击放回容器，也可点格子或拖动整理。"]
+		var category: String=Rarity.group_label(item)+" · "+Rarity.label(item)+" · " if str(item.get("kind",""))=="loot" else ""
+		_details.text="%s ×%d    %d×%d 格    单件 %.2f kg    出售 ◈ %d\n%s%s"%[str(item.get("name","")),int(selected.qty),cells.x,cells.y,float(item.get("weight",0)),int(item.get("sell_price",0)),category,"双击拿取，或点左侧目标格子放置。" if _selected.begins_with("loot/") else "双击放回容器，也可点格子或拖动整理。"]
 	_layout()
 
 func _choose(uid: String) -> void:

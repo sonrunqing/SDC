@@ -1,0 +1,1018 @@
+{
+  "schema": 1,
+  "license": "CC0-1.0",
+  "generator": "scripts/generate_valuables.py",
+  "source": "art_source/valuables/SDC-valuables.blend",
+  "source_sha256": "5a78fc0f843ee73dd50c2e8b252705964ea1909c4fd82793e56b50b9bc91d75b",
+  "blender_version": "5.2.1 LTS",
+  "assets": [
+    {
+      "id": "loot_wire",
+      "name": "绝缘导线",
+      "group": "industrial",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_wire.glb",
+      "icon": "res://assets/icons/items/loot_wire.png",
+      "triangles": 4424,
+      "position_size": [
+        0.216,
+        0.05156,
+        0.172971
+      ],
+      "bytes": 114080,
+      "sha256": "063fdf113774cdfa6958c5908d655aa23405153e7775f22b5402e33fc252460c",
+      "icon_sha256": "cea065a635424d206d672340803fb57e85059b54b61d8c8ab174a34a3b88f86a",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_battery",
+      "name": "工业电池",
+      "group": "industrial",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_battery.glb",
+      "icon": "res://assets/icons/items/loot_battery.png",
+      "triangles": 2552,
+      "position_size": [
+        0.1315,
+        0.219243,
+        0.09156
+      ],
+      "bytes": 108648,
+      "sha256": "d50cbbc324fb7daadcebeb52ca92b1b65d0258dab6aa1af2bb8b1147a0321204",
+      "icon_sha256": "8ebd8b0927c61289ce1721562fc3c776fb34412b8235aeecbed9dc2014f868a5",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_filter",
+      "name": "净化滤芯",
+      "group": "industrial",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_filter.glb",
+      "icon": "res://assets/icons/items/loot_filter.png",
+      "triangles": 9424,
+      "position_size": [
+        0.106,
+        0.197,
+        0.106
+      ],
+      "bytes": 453420,
+      "sha256": "8515248111d511b52c13e5a36697ea536356a8023f3d7eb82071008cfb4246b0",
+      "icon_sha256": "ba2b3de0c8cab5d515e96b5af92d726e51e4753826b0c5a7a2c406b7ceab2968",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_fuel",
+      "name": "燃料罐",
+      "group": "industrial",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_fuel.glb",
+      "icon": "res://assets/icons/items/loot_fuel.png",
+      "triangles": 1560,
+      "position_size": [
+        0.175819,
+        0.277,
+        0.09606
+      ],
+      "bytes": 73608,
+      "sha256": "d43d7e2b272c4d5a2b7d39ab51436bd1e96b4edb2aa2f1fe9cca5d0d92f1fb88",
+      "icon_sha256": "49343ddbecbe4aed5c88154279e28c95cc3529d0d7b6cbca2a2fbb729b625f6b",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_gauge",
+      "name": "管路压力表",
+      "group": "industrial",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_gauge.glb",
+      "icon": "res://assets/icons/items/loot_gauge.png",
+      "triangles": 1980,
+      "position_size": [
+        0.12,
+        0.039,
+        0.157
+      ],
+      "bytes": 72852,
+      "sha256": "d51f54bbd67577e609fd71f153543de15e55c227ce5496f23553753120e5b985",
+      "icon_sha256": "6eacc4ab3b63df2ccb9b807fb62fbdb2890dc8a5abe68860a68d769eb17423ce",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_bearing",
+      "name": "精密轴承",
+      "group": "industrial",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_bearing.glb",
+      "icon": "res://assets/icons/items/loot_bearing.png",
+      "triangles": 4620,
+      "position_size": [
+        0.124,
+        0.03706,
+        0.124
+      ],
+      "bytes": 110976,
+      "sha256": "bff35b51ce60138dc5bfb40f295b1b27cf87ceab092e907557a4c024bacdc2bd",
+      "icon_sha256": "f7ff6dc32afe64cd9b08281fce561234e5b292a05ad8ce2dbc5dee05f63382d1",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_sensor",
+      "name": "温控传感器",
+      "group": "industrial",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_sensor.glb",
+      "icon": "res://assets/icons/items/loot_sensor.png",
+      "triangles": 1204,
+      "position_size": [
+        0.057,
+        0.25,
+        0.04306
+      ],
+      "bytes": 43920,
+      "sha256": "c5a988cd9787ad3090afd22c630fbcb83c56dfa085ea597fe260fec17d56a47d",
+      "icon_sha256": "4233f11f199acb13edbfb1eb6ae3f6ae1f186a26b410f37d8a091775e0a3e713",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_documents",
+      "name": "密封档案",
+      "group": "collectibles",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_documents.glb",
+      "icon": "res://assets/icons/items/loot_documents.png",
+      "triangles": 3240,
+      "position_size": [
+        0.202032,
+        0.0455,
+        0.148
+      ],
+      "bytes": 141204,
+      "sha256": "f40eef957783ed2b9ac664f4f6eaa482049280df5ddc0d7c1d0a5e8ccd86726e",
+      "icon_sha256": "678b648922ccc8f150bc2076c8d3d920b4e076d626e8b59012b5784d0b4aa91b",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_watch",
+      "name": "机械腕表",
+      "group": "collectibles",
+      "rarity": "epic",
+      "path": "res://assets/valuables/loot_watch.glb",
+      "icon": "res://assets/icons/items/loot_watch.png",
+      "triangles": 5964,
+      "position_size": [
+        0.08,
+        0.0332,
+        0.177
+      ],
+      "bytes": 262584,
+      "sha256": "f6b259c0868126125d22ff618c847e29593fd7ca3b286a797a41bef34552da4f",
+      "icon_sha256": "60a6f75b7dc7ccb6c77e7a3f6508157cf992f967d7ca36ee05ac47d406fd52b2",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_statue",
+      "name": "旧城金像",
+      "group": "collectibles",
+      "rarity": "legendary",
+      "path": "res://assets/valuables/loot_statue.glb",
+      "icon": "res://assets/icons/items/loot_statue.png",
+      "triangles": 4744,
+      "position_size": [
+        0.241718,
+        0.229,
+        0.120083
+      ],
+      "bytes": 144640,
+      "sha256": "5fa630a1ac25912eb5631a825ab435f1852fe068016ade40625c1725a0aa2603",
+      "icon_sha256": "2edcce8af325ab2bf557ea76d3ded2a69e7a2c2af75295de4c077af91ab6ffe0",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_silver_coin",
+      "name": "港城纪念银币",
+      "group": "collectibles",
+      "rarity": "epic",
+      "path": "res://assets/valuables/loot_silver_coin.glb",
+      "icon": "res://assets/icons/items/loot_silver_coin.png",
+      "triangles": 3416,
+      "position_size": [
+        0.104866,
+        0.012,
+        0.105
+      ],
+      "bytes": 109204,
+      "sha256": "a7a3a552bf2d05fc7489daee7d11ffb7b25a37980ba61e21c638ac3b14c4c101",
+      "icon_sha256": "74b7864e67420fc244b95fc73e6b0a0dcbe84f9960d221a0927a5d3feae0c381",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_gem_ring",
+      "name": "蓝宝石戒指",
+      "group": "collectibles",
+      "rarity": "epic",
+      "path": "res://assets/valuables/loot_gem_ring.glb",
+      "icon": "res://assets/icons/items/loot_gem_ring.png",
+      "triangles": 1174,
+      "position_size": [
+        0.063995,
+        0.08,
+        0.032
+      ],
+      "bytes": 26364,
+      "sha256": "a4806120c0803c3dd56633bc996091d35a4cd4df66421e7c092d083e0f81f238",
+      "icon_sha256": "9ecaea7a1d7e1d1095e13a91acfdf81a9edee80cf167a5b087e6e6fbab53417e",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_antique_compass",
+      "name": "古董罗盘",
+      "group": "collectibles",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_antique_compass.glb",
+      "icon": "res://assets/icons/items/loot_antique_compass.png",
+      "triangles": 2228,
+      "position_size": [
+        0.126983,
+        0.09838,
+        0.190674
+      ],
+      "bytes": 82560,
+      "sha256": "992fedd020d1184de833df1cf4da15c7ab03c8e11cc930b99426bfb02a041f74",
+      "icon_sha256": "c72f2c0e7890a77aee12fa1adf724a7081a9170a538ac4a041231dd6a2885c4f",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_antique_vase",
+      "name": "青花古瓷瓶",
+      "group": "collectibles",
+      "rarity": "legendary",
+      "path": "res://assets/valuables/loot_antique_vase.glb",
+      "icon": "res://assets/icons/items/loot_antique_vase.png",
+      "triangles": 6752,
+      "position_size": [
+        0.117072,
+        0.19,
+        0.106
+      ],
+      "bytes": 145904,
+      "sha256": "549c75c35d201a7d6c4507f7b3d7b919c0b8b9d60d9e22fa690093eae2c4bf79",
+      "icon_sha256": "1a03d91607dc13c9e3c2f1c0ffb7d8211b0995cc0fa8815cc3252ee8bd06d943",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_tape",
+      "name": "工业胶带",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_tape.glb",
+      "icon": "res://assets/icons/items/loot_tape.png",
+      "triangles": 2540,
+      "position_size": [
+        0.156545,
+        0.04765,
+        0.12
+      ],
+      "bytes": 81612,
+      "sha256": "79b62732860a84e477d9d74f4dc9b2b310d36bc85271d0bf1657145be0972071",
+      "icon_sha256": "0dd9ad0dd764c420bfe897ce9e2841e972fd18caaf4d52112d09cc23c6b00573",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_sewing_kit",
+      "name": "缝纫工具包",
+      "group": "everyday",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_sewing_kit.glb",
+      "icon": "res://assets/icons/items/loot_sewing_kit.png",
+      "triangles": 2128,
+      "position_size": [
+        0.15,
+        0.069,
+        0.11
+      ],
+      "bytes": 75608,
+      "sha256": "109f3d5636d54e551fa2a76829f6948b2c602abbb4c5ce85bbcc22f68756ae42",
+      "icon_sha256": "51a1b059f0c44040854051fb5c8f7782841013044dfc848261efd91edea9f2e1",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_thermos",
+      "name": "保温杯",
+      "group": "everyday",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_thermos.glb",
+      "icon": "res://assets/icons/items/loot_thermos.png",
+      "triangles": 1176,
+      "position_size": [
+        0.078,
+        0.22109,
+        0.078
+      ],
+      "bytes": 38672,
+      "sha256": "e81b539399dcafed4ea36a16a181f6681cb161cd84274e599fc574019a48799f",
+      "icon_sha256": "967ea9696d313b0a2ea706832f323621841b16153281540a59d8e7ed717fcc5c",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_soap",
+      "name": "香皂",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_soap.glb",
+      "icon": "res://assets/icons/items/loot_soap.png",
+      "triangles": 744,
+      "position_size": [
+        0.11,
+        0.05006,
+        0.073
+      ],
+      "bytes": 29820,
+      "sha256": "a774937e228b56bf1f884004cf37a1f651a710a806fa99aa6e91ba32bfe1148d",
+      "icon_sha256": "2d8100401fcb77d98eee3cc661fc95f87f6aa9775d880bbb57df82da332c613f",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_toothbrush",
+      "name": "牙刷",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_toothbrush.glb",
+      "icon": "res://assets/icons/items/loot_toothbrush.png",
+      "triangles": 600,
+      "position_size": [
+        0.036025,
+        0.034,
+        0.189265
+      ],
+      "bytes": 26800,
+      "sha256": "ef9bc629cd42f72296debd9e7c9835796c0912d5fe3ba15fd36da83bb1f26440",
+      "icon_sha256": "452decfcb6cc1dd95d7e67152f4b42e002c66f65adb9045fcbafdc78792870f9",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_toothpaste",
+      "name": "牙膏",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_toothpaste.glb",
+      "icon": "res://assets/icons/items/loot_toothpaste.png",
+      "triangles": 660,
+      "position_size": [
+        0.0644,
+        0.03606,
+        0.1635
+      ],
+      "bytes": 29220,
+      "sha256": "fd929175f85517382616b07abfb787bd3ecb4a328c5253ab63032002ce4d4534",
+      "icon_sha256": "a9aff19df0d8e1852141c8b972d9a6f885c8e988aa1a565d6fa7d49d0111078c",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_canned_food",
+      "name": "肉类罐头",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_canned_food.glb",
+      "icon": "res://assets/icons/items/loot_canned_food.png",
+      "triangles": 1648,
+      "position_size": [
+        0.098,
+        0.0805,
+        0.09806
+      ],
+      "bytes": 57092,
+      "sha256": "81e0af2c776102bf28346d09afb312421149daa83e3270fa2548f5c80695267a",
+      "icon_sha256": "c7b2da2326b13ef0983e51512913f5ac70381c2208bf0c271fa3abb1b4c108b2",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_coffee",
+      "name": "速溶咖啡",
+      "group": "everyday",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_coffee.glb",
+      "icon": "res://assets/icons/items/loot_coffee.png",
+      "triangles": 3532,
+      "position_size": [
+        0.088,
+        0.145,
+        0.08894
+      ],
+      "bytes": 94120,
+      "sha256": "44a312a9b35821d35ec9bf3a9c24f05379963931579a47c1dcf624ddcb717543",
+      "icon_sha256": "e957546662ca84ae0261943f1b12c213d776af2c5fff71fc974afcfb33b84c83",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_lighter",
+      "name": "金属打火机",
+      "group": "everyday",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_lighter.glb",
+      "icon": "res://assets/icons/items/loot_lighter.png",
+      "triangles": 856,
+      "position_size": [
+        0.084724,
+        0.1105,
+        0.02006
+      ],
+      "bytes": 38004,
+      "sha256": "7b34088baa40be5015c919a3d00f83c4506b13edc875b05fc886402ea719b6eb",
+      "icon_sha256": "78fba00193848116572d0bef77dc350c56409d957659549c9d3d788c1a2574d8",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_flashlight",
+      "name": "便携手电",
+      "group": "everyday",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_flashlight.glb",
+      "icon": "res://assets/icons/items/loot_flashlight.png",
+      "triangles": 1504,
+      "position_size": [
+        0.088,
+        0.162,
+        0.088
+      ],
+      "bytes": 50088,
+      "sha256": "c8400bf0831ccab2d26cbe2894f8eaa92b41ced8057083ab3ea90414a3f89584",
+      "icon_sha256": "9bdc7c5d510158dcde877893e5f2394ed1521bfc2dbc01fb89132d4e25ad1f6e",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_matches",
+      "name": "火柴盒",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_matches.glb",
+      "icon": "res://assets/icons/items/loot_matches.png",
+      "triangles": 1432,
+      "position_size": [
+        0.076,
+        0.03756,
+        0.084
+      ],
+      "bytes": 48472,
+      "sha256": "7a586dd54e0e6bd775cdb54d30c979b089f88bd55e3140e97ac2dd992b7521fd",
+      "icon_sha256": "b8f2fb3a8db2d8b8fc5b7bee552fe810c2dbfd1564ca285dc888b56b2c404551",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_aa_cells",
+      "name": "四节装电池",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_aa_cells.glb",
+      "icon": "res://assets/icons/items/loot_aa_cells.png",
+      "triangles": 1572,
+      "position_size": [
+        0.095,
+        0.027,
+        0.1375
+      ],
+      "bytes": 53424,
+      "sha256": "f36e736eb9433f361ba6cb654538e0523cd7e749a9f120b97ac630e882328f75",
+      "icon_sha256": "c0a10c6c1564e99f36cf84c7b682706c4056f2b5151bfda263328b954f11268b",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_book",
+      "name": "野外笔记本",
+      "group": "everyday",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_book.glb",
+      "icon": "res://assets/icons/items/loot_book.png",
+      "triangles": 1936,
+      "position_size": [
+        0.126,
+        0.04856,
+        0.174
+      ],
+      "bytes": 74948,
+      "sha256": "84bdfdd888332ab6ed6623d6bf178d352788b6120c6572449cb716d606963ef9",
+      "icon_sha256": "226825502a70c6249bc347fc3d0ffab388d0306de265fa3613df4f6610c40feb",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_mug",
+      "name": "陶瓷杯",
+      "group": "everyday",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_mug.glb",
+      "icon": "res://assets/icons/items/loot_mug.png",
+      "triangles": 1848,
+      "position_size": [
+        0.117988,
+        0.097,
+        0.08606
+      ],
+      "bytes": 50968,
+      "sha256": "ee3262f2b287880cbab0e17239590f60bbf0afa2305fefcca391e487e970e163",
+      "icon_sha256": "5dca7a246197ae723dbde79e2b0083ae9d7cb8fe81fd855e775f0823ff29d2b8",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_lens",
+      "name": "光学镜片",
+      "group": "precision",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_lens.glb",
+      "icon": "res://assets/icons/items/loot_lens.png",
+      "triangles": 6024,
+      "position_size": [
+        0.134,
+        0.0462,
+        0.134
+      ],
+      "bytes": 169588,
+      "sha256": "9b4e0baa0a06eca6e18960bd51e5801541d5ac23b3119d7f34561bc0da1ef63f",
+      "icon_sha256": "8639779e323d87362418cdc9020f749b3ad37d47bf58af7200b9ee52120afb9f",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_multimeter",
+      "name": "高精度万用表",
+      "group": "precision",
+      "rarity": "epic",
+      "path": "res://assets/valuables/loot_multimeter.glb",
+      "icon": "res://assets/icons/items/loot_multimeter.png",
+      "triangles": 1708,
+      "position_size": [
+        0.198909,
+        0.0615,
+        0.18499
+      ],
+      "bytes": 66820,
+      "sha256": "9752fbfaacbc59a6b437e44cfcd55946d109c849b83723e210183a8e9bd9f0dd",
+      "icon_sha256": "ead838b3f23e588387ee40daf89b5c4fd041e319638e6ef0d425b48aafcc3353",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_binoculars",
+      "name": "测距双筒镜",
+      "group": "precision",
+      "rarity": "epic",
+      "path": "res://assets/valuables/loot_binoculars.glb",
+      "icon": "res://assets/icons/items/loot_binoculars.png",
+      "triangles": 2420,
+      "position_size": [
+        0.215034,
+        0.077645,
+        0.161
+      ],
+      "bytes": 80820,
+      "sha256": "d954328cd9a8f3a877ee7e24004408821e633954179dc8512a819c1bc907a01f",
+      "icon_sha256": "451f1b4630f00639c9ce2dca62f20bc4a101ab8a90c84bc30ba94ed349c665e3",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_microscope",
+      "name": "实验室显微镜",
+      "group": "precision",
+      "rarity": "legendary",
+      "path": "res://assets/valuables/loot_microscope.glb",
+      "icon": "res://assets/icons/items/loot_microscope.png",
+      "triangles": 2032,
+      "position_size": [
+        0.141,
+        0.315497,
+        0.159
+      ],
+      "bytes": 72396,
+      "sha256": "0f90ce37d87abe4b6ac3c791855d4d494ea79ca0ca93b9640b66f41850886929",
+      "icon_sha256": "5b6ebe0aab39afe169ca888ce209f1e25cace90d39c737d479922957b85a101e",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_scrap",
+      "name": "合金零件",
+      "group": "metals",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_scrap.glb",
+      "icon": "res://assets/icons/items/loot_scrap.png",
+      "triangles": 4964,
+      "position_size": [
+        0.1805,
+        0.076,
+        0.1795
+      ],
+      "bytes": 225840,
+      "sha256": "27dc205b521a259061f49207d9035495ac39c1d8b16e86d0f29fbf48be346a07",
+      "icon_sha256": "fc2d976db6fd0e8503fc44a2ba8c3e1536613e3cc597cc1902d6fa1f9a8501f7",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_copper_ingot",
+      "name": "铜锭",
+      "group": "metals",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_copper_ingot.glb",
+      "icon": "res://assets/icons/items/loot_copper_ingot.png",
+      "triangles": 1032,
+      "position_size": [
+        0.15,
+        0.03506,
+        0.068
+      ],
+      "bytes": 37460,
+      "sha256": "017bce227afda3085aad3f5e2ebbc52ca36cd5e316828ee3c690bdc28a566945",
+      "icon_sha256": "50978bea9a4f99e05d69d9652cb5fd7d9dbc1dcf49fd68f514c3ec68f997c5ca",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_aluminium_ingot",
+      "name": "铝锭",
+      "group": "metals",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_aluminium_ingot.glb",
+      "icon": "res://assets/icons/items/loot_aluminium_ingot.png",
+      "triangles": 1260,
+      "position_size": [
+        0.15,
+        0.0355,
+        0.068
+      ],
+      "bytes": 43656,
+      "sha256": "25666df281ed59ba0c9eb73ba4831674b89dff11f9a0207ca7c29050fa2eea8e",
+      "icon_sha256": "0699005398452e32ea07619fc1b052096de8f0473fff32742e63ef4348e3c758",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_titanium_ingot",
+      "name": "钛合金锭",
+      "group": "metals",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_titanium_ingot.glb",
+      "icon": "res://assets/icons/items/loot_titanium_ingot.png",
+      "triangles": 1060,
+      "position_size": [
+        0.126,
+        0.04406,
+        0.085
+      ],
+      "bytes": 38588,
+      "sha256": "4708681043a9b18d74f60b02ca74aa6b6ec3272e628e773399bb2996fde632ba",
+      "icon_sha256": "43a6feb637dff9b7656d09edd001b72e5b62cc5f33341e2fe89549cf898c690d",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_gold_bar",
+      "name": "高纯金条",
+      "group": "metals",
+      "rarity": "legendary",
+      "path": "res://assets/valuables/loot_gold_bar.glb",
+      "icon": "res://assets/icons/items/loot_gold_bar.png",
+      "triangles": 1816,
+      "position_size": [
+        0.113,
+        0.05906,
+        0.181
+      ],
+      "bytes": 57820,
+      "sha256": "d617a08c4053e2b14f60ea00fe1bcdc050fa6ddb857c8776c3e858cc3065cf53",
+      "icon_sha256": "070d5d087367e1c7a36713c530715d6f739741b094bff2280d84dff6553416c7",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_radio",
+      "name": "加密电台",
+      "group": "electronics",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_radio.glb",
+      "icon": "res://assets/icons/items/loot_radio.png",
+      "triangles": 5436,
+      "position_size": [
+        0.141,
+        0.305333,
+        0.1017
+      ],
+      "bytes": 238428,
+      "sha256": "7eae0ecc7c0da68fbb4c63c52bb1c5aa08b543a487612de9773e47802fe1fb8a",
+      "icon_sha256": "d4984c59db4280d478dce71cdd5102fd1d2bf044edb755ceda92e99d51831a33",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_processor",
+      "name": "运算芯片",
+      "group": "electronics",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_processor.glb",
+      "icon": "res://assets/icons/items/loot_processor.png",
+      "triangles": 10496,
+      "position_size": [
+        0.118,
+        0.02806,
+        0.118
+      ],
+      "bytes": 539876,
+      "sha256": "fac12fa1109e80a367902f4767ec27b8aed7e5a1965e16ed7e32112e09d622dd",
+      "icon_sha256": "8266ef5507d931d8a401ed64c44dc869426b2c08ab7251f57054f407902d70b8",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_hard_drive",
+      "name": "机械硬盘",
+      "group": "electronics",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_hard_drive.glb",
+      "icon": "res://assets/icons/items/loot_hard_drive.png",
+      "triangles": 2964,
+      "position_size": [
+        0.111,
+        0.035,
+        0.162
+      ],
+      "bytes": 147124,
+      "sha256": "de00d98fdffaf1f6c30acd1078931759a7cddb02eefff2fc843a6a15e2c79999",
+      "icon_sha256": "aaa9760c417ba58ce5672279a6233daf7f7e16a094c2315bdff8fea91b7804ff",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_memory",
+      "name": "内存模组",
+      "group": "electronics",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_memory.glb",
+      "icon": "res://assets/icons/items/loot_memory.png",
+      "triangles": 5292,
+      "position_size": [
+        0.145,
+        0.02006,
+        0.0355
+      ],
+      "bytes": 281636,
+      "sha256": "b4e2b74b97f9c2491ee8a7ad4504b965913eefc07431ec7ebba1b096218dd9ff",
+      "icon_sha256": "7f0954ddb9e683573c34b8e71c3e4642b369701684acb55ad7081bcfb16e6165",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_gpu",
+      "name": "图形运算卡",
+      "group": "electronics",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_gpu.glb",
+      "icon": "res://assets/icons/items/loot_gpu.png",
+      "triangles": 9356,
+      "position_size": [
+        0.2405,
+        0.051,
+        0.127
+      ],
+      "bytes": 490152,
+      "sha256": "c4e10f8be6096e7fa5390c455f06f607c7699aab1730101678e829b85a758e26",
+      "icon_sha256": "d30d2435df7841f1b5466a63bc8d937a9df6366e9f6dc86e98456308b05e7558",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_medical_vial",
+      "name": "医用试剂瓶",
+      "group": "medical",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_medical_vial.glb",
+      "icon": "res://assets/icons/items/loot_medical_vial.png",
+      "triangles": 2492,
+      "position_size": [
+        0.046,
+        0.102,
+        0.04706
+      ],
+      "bytes": 79740,
+      "sha256": "9ea207f9d58bc1fb4791073340534ebc4c078ee57c38f78c0e66568065c4215a",
+      "icon_sha256": "bcdebe220b4bb3f00df549b061df445054fbdc19743d37d669fb5d3516e98388",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_blood_kit",
+      "name": "血液采样盒",
+      "group": "medical",
+      "rarity": "rare",
+      "path": "res://assets/valuables/loot_blood_kit.glb",
+      "icon": "res://assets/icons/items/loot_blood_kit.png",
+      "triangles": 2200,
+      "position_size": [
+        0.151,
+        0.1015,
+        0.10056
+      ],
+      "bytes": 84728,
+      "sha256": "f6e14bd21067db32f849415f59718a0f4131af725e924fe30436f45adb5c5b28",
+      "icon_sha256": "6afb307a00546b5195a4139927648131d5fb20c467507355dcfb27b0dfdca7f2",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_lab_sample",
+      "name": "低温样本罐",
+      "group": "medical",
+      "rarity": "epic",
+      "path": "res://assets/valuables/loot_lab_sample.glb",
+      "icon": "res://assets/icons/items/loot_lab_sample.png",
+      "triangles": 1888,
+      "position_size": [
+        0.094,
+        0.176328,
+        0.094
+      ],
+      "bytes": 63236,
+      "sha256": "9fd56286344b53bbc282bb7fc12ced43ca16eebdaa3cdd5e27a2b402e6c0be87",
+      "icon_sha256": "cc160cd589c72e24459cb4df4d9e6cec4cad25ae7aa045fb103b3523a0c2fc93",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_tools",
+      "name": "精密工具组",
+      "group": "tools",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_tools.glb",
+      "icon": "res://assets/icons/items/loot_tools.png",
+      "triangles": 3800,
+      "position_size": [
+        0.2585,
+        0.173737,
+        0.245963
+      ],
+      "bytes": 161028,
+      "sha256": "a1d0a0701fec0d1646750f93abb7dd2c33b164b9e0bf78ca443446245038cd7e",
+      "icon_sha256": "99b332d46e7717843dc9af26f58c557b634b6eccf54bab2086227e533c04840d",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_pliers",
+      "name": "绝缘钳",
+      "group": "tools",
+      "rarity": "uncommon",
+      "path": "res://assets/valuables/loot_pliers.glb",
+      "icon": "res://assets/icons/items/loot_pliers.png",
+      "triangles": 692,
+      "position_size": [
+        0.089482,
+        0.02045,
+        0.1952
+      ],
+      "bytes": 32220,
+      "sha256": "8c0877d68cbcef2cfcdfea9ed21c96be477b475c4d108d4c1381cc171eec05b2",
+      "icon_sha256": "da2c997a1d75d1a7cfb4fa80aba78408ed3414de2c447e8ef00510b95f7d3a83",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    },
+    {
+      "id": "loot_screwdriver",
+      "name": "一字螺丝刀",
+      "group": "tools",
+      "rarity": "common",
+      "path": "res://assets/valuables/loot_screwdriver.glb",
+      "icon": "res://assets/icons/items/loot_screwdriver.png",
+      "triangles": 428,
+      "position_size": [
+        0.034,
+        0.032,
+        0.185
+      ],
+      "bytes": 19032,
+      "sha256": "f176a11ddcb73dec4aa7e3d60dfb5e9a578b943da43cbe73201684e6deb06ebc",
+      "icon_sha256": "e7d861696ea88567a08766a58e0254fa29a8c1528f900c9ab3faf067e89f9d38",
+      "icon_source_size": [
+        640,
+        640
+      ]
+    }
+  ]
+}

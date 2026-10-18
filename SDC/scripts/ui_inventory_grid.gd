@@ -1,5 +1,6 @@
 extends Control
 const Grid = preload("res://scripts/inventory_grid.gd")
+const Rarity = preload("res://scripts/item_rarity.gd")
 var container_id: String = "stash"
 var block_id: String = "0"
 var columns: int = 10
@@ -103,14 +104,15 @@ func _draw() -> void:
 			_draw_unknown(rectangle,str(record.uid)==searching_uid)
 			continue
 		var item: Dictionary = Catalog.get_item(str(record.item))
+		var valuable: bool=str(item.get("kind",""))=="loot"
 		var level: int = int(item.get("level",0))
-		var tone: Color = [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
+		var tone: Color = Rarity.tone(item) if valuable else [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
 		var reveal: float=1.0-pow(1.0-clampf(float(reveal_ages.get(str(record.uid),.55))/.4,0,1),3)
 		var alpha: float=display_alpha*(.12+.88*reveal)
-		draw_rect(rectangle,Color(tone,.24*alpha))
-		if reveal<1:draw_rect(rectangle,Color(.76,.84,.74,(1-reveal)*.20))
+		draw_rect(rectangle,Color(tone,(.14 if valuable else .24)*alpha))
+		if reveal<1 and not valuable:draw_rect(rectangle,Color(.76,.84,.74,(1-reveal)*.20))
 		var border: Color=Color("dfe7e4") if str(record.uid)==selected_uid else tone
-		border.a=display_alpha
+		border.a=display_alpha if str(record.uid)==selected_uid or not valuable else display_alpha*.42
 		draw_rect(rectangle,border,false,3 if str(record.uid)==selected_uid else 1)
 		var icon_box: Rect2=rectangle.grow(-4)
 		var scale_reveal: float=.88+.12*reveal
@@ -127,10 +129,10 @@ func _draw() -> void:
 
 func _draw_unknown(rectangle: Rect2,active: bool) -> void:
 	var center: Vector2=rectangle.get_center()
-	draw_rect(rectangle,Color("293238") if active else Color("222c32"))
-	draw_rect(rectangle,Color("88998e") if active else Color("48565c"),false,1)
+	draw_rect(rectangle,Color("2c3036") if active else Color("24282d"))
+	draw_rect(rectangle,Color("92979c") if active else Color("4c5157"),false,1)
 	if not active:
-		draw_string(_font,center+Vector2(-6,7),"?",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("7d8d90"))
+		draw_string(_font,center+Vector2(-6,7),"?",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("858a90"))
 		return
 	var progress: float=_display_progress if animate_search else search_progress
 	if not search_paused:
@@ -138,27 +140,27 @@ func _draw_unknown(rectangle: Rect2,active: bool) -> void:
 		for step: int in range(7):
 			var top: float=maxf(rectangle.position.y,scan-float(step)*2)
 			var bottom: float=minf(rectangle.end.y,scan-float(step)*2+2)
-			if bottom>top:draw_rect(Rect2(rectangle.position.x,top,rectangle.size.x,bottom-top),Color(.64,.78,.69,.16*(1-float(step)/7)))
+			if bottom>top:draw_rect(Rect2(rectangle.position.x,top,rectangle.size.x,bottom-top),Color(.74,.74,.74,.16*(1-float(step)/7)))
 		var line_y: float=clampf(scan,rectangle.position.y,rectangle.end.y-1)
-		draw_line(Vector2(rectangle.position.x,line_y),Vector2(rectangle.end.x,line_y),Color("a6bca9"),1)
+		draw_line(Vector2(rectangle.position.x,line_y),Vector2(rectangle.end.x,line_y),Color("b5b9bf"),1)
 	var icon_center: Vector2=center-Vector2(0,5)
-	draw_arc(icon_center,15,0,TAU,36,Color("43564e"),2,true)
+	draw_arc(icon_center,15,0,TAU,36,Color("4b5056"),2,true)
 	var phase: float=_animation_clock*3
-	draw_arc(icon_center,15,phase,phase+TAU*.72,28,Color("c1cdb6"),2,true)
+	draw_arc(icon_center,15,phase,phase+TAU*.72,28,Color("c6c9cf"),2,true)
 	if search_paused:
-		for x: float in [-3,3]:draw_line(icon_center+Vector2(x,-5),icon_center+Vector2(x,5),Color("c1cdb6"),2,true)
+		for x: float in [-3,3]:draw_line(icon_center+Vector2(x,-5),icon_center+Vector2(x,5),Color("c6c9cf"),2,true)
 	else:
-		draw_arc(icon_center-Vector2(2,2),5.5,0,TAU,20,Color("d2dccb"),1.5,true)
-		draw_line(icon_center+Vector2(2,2),icon_center+Vector2(7,7),Color("d2dccb"),2,true)
+		draw_arc(icon_center-Vector2(2,2),5.5,0,TAU,20,Color("d5d8dd"),1.5,true)
+		draw_line(icon_center+Vector2(2,2),icon_center+Vector2(7,7),Color("d5d8dd"),2,true)
 	var percent: String="%d%%"%roundi(progress*100)
 	var width: float=_font.get_string_size(percent,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x
-	draw_string(_font,Vector2(center.x-width*.5,rectangle.end.y-7),percent,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("c9d5c1"))
-	draw_rect(Rect2(rectangle.position.x,rectangle.end.y-3,rectangle.size.x*progress,3),Color("b3c0a7"))
+	draw_string(_font,Vector2(center.x-width*.5,rectangle.end.y-7),percent,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("ccd0d5"))
+	draw_rect(Rect2(rectangle.position.x,rectangle.end.y-3,rectangle.size.x*progress,3),Color("b8bec4"))
 	for corner: Vector2 in [rectangle.position,Vector2(rectangle.end.x,rectangle.position.y),rectangle.end,Vector2(rectangle.position.x,rectangle.end.y)]:
 		var horizontal: float=7 if corner.x==rectangle.position.x else -7
 		var vertical: float=7 if corner.y==rectangle.position.y else -7
-		draw_line(corner,corner+Vector2(horizontal,0),Color("b3c0a7"),2)
-		draw_line(corner,corner+Vector2(0,vertical),Color("b3c0a7"),2)
+		draw_line(corner,corner+Vector2(horizontal,0),Color("b8bec4"),2)
+		draw_line(corner,corner+Vector2(0,vertical),Color("b8bec4"),2)
 
 func _draw_opening() -> void:
 	var extent:=Vector2(columns,rows)*cell

@@ -1,0 +1,8 @@
+SDC original valuable models and model-rendered icons
+
+All geometry, lettering, silhouettes and materials were created for SDC in Blender,
+using scripts/generate_valuables.py. Released under CC0 1.0 Universal.
+No third-party mesh, copied brand artwork or paid generation service was used.
+
+Editable source: art_source/valuables/SDC-valuables.blend (repository root).
+Production identity and polygon counts: data/valuable_models.json.

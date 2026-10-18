@@ -16,7 +16,7 @@ CURVE_DISTANCE_FACTORS = {
     'smg':1.0, 'rifle':1.25, 'sniper':1.75,
     'shotgun':.65, 'machine_gun':1.3, 'pistol':.90,
 }
-LOOT_WEIGHTS = {'common':12.0, 'uncommon':6.0, 'rare':2.5, 'legendary':.3}
+LOOT_WEIGHTS = {'common':12.0, 'uncommon':6.0, 'rare':2.5, 'epic':.9, 'legendary':.3}
 
 
 def rounded(value, step=50):

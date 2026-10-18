@@ -1,6 +1,7 @@
 extends PanelContainer
 ## Inline, read-only details for the selected inventory instance.
 const Grid = preload("res://scripts/inventory_grid.gd")
+const Rarity = preload("res://scripts/item_rarity.gd")
 const TouchButton = preload("res://scripts/touch_button.gd")
 const TouchScroll = preload("res://scripts/touch_scroll.gd")
 const TYPE_NAMES := {"smg":"冲锋枪","rifle":"突击步枪","sniper":"精确步枪","shotgun":"霰弹枪","machine_gun":"机枪","pistol":"手枪","helmet":"头盔","visor":"面罩","body_armor":"防弹衣","rig":"弹挂","armored_rig":"防弹弹挂","backpack":"背包","compensator":"补偿器","flash_hider":"消焰器","muzzle_brake":"制退器","suppressor":"消音器","grip":"握把","handguard":"护木","laser":"激光指示器","magazine":"弹匣 / 供弹组件","optic":"瞄具","stock":"枪托","medical":"医疗用品","valuable":"战利品"}
@@ -147,8 +148,8 @@ func _describe(item: Dictionary,record: Dictionary) -> String:
 			_field(lines,item,"heal","生命恢复"," 点",true)
 			_field(lines,item,"uses","每件可用次数"," 次")
 		"loot":
-			var rarity: String=str(item.get("rarity",""))
-			if not rarity.is_empty():lines.append("稀有度："+str({"common":"普通","uncommon":"少见","rare":"稀有","legendary":"珍贵"}.get(rarity,rarity)))
+			lines.append("物资分类："+Rarity.group_label(item))
+			lines.append("稀有度："+Rarity.label(item))
 			lines.append("获取方式：行动中搜获，成功撤离后带回仓库。")
 	var dimensions: Vector2i=Grid.footprint(record,bool(record.get("rotated",false)))
 	lines.append("当前占格：%d × %d（%d 格）"%[dimensions.x,dimensions.y,dimensions.x*dimensions.y])
@@ -171,7 +172,7 @@ func _describe(item: Dictionary,record: Dictionary) -> String:
 func _description(item: Dictionary) -> String:
 	var kind: String=str(item.get("kind",""))
 	var category: String=str(item.get("category",""))
-	if kind=="loot":return _description_with_context(item,str(LOOT_DESCRIPTIONS.get(str(item.get("id","")),"")))
+	if kind=="loot":return str(item.get("description",LOOT_DESCRIPTIONS.get(str(item.get("id","")),"")))
 	if kind=="attachment":
 		var context: String=str({
 			"compensator":"枪口补偿组件，改善连续射击时的控枪表现。",

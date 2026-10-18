@@ -5,6 +5,7 @@ import csv
 import argparse
 from pathlib import Path
 from balance_rules import apply_balance
+from sync_valuable_catalog import entries as valuable_entries
 
 ROOT = Path(__file__).resolve().parents[1]
 ITEMS = []
@@ -297,15 +298,7 @@ for item_id,name,price,weight,heal in [
  ('bandage_basic','应急绷带',180,.12,25),('medkit_field','野战急救包',700,.5,55),('medkit_surgical','综合医疗箱',1550,.9,85),
 ]:
     add(item_id,name,'consumable','medical',price,weight,f'战局中恢复 {heal} 点生命。',heal=heal,uses=1)
-for item_id,name,price,weight,rarity in [
- ('loot_wire','绝缘导线',420,.25,'common'),('loot_battery','工业电池',760,.6,'common'),
- ('loot_tools','精密工具组',1700,1.2,'uncommon'),('loot_filter','净化滤芯',1280,.55,'uncommon'),
- ('loot_radio','加密电台',2900,.85,'rare'),('loot_processor','运算芯片',4400,.12,'rare'),
- ('loot_watch','机械腕表',6800,.18,'rare'),('loot_statue','旧城金像',12500,1.8,'legendary'),
- ('loot_documents','密封档案',3700,.35,'rare'),('loot_lens','光学镜片',2200,.3,'uncommon'),
- ('loot_fuel','燃料罐',1950,2.2,'uncommon'),('loot_scrap','合金零件',550,.7,'common'),
-]:
-    add(item_id,name,'loot','valuable',price,weight,'成功撤离后进入仓库，可在交易行出售换取游戏币。',rarity=rarity)
+ITEMS.extend(valuable_entries())
 
 
 apply_balance(ITEMS)

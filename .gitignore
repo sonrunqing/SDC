@@ -6,6 +6,8 @@
 Thumbs.db
 *.tmp
 *.log
+*.blend1
+*.blend2
 
 # Export products and private signing material are delivered separately.
 /builds/

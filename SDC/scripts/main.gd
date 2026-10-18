@@ -3,6 +3,7 @@ extends Control
 const TouchOption = preload("res://scripts/touch_option.gd")
 const TouchQuantity = preload("res://scripts/touch_quantity.gd")
 const TouchLineEdit = preload("res://scripts/touch_line_edit.gd")
+const Rarity = preload("res://scripts/item_rarity.gd")
 const BG := Color("0d0f14")
 const PANEL := Color("171a20")
 const PANEL_LIGHT := Color("252a32")
@@ -479,7 +480,10 @@ func _render_market_groups() -> void:
 		var name:=_label(str(group[1]),24);inside.add_child(name);_ignore_pointer(inside)
 
 func _browser_categories() -> Array:
-	if _tab!="market":return ["all","weapon","armor","attachment","ammo","consumable","loot"]
+	if _tab!="market":
+		var categories: Array=["all","weapon","armor","attachment","ammo","consumable","loot"]
+		for group: String in Rarity.GROUPS:categories.append("loot/"+group)
+		return categories
 	match _market_group:
 		"weapons":return ["all","smg","rifle","sniper","shotgun","machine_gun","pistol"]
 		"attachments":return ["all","muzzle","grip","stock","magazine","optic","laser","handguard"]
@@ -511,6 +515,7 @@ func _render_browser() -> void:
 	var options:=TouchOption.new();options.custom_minimum_size=Vector2(190,60);options.add_theme_stylebox_override("normal",_style(PANEL_LIGHT))
 	for category:String in _browser_categories():
 		var caption:String=str({"all":"全部","weapon":"枪械","armor":"防具 / 容器","attachment":"配件","consumable":"补给"}.get(category,CAT_NAMES.get(category,category)))
+		if category.begins_with("loot/"):caption=str(Rarity.GROUPS.get(category.trim_prefix("loot/"),category))
 		options.add_item(caption);options.set_item_metadata(options.item_count-1,category)
 		if category==_filter:options.select(options.item_count-1)
 	options.item_selected.connect(func(index:int) -> void: _filter=str(options.get_item_metadata(index));_selected="";_populate_list());filters.add_child(options)
@@ -525,9 +530,11 @@ func _render_browser() -> void:
 func _matches(item: Dictionary) -> bool:
 	if _tab=="market" and not _belongs_to_market(item):return false
 	if _tab == "stash" and int(GameState.stash.get(str(item.get("id", "")), 0)) <= 0 and not _equipped(str(item.get("id", ""))): return false
-	if _filter != "all" and str(item.get("kind", "")) != _filter and str(item.get("category", "")) != _filter and str(item.get("slot", "")) != _filter: return false
+	if _filter.begins_with("loot/"):
+		if str(item.get("kind",""))!="loot" or str(item.get("loot_category",""))!=_filter.trim_prefix("loot/"):return false
+	elif _filter != "all" and str(item.get("kind", "")) != _filter and str(item.get("category", "")) != _filter and str(item.get("slot", "")) != _filter: return false
 	if not _search.is_empty():
-		var haystack: String = (str(item.get("name", "")) + " " + str(item.get("caliber", "")) + " " + str(item.get("interfaces", "")) + " " + str(item.get("description", ""))).to_lower()
+		var haystack: String = (str(item.get("name", "")) + " " + str(item.get("caliber", "")) + " " + str(item.get("interfaces", "")) + " " + str(item.get("description", ""))+" "+(Rarity.group_label(item) if str(item.get("kind",""))=="loot" else "")).to_lower()
 		if not haystack.contains(_search.to_lower()): return false
 	return true
 

@@ -897,16 +897,17 @@ func _build_containers() -> void:
 		_add_loot_container(Vector3(float(point[0]),float(point[1]),float(point[2])),str(record.name),false,record)
 
 
-func _weighted_loot_id() -> String:
+func _weighted_loot_id(candidates: Array = []) -> String:
+	var pool: Array=_loot_ids if candidates.is_empty() else candidates
 	var total: float = 0.0
-	for item_id: String in _loot_ids:
+	for item_id: String in pool:
 		total += maxf(0.0, float(Catalog.get_item(item_id).get("drop_weight", 1.0)))
 	var ticket: float = _rng.randf() * total
-	for item_id: String in _loot_ids:
+	for item_id: String in pool:
 		ticket -= maxf(0.0, float(Catalog.get_item(item_id).get("drop_weight", 1.0)))
 		if ticket <= 0.0:
 			return item_id
-	return _loot_ids.back()
+	return str(pool.back())
 
 
 func _add_loot_container(at: Vector3,title: String,corpse: bool,options: Dictionary = {}) -> void:
@@ -950,10 +951,17 @@ func _add_loot_container(at: Vector3,title: String,corpse: bool,options: Diction
 	var label:=_sign(title,at+Vector3(0,dims.y+.35,0),.012,Color("d8dccf"),true)
 	label.visible=false
 	var contents: Dictionary={}
-	var profiles: Dictionary={"tool":["loot_tools","loot_scrap","loot_wire","loot_filter"],"medical":["medkit_field","loot_filter"],"archive":["loot_documents","loot_watch","loot_processor"],"electronics":["loot_battery","loot_radio","loot_processor","loot_lens"]}
-	var pool: Array=profiles.get(kind,[])
+	var profiles: Dictionary={"tool":["industrial","metals","tools"],"medical":["medical"],"archive":["collectibles"],"electronics":["electronics","precision"]}
+	var groups: Array=profiles.get(kind,[])
+	var pool: Array=[]
+	if not groups.is_empty():
+		for id: String in _loot_ids:
+			if str(Catalog.get_item(id).get("loot_category","")) in groups:pool.append(id)
 	for attempt: int in range(2 if not corpse else 1):
-		var id: String=str(pool[_rng.randi_range(0,pool.size()-1)]) if not pool.is_empty() else _weighted_loot_id()
+		var id: String=_weighted_loot_id(pool)
+		# Retain the previous medical crate's 50% healing-supply roll, alongside
+		# the new medical valuables rather than diluting medicine with more IDs.
+		if kind=="medical" and _rng.randf()<.5:id="medkit_field"
 		if Catalog.items.has(id):contents[id]=int(contents.get(id,0))+1
 	if not _ammo_ids.is_empty() and kind not in ["medical","archive"]:contents[_ammo_ids[0]]=_rng.randi_range(8,24)
 	if not _attachment_ids.is_empty() and kind in ["tool","weapon","supply","duffel"]:
