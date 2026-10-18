@@ -649,7 +649,7 @@ func get_container_snapshot() -> Dictionary:
 	return snapshot
 
 func take_container_item(uid: String,quantity: int,destination: String = "",block: String = "",cell: Vector2i = Vector2i(-1,-1)) -> bool:
-	if not _active or _search_target<0 or not _can_access_container(_search_target):return false
+	if not _active or _search_target<0 or not _can_access_container(_search_target):return GameState._fail("已离开容器")
 	var crate: Dictionary=_containers[_search_target]
 	var record: Dictionary=GameState.Grid.find_record(crate.search.records,uid)
 	if record.is_empty() or not bool(record.discovered) or quantity<1 or quantity>int(record.qty):
@@ -663,6 +663,33 @@ func take_container_item(uid: String,quantity: int,destination: String = "",bloc
 	_looted+=quantity
 	_sound.play_event("search")
 	_emit_hud()
+	return true
+
+func put_container_item(uid: String,quantity: int,cell: Vector2i = Vector2i(-1,-1)) -> bool:
+	if not _active or _search_target<0 or not _can_access_container(_search_target):return GameState._fail("已离开容器")
+	var record: Dictionary=GameState.Grid.find_record(GameState.raid_grid_items,uid)
+	if record.is_empty():return GameState._fail("携行物品已更新")
+	var crate: Dictionary=_containers[_search_target]
+	var proposed: Dictionary=ContainerState.plan_deposit(crate.search,record,quantity,cell)
+	if proposed.is_empty():return GameState._fail("容器没有合适的格子，物品仍在身上")
+	if not GameState.release_raid_item(uid,quantity):return false
+	crate.search=proposed
+	crate.contents=ContainerState.remaining(proposed)
+	crate.opened=false
+	crate.label.text=str(crate.name)+" · 已搜索"
+	_sound.play_event("search")
+	_emit_hud()
+	return true
+
+func move_container_item(uid: String,cell: Vector2i) -> bool:
+	if not _active or _search_target<0 or not _can_access_container(_search_target):return GameState._fail("已离开容器")
+	var state: Dictionary=_containers[_search_target].search
+	var record: Dictionary=GameState.Grid.find_record(state.records,uid)
+	if record.is_empty() or int(record.qty)<=0 or not bool(record.discovered):return GameState._fail("物品尚未完成搜索")
+	var spot: Dictionary=ContainerState.find_spot(record,state.records,int(state.columns),int(state.rows),cell)
+	if spot.is_empty():return GameState._fail("容器没有合适的格子")
+	GameState.Grid.apply_spot(record,spot)
+	GameState.last_error=""
 	return true
 
 func _update_container_markers(delta: float) -> void:

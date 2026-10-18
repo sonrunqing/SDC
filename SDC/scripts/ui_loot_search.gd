@@ -3,9 +3,9 @@ extends Control
 signal close_requested
 const Grid=preload("res://scripts/inventory_grid.gd")
 const GridView=preload("res://scripts/ui_inventory_grid.gd")
+const ContainerState=preload("res://scripts/loot_container_state.gd")
 const TouchButton=preload("res://scripts/touch_button.gd")
 const TouchScroll=preload("res://scripts/touch_scroll.gd")
-const TouchOption=preload("res://scripts/touch_option.gd")
 const TouchQuantity=preload("res://scripts/touch_quantity.gd")
 var world: Node3D
 var _views: Array=[]
@@ -19,9 +19,11 @@ var _summary: Label
 var _details: Label
 var _message: Label
 var _pause: Button
-var _take: Button
 var _quantity: Control
-var _destination: String=""
+var _search_bar: ProgressBar
+var _stage: Label
+var _known_records: Dictionary={}
+var _have_snapshot: bool=false
 var _margin: MarginContainer
 var _selected: String=""
 var _snapshot: Dictionary={}
@@ -41,6 +43,8 @@ func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	add_to_group("mobile_touch_modal")
 	add_to_group("mobile_touch_gesture")
+	modulate.a=0
+	create_tween().tween_property(self,"modulate:a",1.0,.16)
 	var background:=ColorRect.new()
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	background.color=Color(.035,.04,.052,.97)
@@ -80,13 +84,28 @@ func _ready() -> void:
 	var right: VBoxContainer=_column(columns)
 	_status=_label("正在打开容器…",22)
 	right.add_child(_status)
+	_search_bar=ProgressBar.new()
+	_search_bar.custom_minimum_size.y=5
+	_search_bar.show_percentage=false
+	_search_bar.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	var bar_background:=StyleBoxFlat.new()
+	bar_background.bg_color=Color("27343b")
+	_search_bar.add_theme_stylebox_override("background",bar_background)
+	var bar_fill:=StyleBoxFlat.new()
+	bar_fill.bg_color=Color("b3c0a7")
+	_search_bar.add_theme_stylebox_override("fill",bar_fill)
+	right.add_child(_search_bar)
+	_stage=_label("打开锁扣",17)
+	_stage.modulate=Color("a9b3ae")
+	right.add_child(_stage)
 	_source=GridView.new()
 	_source.container_id="loot"
 	_source.use_source_records=true
+	_source.animate_search=true
 	_source.cell=64
 	right.add_child(_source)
 	_views.append(_source)
-	var hint:=_label("搜索完成的物品可选择拿取",17)
+	var hint:=_label("双击快捷转移 · 点选后点目标格 · 长按拖动",17)
 	hint.modulate=Color("a9b3ae")
 	right.add_child(hint)
 	_details=_label("轻点物品查看详情；双击快捷拿取。",18)
@@ -99,23 +118,18 @@ func _ready() -> void:
 	root.add_child(actions)
 	_pause=_button("暂停搜索",func() -> void:world.toggle_container_search();_refresh(),150)
 	actions.add_child(_pause)
-	var target:=TouchOption.new()
-	target.custom_minimum_size=Vector2(176,64)
-	for name: String in ["放入：自动","放入：背包","放入：弹挂","放入：口袋"]:target.add_item(name)
-	target.item_selected.connect(func(index: int) -> void:_destination=["","backpack","rig","pockets"][index])
-	actions.add_child(target)
+	actions.add_child(_label("转移数量",18))
 	_quantity=TouchQuantity.new()
 	_quantity.min_value=1
 	_quantity.max_value=1
 	_quantity.value=1
 	_quantity.custom_minimum_size=Vector2(205,64)
+	_quantity.editable=false
 	actions.add_child(_quantity)
 	_message=_label("",17)
 	_message.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	_message.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	actions.add_child(_message)
-	_take=_button("拿取所选",_take_selected,172)
-	actions.add_child(_take)
 	_ghost=_label("",20)
 	_ghost.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	_ghost.add_theme_color_override("font_color",Color("f0e8cf"))
@@ -206,10 +220,23 @@ func _refresh() -> void:
 	_source.source_records=_snapshot.records
 	_source.concealed_uids={}
 	for record: Dictionary in _snapshot.records:
-		if not bool(record.discovered):_source.concealed_uids[str(record.uid)]=true
-	_source.searching_uid=str(_snapshot.active_uid) if not bool(_snapshot.paused) and float(_snapshot.opening)<=0 else ""
+		var uid: String=str(record.uid)
+		if not bool(record.discovered):_source.concealed_uids[uid]=true
+		elif int(record.qty)>0 and _have_snapshot and not bool(_known_records.get(uid,false)):_source.reveal_ages[uid]=0.0
+		_known_records[uid]=bool(record.discovered)
+	_have_snapshot=true
+	_source.searching_uid=str(_snapshot.active_uid) if float(_snapshot.opening)<=0 else ""
 	_source.search_progress=float(_snapshot.progress)
+	_source.search_paused=bool(_snapshot.paused)
+	_source.opening_progress=clampf(1.0-float(_snapshot.opening)/.45,0,1)
 	_status.text="容器已空" if bool(_snapshot.empty) else ("正在打开容器…" if float(_snapshot.opening)>0 else ("搜索完成" if bool(_snapshot.complete) else ("已暂停搜索" if bool(_snapshot.paused) else "搜索中  %d / %d"%[int(_snapshot.discovered),int(_snapshot.total)])))
+	var progress: float=clampf((float(_snapshot.discovered)+(float(_snapshot.progress) if not bool(_snapshot.complete) else 0.0))/maxi(1,int(_snapshot.total)),0,1)
+	_search_bar.value=progress*100
+	if float(_snapshot.opening)>0:
+		_stage.text="打开锁扣  %d%%"%roundi(_source.opening_progress*100)
+	elif bool(_snapshot.empty):_stage.text="物品已取走，可以关闭容器"
+	elif bool(_snapshot.complete):_stage.text="已检索全部物品"
+	else:_stage.text=("扫描已暂停  %d%%" if bool(_snapshot.paused) else "正在检索未知物品  %d%%")%roundi(float(_snapshot.progress)*100)
 	_pause.text="继续搜索" if bool(_snapshot.paused) else "暂停搜索"
 	_pause.disabled=bool(_snapshot.complete)
 	var usage: Vector2i=GameState.raid_grid_usage()
@@ -222,34 +249,39 @@ func _refresh() -> void:
 		view.selected_uid=_selected
 		view.queue_redraw()
 	var selected: Dictionary=_selected_record()
-	_take.disabled=selected.is_empty() or not _selected.begins_with("loot/")
+	_quantity.editable=not selected.is_empty() and int(selected.qty)>1
 	if selected.is_empty():
-		_details.text="轻点物品查看详情；双击拿取，或拖到左侧携行格子。"
+		_details.text="轻点物品查看详情；双击快捷转移，或点目标格子、拖动放置。"
 	else:
 		var item: Dictionary=Catalog.get_item(str(selected.item))
 		var cells: Vector2i=Grid.item_size(str(selected.item))
-		_details.text="%s ×%d    %d×%d 格    单件 %.2f kg    出售 ◈ %d\n%s"%[str(item.get("name","")),int(selected.qty),cells.x,cells.y,float(item.get("weight",0)),int(item.get("sell_price",0)),"容器中的物品，仅拿取所需数量。" if _selected.begins_with("loot/") else "当前携行物品，可在左侧区块内调整位置。"]
+		_details.text="%s ×%d    %d×%d 格    单件 %.2f kg    出售 ◈ %d\n%s"%[str(item.get("name","")),int(selected.qty),cells.x,cells.y,float(item.get("weight",0)),int(item.get("sell_price",0)),"容器物品 · 双击拿取，或点左侧目标格子放置。" if _selected.begins_with("loot/") else "携行物品 · 双击放回容器，也可点格子或拖动整理。"]
 	_layout()
 
 func _choose(uid: String) -> void:
+	var changed: bool=uid!=_selected
 	_selected=uid
 	var record: Dictionary=_selected_record()
 	_quantity.max_value=maxi(1,int(record.get("qty",1)))
-	_quantity.value=_quantity.max_value
+	_quantity.value=_quantity.max_value if changed else minf(_quantity.value,_quantity.max_value)
 	_refresh()
 
-func _take_selected() -> void:
-	_take_to(_destination,"",Vector2i(-1,-1))
+func _quick_transfer() -> void:
+	_transfer_to("" if _selected.begins_with("loot/") else "loot","",Vector2i(-1,-1))
 
-func _take_to(destination: String,block: String,cell: Vector2i) -> void:
+func _transfer_to(destination: String,block: String,cell: Vector2i) -> void:
 	var record: Dictionary=_selected_record()
 	if record.is_empty():return
 	cancel_gesture()
 	var ok: bool=false
-	if _selected.begins_with("loot/"):
+	var from_container: bool=_selected.begins_with("loot/")
+	if destination=="loot":
+		ok=world.move_container_item(_selected,cell) if from_container else world.put_container_item(_selected,int(_quantity.value),cell)
+	elif from_container:
 		ok=world.take_container_item(_selected,int(_quantity.value),destination,block,cell)
 	else:ok=GameState.move_raid_item(_selected,destination,block,cell)
-	_message.text="已放入携行区" if ok else GameState.last_error
+	_message.text=("已放回容器" if destination=="loot" and not from_container else "已放置") if ok else GameState.last_error
+	if ok:AppSettings.ui_feedback()
 	_last_tap=""
 	_last_time=0
 	if ok:_selected=""
@@ -279,7 +311,7 @@ func _input(event: InputEvent) -> void:
 		elif event.index==_pointer:
 			var hit: Dictionary=_hit(event.position)
 			if not event.canceled and not hit.is_empty():
-				if _mode=="drag" and str(hit.container)!="loot":_take_to(str(hit.container),str(hit.block),hit.cell)
+				if _mode=="drag":_transfer_to(str(hit.container),str(hit.block),hit.cell)
 				elif _mode=="pending":_tap(hit)
 			if _mode!="scroll":get_viewport().set_input_as_handled()
 			var remembered_uid: String=_last_tap
@@ -292,24 +324,26 @@ func _input(event: InputEvent) -> void:
 	elif event.index==_pointer:
 		_point=event.position
 		if _mode=="pending" and _point.distance_to(_start)>12:
-			if not _source_uid.is_empty() and absf(_point.x-_start.x)>absf(_point.y-_start.y):_begin_drag()
+			if not _source_uid.is_empty() and (absf(_point.x-_start.x)>absf(_point.y-_start.y) or Time.get_ticks_msec()-_started>280):_begin_drag()
 			else:_mode="scroll"
 		if _mode=="drag":get_viewport().set_input_as_handled()
 
 func _tap(hit: Dictionary) -> void:
 	var uid: String=str(hit.uid)
 	var chosen: Dictionary=_selected_record()
-	var target: Dictionary=Grid.find_record(GameState.raid_grid_items,uid)
-	var stackable: bool=not target.is_empty() and str(target.item)==str(chosen.get("item","")) and Grid.stack_limit(str(target.item))>1
-	if str(hit.container)!="loot" and not chosen.is_empty() and uid!=_selected and (uid.is_empty() or stackable):
-		_take_to(str(hit.container),str(hit.block),hit.cell)
-		return
 	if _source.concealed_uids.has(uid):
 		_message.text="该物品尚未完成搜索"
+		_last_tap=""
+		_last_time=0
 		return
 	var now: int=Time.get_ticks_msec()
-	if uid==_selected and uid==_last_tap and now-_last_time<360 and uid.begins_with("loot/"):
-		_take_selected()
+	if not uid.is_empty() and uid==_selected and uid==_last_tap and now-_last_time<360:
+		_quick_transfer()
+		return
+	var target: Dictionary=Grid.find_record(_snapshot.get("records",[]) if str(hit.container)=="loot" else GameState.raid_grid_items,uid)
+	var stackable: bool=not target.is_empty() and str(target.item)==str(chosen.get("item","")) and Grid.stack_limit(str(target.item))>1
+	if not chosen.is_empty() and uid!=_selected and (uid.is_empty() or stackable):
+		_transfer_to(str(hit.container),str(hit.block),hit.cell)
 		return
 	_choose(uid)
 	_last_tap=uid
@@ -323,11 +357,14 @@ func _begin_drag() -> void:
 	if _selected_record().is_empty():return
 	_mode="drag"
 	_last_tap=""
+	_last_time=0
+	AppSettings.ui_feedback()
 	for scroll: Control in _scrolls:scroll.cancel_gesture()
 	_ghost.text=str(Catalog.get_item(str(_selected_record().item)).get("name",""))
 	_ghost.show()
 
 func _process(delta: float) -> void:
+	if is_instance_valid(_source):_source.advance_search_animation(delta)
 	_refresh_clock-=delta
 	if _refresh_clock<=0:
 		_refresh_clock=.1
@@ -338,14 +375,18 @@ func _process(delta: float) -> void:
 		for scroll: ScrollContainer in _scrolls:
 			var rect: Rect2=scroll.get_global_rect()
 			if rect.has_point(_point):
-				if _point.y<rect.position.y+40:scroll.scroll_vertical-=roundi(350*delta)
-				elif _point.y>rect.end.y-40:scroll.scroll_vertical+=roundi(350*delta)
-		for view: Control in _views:view.hover_spot={}
+				if _point.y<rect.position.y+42:scroll.scroll_vertical-=roundi(420*delta)
+				elif _point.y>rect.end.y-42:scroll.scroll_vertical+=roundi(420*delta)
+		for view: Control in _views:
+			view.hover_spot={}
+			view.queue_redraw()
 		var hit: Dictionary=_hit(_point)
-		if not hit.is_empty() and str(hit.container)!="loot":
+		if not hit.is_empty():
 			var record: Dictionary=_selected_record()
 			if record.is_empty():cancel_gesture();return
-			var spot: Dictionary=Grid.find_spot(record,str(hit.container),GameState.raid_grid_items,GameState.loadout,str(hit.block),hit.cell)
+			var spot: Dictionary
+			if str(hit.container)=="loot":spot=ContainerState.find_spot(record,_snapshot.get("records",[]),int(_snapshot.columns),int(_snapshot.rows),hit.cell)
+			else:spot=Grid.find_spot(record,str(hit.container),GameState.raid_grid_items,GameState.loadout,str(hit.block),hit.cell)
 			if not spot.is_empty():
 				spot.size=Grid.footprint(record,bool(spot.rotated))
 				hit.view.hover_spot=spot
@@ -366,6 +407,10 @@ func cancel_gesture() -> void:
 
 func request_cancel() -> void:
 	cancel_gesture()
+	var focus: Control=get_viewport().gui_get_focus_owner()
+	if focus is LineEdit and is_ancestor_of(focus):
+		focus.unedit()
+		focus.release_focus()
 	close_requested.emit()
 
 func _notification(what: int) -> void:

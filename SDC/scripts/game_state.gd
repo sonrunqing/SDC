@@ -739,7 +739,7 @@ func receive_container_item(id: String,quantity: int = 1,destination: String = "
 		sequence+=1
 	if as_supply and str(item.get("kind",""))=="ammo":
 		raid_ammo_by_id[id]=int(raid_ammo_by_id.get(id,0))+quantity
-	elif as_supply and str(item.get("kind",""))=="consumable" and (id==raid_medkit_id or raid_medkit_id.is_empty()):
+	elif as_supply and str(item.get("kind",""))=="consumable" and (id==raid_medkit_id or raid_medkit_id.is_empty() or raid_medkits==0):
 		raid_medkit_id=id
 		raid_medkits+=quantity
 	else:raid_loot[id]=int(raid_loot.get(id,0))+quantity
@@ -756,6 +756,40 @@ func move_raid_item(uid: String,destination: String,block: String = "",cell: Vec
 	var spot: Dictionary=Grid.find_spot(record,destination,packed,loadout,block,cell)
 	if spot.is_empty():return _fail("没有合适的格子")
 	Grid.apply_spot(record,spot)
+	raid_grid_items=packed
+	last_error=""
+	changed.emit()
+	return true
+
+func release_raid_item(uid: String,quantity: int) -> bool:
+	if not raid_active:return _fail("当前没有进行中的行动")
+	var packed: Array=raid_grid_items.duplicate(true)
+	var record: Dictionary=Grid.find_record(packed,uid)
+	if record.is_empty() or quantity<1 or quantity>int(record.qty):return _fail("物品数量已更新")
+	if str(record.container) not in ["rig","pockets","backpack"]:return _fail("只能放回携行物品")
+	var id: String=str(record.item)
+	var next_loot: Dictionary=raid_loot.duplicate(true)
+	var next_extra: Dictionary=raid_packed_extra.duplicate(true)
+	var next_ammo: Dictionary=raid_ammo_by_id.duplicate(true)
+	var next_meds: int=raid_medkits
+	var left: int=quantity
+	for counts: Dictionary in [next_loot,next_extra,next_ammo]:
+		var amount: int=mini(left,int(counts.get(id,0)))
+		if amount>0:
+			counts[id]=int(counts[id])-amount
+			if int(counts[id])==0:counts.erase(id)
+			left-=amount
+	if left>0 and id==raid_medkit_id:
+		var amount: int=mini(left,next_meds)
+		next_meds-=amount
+		left-=amount
+	if left>0:return _fail("携行物品数量不一致，未转移")
+	record.qty=int(record.qty)-quantity
+	if int(record.qty)==0:packed.erase(record)
+	raid_loot=next_loot
+	raid_packed_extra=next_extra
+	raid_ammo_by_id=next_ammo
+	raid_medkits=next_meds
 	raid_grid_items=packed
 	last_error=""
 	changed.emit()

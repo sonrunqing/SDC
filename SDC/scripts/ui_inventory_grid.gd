@@ -19,8 +19,31 @@ var _textures: Dictionary = {}
 var use_source_records: bool=false
 var source_records: Array=[]
 var concealed_uids: Dictionary={}
-var searching_uid: String=""
+var searching_uid: String="":
+	set(next):
+		if next!=searching_uid:_display_progress=0
+		searching_uid=next
 var search_progress: float=0
+var animate_search: bool=false
+var search_paused: bool=false
+var opening_progress: float=1
+var reveal_ages: Dictionary={}
+var _animation_clock: float=0
+var _redraw_clock: float=0
+var _display_progress: float=0
+
+func advance_search_animation(delta: float) -> void:
+	if not animate_search:return
+	if not search_paused:_animation_clock+=delta
+	_display_progress=move_toward(_display_progress,clampf(search_progress,0,1),delta*3)
+	var fading: bool=not reveal_ages.is_empty()
+	for uid: String in reveal_ages.keys():
+		reveal_ages[uid]=float(reveal_ages[uid])+delta
+		if float(reveal_ages[uid])>=.55:reveal_ages.erase(uid)
+	_redraw_clock+=delta
+	if _redraw_clock>=1.0/30.0 and (fading or opening_progress<1 or (not searching_uid.is_empty() and not search_paused)):
+		_redraw_clock=0
+		queue_redraw()
 
 func _ready() -> void:
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
@@ -77,30 +100,75 @@ func _draw() -> void:
 	for record: Dictionary in records():
 		var rectangle: Rect2 = record_rect(record)
 		if concealed_uids.has(str(record.uid)):
-			draw_rect(rectangle,Color("30383e"))
-			draw_rect(rectangle,Color("64716f"),false,1)
-			var active: bool=str(record.uid)==searching_uid
-			if active:
-				var scan: float=rectangle.position.y+fmod(Time.get_ticks_msec()*.065,maxf(1,rectangle.size.y))
-				draw_rect(Rect2(rectangle.position.x,scan,rectangle.size.x,minf(3,rectangle.end.y-scan)),Color(.7,.78,.7,.65))
-				draw_rect(Rect2(rectangle.position.x,rectangle.end.y-4,rectangle.size.x*search_progress,3),Color("b3c0a7"))
-			draw_string(_font,rectangle.get_center()+Vector2(-6,6),"···" if active else "?",HORIZONTAL_ALIGNMENT_LEFT,-1,21,Color("c4cbc2"))
+			_draw_unknown(rectangle,str(record.uid)==searching_uid)
 			continue
 		var item: Dictionary = Catalog.get_item(str(record.item))
 		var level: int = int(item.get("level",0))
 		var tone: Color = [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
-		draw_rect(rectangle,Color(tone,.24*display_alpha))
+		var reveal: float=1.0-pow(1.0-clampf(float(reveal_ages.get(str(record.uid),.55))/.4,0,1),3)
+		var alpha: float=display_alpha*(.12+.88*reveal)
+		draw_rect(rectangle,Color(tone,.24*alpha))
+		if reveal<1:draw_rect(rectangle,Color(.76,.84,.74,(1-reveal)*.20))
 		var border: Color=Color("dfe7e4") if str(record.uid)==selected_uid else tone
 		border.a=display_alpha
 		draw_rect(rectangle,border,false,3 if str(record.uid)==selected_uid else 1)
-		_draw_icon(str(record.item),rectangle.grow(-4),bool(record.get("rotated",false)),display_alpha)
-		if int(record.qty)>1:draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color(Color("f7ead3"),display_alpha))
-		if rectangle.size.x>110:draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color(Color("f2f0e7"),display_alpha))
+		var icon_box: Rect2=rectangle.grow(-4)
+		var scale_reveal: float=.88+.12*reveal
+		icon_box=Rect2(icon_box.get_center()-icon_box.size*scale_reveal*.5+Vector2(0,(1-reveal)*5),icon_box.size*scale_reveal)
+		_draw_icon(str(record.item),icon_box,bool(record.get("rotated",false)),alpha)
+		if int(record.qty)>1:draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color(Color("f7ead3"),alpha))
+		if rectangle.size.x>110:draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color(Color("f2f0e7"),alpha))
 		if not display_note.is_empty():draw_string(_font,rectangle.position+Vector2(4,15),display_note,HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-8,12,Color("b0bdbb"))
+	if animate_search and opening_progress<1:_draw_opening()
 	if not hover_spot.is_empty():
 		var rectangle: Rect2 = Rect2(Vector2(int(hover_spot.x),int(hover_spot.y))*cell,Vector2(hover_spot.get("size",Vector2i.ONE))*cell).grow(-1)
 		draw_rect(rectangle,Color(.44,.86,.65,.28))
 		draw_rect(rectangle,Color("91dab3"),false,3)
+
+func _draw_unknown(rectangle: Rect2,active: bool) -> void:
+	var center: Vector2=rectangle.get_center()
+	draw_rect(rectangle,Color("293238") if active else Color("222c32"))
+	draw_rect(rectangle,Color("88998e") if active else Color("48565c"),false,1)
+	if not active:
+		draw_string(_font,center+Vector2(-6,7),"?",HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color("7d8d90"))
+		return
+	var progress: float=_display_progress if animate_search else search_progress
+	if not search_paused:
+		var scan: float=rectangle.position.y+fmod(_animation_clock*.8,1.0)*rectangle.size.y
+		for step: int in range(7):
+			var top: float=maxf(rectangle.position.y,scan-float(step)*2)
+			var bottom: float=minf(rectangle.end.y,scan-float(step)*2+2)
+			if bottom>top:draw_rect(Rect2(rectangle.position.x,top,rectangle.size.x,bottom-top),Color(.64,.78,.69,.16*(1-float(step)/7)))
+		var line_y: float=clampf(scan,rectangle.position.y,rectangle.end.y-1)
+		draw_line(Vector2(rectangle.position.x,line_y),Vector2(rectangle.end.x,line_y),Color("a6bca9"),1)
+	var icon_center: Vector2=center-Vector2(0,5)
+	draw_arc(icon_center,15,0,TAU,36,Color("43564e"),2,true)
+	var phase: float=_animation_clock*3
+	draw_arc(icon_center,15,phase,phase+TAU*.72,28,Color("c1cdb6"),2,true)
+	if search_paused:
+		for x: float in [-3,3]:draw_line(icon_center+Vector2(x,-5),icon_center+Vector2(x,5),Color("c1cdb6"),2,true)
+	else:
+		draw_arc(icon_center-Vector2(2,2),5.5,0,TAU,20,Color("d2dccb"),1.5,true)
+		draw_line(icon_center+Vector2(2,2),icon_center+Vector2(7,7),Color("d2dccb"),2,true)
+	var percent: String="%d%%"%roundi(progress*100)
+	var width: float=_font.get_string_size(percent,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x
+	draw_string(_font,Vector2(center.x-width*.5,rectangle.end.y-7),percent,HORIZONTAL_ALIGNMENT_LEFT,-1,12,Color("c9d5c1"))
+	draw_rect(Rect2(rectangle.position.x,rectangle.end.y-3,rectangle.size.x*progress,3),Color("b3c0a7"))
+	for corner: Vector2 in [rectangle.position,Vector2(rectangle.end.x,rectangle.position.y),rectangle.end,Vector2(rectangle.position.x,rectangle.end.y)]:
+		var horizontal: float=7 if corner.x==rectangle.position.x else -7
+		var vertical: float=7 if corner.y==rectangle.position.y else -7
+		draw_line(corner,corner+Vector2(horizontal,0),Color("b3c0a7"),2)
+		draw_line(corner,corner+Vector2(0,vertical),Color("b3c0a7"),2)
+
+func _draw_opening() -> void:
+	var extent:=Vector2(columns,rows)*cell
+	var eased: float=1.0-pow(1.0-opening_progress,3)
+	var width: float=extent.x*.5*(1.0-eased)
+	for x: float in [0.0,extent.x-width]:
+		draw_rect(Rect2(x,0,width,extent.y),Color("28333a"))
+	var text: String="打开容器"
+	var text_width: float=_font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,22).x
+	draw_string(_font,extent*.5+Vector2(-text_width*.5,8),text,HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color(.8,.84,.79,1.0-opening_progress))
 
 func _draw_icon(id: String, rectangle: Rect2, rotated: bool,alpha: float = 1.0) -> void:
 	if not _textures.has(id):
