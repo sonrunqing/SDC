@@ -4,7 +4,7 @@ Catalog.items Dictionary id -> item Dictionary. Common: id,name,kind,category,pr
 kind weapon/attachment/armor/ammo/loot/consumable.
 Weapons: caliber,slots Dictionary slot -> Array[String] interfaces, stats {damage,rpm,magazine,recoil,accuracy,ergonomics,range,noise}. Categories smg,rifle,sniper,shotgun,machine_gun,pistol. Slots muzzle,grip,stock,magazine,optic,laser,handguard. Weapons differ in actual interfaces/slots.
 Attachments: slot,interfaces Array[String], optional weapon_ids restrictions,modifiers Dictionary additive stat changes.
-Armor categories helmet,body_armor,backpack,armored_rig,visor; level (helmet/body_armor/visor only; backpack and armored_rig have NO LEVEL),protection,durability,capacity, visor_mount(s) for helmet/visor.
+Armor categories helmet,body_armor,backpack,rig,armored_rig,visor. Plain rig and backpack have no armor level or protection. Armored rig has level/protection/durability and replaces body armor. Both rig categories map through Catalog.equipment_slot(id) to the historical armored_rig loadout slot. Storage cell counts/blocks and weight allowance are separate fields.
 Ammo: caliber,penetration,damage_multiplier,stack_size.
 Catalog methods: get_item(id)->Dictionary; by_kind(kind)->Array; compatible(weapon_id,attachment_id,slot="")->bool; visor_compatible(helmet_id,visor_id)->bool; weapon_stats(weapon_id,attachments:Dictionary={})->Dictionary; validate_catalog()->Array[String].
 
@@ -15,8 +15,8 @@ State selects default starting weapon/ammo from catalog, initial cash ~18000, su
 
 RaidWorld (scripts/raid_world.gd) Node3D: signals hud_changed(info:Dictionary),raid_finished(extracted:bool,details:Dictionary).
 start_raid() builds/reset world after GameState.begin_raid(); gameplay internally calls GameState.add_raid_loot and GameState.finish_raid before signal raid_finished.
-Methods set_move(value:Vector2),set_aim(value:Vector2,firing:bool),reload_weapon(),interact(),use_medkit(),get_hud()->Dictionary.
-World handles keyboard WASD, mouse aim + LMB shoot, R reload,F interact,E medkit. Controller x,y maps screen right/down projected onto the ground using camera basis; aim uses the same projection. Camera orthographic angled follows player. HUD info contains hp,max_hp,ammo,magazine,reserve,seconds,objective,nearby,loot_value,extract_progress plus weapon_name; optional minimap positions.
-VirtualControls (scripts/virtual_controls.gd) Control: signals move_changed(Vector2),aim_changed(Vector2,bool),reload_pressed,interact_pressed,medkit_pressed; property enabled:bool. Dual finger independent joysticks; fire from right stick. Layout 1280x720 scalable and safe margins.
+Methods set_move(value:Vector2),set_aim(value:Vector2),set_fire(pressed:bool),reload_weapon(),interact(),use_medkit(),get_hud()->Dictionary.
+World is controlled exclusively by touch-control signals; no keyboard or mouse branches. Controller x,y maps screen right/down projected onto the ground using camera basis; aim uses the same projection. Camera orthographic angled follows player. HUD info contains hp,max_hp,ammo,magazine,reserve,seconds,objective,nearby,loot_value,extract_progress plus weapon_name; optional minimap positions.
+VirtualControls (scripts/virtual_controls.gd) Control: signals move_changed(Vector2),aim_changed(Vector2),fire_changed(bool),reload_pressed,interact_pressed,medkit_pressed; property enabled:bool. Three independent pointers own movement, rotation and the upper-left fire button. Both pointing emulation settings are disabled; native touch widgets cover settings, text/number entry, choices, scrolling and previews. Android go_back_requested handles back navigation.
 
 Main UI (scripts/main.gd) Control owns lobby tabs deployment/stash/market/workbench/catalog, RaidWorld + HUD + VirtualControls. Connect changed. Uses GameState public API above. root scene scenes/main.tscn. Root agent coordinates any conflicts. Color direction slate/charcoal, teal extraction accent, warm amber loot; Chinese UI with NotoSansSC font available assets/fonts/.

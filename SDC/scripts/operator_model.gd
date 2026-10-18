@@ -37,14 +37,65 @@ func set_equipment(loadout: Dictionary) -> void:
 	for slot: String in ["helmet","visor","body_armor","armored_rig","backpack"]:
 		var id: String = str(loadout.get(slot,""))
 		if id.is_empty():continue
+		var item: Dictionary=Catalog.get_item(id)
+		var category: String=str(item.get("category",""))
 		var path: String = "res://assets/operator/equipment/"+id+".glb"
+		if not ResourceLoader.exists(path):
+			var visual_alias: String=str(item.get("visual_alias",""))
+			if not visual_alias.is_empty():path="res://assets/operator/equipment/"+visual_alias+".glb"
 		if not ResourceLoader.exists(path):continue
 		var gear: Node3D = load(path).instantiate()
 		apply_palette(gear)
 		gear.name="Equipment_"+slot
 		gear.set_meta("item_id",id)
+		gear.set_meta("item_category",category)
+		if slot=="armored_rig":
+			var armored: bool=category=="armored_rig"
+			_tint_rig(gear,armored)
+			if armored:_add_rig_plate(gear)
+			elif category=="rig" and not str(loadout.get("body_armor","")).is_empty():
+				# The shared legacy rig mesh is worn outside the separate armor layer.
+				gear.scale=Vector3(1.06,1.0,1.12)
 		_gear.add_child(gear)
 		equipped[slot]=id
+
+func _tint_rig(node: Node,armored: bool) -> void:
+	if node is MeshInstance3D and node.mesh!=null:
+		for index: int in range(node.mesh.get_surface_count()):
+			var material: Material=node.get_active_material(index)
+			if material is StandardMaterial3D and material.resource_name in ["Ranger green","Ranger coyote","Graphite"]:
+				var fabric:=material.duplicate() as StandardMaterial3D
+				var tint:=Color("3b4945") if armored else Color("897552")
+				fabric.albedo_color=fabric.albedo_color.lerp(tint,.65)
+				fabric.roughness=.9
+				node.set_surface_override_material(index,fabric)
+	for child: Node in node.get_children():_tint_rig(child,armored)
+
+func _add_rig_plate(gear: Node3D) -> void:
+	# A rigid chest insert distinguishes the combined armor rig from a cloth rig.
+	var plate:=MeshInstance3D.new()
+	plate.name="BallisticRigPlate"
+	var mesh:=BoxMesh.new()
+	mesh.size=Vector3(.30,.13,.015)
+	plate.mesh=mesh
+	plate.position=Vector3(0,1.335,-.188)
+	var material:=StandardMaterial3D.new()
+	material.albedo_color=Color("29383d")
+	material.roughness=.72
+	plate.material_override=material
+	gear.add_child(plate)
+	var marking:=MeshInstance3D.new()
+	marking.name="BallisticPlateMark"
+	var marking_mesh:=BoxMesh.new()
+	marking_mesh.size=Vector3(.035,.05,.005)
+	marking.mesh=marking_mesh
+	marking.position=Vector3(-.09,1.35,-.198)
+	var marking_material:=StandardMaterial3D.new()
+	marking_material.albedo_color=Color("abb5ad")
+	marking_material.roughness=.9
+	marking.material_override=marking_material
+	gear.add_child(marking)
+
 func set_loadout(loadout: Dictionary, builds: Dictionary, active_slot: String = "primary") -> void:
 	set_equipment(loadout)
 	for child: Node in _guns.get_children():_guns.remove_child(child);child.queue_free()

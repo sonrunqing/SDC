@@ -1,5 +1,8 @@
 extends Control
 
+const TouchOption = preload("res://scripts/touch_option.gd")
+const TouchQuantity = preload("res://scripts/touch_quantity.gd")
+const TouchLineEdit = preload("res://scripts/touch_line_edit.gd")
 const BG := Color("0d151b")
 const PANEL := Color("18252c")
 const PANEL_LIGHT := Color("26343a")
@@ -8,14 +11,14 @@ const AMBER := Color("e2ba76")
 const TEXT := Color("edf0e7")
 const MUTED := Color("a2b3ad")
 const DANGER := Color("f08677")
-const CAT_NAMES: Dictionary = {"smg":"冲锋枪", "rifle":"突击步枪", "sniper":"狙击枪", "shotgun":"霰弹枪", "machine_gun":"机枪", "pistol":"手枪", "helmet":"头盔", "body_armor":"防弹衣", "backpack":"背包", "armored_rig":"弹挂甲", "visor":"面罩", "muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光指示器", "handguard":"护木", "ammo":"弹药", "loot":"物资", "consumable":"补给", "suppressor":"消音器", "flash_hider":"消焰器", "compensator":"补偿器", "muzzle_brake":"枪口制退器", "vertical_grip":"垂直握把", "angled_grip":"斜角握把", "tactical_stock":"战术枪托", "extended_mag":"扩容弹匣", "red_dot":"红点瞄具", "scope":"瞄准镜", "medical":"医疗补给", "valuable":"贵重物资"}
-const SLOT_NAMES: Dictionary = {"weapon":"当前武器", "primary":"主武器", "secondary":"副武器", "sidearm":"手枪", "helmet":"头盔", "body_armor":"防弹衣", "backpack":"背包", "armored_rig":"弹挂甲", "visor":"面罩", "ammo":"弹药", "muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光", "handguard":"护木"}
+const CAT_NAMES: Dictionary = {"smg":"冲锋枪", "rifle":"突击步枪", "sniper":"狙击枪", "shotgun":"霰弹枪", "machine_gun":"机枪", "pistol":"手枪", "helmet":"头盔", "body_armor":"防弹衣", "backpack":"背包", "rig":"弹挂", "armored_rig":"防弹弹挂", "visor":"面罩", "muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光指示器", "handguard":"护木", "ammo":"弹药", "loot":"物资", "consumable":"补给", "suppressor":"消音器", "flash_hider":"消焰器", "compensator":"补偿器", "muzzle_brake":"枪口制退器", "vertical_grip":"垂直握把", "angled_grip":"斜角握把", "tactical_stock":"战术枪托", "extended_mag":"扩容弹匣", "red_dot":"红点瞄具", "scope":"瞄准镜", "medical":"医疗补给", "valuable":"贵重物资"}
+const SLOT_NAMES: Dictionary = {"weapon":"当前武器", "primary":"主武器", "secondary":"副武器", "sidearm":"手枪", "helmet":"头盔", "body_armor":"防弹衣", "backpack":"背包", "armored_rig":"弹挂", "visor":"面罩", "ammo":"弹药", "muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光", "handguard":"护木"}
 var _draft_weapon: String = ""
 var _draft_parts: Dictionary = {}
 var _draft_target: String = "primary"
 var _wb_preview: Control
-var _wb_guns: OptionButton
-var _wb_target: OptionButton
+var _wb_guns: TouchOption
+var _wb_target: TouchOption
 var _wb_sockets: VBoxContainer
 var _wb_parts: VBoxContainer
 var _wb_parts_title: Label
@@ -169,7 +172,6 @@ func _button(caption: String, callback: Callable, accent: bool = false, min_widt
 	button.minimum_touch_height = min_height
 	button.add_theme_font_size_override("font_size",20 if min_height<60 else 22)
 	button.custom_minimum_size = Vector2(min_width, min_height)
-	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	button.add_theme_color_override("font_color", BG if accent else TEXT)
 	button.add_theme_color_override("font_hover_color", BG if accent else TEXT)
 	button.add_theme_color_override("font_focus_color", BG if accent else TEXT)
@@ -256,12 +258,16 @@ func _build_lobby() -> void:
 	start.add_theme_font_size_override("font_size",23)
 	_bottom_nav.add_child(start)
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_ESCAPE:
-		_mobile_back()
-		get_viewport().set_input_as_handled()
-
 func _mobile_back() -> void:
+	var touch_modals: Array[Node]=get_tree().get_nodes_in_group("mobile_touch_modal")
+	if not touch_modals.is_empty():
+		touch_modals.back().request_cancel()
+		return
+	var input_field: Control=get_viewport().gui_get_focus_owner()
+	if input_field is LineEdit and input_field.is_editing():
+		input_field.unedit()
+		input_field.release_focus()
+		return
 	if is_instance_valid(_control_layout_editor):
 		_control_layout_editor.request_cancel()
 		return
@@ -401,7 +407,7 @@ func _render_maps() -> void:
 	title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	heading.add_child(title)
 	heading.add_child(_label("160 × 180 m",16,MUTED))
-	var routes:=OptionButton.new();routes.name="EntryChoice";routes.custom_minimum_size.y=48
+	var routes:=TouchOption.new();routes.name="EntryChoice";routes.custom_minimum_size.y=48
 	var layout:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://data/harbor_layout.json"))
 	for entry:Dictionary in layout.entries:
 		routes.add_item(str(entry.name));routes.set_item_metadata(routes.item_count-1,str(entry.id))
@@ -449,9 +455,9 @@ func _ignore_pointer(node: Node) -> void:
 	for child:Node in node.get_children():_ignore_pointer(child)
 
 func _item_picture(item_id: String, image_size: Vector2) -> Control:
-	var path:String="res://assets/icons/items/"+item_id+".png"
-	if ResourceLoader.exists(path):
-		var picture:=TextureRect.new();picture.texture=preload("res://scripts/item_textures.gd").icon(item_id);picture.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;picture.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	var texture: Texture2D=preload("res://scripts/item_textures.gd").icon(item_id)
+	if texture!=null:
+		var picture:=TextureRect.new();picture.texture=texture;picture.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;picture.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		picture.custom_minimum_size=image_size;picture.size_flags_horizontal=Control.SIZE_EXPAND_FILL;picture.mouse_filter=Control.MOUSE_FILTER_IGNORE;return picture
 	var placeholder:=_label(_glyph(Catalog.get_item(item_id)),42,TEAL);placeholder.custom_minimum_size=image_size;placeholder.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;return placeholder
 
@@ -461,7 +467,7 @@ func _open_market_group(id: String) -> void:
 func _render_market_groups() -> void:
 	var root:=_vbox(_render_host,14)
 	var grid:=GridContainer.new();grid.columns=3;grid.size_flags_vertical=Control.SIZE_EXPAND_FILL;grid.add_theme_constant_override("h_separation",16);grid.add_theme_constant_override("v_separation",16);root.add_child(grid)
-	var groups:Array=[["weapons","枪械","weapon_badger556"],["attachments","枪械配件","att_optic_scope4"],["protection","防护装备","helmet_moss_1a"],["capacity","背包与弹挂","backpack_patrol"],["ammo","弹药","ammo_9x19_fmj"],["medical","医疗补给","medkit_field"]]
+	var groups:Array=[["weapons","枪械","weapon_badger556"],["attachments","枪械配件","att_optic_scope4"],["protection","防护装备","helmet_moss_1a"],["capacity","背包与弹挂","backpack_patrol"],["armored_rigs","防弹弹挂","armored_rig_guard_patrol"],["ammo","弹药","ammo_9x19_fmj"],["medical","医疗补给","medkit_field"]]
 	for group:Array in groups:
 		var id:String=str(group[0]);var card:=_button("",func() -> void: _open_market_group(id))
 		card.name="Category_"+id;card.custom_minimum_size=Vector2(330,204);card.size_flags_horizontal=Control.SIZE_EXPAND_FILL;card.size_flags_vertical=Control.SIZE_EXPAND_FILL
@@ -476,7 +482,8 @@ func _browser_categories() -> Array:
 		"weapons":return ["all","smg","rifle","sniper","shotgun","machine_gun","pistol"]
 		"attachments":return ["all","muzzle","grip","stock","magazine","optic","laser","handguard"]
 		"protection":return ["all","helmet","body_armor","visor"]
-		"capacity":return ["all","backpack","armored_rig"]
+		"capacity":return ["all","backpack","rig"]
+		"armored_rigs":return ["all","armored_rig"]
 		"medical":return ["all","medical"]
 		"ammo":return ["all","9x19","45acp","57x28","556x45","545x39","762x39","300blk","308win","762x54r","338lm","12g","20g"]
 	return ["all"]
@@ -487,7 +494,8 @@ func _belongs_to_market(item: Dictionary) -> bool:
 		"weapons":return kind=="weapon"
 		"attachments":return kind=="attachment"
 		"protection":return category in ["helmet","body_armor","visor"]
-		"capacity":return category in ["backpack","armored_rig"]
+		"capacity":return category in ["backpack","rig"]
+		"armored_rigs":return category=="armored_rig"
 		"ammo":return kind=="ammo"
 		"medical":return kind=="consumable"
 	return true
@@ -496,9 +504,9 @@ func _render_browser() -> void:
 	var root := _vbox(_render_host, 12)
 	var filters := _hbox(root, 10)
 	if _tab=="market":filters.add_child(_button("‹ 分类",func() -> void: _market_group="";_refresh()))
-	var search := LineEdit.new();search.placeholder_text="名称 / 口径";search.text=_search;search.custom_minimum_size=Vector2(240,60);search.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	var search := TouchLineEdit.new();search.placeholder_text="名称 / 口径";search.text=_search;search.custom_minimum_size=Vector2(240,60);search.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	search.add_theme_stylebox_override("normal",_style(PANEL,Color("29404d"),3));search.text_changed.connect(func(value:String) -> void: _search=value;_populate_list());filters.add_child(search)
-	var options:=OptionButton.new();options.custom_minimum_size=Vector2(190,60);options.add_theme_stylebox_override("normal",_style(PANEL_LIGHT))
+	var options:=TouchOption.new();options.custom_minimum_size=Vector2(190,60);options.add_theme_stylebox_override("normal",_style(PANEL_LIGHT))
 	for category:String in _browser_categories():
 		var caption:String=str({"all":"全部","weapon":"枪械","armor":"防具 / 容器","attachment":"配件","consumable":"补给"}.get(category,CAT_NAMES.get(category,category)))
 		options.add_item(caption);options.set_item_metadata(options.item_count-1,category)
@@ -578,13 +586,25 @@ func _rarity_color(item: Dictionary) -> Color:
 func _item_meta(item: Dictionary) -> String:
 	var category: String = str(item.get("category", item.get("slot", item.get("kind", ""))))
 	var parts: Array[String] = [str(CAT_NAMES.get(category, category))]
-	if category in ["backpack", "armored_rig"]:
-		parts.append("容量 %skg" % item.get("capacity", 0))
-	elif int(item.get("level", 0)) > 0:
+	if category in ["backpack", "rig", "armored_rig"]:
+		parts.append("容量 %s 格" % item.get("storage_cells", 0))
+	if int(item.get("level", 0)) > 0:
 		parts.append("%d 级" % int(item.get("level", 0)))
 	if item.has("caliber"): parts.append(str(item["caliber"]))
 	if item.get("kind") == "attachment": parts.append(_interfaces(item.get("interfaces", [])))
 	return " · ".join(parts)
+
+func _trade_item(item_id: String,quantity: TouchQuantity,buying: bool) -> void:
+	var count: int=1
+	if quantity!=null:
+		var entered: String=quantity.get_line_edit().text.strip_edges()
+		if not entered.is_valid_int() or int(entered)<quantity.min_value or int(entered)>quantity.max_value:
+			_notify("数量必须为 %d～%d 的整数"%[roundi(quantity.min_value),roundi(quantity.max_value)])
+			return
+		count=int(entered)
+		quantity.value=count
+	if buying:_perform(GameState.buy(item_id,count),"已购入仓库")
+	else:_perform(GameState.sell(item_id,count),"物资已出售，资金已到账")
 
 func _stat_line(parent: Node, caption: String, value: String, color: Color = TEXT) -> void:
 	var row := _hbox(parent, 6)
@@ -616,11 +636,15 @@ func _show_detail() -> void:
 			for key: Variant in slots:
 				_detail_box.add_child(_wrap("%s  /  %s" % [SLOT_NAMES.get(str(key), str(key)), _interfaces(slots[key])], 12, MUTED))
 		"armor":
-			if str(item.get("category", "")) in ["backpack", "armored_rig"]:
+			var category: String=str(item.get("category",""))
+			if category in ["backpack", "rig", "armored_rig"]:
 				_stat_line(_detail_box, "储物容量", "%s 格" % item.get("storage_cells", item.get("capacity",0)), TEAL)
+			if category in ["backpack","rig"]:
 				_detail_box.add_child(_label("按容量区分 · 无装备等级", 12, TEAL))
 			else:
 				_stat_line(_detail_box, "防护等级", str(item.get("level", 0)))
+			if category=="rig":_detail_box.add_child(_wrap("不提供防护，可与防弹衣同时穿戴。",15,MUTED))
+			elif category=="armored_rig":_detail_box.add_child(_wrap("护甲与弹挂结合，占用防弹衣和弹挂穿戴位，不能再穿防弹衣。",15,MUTED))
 			if item.has("protection"): _stat_line(_detail_box, "防护", str(item.get("protection")))
 			if item.has("durability"): _stat_line(_detail_box, "耐久", str(item.get("durability")))
 			if item.has("visor_mount"): _stat_line(_detail_box, "面罩接口", _interface(str(item["visor_mount"])))
@@ -642,20 +666,20 @@ func _show_detail() -> void:
 	_stat_line(_detail_box, "仓库存量", str(GameState.stash.get(_selected, 0)), TEAL)
 	_stat_line(_detail_box, "购入 / 售出", "%s / %s" % [_number(int(item.get("price", 0))), _number(int(item.get("sell_price", 0)))], AMBER)
 	var action_start: int = _detail_box.get_child_count()
-	var quantity: SpinBox = null
+	var quantity: TouchQuantity = null
 	if kind == "ammo" or kind == "consumable" or kind == "loot":
 		var quantity_row := _hbox(_detail_box)
 		quantity_row.add_child(_label("数量", 13, MUTED))
-		quantity = SpinBox.new()
+		quantity = TouchQuantity.new()
 		quantity.min_value = 1
 		quantity.max_value = 999
 		quantity.value = int(item.get("stack_size", 1)) if kind == "ammo" else 1
 		quantity.custom_minimum_size.x = 160
 		quantity_row.add_child(quantity)
 	var selected_id: String = _selected
-	var count_widget: SpinBox = quantity
+	var count_widget: TouchQuantity = quantity
 	if _tab in ["market", "workbench"]:
-		_detail_box.add_child(_button("购买%s" % ("弹药 / 输入发数" if kind == "ammo" else "至仓库"), func() -> void: _perform(GameState.buy(selected_id, int(count_widget.value) if count_widget != null else 1), "已购入仓库"), true))
+		_detail_box.add_child(_button("购买%s" % ("弹药 / 输入发数" if kind == "ammo" else "至仓库"), func() -> void: _trade_item(selected_id,count_widget,true), true))
 	if _tab != "catalog":
 		if kind == "weapon":
 			var targets: Array = ["sidearm"] if item.get("category") == "pistol" else ["primary","secondary"]
@@ -675,7 +699,7 @@ func _show_detail() -> void:
 			install.disabled = not compatible or int(GameState.stash.get(selected_id, 0)) <= 0
 			_detail_box.add_child(install)
 		if _tab == "stash":
-			var sell_button := _button("出售至商店", func() -> void: _perform(GameState.sell(selected_id, int(count_widget.value) if count_widget != null else 1), "物资已出售，资金已到账"))
+			var sell_button := _button("出售至商店", func() -> void: _trade_item(selected_id,count_widget,false))
 			sell_button.disabled = int(GameState.stash.get(selected_id, 0)) <= 0
 			_detail_box.add_child(sell_button)
 			if _equipped(selected_id):
@@ -747,7 +771,7 @@ func _render_workbench() -> void:
 	_ensure_draft()
 	var root:=_vbox(_render_host,10)
 	var choices:=_hbox(root,10)
-	_wb_guns=OptionButton.new()
+	_wb_guns=TouchOption.new()
 	_wb_guns.custom_minimum_size=Vector2(330,60)
 	_wb_guns.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	for item: Dictionary in Catalog.by_kind("weapon"):
@@ -756,7 +780,7 @@ func _render_workbench() -> void:
 		if str(item.id)==_draft_weapon:_wb_guns.select(_wb_guns.item_count-1)
 	_wb_guns.item_selected.connect(func(index: int) -> void:_choose_draft_weapon(str(_wb_guns.get_item_metadata(index))))
 	choices.add_child(_wb_guns)
-	_wb_target=OptionButton.new()
+	_wb_target=TouchOption.new()
 	_wb_target.custom_minimum_size=Vector2(154,60)
 	_wb_target.item_selected.connect(func(index: int) -> void:_draft_target=str(_wb_target.get_item_metadata(index));_update_assembly(false))
 	choices.add_child(_wb_target)
@@ -1064,7 +1088,7 @@ func _build_hud() -> void:
 	_controls = preload("res://scripts/virtual_controls.gd").new()
 	_hud.add_child(_controls)
 	_controls.move_changed.connect(func(value: Vector2) -> void: if is_instance_valid(_world): _world.set_move(value))
-	_controls.aim_changed.connect(func(value: Vector2, firing: bool) -> void: if is_instance_valid(_world): _world.set_aim(value,firing))
+	_controls.aim_changed.connect(func(value: Vector2) -> void: if is_instance_valid(_world): _world.set_aim(value))
 	_controls.fire_changed.connect(func(pressed: bool) -> void: if is_instance_valid(_world): _world.set_fire(pressed))
 	_controls.reload_pressed.connect(func() -> void: if is_instance_valid(_world): _world.reload_weapon())
 	_controls.interact_pressed.connect(func() -> void: if is_instance_valid(_world): _world.interact())

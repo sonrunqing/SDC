@@ -12,6 +12,7 @@ var _pointer: int=-99
 var _grab_offset := Vector2.ZERO
 
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
 	_preview=preload("res://scripts/virtual_controls.gd").new()
@@ -50,20 +51,14 @@ func move_selected(offset: Vector2) -> void:
 	layout_changed.emit()
 
 func _gui_input(event: InputEvent) -> void:
-	# The emulated mouse press precedes the touch and must not claim its drag.
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
+	if not get_tree().get_nodes_in_group("mobile_touch_modal").is_empty():
+		cancel_drag()
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed and not event.canceled:_press(event.index,event.position)
 		elif _pointer==event.index:_pointer=-99
 		accept_event()
 	elif event is InputEventScreenDrag and event.index==_pointer:
-		_drag(event.position)
-		accept_event()
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.pressed:_press(-2,event.position)
-		elif _pointer==-2:_pointer=-99
-		accept_event()
-	elif event is InputEventMouseMotion and _pointer==-2:
 		_drag(event.position)
 		accept_event()
 
@@ -86,8 +81,11 @@ func _drag(point: Vector2) -> void:
 func cancel_drag() -> void:
 	_pointer=-99
 
+func cancel_gesture() -> void:
+	cancel_drag()
+
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED]:cancel_drag()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED]:cancel_drag()
 
 func _draw() -> void:
 	if _font==null:return

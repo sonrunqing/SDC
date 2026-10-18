@@ -66,7 +66,7 @@ static func transfer(state: Node,uid: String,destination: String,block: String =
 					ok=false
 					message="携行容器没有空格放置这叠弹药"
 		elif str(item.get("kind",""))=="weapon":ok=state.equip_weapon(id,target)
-		elif str(item.get("category",""))==target:ok=state.equip(id)
+		elif str(item.get("kind",""))=="armor" and Catalog.equipment_slot(id)==target:ok=state.equip(id)
 		else:
 			ok=false
 			message="物品与装备栏位不匹配"
@@ -136,7 +136,7 @@ static func quick_transfer(state: Node,uid: String) -> bool:
 	if str(item.get("kind",""))=="weapon":
 		var slot: String = "sidearm" if str(item.get("category",""))=="pistol" else ("secondary" if not str(state.loadout.get("primary","")).is_empty() and str(state.loadout.get("secondary","")).is_empty() else "primary")
 		return transfer(state,uid,"equip/"+slot)
-	if str(item.get("kind",""))=="armor":return transfer(state,uid,"equip/"+str(item.get("category","")))
+	if str(item.get("kind",""))=="armor":return transfer(state,uid,"equip/"+Catalog.equipment_slot(str(record.item)))
 	for container: String in ["rig","pockets","backpack"]:
 		if not Grid.find_spot(record,container,state.inventory_items,state.loadout).is_empty():return transfer(state,uid,container)
 	return state._fail("携行容器已满，请先腾出位置")

@@ -9,6 +9,7 @@
 2. **Fix mobile deployment, map navigation and equipment taps**：提交已交付的 0.4.4 修复、版本信息及审查说明。
 3. **Add customizable mobile controls and saved layout profiles**：补上 0.4.5 的布局编辑、三方案保存、命中几何共用及大厅/战局入口。
 4. **Fix touch buttons stuck by emulated mouse ownership**：0.4.6 修正模拟鼠标先到而触摸释放无法解锁按钮的问题，统一列表、库存和布局编辑画布的来源过滤。
+5. **Make controls touch-only and separate storage rigs from armor**：0.4.7 删除键鼠适配与输入模拟，替换全部交互控件，补全 260 件物品详情，并分离普通弹挂与防弹弹挂。
 
 可在 PR 的 Commits 中打开第二次提交，单独看本次约十个核心文件的变化；也可在 Files changed
 检查整个游戏。模型、图标及导入描述被标为生成素材，默认折叠，仍可手动展开。游戏规则数据未整体隐藏。

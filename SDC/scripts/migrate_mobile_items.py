@@ -21,7 +21,7 @@ for item in data["items"]:
                 modifiers[key]=value
         item["modifiers"]=modifiers
         item["positive_bonus_schema"]=1
-    if item.get("category") in ("backpack","armored_rig"):
+    if item.get("category") in ("backpack","rig","armored_rig"):
         item["storage_cells"]=int(item.get("capacity",0))
         item["description"]=item["description"].replace("容量单位为 kg。","储物空间按格子显示，负重上限单独计算。")
 data["schema_version"]=2

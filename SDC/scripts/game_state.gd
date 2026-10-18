@@ -341,21 +341,27 @@ func equip(id: String) -> bool:
 	var kind: String = str(item.get("kind", ""))
 	if not _grid_defer and kind=="armor":
 		for record: Dictionary in inventory_items:
-			if str(record.item)==id:return inventory_transfer(str(record.uid),"equip/"+str(item.get("category","")))
+			if str(record.item)==id:return inventory_transfer(str(record.uid),"equip/"+Catalog.equipment_slot(id))
+		# Recover a count-only legacy item before starting the same atomic transfer.
+		# Capacity replacements must never bypass the grid overflow rollback.
+		inventory_items=Grid.reconcile(inventory_items,stash,loadout)
+		for record: Dictionary in inventory_items:
+			if str(record.item)==id:return inventory_transfer(str(record.uid),"equip/"+Catalog.equipment_slot(id))
+		return _fail("物品位置已更新，请重新选择")
 	if kind == "weapon":
 		return equip_weapon(id, "sidearm" if str(item.get("category", "")) == "pistol" else "primary")
 	if kind == "ammo":
 		return select_weapon_ammo(active_weapon_slot, id)
-	var slot: String = str(item.get("category", ""))
+	var slot: String = Catalog.equipment_slot(id)
 	if kind != "armor" or not ARMOR_SLOTS.has(slot):
 		return _fail("此物品不能放入装备栏")
 	if slot == "visor" and not Catalog.visor_compatible(str(loadout.get("helmet", "")), id):
 		return _fail("面罩卡槽不兼容，请更换对应接口的头盔")
 	_take(id)
 	_return_armor_slot(slot)
-	if slot == "body_armor":
+	if slot == "body_armor" and Catalog.is_armored_rig(str(loadout.get("armored_rig", ""))):
 		_return_armor_slot("armored_rig")
-	elif slot == "armored_rig":
+	elif Catalog.is_armored_rig(id):
 		_return_armor_slot("body_armor")
 	loadout[slot] = id
 	if slot == "helmet":
@@ -683,7 +689,8 @@ func damage_after_armor(damage: float, penetration: float, headshot: bool = fals
 	var slot: String = "helmet" if headshot else "body_armor"
 	var armor: Dictionary = _item(str(loadout.get(slot, "")))
 	if armor.is_empty() and not headshot:
-		armor = _item(str(loadout.get("armored_rig", "")))
+		var rig_id: String = str(loadout.get("armored_rig", ""))
+		if Catalog.is_armored_rig(rig_id):armor = _item(rig_id)
 	var protection: float = float(armor.get("protection", 0.0))
 	if headshot:
 		protection += float(_item(str(loadout.get("visor", ""))).get("protection", 0.0)) * 0.55
@@ -885,7 +892,7 @@ func load_game() -> bool:
 	var stored_loadout: Dictionary = data["loadout"]
 	for slot: String in ARMOR_SLOTS:
 		var id: String = str(stored_loadout.get(slot, ""))
-		if str(_item(id).get("kind", "")) == "armor" and str(_item(id).get("category", "")) == slot:
+		if str(_item(id).get("kind", "")) == "armor" and Catalog.equipment_slot(id) == slot:
 			loadout[slot] = id
 	if version == 1:
 		var old_weapon: String = str(stored_loadout.get("weapon", ""))
@@ -921,7 +928,7 @@ func load_game() -> bool:
 		active_weapon_slot = str(data.get("active_weapon_slot", "primary"))
 		if not WEAPON_SLOTS.has(active_weapon_slot):
 			active_weapon_slot = "primary"
-	if not str(loadout.get("body_armor", "")).is_empty() and not str(loadout.get("armored_rig", "")).is_empty():
+	if not str(loadout.get("body_armor", "")).is_empty() and Catalog.is_armored_rig(str(loadout.get("armored_rig", ""))):
 		_return_armor_slot("armored_rig")
 	var visor: String = str(loadout.get("visor", ""))
 	if not visor.is_empty() and not Catalog.visor_compatible(str(loadout.get("helmet", "")), visor):

@@ -5,6 +5,10 @@ static func icon(id: String) -> Texture2D:
 	if cache.has(id):return cache[id]
 	var path: String="res://assets/icons/items/"+id+".png"
 	if not ResourceLoader.exists(path):
+		var item: Dictionary=Catalog.get_item(id)
+		var visual_alias: String=str(item.get("visual_alias",""))
+		if not visual_alias.is_empty():path="res://assets/icons/items/"+visual_alias+".png"
+	if not ResourceLoader.exists(path):
 		cache[id]=null
 		return null
 	var texture: Texture2D=load(path)

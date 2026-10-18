@@ -63,6 +63,17 @@ func get_item(item_id: String) -> Dictionary:
 	return items.get(item_id, {})
 
 
+func equipment_slot(item_id: String) -> String:
+	# The saved slot name is shared by plain rigs and protective rig carriers.
+	var category: String = str(get_item(item_id).get("category", ""))
+	return "armored_rig" if category == "rig" else category
+
+
+func is_armored_rig(item_id: String) -> bool:
+	var item: Dictionary = get_item(item_id)
+	return str(item.get("kind", "")) == "armor" and str(item.get("category", "")) == "armored_rig"
+
+
 func model_path(item_id: String) -> String:
 	return str(get_item(item_id).get("visual_model", ""))
 
@@ -240,8 +251,12 @@ func validate_catalog() -> Array[String]:
 		if int(entry.get("sell_price", 0)) > int(entry.get("price", 0)):
 			issues.append(item_id + " 卖价高于买价")
 		var category: String = str(entry.get("category", ""))
-		if category in ["backpack", "armored_rig"] and entry.has("level"):
+		if category in ["backpack", "rig"] and entry.has("level"):
 			issues.append(item_id + " 容量装备不应有等级")
+		if category == "rig" and (entry.has("protection") or entry.has("armor_zone")):
+			issues.append(item_id + " 普通弹挂不能提供防弹属性")
+		if category == "armored_rig" and (int(entry.get("level", 0)) < 1 or int(entry.get("level", 0)) > 4 or float(entry.get("protection", 0)) <= 0 or str(entry.get("armor_zone", "")) != "torso"):
+			issues.append(item_id + " 防弹弹挂必须具有合法的躯干防护")
 		if entry.get("kind", "") == "ammo":
 			if float(entry.get("penetration", -1)) < 0 or float(entry.get("damage_multiplier", 0)) <= 0:
 				issues.append(item_id + " 弹药参数无效")
@@ -291,7 +306,7 @@ func validate_catalog() -> Array[String]:
 					count += 1
 			if count != 3:
 				issues.append(category + " 第 " + str(level) + " 级数量不正确")
-	for category: String in ["backpack", "armored_rig"]:
+	for category: String in ["backpack", "rig", "armored_rig"]:
 		var variants: Array = by_category(category)
 		var capacities: Dictionary = {}
 		if variants.size() != 4:

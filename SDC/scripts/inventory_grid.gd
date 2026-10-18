@@ -14,7 +14,7 @@ static func item_size(id: String) -> Vector2i:
 			match str(item.get("category","")):
 				"helmet":return Vector2i(2,2)
 				"visor":return Vector2i(2,1)
-				"backpack","armored_rig":return Vector2i(3,3)
+				"backpack","rig","armored_rig":return Vector2i(3,3)
 			return Vector2i(3,3)
 		"attachment":
 			match str(item.get("slot","")):
@@ -29,9 +29,10 @@ static func stack_limit(id: String) -> int:
 static func blocks(container: String, loadout: Dictionary) -> Array:
 	if container=="stash":return [{"id":"0","w":10,"h":50}]
 	if container=="pockets":return [{"id":"0","w":1,"h":1},{"id":"1","w":1,"h":1},{"id":"2","w":1,"h":1},{"id":"3","w":1,"h":1}]
+	if container not in ["rig","backpack"]:return []
 	var slot: String = "armored_rig" if container=="rig" else "backpack"
 	var item: Dictionary = Catalog.get_item(str(loadout.get(slot,"")))
-	if item.is_empty():return []
+	if item.is_empty() or Catalog.equipment_slot(str(item.get("id","")))!=slot:return []
 	if container=="backpack":
 		var capacity: int = int(item.get("capacity",12))
 		var width: int = 3 if capacity<=12 else (4 if capacity<=20 else (5 if capacity<=30 else 6))

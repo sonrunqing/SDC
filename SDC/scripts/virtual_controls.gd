@@ -1,7 +1,7 @@
 extends Control
 ## Shared layout geometry, three independent pointer owners, and release-only actions.
 signal move_changed(value: Vector2)
-signal aim_changed(value: Vector2, firing: bool)
+signal aim_changed(value: Vector2)
 signal fire_changed(pressed: bool)
 signal reload_pressed
 signal interact_pressed
@@ -38,6 +38,7 @@ var _weapons: Array=[]
 var _fallback_active: bool=false
 
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	if not preview_mode:set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
@@ -56,16 +57,20 @@ func release_all() -> void:
 	_move=Vector2.ZERO
 	_aim=Vector2.ZERO
 	move_changed.emit(_move)
-	aim_changed.emit(_aim,false)
+	aim_changed.emit(_aim)
 	fire_changed.emit(false)
 	queue_redraw()
 
+func cancel_gesture() -> void:
+	release_all()
+
 func _input(event: InputEvent) -> void:
 	if not enabled or preview_mode:return
+	if not get_tree().get_nodes_in_group("mobile_touch_modal").is_empty():
+		release_all()
+		return
 	if event is InputEventScreenTouch:_handle_pointer(event.index,_to_design(event.position),event.pressed,event.canceled)
 	elif event is InputEventScreenDrag:_drag_pointer(event.index,_to_design(event.position))
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT and event.device!=-1:_handle_pointer(-2,_to_design(event.position),event.pressed,false)
-	elif event is InputEventMouseMotion and event.device!=-1:_drag_pointer(-2,_to_design(event.position))
 
 func _handle_pointer(index: int,pos: Vector2,pressed: bool,cancelled: bool) -> void:
 	var owned: bool=index in [_left_finger,_right_finger,_fire_finger] or _action_owners.has(index)
@@ -75,7 +80,6 @@ func _handle_pointer(index: int,pos: Vector2,pressed: bool,cancelled: bool) -> v
 		if id=="fire" and _fire_finger==-1:
 			_fire_finger=index
 			fire_changed.emit(true)
-			aim_changed.emit(_aim,true)
 			owned=true
 		elif id=="move" and _left_finger==-1:
 			_left_finger=index
@@ -100,11 +104,10 @@ func _handle_pointer(index: int,pos: Vector2,pressed: bool,cancelled: bool) -> v
 		if index==_right_finger:
 			_right_finger=-1
 			_aim=Vector2.ZERO
-			aim_changed.emit(_aim,_fire_finger!=-1)
+			aim_changed.emit(_aim)
 		if index==_fire_finger:
 			_fire_finger=-1
 			fire_changed.emit(false)
-			aim_changed.emit(_aim,false)
 		if _action_owners.has(index):
 			var record: Dictionary=_action_owners[index]
 			_action_owners.erase(index)
@@ -137,7 +140,7 @@ func _set_left(pos: Vector2) -> void:
 func _set_right(pos: Vector2) -> void:
 	_aim=((pos-(_rects.aim as Rect2).get_center())/_stick_radius("aim")*float(AppSettings.values.aim_sensitivity)).limit_length(1)
 	if _aim.length()<float(AppSettings.values.deadzone):_aim=Vector2.ZERO
-	aim_changed.emit(_aim,_fire_finger!=-1)
+	aim_changed.emit(_aim)
 
 func _layout_actions() -> void:
 	if not is_inside_tree():return
@@ -233,7 +236,8 @@ func _fire_action(action: String) -> void:
 	elif action=="menu":menu_pressed.emit()
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED]:release_all()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED]:release_all()
+	elif what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree():release_all()
 
 func set_status(medkits: int,reloading: bool,searching: bool) -> void:
 	_medkits=medkits

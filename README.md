@@ -1,4 +1,4 @@
-# SDC 0.4.6
+# SDC 0.4.7
 
 Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型。
 当前完整工程、运行素材和来源说明已纳入 Git，入口为 [`SDC/project.godot`](SDC/project.godot)。
@@ -18,13 +18,15 @@ Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型�
 - 实时枪械拼装、三武器栏、七项枪械性能，以及画面、声音和操控设置。
 - 0.4.4 修正预览页无法出击、重复点击重建地图、背包误卸下等问题；地图支持单指平移、双指缩放与旋转。
 - 0.4.6 修正大厅按钮按下后不恢复且不执行动作：触摸与模拟鼠标不再抢占同一次操作。
+- 0.4.7 全面改为原始手机触摸，移除键鼠操作与输入模拟；仓库单选可查看全部 260 件物品的详情。
+- 普通弹挂只储物，可配防弹衣；新增独立分组的防弹弹挂，替代防弹衣并在装备页淡色占位。
 
 详情见 [`SDC/README.md`](SDC/README.md)、[0.4.4 修改记录](SDC/docs/MOBILE_FIXES_0_4_4.md)、
 [0.4.6 按钮修复](SDC/docs/TOUCH_INPUT_FIX_0_4_6.md)和[代码审查入口](docs/CODE_REVIEW.md)。
 
 ## Android 安装与更新
 
-当前交付版本为 **0.4.6 / versionCode 13**，包名保持 `org.prototype.shooter25d`。
+当前交付版本为 **0.4.7 / versionCode 14**，包名保持 `org.prototype.shooter25d`。
 已安装固定签名的 0.4.3 时，可直接覆盖更新；后续沿用同一密钥并增加版本。
 
 旧 GitHub Release 的云端 0.3.0 使用另一签名，是历史产物；它不能被本机新签名直接覆盖。

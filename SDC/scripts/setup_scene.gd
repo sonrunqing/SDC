@@ -100,7 +100,7 @@ func build_ui() -> void:
 	status = Label.new()
 	status.text = "Ready. Tap the button to check input and sound."
 	column.add_child(status)
-	var button := Button.new()
+	var button := preload("res://scripts/touch_button.gd").new()
 	button.text = "TAP TO TEST INPUT + SOUND"
 	button.custom_minimum_size = Vector2(360, 64)
 	button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN

@@ -3,6 +3,9 @@ extends VBoxContainer
 
 signal feedback(message: String, is_error: bool)
 
+const TouchOption = preload("res://scripts/touch_option.gd")
+const TouchQuantity = preload("res://scripts/touch_quantity.gd")
+const TouchButton = preload("res://scripts/touch_button.gd")
 const PANEL := Color("14252f")
 const TEAL := Color("66d8c3")
 const TEXT := Color("e3eeed")
@@ -30,7 +33,26 @@ func rebuild() -> void:
 	for slot: String in SLOTS:
 		_weapon_row(slot)
 	_ammo_plans()
+	_carry_configuration()
 	add_child(_label("携行上限  %.1f kg" % GameState.carry_capacity(), 13, TEAL))
+
+
+func _carry_configuration() -> void:
+	var rig_id: String=str(GameState.loadout.get("armored_rig",""))
+	var rig: Dictionary=Catalog.get_item(rig_id)
+	if rig.is_empty():return
+	var category: String=str(rig.get("category",""))
+	var note: String=""
+	if category=="rig":
+		note="普通弹挂只提供储物空间，可同时穿防弹衣、背包。"
+		if not str(GameState.loadout.get("body_armor","")).is_empty():
+			note="已叠穿防弹衣与普通弹挂，可同时装备背包。"
+	elif category=="armored_rig":
+		note="防弹弹挂提供防护与储物空间，可同时装备背包；与防弹衣互斥。"
+	if note.is_empty():return
+	var label:=_label(note,16,MUTED)
+	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	add_child(label)
 
 
 func _weapon_row(slot: String) -> void:
@@ -65,12 +87,12 @@ func _weapon_row(slot: String) -> void:
 	if weapon.is_empty():
 		return
 	var ammo_line := _row(box, 5)
-	var ammo_picker := OptionButton.new()
+	var ammo_picker := TouchOption.new()
 	ammo_picker.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	ammo_picker.fit_to_longest_item = false
 	ammo_picker.clip_text = true
 	ammo_picker.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-	ammo_picker.custom_minimum_size.y = 28 if compact else 30
+	ammo_picker.custom_minimum_size.y = 64
 	ammo_picker.add_theme_font_size_override("font_size", 12)
 	ammo_picker.get_popup().add_theme_font_size_override("font_size", 12)
 	ammo_picker.add_theme_stylebox_override("normal", _style(Color("192f39"), Color("324d59"), 6))
@@ -148,7 +170,7 @@ func _ammo_plans() -> void:
 		heading.add_child(caption)
 		heading.add_child(_label("库存 %d" % int(GameState.stash.get(ammo_id, 0)), 12, MUTED))
 		var line := _row(box, 6)
-		var quantity := SpinBox.new()
+		var quantity := TouchQuantity.new()
 		quantity.min_value = 0
 		quantity.max_value = MAX_ROUNDS
 		quantity.allow_greater = true
@@ -156,7 +178,7 @@ func _ammo_plans() -> void:
 		quantity.step = 1
 		quantity.rounded = true
 		quantity.value = int(plan.get(ammo_id, 0))
-		quantity.custom_minimum_size = Vector2(104, 29)
+		quantity.custom_minimum_size = Vector2(230, 64)
 		quantity.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		quantity.add_theme_font_size_override("font_size", 13)
 		quantity.get_line_edit().add_theme_stylebox_override("normal", _style(Color("0e1b24"), Color("324d59"), 6))
@@ -166,15 +188,14 @@ func _ammo_plans() -> void:
 		line.add_child(quantity)
 		line.add_child(_label("发", 12, MUTED))
 		var saved := _label("已设 %d" % int(plan.get(ammo_id, 0)), 12, MUTED)
-		saved.custom_minimum_size.x = 65
-		line.add_child(saved)
+		box.add_child(saved)
 		var apply_button := _button("应用", 48)
 		apply_button.disabled = GameState.raid_active
 		apply_button.pressed.connect(func() -> void: _apply_plan(ammo_id, quantity))
 		line.add_child(apply_button)
 
 
-func _apply_plan(ammo_id: String, quantity: SpinBox) -> void:
+func _apply_plan(ammo_id: String, quantity: TouchQuantity) -> void:
 	var entered: String = quantity.get_line_edit().text.strip_edges()
 	if not entered.is_valid_int():
 		feedback.emit("携弹数量必须是整数", true)
@@ -212,9 +233,9 @@ func _row(parent: Node, separation: int) -> HBoxContainer:
 
 
 func _button(caption: String, min_width: float) -> Button:
-	var button := Button.new()
+	var button := TouchButton.new()
 	button.text = caption
-	button.custom_minimum_size = Vector2(min_width, 26 if compact else 28)
+	button.custom_minimum_size = Vector2(maxf(64,min_width),64)
 	button.add_theme_font_size_override("font_size", 12)
 	button.add_theme_color_override("font_color", TEXT)
 	button.add_theme_color_override("font_hover_color", TEXT)
@@ -223,7 +244,7 @@ func _button(caption: String, min_width: float) -> Button:
 	button.add_theme_stylebox_override("hover", _style(Color("192f39"), Color("324d59"), 6))
 	button.add_theme_stylebox_override("pressed", _style(Color("35434a"), Color("6a7b7c"), 6))
 	button.add_theme_stylebox_override("disabled", _style(Color("152129"), Color("24323a"), 6))
-	button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	button.minimum_touch_height = 64
 	return button
 
 

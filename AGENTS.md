@@ -11,16 +11,20 @@ included in `SDC/assets/`. Godot 4.6.3 is the established project version.
   Flag input changes that fire while moving/aiming, reuse another finger's
   release, or activate a button after a scroll/drag. Keep deliberate tap,
   double-tap and drag interactions available.
-  Widgets that handle ScreenTouch themselves must ignore emulated mouse events
-  by device ID, not by a recent-touch timer. Godot dispatches the mouse copy
-  before the original touch; it must never acquire or release touch ownership.
+  The game targets phone touch only. Do not add keyboard/mouse gameplay, UI
+  fallbacks, shortcuts, or touch-to-mouse emulation. Settings, pickers, scrolling
+  and previews must directly handle ScreenTouch/ScreenDrag. Keep Android system
+  back and the phone text/number keyboard. Opening a modal must cancel existing
+  gestures immediately, including touches released after that modal is closed.
   Custom HUD layouts must share rendering and hit geometry, keep required
   controls accessible, and never emit gameplay actions from the layout editor.
 - Inventory/equipment changes must conserve item counts and quantities. A
   failed placement must restore inventory, equipment, money and contents;
   loading a save or replacing a container must not discard items. Backpack
-  and armored-rig slots are independent; only body armor versus armored rig
-  is intentionally exclusive. Do not treat a completed placement as the first
+  and rig slots are independent. Plain rigs provide storage and can be worn
+  with body armor; combined armored rigs replace body armor. A faded armor-slot
+  alias must reference the same rig UID without adding a second item. Do not
+  treat a completed placement as the first
   tap of a new double-tap unequip action.
 - Keep Android application ID `org.prototype.shooter25d`, the established
   fixed signing certificate, increasing versionCode and compatible saves.

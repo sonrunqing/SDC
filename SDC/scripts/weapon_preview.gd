@@ -11,8 +11,8 @@ var _selected_socket: String = ""
 var _yaw: float = 0.08
 var _pitch: float = -0.03
 var _zoom: float = 3.6
-var _dragging: bool = false
 var _drag_distance: float = 0.0
+var _tap_index: int = -1
 var _touches: Dictionary = {}
 var _pinch_distance: float = 0.0
 var _font: Font
@@ -20,9 +20,9 @@ var _outline_material: ShaderMaterial
 const SLOT_LABELS: Dictionary = {"muzzle":"枪口", "grip":"握把", "stock":"枪托", "magazine":"弹匣", "optic":"瞄具", "laser":"激光", "handguard":"护木"}
 
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	custom_minimum_size = Vector2(260, 150)
 	mouse_filter = Control.MOUSE_FILTER_STOP
-	mouse_default_cursor_shape = Control.CURSOR_DRAG
 	_font = load("res://assets/fonts/NotoSansSC.ttf") as Font
 	var container := SubViewportContainer.new()
 	container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -167,37 +167,27 @@ func _update_camera() -> void:
 	queue_redraw()
 
 func _gui_input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
-	if event is InputEventMouseButton:
-		var button := event as InputEventMouseButton
-		if button.button_index == MOUSE_BUTTON_LEFT:
-			_dragging = button.pressed
-			if button.pressed: _drag_distance = 0.0
-			elif _drag_distance < 8.0: _pick_socket(button.position)
-			accept_event()
-		elif button.pressed and button.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
-			_zoom = clampf(_zoom * (0.90 if button.button_index == MOUSE_BUTTON_WHEEL_UP else 1.10), 0.55, 6.0)
-			_update_camera()
-			accept_event()
-	elif event is InputEventMouseMotion and _dragging and _touches.is_empty():
-		var motion := event as InputEventMouseMotion
-		_drag_distance += motion.relative.length()
-		_yaw += motion.relative.x * 0.012
-		_pitch = clampf(_pitch + motion.relative.y * 0.009, -0.9, 0.9)
-		_update_camera()
-		accept_event()
-	elif event is InputEventScreenTouch:
+	if event is InputEventScreenTouch:
 		var touch := event as InputEventScreenTouch
-		if touch.pressed:
+		if touch.pressed and not touch.canceled:
+			if _touches.has(touch.index) or _touches.size()>=2:return
+			if _touches.is_empty():
+				_drag_distance = 0.0
+				_tap_index = touch.index
+			else:
+				_tap_index = -1
 			_touches[touch.index] = touch.position
-			_drag_distance = 0.0
 		else:
-			if _touches.size() == 1 and _drag_distance < 8.0: _pick_socket(touch.position)
+			if not _touches.has(touch.index):return
+			var activate: bool = not touch.canceled and touch.index==_tap_index and _touches.size()==1 and _drag_distance<8.0 and Rect2(Vector2.ZERO,size).has_point(touch.position)
 			_touches.erase(touch.index)
+			_tap_index = -1
+			if activate: _pick_socket(touch.position)
 		_pinch_distance = _touch_distance()
 		accept_event()
 	elif event is InputEventScreenDrag:
 		var drag := event as InputEventScreenDrag
+		if not _touches.has(drag.index):return
 		_touches[drag.index] = drag.position
 		_drag_distance += drag.relative.length()
 		if _touches.size() >= 2:
@@ -248,7 +238,12 @@ func _draw() -> void:
 			draw_arc(point, 10, 0, TAU, 32, Color(0.44, 0.87, 0.78, 0.55), 1.2, true)
 			draw_string(_font, point + Vector2(14, -10), str(SLOT_LABELS.get(_selected_socket, _selected_socket)), HORIZONTAL_ALIGNMENT_LEFT, 100, 12, Color("a4f5e4"))
 
+func cancel_gesture() -> void:
+	_touches.clear()
+	_drag_distance = 0.0
+	_tap_index = -1
+	_pinch_distance = 0.0
+
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
-		_dragging = false
-		_touches.clear()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+		cancel_gesture()

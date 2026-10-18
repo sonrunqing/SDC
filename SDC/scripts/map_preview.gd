@@ -8,8 +8,6 @@ var _font: Font
 var _target := Vector3.ZERO
 var _yaw: float = .70
 var _zoom: float = 208.0
-var _dragging: bool = false
-var _rotating: bool = false
 var _entry_id: String = "south"
 var _zone: String = ""
 var _touches: Dictionary = {}
@@ -17,6 +15,7 @@ var _pinch: float = 0
 var _twist_angle: float = 0
 var _gesture_center := Vector2.ZERO
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	clip_contents=true
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
@@ -67,7 +66,7 @@ func _draw() -> void:
 	var exit_array: Array=_map.layout.extraction
 	var exit_p: Vector2=_point(Vector3(float(exit_array[0]),.2,float(exit_array[2])))
 	draw_rect(Rect2(exit_p-Vector2(6,6),Vector2(12,12)),Color("70d3af"),false,2)
-	var hint: String="单指平移 · 双指缩放 / 旋转" if OS.has_feature("mobile") else "拖动平移 · 右键旋转 · 滚轮缩放"
+	var hint: String="单指平移 · 双指缩放 / 旋转"
 	draw_string(_font,Vector2(12,size.y-14),hint,HORIZONTAL_ALIGNMENT_LEFT,size.x-24,16,Color("bac9c5"))
 
 func _ground_point(local: Vector2) -> Variant:
@@ -86,25 +85,13 @@ func _pan(from: Vector2,to: Vector2) -> void:
 		_target.y=0
 
 func _gui_input(event: InputEvent) -> void:
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
-	if event is InputEventMouseButton:
-		if event.button_index==MOUSE_BUTTON_LEFT:
-			_dragging=event.pressed
-			accept_event()
-		elif event.button_index==MOUSE_BUTTON_RIGHT:
-			_rotating=event.pressed
-			accept_event()
-		elif event.pressed and event.button_index in [MOUSE_BUTTON_WHEEL_UP,MOUSE_BUTTON_WHEEL_DOWN]:
-			_zoom=clampf(_zoom*(.9 if event.button_index==MOUSE_BUTTON_WHEEL_UP else 1.1),45,260);_update_camera();accept_event()
-	elif event is InputEventMouseMotion:
-		if _rotating:_yaw+=event.relative.x*.006
-		elif _dragging:_pan(event.position-event.relative,event.position)
-		else:return
-		_update_camera()
-		accept_event()
-	elif event is InputEventScreenTouch:
-		if event.pressed and not event.canceled:_touches[event.index]=event.position
-		else:_touches.erase(event.index)
+	if event is InputEventScreenTouch:
+		if event.pressed and not event.canceled:
+			if _touches.has(event.index) or _touches.size()>=2:return
+			_touches[event.index]=event.position
+		else:
+			if not _touches.has(event.index):return
+			_touches.erase(event.index)
 		_pinch=_touch_distance()
 		_twist_angle=_touch_angle()
 		_gesture_center=_touch_center()
@@ -138,12 +125,15 @@ func _touch_center() -> Vector2:
 	if values.size()>=2:return (values[0]+values[1])*.5
 	return values[0] if values.size()==1 else Vector2.ZERO
 
+func cancel_gesture() -> void:
+	_touches.clear()
+	_pinch=0
+	_twist_angle=0
+	_gesture_center=Vector2.ZERO
+
 func _notification(what: int) -> void:
-	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
-		_touches.clear()
-		_dragging=false
-		_rotating=false
-		_pinch=0
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+		cancel_gesture()
 
 func get_summary() -> Dictionary:
 	return _map.get_summary() if _map!=null else {}

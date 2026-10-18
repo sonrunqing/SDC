@@ -253,12 +253,22 @@ for item_id,name,capacity,price,weight in [
     add(item_id,name,'armor','backpack',price,weight,'不设等级，仅区分容量。容量单位为 kg。',
         capacity=capacity,protection=0,durability=100,armor_zone='none')
 for item_id,name,capacity,price,weight in [
- ('armored_rig_scout','紧凑弹挂甲',8,2800,2.1),('armored_rig_patrol','巡逻弹挂甲',12,4100,2.65),
- ('armored_rig_operator','行动弹挂甲',18,5900,3.3),('armored_rig_cargo','装载弹挂甲',24,7600,4.1),
+ ('armored_rig_scout','紧凑弹挂',8,2800,2.1),('armored_rig_patrol','巡逻弹挂',12,4100,2.65),
+ ('armored_rig_operator','行动弹挂',18,5900,3.3),('armored_rig_cargo','装载弹挂',24,7600,4.1),
 ]:
-    add(item_id,name,'armor','armored_rig',price,weight,
-        '不设等级，按容量选型；各款相同基础防护，与防弹衣占同一躯干位置。',
-        capacity=capacity,protection=16,durability=100,armor_zone='torso')
+    # Keep these IDs so existing inventories become plain rigs without migration loss.
+    add(item_id,name,'armor','rig',price,weight,
+        '普通弹挂，仅提供分区储物格，不具备防弹能力；可与防弹衣、背包同时装备。',
+        capacity=capacity,storage_cells=capacity)
+for level,(suffix,label,capacity,rig_price,rig_weight) in enumerate([
+ ('scout','紧凑',8,2800,2.1),('patrol','巡逻',12,4100,2.65),
+ ('operator','行动',18,5900,3.3),('cargo','装载',24,7600,4.1),
+],start=1):
+    add(f'armored_rig_guard_{suffix}',f'{level} 级 · {label}防弹弹挂','armor','armored_rig',
+        rig_price+2100+level*1850+650,round(rig_weight+2.8+level*.3,2),
+        '防弹衣与弹挂结合体，提供躯干防护及分区储物格；占用弹挂栏，不能与防弹衣同时装备，可同时携带背包。',
+        level=level,capacity=capacity,storage_cells=capacity,protection=level*13,
+        durability=75+level*19,armor_zone='torso',visual_alias=f'armored_rig_{suffix}')
 for level in (1,2):
     for suffix,mount,label in [('a','visor_rail_a','A 轨'),('b','visor_rail_b','B 轨')]:
         add(f'visor_{level}{suffix}',f'{level} 级 · {label}防护面罩','armor','visor',
@@ -332,7 +342,7 @@ def validate(require_models=False):
     assert len([x for x in ITEMS if x['category']=='helmet'])==12
     assert len([x for x in ITEMS if x['category']=='body_armor'])==12
     assert len([x for x in ITEMS if x['category']=='visor'])==4
-    assert all('level' not in x for x in ITEMS if x['category'] in ['backpack','armored_rig'])
+    assert all('level' not in x for x in ITEMS if x['category'] in ['backpack','rig'])
     print(f'{len(ITEMS)} items; {len(guns)} weapons; {len(attachments)} attachments; all compatible and reachable')
 
 if __name__=='__main__':
@@ -343,7 +353,7 @@ if __name__=='__main__':
     ROOT.joinpath('data/items.json').write_text(json.dumps(dict(schema_version=1,items=ITEMS),ensure_ascii=False,indent=2)+'\n')
     with ROOT.joinpath('docs/装备目录.csv').open('w',encoding='utf-8-sig',newline='') as f:
         writer=csv.writer(f)
-        writer.writerow(['ID','名称','大类','类型','买价（游戏币）','卖价（游戏币）','重量kg','等级（背包弹挂甲无等级）','容量kg','口径','插槽/面罩标准','接口','限定武器','属性/加成','独立3D模型','说明'])
+        writer.writerow(['ID','名称','大类','类型','买价（游戏币）','卖价（游戏币）','重量kg','防护等级（背包和普通弹挂无等级）','容量格数','口径','插槽/面罩标准','接口','限定武器','属性/加成','独立3D模型','说明'])
         for x in ITEMS:
             dump=lambda value:json.dumps(value,ensure_ascii=False,separators=(',',':')) if isinstance(value,(dict,list)) else value
             writer.writerow([x['id'],x['name'],x['kind'],x['category'],x['price'],x['sell_price'],x['weight'],x.get('level',''),x.get('capacity',''),x.get('caliber',''),dump(x.get('slots',x.get('slot',x.get('visor_mount','')))),dump(x.get('interfaces','')),dump(x.get('weapon_ids','')),dump(x.get('stats',x.get('modifiers',dict(protection=x.get('protection',''),penetration=x.get('penetration',''),heal=x.get('heal',''))))),x.get('visual_model',''),x['description']])

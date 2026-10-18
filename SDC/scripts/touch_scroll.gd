@@ -3,19 +3,18 @@ var _pointer: int = -99
 var _start: Vector2
 var _velocity: float = 0
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 func _gui_input(event: InputEvent) -> void:
-	# Touch already has its own pointer; never start a second gesture for its mouse copy.
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
+	var modals: Array[Node]=get_tree().get_nodes_in_group("mobile_touch_modal")
+	if not modals.is_empty() and not modals.back().is_ancestor_of(self):
+		cancel_gesture()
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed and not event.canceled:_begin(event.index,event.position)
 		elif event.index==_pointer:_end()
 	elif event is InputEventScreenDrag and event.index==_pointer:_drag(event.position,event.relative)
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.pressed:_begin(-2,event.position)
-		elif _pointer==-2:_end()
-	elif event is InputEventMouseMotion and _pointer==-2:_drag(event.position,event.relative)
 func _begin(pointer: int, at: Vector2) -> void:
 	if _pointer!=-99:return
 	_pointer=pointer
@@ -41,4 +40,4 @@ func cancel_gesture() -> void:
 	_velocity=0
 	set_meta("touch_scrolling",false)
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):cancel_gesture()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):cancel_gesture()

@@ -2,15 +2,17 @@ extends Control
 signal closed(saved: bool)
 const Layout = preload("res://scripts/control_layout.gd")
 const TouchButton = preload("res://scripts/touch_button.gd")
+const TouchOption = preload("res://scripts/touch_option.gd")
+const TouchSlider = preload("res://scripts/touch_slider.gd")
 var _profile: int=0
 var _draft: Dictionary={}
 var _selected: String="fire"
 var _canvas: Control
 var _preview_host: Control
-var _picker: OptionButton
-var _scale_slider: HSlider
+var _picker: TouchOption
+var _scale_slider: TouchSlider
 var _scale_number: Label
-var _opacity_slider: HSlider
+var _opacity_slider: TouchSlider
 var _opacity_number: Label
 var _visibility_button: Button
 var _status: Label
@@ -105,7 +107,7 @@ func _build() -> void:
 	tools.add_theme_constant_override("separation",12)
 	scroll.add_child(tools)
 	tools.add_child(_label("选择按键",21))
-	_picker=OptionButton.new()
+	_picker=TouchOption.new()
 	_picker.custom_minimum_size=Vector2(250,52)
 	for id: String in Layout.IDS:_picker.add_item(str(Layout.TITLES[id]))
 	_picker.item_selected.connect(func(index: int) -> void:_select(Layout.IDS[index]))
@@ -144,7 +146,7 @@ func _slider(parent: Node,caption: String,minimum: float,maximum: float,step_val
 	row.add_child(title)
 	var number:=_label("")
 	row.add_child(number)
-	var slider:=HSlider.new()
+	var slider:=TouchSlider.new()
 	slider.min_value=minimum
 	slider.max_value=maximum
 	slider.step=step_value
@@ -255,8 +257,3 @@ func _restore_pause() -> void:
 
 func _exit_tree() -> void:
 	_restore_pause()
-
-func _unhandled_key_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_ESCAPE:
-		request_cancel()
-		get_viewport().set_input_as_handled()

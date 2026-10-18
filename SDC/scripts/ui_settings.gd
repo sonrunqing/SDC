@@ -2,6 +2,9 @@ extends HBoxContainer
 signal control_layout_requested
 const TouchButton = preload("res://scripts/touch_button.gd")
 const TouchScroll = preload("res://scripts/touch_scroll.gd")
+const TouchOption = preload("res://scripts/touch_option.gd")
+const TouchSlider = preload("res://scripts/touch_slider.gd")
+const TouchToggle = preload("res://scripts/touch_toggle.gd")
 var _page: String = "画面"
 var _body: VBoxContainer
 var _tabs: Dictionary = {}
@@ -65,7 +68,7 @@ func _populate() -> void:
 			_note("可拖动移动、瞄准、开火和动作按键，分别设置大小、透明度与显示状态。支持 3 套保存方案。")
 			_slider("瞄准灵敏度","aim_sensitivity",.5,2,.1)
 			_slider("摇杆死区","deadzone",.05,.3,.01)
-			var vibration:=CheckButton.new()
+			var vibration:=TouchToggle.new()
 			vibration.text="触觉反馈"
 			vibration.button_pressed=bool(AppSettings.values.vibration)
 			vibration.custom_minimum_size.y=64
@@ -78,7 +81,7 @@ func _populate() -> void:
 
 func _control_profiles() -> void:
 	var row: HBoxContainer=_row("按键方案")
-	var picker:=OptionButton.new()
+	var picker:=TouchOption.new()
 	picker.custom_minimum_size=Vector2(310,64)
 	picker.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	for index: int in range(3):picker.add_item("方案 %d"%(index+1))
@@ -109,7 +112,7 @@ func _row(caption: String) -> HBoxContainer:
 	return row
 func _choice(caption: String,key: String,labels: Array,options: Array) -> void:
 	var row: HBoxContainer=_row(caption)
-	var picker:=OptionButton.new()
+	var picker:=TouchOption.new()
 	picker.custom_minimum_size=Vector2(310,64)
 	picker.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	picker.add_theme_font_size_override("font_size",20)
@@ -122,7 +125,7 @@ func _choice(caption: String,key: String,labels: Array,options: Array) -> void:
 	row.add_child(picker)
 func _slider(caption: String,key: String,minimum: float,maximum: float,step_value: float) -> void:
 	var row: HBoxContainer=_row(caption)
-	var slider:=HSlider.new()
+	var slider:=TouchSlider.new()
 	slider.min_value=minimum
 	slider.max_value=maximum
 	slider.step=step_value

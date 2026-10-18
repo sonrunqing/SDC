@@ -7,6 +7,10 @@ var rows: int = 50
 var cell: float = 50
 var equipment_slot: String = ""
 var caption: String = ""
+## Presentation-only alias of an existing equipment record, never saved or counted.
+var display_override: Dictionary = {}
+var display_alpha: float = 1.0
+var display_note: String = ""
 var selected_uid: String = ""
 var hover_spot: Dictionary = {}
 var _font: Font
@@ -18,6 +22,7 @@ func _ready() -> void:
 	if equipment_slot.is_empty():custom_minimum_size=Vector2(columns*cell,rows*cell)
 
 func records() -> Array:
+	if not display_override.is_empty():return [display_override]
 	if not equipment_slot.is_empty():
 		var id: String = str(GameState.loadout.get(equipment_slot,""))
 		return [] if id.is_empty() else [{"uid":"equip/"+equipment_slot,"item":id,"qty":1,"x":0,"y":0,"rotated":false}]
@@ -42,6 +47,8 @@ func hit(global: Vector2) -> Dictionary:
 	var uid: String = ""
 	for record: Dictionary in records():
 		if record_rect(record).has_point(local):uid=str(record.uid)
+	# The alias identifies the real drag/selection source. Its destination stays
+	# this displayed slot, so a new armor item can replace a combined rig here.
 	return {"view":self,"uid":uid,"container":"equip/"+equipment_slot if not equipment_slot.is_empty() else container_id,"block":block_id,"cell":Vector2i(floori(local.x/cell),floori(local.y/cell))}
 
 func _draw() -> void:
@@ -61,27 +68,30 @@ func _draw() -> void:
 		var item: Dictionary = Catalog.get_item(str(record.item))
 		var level: int = int(item.get("level",0))
 		var tone: Color = [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
-		draw_rect(rectangle,Color(tone,.24))
-		draw_rect(rectangle,Color("dfe7e4") if str(record.uid)==selected_uid else tone,false,3 if str(record.uid)==selected_uid else 1)
-		_draw_icon(str(record.item),rectangle.grow(-4),bool(record.get("rotated",false)))
-		if int(record.qty)>1:draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color("f7ead3"))
-		if rectangle.size.x>110:draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color("f2f0e7"))
+		draw_rect(rectangle,Color(tone,.24*display_alpha))
+		var border: Color=Color("dfe7e4") if str(record.uid)==selected_uid else tone
+		border.a=display_alpha
+		draw_rect(rectangle,border,false,3 if str(record.uid)==selected_uid else 1)
+		_draw_icon(str(record.item),rectangle.grow(-4),bool(record.get("rotated",false)),display_alpha)
+		if int(record.qty)>1:draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color(Color("f7ead3"),display_alpha))
+		if rectangle.size.x>110:draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color(Color("f2f0e7"),display_alpha))
+		if not display_note.is_empty():draw_string(_font,rectangle.position+Vector2(4,15),display_note,HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-8,12,Color("b0bdbb"))
 	if not hover_spot.is_empty():
 		var rectangle: Rect2 = Rect2(Vector2(int(hover_spot.x),int(hover_spot.y))*cell,Vector2(hover_spot.get("size",Vector2i.ONE))*cell).grow(-1)
 		draw_rect(rectangle,Color(.44,.86,.65,.28))
 		draw_rect(rectangle,Color("91dab3"),false,3)
 
-func _draw_icon(id: String, rectangle: Rect2, rotated: bool) -> void:
+func _draw_icon(id: String, rectangle: Rect2, rotated: bool,alpha: float = 1.0) -> void:
 	if not _textures.has(id):
 		_textures[id]=preload("res://scripts/item_textures.gd").icon(id)
 	var texture: Texture2D = _textures[id]
 	if texture==null:
-		draw_string(_font,rectangle.position+Vector2(3,24),str(Catalog.get_item(id).get("name","")).left(3),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x,15,Color("cbd4cc"))
+		draw_string(_font,rectangle.position+Vector2(3,24),str(Catalog.get_item(id).get("name","")).left(3),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x,15,Color(Color("cbd4cc"),alpha))
 		return
 	var natural: Vector2 = texture.get_size()
 	if rotated:natural=Vector2(natural.y,natural.x)
 	var scale_factor: float = minf(rectangle.size.x/natural.x,rectangle.size.y/natural.y)
 	var dimensions: Vector2 = texture.get_size()*scale_factor
 	draw_set_transform(rectangle.get_center(),PI*.5 if rotated else 0)
-	draw_texture_rect(texture,Rect2(-dimensions*.5,dimensions),false)
+	draw_texture_rect(texture,Rect2(-dimensions*.5,dimensions),false,Color(1,1,1,alpha))
 	draw_set_transform(Vector2.ZERO)

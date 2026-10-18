@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Blender: original low-poly operator and 36 individually equipped armor models."""
+"""Blender: original low-poly operator and individually equipped armor/rig models."""
 import bpy,bmesh,math,json,hashlib
 from pathlib import Path
 from mathutils import Vector
@@ -108,22 +108,25 @@ def gear(item):
         box('Clear ballistic face shield',(0,1.65,-.135),(.213,.15,.014),LENS,.012)
         box('Face shield edge',(0,1.576,-.138),(.212,.012,.018),DARK,.004)
         box('Shield locking tab',(.11,1.68,-.13),(.012,.04,.02),STEEL,.003)
-    elif cat in ['body_armor','armored_rig']:
-        box('Carrier front panel',(0,1.276,-.124),(.414,.425,.09),color,.045)
-        box('Carrier rear panel',(0,1.275,.148),(.414,.41,.08),color,.04)
+    elif cat in ['body_armor','rig','armored_rig']:
+        # A cloth rig carries pouches outside armor; it has no rigid plate bulk.
+        plain_rig=cat=='rig'
+        if plain_rig:color=SAND
+        box('Carrier front panel',(0,1.276,-.158 if plain_rig else -.124),(.414,.425,.022 if plain_rig else .09),color,.01 if plain_rig else .045)
+        box('Carrier rear panel',(0,1.275,.168 if plain_rig else .148),(.414,.41,.02 if plain_rig else .08),color,.008 if plain_rig else .04)
         for x in [-.162,.162]:
             box('Padded shoulder strap',(x,1.464,.01),(.064,.042,.29),color,.012)
             box('Quick release clip',(x,1.443,-.143),(.045,.038,.022),DARK,.004)
         for y in [1.15,1.20,1.25,1.30,1.35]:
             for x in [-.14,-.07,0,.07,.14]:box('MOLLE webbing',(x,y,-.174),(.058,.012,.009),STITCH,.002)
-        count=4 if cat=='armored_rig' and item.get('capacity',0)>=18 else 3
+        count=4 if cat in ['rig','armored_rig'] and item.get('capacity',0)>=18 else 3
         for k in range(count):
             x=(k-(count-1)*.5)*.085
             box('Magazine utility pouch',(x,1.19,-.205),(.074,.175,.074),color,.01)
             box('Pouch pull tab',(x,1.28,-.243),(.038,.023,.008),DARK,.003)
         box('Chest identification patch',(.065,1.399,-.176),(.115,.038,.008),DARK,.002)
         for x in [-.22,.22]:box('Cummerbund',(x,1.19,.005),(.05,.17,.23),color,.015)
-        if level>=3:box('Abdomen protection',(0,1.024,-.132),(.19,.10,.04),color,.015)
+        if not plain_rig and level>=3:box('Abdomen protection',(0,1.024,-.132),(.19,.10,.04),color,.015)
     elif cat=='backpack':
         capacity=item['capacity'];h=.37+capacity*.004;w=.27+capacity*.002
         box('Main pack',(0,1.23,.26),(w,h,.22),color,.045)

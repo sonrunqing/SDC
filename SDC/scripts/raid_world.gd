@@ -41,9 +41,6 @@ var _rng := RandomNumberGenerator.new()
 var _move := Vector2.ZERO
 var _stick_aim := Vector2.ZERO
 var _aim_direction := Vector3.FORWARD
-var _mouse_position := Vector2.ZERO
-var _mouse_aim := false
-var _mouse_firing := false
 var _stick_firing := false
 var _active := false
 var _ui_blocked: bool = false
@@ -102,9 +99,8 @@ func start_raid(selected_entry: String = "south") -> void:
 	_move = Vector2.ZERO
 	_stick_aim = Vector2.ZERO
 	_aim_direction = Vector3.FORWARD
-	_mouse_aim = false
-	_mouse_firing = false
 	_stick_firing = false
+	_ui_blocked = false
 	_finished = false
 	_kills = 0
 	_shots = 0
@@ -129,24 +125,20 @@ func start_raid(selected_entry: String = "south") -> void:
 
 
 func set_move(value: Vector2) -> void:
-	_move = value.limit_length(1.0)
+	_move = Vector2.ZERO if _ui_blocked else value.limit_length(1.0)
 
 
-func set_aim(value: Vector2, firing: bool) -> void:
-	_stick_aim = value.limit_length(1.0)
-	_stick_firing = firing
-	if value.length_squared() > 0.0001:
-		_mouse_aim = false
+func set_aim(value: Vector2) -> void:
+	_stick_aim = Vector2.ZERO if _ui_blocked else value.limit_length(1.0)
 
 func set_fire(pressed: bool) -> void:
-	_stick_firing = pressed
+	_stick_firing = pressed and not _ui_blocked
 
 func set_input_blocked(blocked: bool) -> void:
 	_ui_blocked=blocked
 	_move=Vector2.ZERO
 	_stick_aim=Vector2.ZERO
 	_stick_firing=false
-	_mouse_firing=false
 
 
 func switch_weapon(slot: String) -> bool:
@@ -285,37 +277,10 @@ func get_hud() -> Dictionary:
 	}
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not _active or _ui_blocked:
-		return
-	# Touch-to-mouse emulation belongs to menus, never to world-space firing.
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and (event.device == -1 or OS.has_feature("mobile")):
-		return
-	if event is InputEventMouseMotion and not bool(ProjectSettings.get_setting("input_devices/pointing/emulate_mouse_from_touch", false)):
-		_mouse_position = event.position
-		_mouse_aim = true
-	elif event is InputEventMouseMotion and not OS.has_feature("mobile"):
-		_mouse_position = event.position
-		_mouse_aim = true
-	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		_mouse_position = event.position
-		_mouse_aim = true
-		_mouse_firing = event.pressed
-	elif event is InputEventKey and event.pressed and not event.echo:
-		match event.physical_keycode:
-			KEY_R: reload_weapon()
-			KEY_F: interact()
-			KEY_E: use_medkit()
-			KEY_1: switch_weapon("primary")
-			KEY_2: switch_weapon("secondary")
-			KEY_3: switch_weapon("sidearm")
-
-
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_PAUSED]:
 		_move = Vector2.ZERO
 		_stick_aim = Vector2.ZERO
-		_mouse_firing = false
 		_stick_firing = false
 
 
@@ -335,7 +300,7 @@ func _physics_process(delta: float) -> void:
 		if _reload_left <= 0.0:
 			_magazine += GameState.consume_raid_ammo(_magazine_size - _magazine)
 			GameState.set_raid_loaded_ammo(_magazine)
-	if (_mouse_firing or _stick_firing) and _shot_cooldown <= 0.0 and _reload_left <= 0.0 and _search_left <= 0.0 and _switch_left <= 0.0:
+	if _stick_firing and _shot_cooldown <= 0.0 and _reload_left <= 0.0 and _search_left <= 0.0 and _switch_left <= 0.0:
 		_fire_player()
 	_update_guards(delta)
 	_update_search(delta)
@@ -364,11 +329,7 @@ func _process(delta: float) -> void:
 
 
 func _move_player(delta: float) -> void:
-	var keyboard := Vector2(
-		float(Input.is_physical_key_pressed(KEY_D)) - float(Input.is_physical_key_pressed(KEY_A)),
-		float(Input.is_physical_key_pressed(KEY_S)) - float(Input.is_physical_key_pressed(KEY_W)))
-	var direction := _move if _move.length() > 0.05 else keyboard.limit_length(1.0)
-	if _ui_blocked:direction=Vector2.ZERO
+	var direction := Vector2.ZERO if _ui_blocked else _move
 	var speed := WALK_SPEED
 	if _reload_left > 0.0:
 		speed *= 0.75
@@ -391,16 +352,7 @@ func _move_player(delta: float) -> void:
 
 
 func _update_aim() -> void:
-	if _mouse_aim:
-		var origin := camera.project_ray_origin(_mouse_position)
-		var direction := camera.project_ray_normal(_mouse_position)
-		var point = Plane(Vector3.UP, player.position.y + 0.9).intersects_ray(origin, direction)
-		if point != null:
-			var aim: Vector3 = point - (player.position + Vector3(0, 0.9, 0))
-			aim.y = 0.0
-			if aim.length() > 0.15:
-				_aim_direction = aim.normalized()
-	elif _stick_aim.length_squared() > 0.0001:
+	if _stick_aim.length_squared() > 0.0001:
 		var target: Vector3=_screen_direction(_stick_aim).normalized()
 		var current_angle: float=atan2(_aim_direction.x,-_aim_direction.z)
 		var target_angle: float=atan2(target.x,-target.z)
@@ -488,7 +440,7 @@ func _fire_player() -> void:
 
 
 func _assisted_direction(origin: Vector3, direction: Vector3) -> Vector3:
-	var best := 0.992 if _mouse_aim else 0.982
+	var best := 0.982
 	var chosen := direction
 	for guard in _guards:
 		if float(guard["hp"]) <= 0.0:
@@ -669,7 +621,8 @@ func _finish(extracted: bool, reason: String) -> void:
 		return
 	_finished = true
 	_active = false
-	_mouse_firing = false
+	_move = Vector2.ZERO
+	_stick_aim = Vector2.ZERO
 	_stick_firing = false
 	GameState.set_raid_loaded_ammo(_magazine)
 	var details := {
@@ -900,7 +853,7 @@ func _camera_focus() -> Vector3:
 
 
 func _screen_direction(value: Vector2) -> Vector3:
-	# Both sticks and WASD follow the screen, including the camera's oblique yaw.
+	# Touch sticks follow the screen, including the camera's oblique yaw.
 	var right := camera.basis.x
 	var down := camera.basis.z
 	right.y = 0.0

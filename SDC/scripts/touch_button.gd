@@ -5,6 +5,7 @@ var _start: Vector2
 var _cancelled: bool = false
 var minimum_touch_height: float = 72
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	button_mask=0
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	var ancestor: Node = get_parent()
@@ -16,19 +17,16 @@ func _ready() -> void:
 	focus_mode=Control.FOCUS_NONE
 	custom_minimum_size.y=maxf(minimum_touch_height,custom_minimum_size.y)
 func _gui_input(event: InputEvent) -> void:
-	# Godot dispatches touch-emulated mouse events before the original touch.
-	# Handle the touch itself; accepting its mouse copy can strand _pointer at -2.
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
+	var modals: Array[Node]=get_tree().get_nodes_in_group("mobile_touch_modal")
+	if not modals.is_empty() and not modals.back().is_ancestor_of(self):
+		_pointer=-99
+		cancel_tap()
+		return
 	if disabled:return
 	if event is InputEventScreenTouch:
 		if event.pressed and not event.canceled:_begin(event.index,event.position)
 		elif event.index==_pointer:_end(event.position,event.canceled)
 	elif event is InputEventScreenDrag and event.index==_pointer:
-		if event.position.distance_to(_start)>12:cancel_tap()
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.pressed:_begin(-2,event.position)
-		elif _pointer==-2:_end(event.position,event.canceled)
-	elif event is InputEventMouseMotion and _pointer==-2:
 		if event.position.distance_to(_start)>12:cancel_tap()
 func _begin(pointer: int, at: Vector2) -> void:
 	if _pointer!=-99:return
@@ -47,12 +45,16 @@ func _end(at: Vector2, cancelled: bool) -> void:
 	self_modulate=Color.WHITE
 	button_up.emit()
 	if activate:
+		if toggle_mode:button_pressed=not button_pressed
 		AppSettings.ui_feedback()
 		pressed.emit()
 func cancel_tap() -> void:
 	_cancelled=true
 	self_modulate=Color.WHITE
+func cancel_gesture() -> void:
+	_pointer=-99
+	cancel_tap()
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
 		_pointer=-99
 		cancel_tap()

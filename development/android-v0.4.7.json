@@ -1,0 +1,15 @@
+{
+  "version": "0.4.7",
+  "version_code": 14,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "apk_file": "SDC-v0.4.7.apk",
+  "bytes": 89615100,
+  "sha256": "2ddd22b42083e91c6f05a5c6ed1a8e8ed8c3f50e9b84f275841d8a1ab72bc093",
+  "reference_apk_file": "SDC-v0.4.6.apk",
+  "reference_version_code": 13,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T10:05:55.6639629+08:00",
+  "note": "Touch-only phone controls and native touch widgets; details for all 260 items; four storage-only rigs and four separate armored rigs with a shared equipment alias. Import/export and APK identity checks completed; no added/run tests or device run. APK and keys stay outside Git."
+}

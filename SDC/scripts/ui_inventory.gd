@@ -5,7 +5,8 @@ const Grid = preload("res://scripts/inventory_grid.gd")
 const GridView = preload("res://scripts/ui_inventory_grid.gd")
 const TouchButton = preload("res://scripts/touch_button.gd")
 const TouchScroll = preload("res://scripts/touch_scroll.gd")
-const SLOT_NAMES := {"primary":"主武器","secondary":"副武器","sidearm":"手枪","helmet":"头盔","visor":"面罩","body_armor":"防弹衣","armored_rig":"弹挂甲","backpack":"背包"}
+const ItemDetails = preload("res://scripts/ui_item_details.gd")
+const SLOT_NAMES := {"primary":"主武器","secondary":"副武器","sidearm":"手枪","helmet":"头盔","visor":"面罩","body_armor":"防弹衣","armored_rig":"弹挂","backpack":"背包"}
 var _views: Array = []
 var _left: ScrollContainer
 var _right: ScrollContainer
@@ -27,8 +28,10 @@ var _last_tap_time: int = 0
 var _font: Font
 var _ghost: PanelContainer
 var _ghost_label: Label
+var _details: ItemDetails
 
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	size_flags_vertical=Control.SIZE_EXPAND_FILL
 	add_theme_constant_override("separation",10)
@@ -62,6 +65,8 @@ func _ready() -> void:
 		toolbar.add_child(button)
 		_buttons[action]=button
 	add_child(_label("长按物品后拖动；快速上下划动翻页。物品放入区块时自动选择横竖方向。",16,Color("94aaa7")))
+	_details=ItemDetails.new()
+	add_child(_details)
 	var drag_layer:=CanvasLayer.new()
 	drag_layer.layer=30
 	add_child(drag_layer)
@@ -82,6 +87,11 @@ func _ready() -> void:
 	_rebuild_equipment()
 	refresh_inventory()
 	resized.connect(_resize_stash)
+	resized.connect(_resize_details)
+	_resize_details()
+
+func _resize_details() -> void:
+	if is_instance_valid(_details):_details.set_available_height(size.y)
 
 func _column(parent: Node) -> ScrollContainer:
 	var panel:=PanelContainer.new()
@@ -174,6 +184,15 @@ func _equipment(parent: Node,slot: String,dimensions: Vector2) -> void:
 	var view:=GridView.new()
 	view.equipment_slot=slot
 	view.caption=SLOT_NAMES[slot]
+	var rig_id: String=str(GameState.loadout.get("armored_rig",""))
+	var combined_rig: bool=Catalog.is_armored_rig(rig_id)
+	if slot=="armored_rig" and combined_rig:view.caption="弹挂 · 防弹弹挂"
+	if slot=="body_armor" and combined_rig and str(GameState.loadout.get("body_armor","")).is_empty():
+		# One real item lives in the rig slot. The armor slot only aliases its
+		# visual/source UID; placement still targets this displayed armor slot.
+		view.display_override={"uid":"equip/armored_rig","item":rig_id,"qty":1,"x":0,"y":0,"rotated":false}
+		view.display_alpha=.38
+		view.display_note="防弹弹挂占位"
 	if slot in ["primary","secondary","sidearm"]:
 		var ammo_id: String=str(GameState.weapon_ammo.get(slot,""))
 		var caliber: String=str(Catalog.get_item(ammo_id).get("caliber",""))
@@ -186,14 +205,14 @@ func _equipment(parent: Node,slot: String,dimensions: Vector2) -> void:
 func _container(id: String,title: String) -> void:
 	var definitions: Array = Grid.blocks(id,GameState.loadout)
 	var item_id: String = str(GameState.loadout.get("armored_rig" if id=="rig" else "backpack",""))
+	if id=="rig" and Catalog.is_armored_rig(item_id):title="防弹弹挂"
 	var count: int = 0
 	for block: Dictionary in definitions:count+=int(block.w)*int(block.h)
 	var heading:=HBoxContainer.new()
 	_left_content.add_child(heading)
 	if id!="pockets" and not item_id.is_empty():
 		var picture:=TextureRect.new()
-		var path: String = "res://assets/icons/items/"+item_id+".png"
-		if ResourceLoader.exists(path):picture.texture=preload("res://scripts/item_textures.gd").icon(item_id)
+		picture.texture=preload("res://scripts/item_textures.gd").icon(item_id)
 		picture.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 		picture.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		picture.custom_minimum_size=Vector2(58,58)
@@ -239,6 +258,7 @@ func refresh_inventory() -> void:
 		_buttons["拆分"].disabled=int(record.get("qty",1))<=1
 		_buttons["旋转"].disabled=selected_uid.begins_with("equip/")
 		_buttons["出售"].disabled=selected_uid.begins_with("equip/")
+	_details.present(record,_mode=="drag")
 
 func _selected_record() -> Dictionary:
 	if selected_uid.begins_with("equip/"):
@@ -254,16 +274,16 @@ func _hit(point: Vector2) -> Dictionary:
 
 func _input(event: InputEvent) -> void:
 	if not is_visible_in_tree():return
-	# Ignore the mouse copy even when it arrives before the original touch.
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
+	if not (event is InputEventScreenTouch or event is InputEventScreenDrag):return
+	var tree: SceneTree=get_tree()
+	if tree==null:return
+	if not tree.get_nodes_in_group("mobile_touch_modal").is_empty():
+		cancel_gesture()
+		return
 	if event is InputEventScreenTouch:
 		if event.pressed and not event.canceled:_press(event.index,event.position)
 		elif _pointer==event.index:_release(event.position,event.canceled)
 	elif event is InputEventScreenDrag and event.index==_pointer:_drag(event.position)
-	elif event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:
-		if event.pressed:_press(-2,event.position)
-		elif _pointer==-2:_release(event.position,event.canceled)
-	elif event is InputEventMouseMotion and _pointer==-2:_drag(event.position)
 
 func _press(pointer: int,point: Vector2) -> void:
 	if _pointer!=-99:return
@@ -279,7 +299,7 @@ func _press(pointer: int,point: Vector2) -> void:
 func _drag(point: Vector2) -> void:
 	_point=point
 	if _mode=="pending" and point.distance_to(_start)>12:
-		if not _source_uid.is_empty() and (_pointer==-2 or absf(point.x-_start.x)>absf(point.y-_start.y) or Time.get_ticks_msec()-_start_time>280):_begin_drag()
+		if not _source_uid.is_empty() and (absf(point.x-_start.x)>absf(point.y-_start.y) or Time.get_ticks_msec()-_start_time>280):_begin_drag()
 		else:_mode="scroll"
 	if _mode=="drag":
 		_preview_drop()
@@ -311,6 +331,7 @@ func _release(point: Vector2,cancelled: bool) -> void:
 	_left.cancel_gesture()
 	_right.cancel_gesture()
 	queue_redraw()
+	refresh_inventory()
 
 func _tap(hit: Dictionary) -> void:
 	var uid: String = str(hit.uid)
@@ -359,11 +380,23 @@ func _update_ghost() -> void:
 	_ghost.position=_point+Vector2(-110,-100)
 	_ghost_label.text=str(Catalog.get_item(str(_selected_record().get("item",""))).get("name",""))
 
+func cancel_gesture() -> void:
+	_pointer=-99
+	_mode=""
+	_source_uid=""
+	_last_tap_uid=""
+	_last_tap_time=0
+	if is_instance_valid(_ghost):_ghost.hide()
+	for view: Control in _views:
+		view.hover_spot={}
+		view.queue_redraw()
+	if is_instance_valid(_left):_left.cancel_gesture()
+	if is_instance_valid(_right):_right.cancel_gesture()
+	if is_instance_valid(_details):_details.present(_selected_record())
+
 func _notification(what: int) -> void:
-	if what==NOTIFICATION_APPLICATION_FOCUS_OUT:
-		_pointer=-99
-		_mode=""
-		if is_instance_valid(_ghost):_ghost.hide()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+		cancel_gesture()
 
 func _action(action: String) -> void:
 	if action=="旋转":_perform(GameState.inventory_rotate(selected_uid),false)

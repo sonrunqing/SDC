@@ -4,11 +4,11 @@ var _viewport: SubViewport
 var _model: Node3D
 var _camera: Camera3D
 var _orbit: Node3D
-var _dragging: bool = false
+var _touch_index: int = -1
 var _yaw: float = -.13
 var _time: float = 0
-var _interactive: bool = true
 func _ready() -> void:
+	add_to_group("mobile_touch_gesture")
 	clip_contents=true
 	mouse_filter=Control.MOUSE_FILTER_STOP
 	var container := SubViewportContainer.new();container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -60,11 +60,22 @@ func _process(delta: float) -> void:
 		_orbit.rotation.y=_yaw
 		_model.position.y=sin(_time*1.5)*.0025
 func _gui_input(event: InputEvent) -> void:
-	if not _interactive:return
-	if (event is InputEventMouseButton or event is InputEventMouseMotion) and event.device==-1:return
-	if event is InputEventMouseButton and event.button_index==MOUSE_BUTTON_LEFT:_dragging=event.pressed;accept_event()
-	elif event is InputEventMouseMotion and _dragging:_yaw+=event.relative.x*.008;accept_event()
-	elif event is InputEventScreenDrag:_yaw+=event.relative.x*.008;accept_event()
+	if event is InputEventScreenTouch:
+		if event.pressed and not event.canceled:
+			if _touch_index!=-1:return
+			_touch_index=event.index
+		else:
+			if event.index!=_touch_index:return
+			cancel_gesture()
+		accept_event()
+	elif event is InputEventScreenDrag and event.index==_touch_index:
+		_yaw+=event.relative.x*.008
+		accept_event()
+func cancel_gesture() -> void:
+	_touch_index=-1
+func _notification(what: int) -> void:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
+		cancel_gesture()
 func get_loadout_summary() -> Dictionary:
 	return _model.get_summary() if _model!=null else {}
 func refresh_equipment() -> void:
