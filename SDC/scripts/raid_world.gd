@@ -681,14 +681,45 @@ func put_container_item(uid: String,quantity: int,cell: Vector2i = Vector2i(-1,-
 	_emit_hud()
 	return true
 
-func move_container_item(uid: String,cell: Vector2i) -> bool:
+func move_container_item(uid: String,cell: Vector2i,quantity: int = -1) -> bool:
 	if not _active or _search_target<0 or not _can_access_container(_search_target):return GameState._fail("已离开容器")
-	var state: Dictionary=_containers[_search_target].search
+	var state: Dictionary=_containers[_search_target].search.duplicate(true)
 	var record: Dictionary=GameState.Grid.find_record(state.records,uid)
 	if record.is_empty() or int(record.qty)<=0 or not bool(record.discovered):return GameState._fail("物品尚未完成搜索")
-	var spot: Dictionary=ContainerState.find_spot(record,state.records,int(state.columns),int(state.rows),cell)
-	if spot.is_empty():return GameState._fail("容器没有合适的格子")
-	GameState.Grid.apply_spot(record,spot)
+	if quantity==-1:quantity=int(record.qty)
+	if quantity<1 or quantity>int(record.qty):return GameState._fail("物品数量已更新")
+	var target: Dictionary={}
+	if cell.x>=0 and cell.y>=0:
+		for other: Dictionary in state.records:
+			if str(other.uid)==uid or int(other.qty)<=0:continue
+			var area:=Rect2i(Vector2i(int(other.x),int(other.y)),GameState.Grid.footprint(other,bool(other.rotated)))
+			if area.has_point(cell):target=other;break
+	if not target.is_empty() and not bool(target.discovered):return GameState._fail("该位置的物品尚未搜索")
+	var limit: int=GameState.Grid.stack_limit(str(record.item))
+	if not target.is_empty() and str(target.item)==str(record.item) and limit>1:
+		var amount: int=mini(quantity,maxi(0,limit-int(target.qty)))
+		if amount<=0:return GameState._fail("目标弹药堆已满")
+		target.qty=int(target.qty)+amount
+		# Keep an exhausted source record so the search progress does not change.
+		record.qty=int(record.qty)-amount
+	else:
+		var incoming: Dictionary=record
+		if quantity<int(record.qty):
+			incoming=record.duplicate(true)
+			var next_uid: String="loot/split/%d"%Time.get_ticks_usec()
+			var sequence: int=0
+			while not GameState.Grid.find_record(state.records,next_uid).is_empty():
+				sequence+=1
+				next_uid="loot/split/%d/%d"%[Time.get_ticks_usec(),sequence]
+			incoming.uid=next_uid
+			incoming.qty=quantity
+		var spot: Dictionary=ContainerState.find_spot(incoming,state.records,int(state.columns),int(state.rows),cell)
+		if spot.is_empty():return GameState._fail("容器没有合适的格子")
+		GameState.Grid.apply_spot(incoming,spot)
+		if quantity<int(record.qty):
+			record.qty=int(record.qty)-quantity
+			state.records.append(incoming)
+	_containers[_search_target].search=state
 	GameState.last_error=""
 	return true
 

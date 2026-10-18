@@ -109,7 +109,8 @@ func _draw() -> void:
 		var tone: Color = Rarity.tone(item) if valuable else [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
 		var reveal: float=1.0-pow(1.0-clampf(float(reveal_ages.get(str(record.uid),.55))/.4,0,1),3)
 		var alpha: float=display_alpha*(.12+.88*reveal)
-		draw_rect(rectangle,Color(tone,(.14 if valuable else .24)*alpha))
+		# Valuable rarity backgrounds: 1.6x, then another 2x, per visual feedback.
+		draw_rect(rectangle,Color(tone,(.448 if valuable else .24)*alpha))
 		if reveal<1 and not valuable:draw_rect(rectangle,Color(.76,.84,.74,(1-reveal)*.20))
 		var border: Color=Color("dfe7e4") if str(record.uid)==selected_uid else tone
 		border.a=display_alpha if str(record.uid)==selected_uid or not valuable else display_alpha*.42

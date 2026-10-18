@@ -278,10 +278,10 @@ func _transfer_to(destination: String,block: String,cell: Vector2i) -> void:
 	var ok: bool=false
 	var from_container: bool=_selected.begins_with("loot/")
 	if destination=="loot":
-		ok=world.move_container_item(_selected,cell) if from_container else world.put_container_item(_selected,int(_quantity.value),cell)
+		ok=world.move_container_item(_selected,cell,int(_quantity.value)) if from_container else world.put_container_item(_selected,int(_quantity.value),cell)
 	elif from_container:
 		ok=world.take_container_item(_selected,int(_quantity.value),destination,block,cell)
-	else:ok=GameState.move_raid_item(_selected,destination,block,cell)
+	else:ok=GameState.move_raid_item(_selected,destination,block,cell,int(_quantity.value))
 	_message.text=("已放回容器" if destination=="loot" and not from_container else "已放置") if ok else GameState.last_error
 	if ok:AppSettings.ui_feedback()
 	_last_tap=""
@@ -386,9 +386,23 @@ func _process(delta: float) -> void:
 		if not hit.is_empty():
 			var record: Dictionary=_selected_record()
 			if record.is_empty():cancel_gesture();return
-			var spot: Dictionary
-			if str(hit.container)=="loot":spot=ContainerState.find_spot(record,_snapshot.get("records",[]),int(_snapshot.columns),int(_snapshot.rows),hit.cell)
-			else:spot=Grid.find_spot(record,str(hit.container),GameState.raid_grid_items,GameState.loadout,str(hit.block),hit.cell)
+			var same_side: bool=(str(hit.container)=="loot")==_selected.begins_with("loot/")
+			var destination_records: Array=_snapshot.get("records",[]) if str(hit.container)=="loot" else GameState.raid_grid_items
+			var target: Dictionary=Grid.find_record(destination_records,str(hit.uid))
+			var same_stack: bool=same_side and not target.is_empty() and str(target.uid)!=str(record.uid) and str(target.item)==str(record.item) and Grid.stack_limit(str(record.item))>1
+			var unknown_target: bool=str(hit.container)=="loot" and not target.is_empty() and not bool(target.get("discovered",false))
+			var spot: Dictionary={}
+			if same_stack:
+				if not unknown_target and int(target.qty)<Grid.stack_limit(str(record.item)):
+					spot={"x":int(target.x),"y":int(target.y),"rotated":bool(target.get("rotated",false))}
+			elif not (same_side and unknown_target):
+				var incoming: Dictionary=record
+				if same_side and int(_quantity.value)<int(record.qty):
+					# A partial move leaves the source occupying its original cells.
+					incoming=record.duplicate(true)
+					incoming.uid="preview/"+str(record.uid)
+				if str(hit.container)=="loot":spot=ContainerState.find_spot(incoming,destination_records,int(_snapshot.columns),int(_snapshot.rows),hit.cell)
+				else:spot=Grid.find_spot(incoming,str(hit.container),destination_records,GameState.loadout,str(hit.block),hit.cell)
 			if not spot.is_empty():
 				spot.size=Grid.footprint(record,bool(spot.rotated))
 				hit.view.hover_spot=spot

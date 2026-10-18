@@ -1,0 +1,68 @@
+{
+  "version": "0.4.12",
+  "version_code": 19,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 97878401,
+  "sha256": "8dd7af7584b5a8026eabe4b411e1e79d39087ecd24de57f8c02dae79c4068504",
+  "reference_version_code": 18,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T20:56:40.3251212+08:00",
+  "apk_file": "SDC-v0.4.12.apk",
+  "reference_apk_file": "SDC-v0.4.11.apk",
+  "checks": {
+    "android_export": true,
+    "catalog_count": 296,
+    "loot_count": 48,
+    "category_counts": {
+      "industrial": 7,
+      "collectibles": 7,
+      "everyday": 14,
+      "precision": 4,
+      "metals": 5,
+      "electronics": 5,
+      "medical": 3,
+      "tools": 3
+    },
+    "models": {
+      "resources": 48,
+      "missing": [],
+      "all_import_targets_present": true
+    },
+    "icons": {
+      "resources": 48,
+      "missing": [],
+      "all_import_targets_present": true,
+      "all_compiled_textures_320x320": true
+    },
+    "compiled_scripts": {
+      "item_rarity": true,
+      "ui_inventory_grid": true,
+      "ui_loot_search": true,
+      "ui_item_details": true,
+      "main": true,
+      "raid_world": true,
+      "game_state": true
+    },
+    "development_files": [],
+    "automated_tests_run_this_version": false
+  },
+  "rarity_background": {
+    "original_opacity": 0.14,
+    "first_multiplier": 1.6,
+    "second_multiplier": 2,
+    "final_opacity": 0.448,
+    "hidden_items_unchanged": true
+  },
+  "art": {
+    "original_models": 48,
+    "total_triangles": 142818,
+    "total_glb_bytes": 5569000,
+    "production_ui_captures": [
+      "SDC-v0.4.12-valuables.png",
+      "SDC-v0.4.12-rarity.png"
+    ]
+  },
+  "note": "48 original detailed valuables in 8 categories; discovery-only rarity background increased to 3.2 times the original opacity by two user requests. Fixed same-side selected-quantity ammunition merging and splitting with copy-first transactions. Actual engine art captures and APK resources inspected; no automated tests, physical phone play or update-install run. Container split/deposit changes displayed discovered/total stack count, without advancing unknown-item search timing."
+}

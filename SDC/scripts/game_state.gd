@@ -748,14 +748,43 @@ func receive_container_item(id: String,quantity: int = 1,destination: String = "
 	changed.emit()
 	return true
 
-func move_raid_item(uid: String,destination: String,block: String = "",cell: Vector2i = Vector2i(-1,-1)) -> bool:
+func move_raid_item(uid: String,destination: String,block: String = "",cell: Vector2i = Vector2i(-1,-1),quantity: int = -1) -> bool:
 	if not raid_active or destination not in ["rig","pockets","backpack"]:return _fail("不能放到这个位置")
 	var packed: Array=raid_grid_items.duplicate(true)
 	var record: Dictionary=Grid.find_record(packed,uid)
 	if record.is_empty():return _fail("物品位置已更新")
-	var spot: Dictionary=Grid.find_spot(record,destination,packed,loadout,block,cell)
-	if spot.is_empty():return _fail("没有合适的格子")
-	Grid.apply_spot(record,spot)
+	if quantity==-1:quantity=int(record.qty)
+	if quantity<1 or quantity>int(record.qty):return _fail("物品数量已更新")
+	var target: Dictionary={}
+	if not block.is_empty() and cell.x>=0 and cell.y>=0:
+		for other: Dictionary in packed:
+			if str(other.uid)==uid or int(other.qty)<=0 or str(other.container)!=destination or str(other.get("block","0"))!=block:continue
+			var area:=Rect2i(Vector2i(int(other.x),int(other.y)),Grid.footprint(other,bool(other.get("rotated",false))))
+			if area.has_point(cell):target=other;break
+	var limit: int=Grid.stack_limit(str(record.item))
+	if not target.is_empty() and str(target.item)==str(record.item) and limit>1:
+		var amount: int=mini(quantity,maxi(0,limit-int(target.qty)))
+		if amount<=0:return _fail("目标弹药堆已满")
+		target.qty=int(target.qty)+amount
+		record.qty=int(record.qty)-amount
+		if int(record.qty)==0:packed.erase(record)
+	else:
+		var incoming: Dictionary=record
+		if quantity<int(record.qty):
+			incoming=record.duplicate(true)
+			var next_uid: String="raid/split/%d"%Time.get_ticks_usec()
+			var sequence: int=0
+			while not Grid.find_record(packed,next_uid).is_empty():
+				sequence+=1
+				next_uid="raid/split/%d/%d"%[Time.get_ticks_usec(),sequence]
+			incoming.uid=next_uid
+			incoming.qty=quantity
+		var spot: Dictionary=Grid.find_spot(incoming,destination,packed,loadout,block,cell)
+		if spot.is_empty():return _fail("没有合适的格子")
+		Grid.apply_spot(incoming,spot)
+		if quantity<int(record.qty):
+			record.qty=int(record.qty)-quantity
+			packed.append(incoming)
 	raid_grid_items=packed
 	last_error=""
 	changed.emit()
