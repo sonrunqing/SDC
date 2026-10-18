@@ -1,0 +1,4 @@
+SDC Modular Weapon Models
+All meshes generated originally by scripts/generate_models.py.
+Released under CC0 1.0 Universal; https://creativecommons.org/publicdomain/zero/1.0/
+No external model data, no extracted game assets or brand artwork.

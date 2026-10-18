@@ -1,0 +1,129 @@
+{
+  "source_project": "Ashfront",
+  "source_root": "E:/Godot/Documents/Ashfront",
+  "date": "2026-10-18",
+  "source_files": [
+    {
+      "path": "scripts/Core/Look.cs",
+      "bytes": 8881,
+      "sha256": "5651311a972f62d1af6bce764750fe4e508aaea01fb73470624e2dacde8fe8c4"
+    },
+    {
+      "path": "scripts/Player/FollowCamera.cs",
+      "bytes": 6397,
+      "sha256": "f1e3fa2bff978213713c5def89bcadeef332ea1ebd53be4c73d33e02cccad0c0"
+    },
+    {
+      "path": "scripts/Player/HeroVisual.cs",
+      "bytes": 16855,
+      "sha256": "c474a799dd7c6b7bd4aff516a2fb60faedc68ef78f39019eaf86c408b4f91d64"
+    },
+    {
+      "path": "scripts/Player/VisionOcclusion.cs",
+      "bytes": 34617,
+      "sha256": "c7629cfcc62ef73b8bfbd48dc4b8f200e4a5963e66114508e67fecd46da8050d"
+    },
+    {
+      "path": "scripts/Player/VisionMaskPainter.cs",
+      "bytes": 4014,
+      "sha256": "5ab95a8d3d422676c0fa7a85062fc080e1c9ef93b8c50f0e0c3c4f38492bd171"
+    },
+    {
+      "path": "scripts/Combat/Fx.cs",
+      "bytes": 9166,
+      "sha256": "26b69deb02f418cd4be0489edccf8be6b531fe475989c133fadad2b020aaa62c"
+    },
+    {
+      "path": "scripts/Combat/HitFeedbackDirector.cs",
+      "bytes": 15998,
+      "sha256": "2692063e44acb39ce2b1ae7152f01b62b0c631086608ba875d2adfe330886b2f"
+    },
+    {
+      "path": "scripts/World/ArenaDetail.cs",
+      "bytes": 43413,
+      "sha256": "c3be5b99bd3d638a2398d636c94d8888d580a6855af8519afe973a3e04582b77"
+    },
+    {
+      "path": "scripts/World/ReferenceArena.cs",
+      "bytes": 76174,
+      "sha256": "4afe4344f3ad957d5b47e8b49fe94db03053d9bd26631cc3bed17f9efe616120"
+    },
+    {
+      "path": "scripts/World/Materials.cs",
+      "bytes": 5959,
+      "sha256": "de0e48cac7f635b334fad27824ed2ca40addc9c8bf0768230f64dac5400a89fb"
+    },
+    {
+      "path": "scripts/Ui/MenuTheme.cs",
+      "bytes": 8227,
+      "sha256": "4c756f83acd0d6cf7f45fa86d2f2c029a726373e8aecbb5c6d58250dbb6bfe91"
+    },
+    {
+      "path": "CREDITS.md",
+      "bytes": 3997,
+      "sha256": "876f08c9d98f4c856df3699ae0b5c60422f4618f16cbf0fbae2386840d843164"
+    },
+    {
+      "path": "assets/hero/hero_animated.glb",
+      "bytes": 13836404,
+      "sha256": "c1b45a458a3cf8f7e6ef0646e2229862a19b2ca988bec55767681b4684bef23d"
+    },
+    {
+      "path": "assets/hero/gait.json",
+      "bytes": 760,
+      "sha256": "03918ab62062f3955a0c8475ec2eed814ca57393d437172a5c23f2793fc31956"
+    },
+    {
+      "path": "assets/enemy/rusher.glb",
+      "bytes": 294436,
+      "sha256": "0b9ad21d9aa97df27f6e97d7466098b47f9480f2286778b272173e5720f8aed8"
+    },
+    {
+      "path": "assets/enemy/sniper.glb",
+      "bytes": 305824,
+      "sha256": "6ffb7b3b7764b39a4e1537d931b5b021236007852b46c415a93bca03c425dc63"
+    },
+    {
+      "path": "assets/weapon/w_ak74.glb",
+      "bytes": 519688,
+      "sha256": "f19d221688e6e62dd6b0eb985cf001351773419de0c9301a21a72d9a88251698"
+    }
+  ],
+  "source_sdc_body": {
+    "path": "assets/operator/operator.glb",
+    "bytes": 321072,
+    "sha256": "b031f71728dbe501b36ab289e5bf0d4c42c06b57883b515b457db18e5eefb83c"
+  },
+  "ported_assets": [
+    {
+      "path": "contact_shadow.svg",
+      "bytes": 351,
+      "sha256": "640b51a1235f1f301efe95b74255f2dc373197959171faf1aad79a8e7ab87479"
+    },
+    {
+      "path": "gait.json",
+      "bytes": 760,
+      "sha256": "03918ab62062f3955a0c8475ec2eed814ca57393d437172a5c23f2793fc31956"
+    },
+    {
+      "path": "guard_rifle.glb",
+      "bytes": 519688,
+      "sha256": "f19d221688e6e62dd6b0eb985cf001351773419de0c9301a21a72d9a88251698"
+    },
+    {
+      "path": "operator_animated.glb",
+      "bytes": 813548,
+      "sha256": "37b7f15d1e9b14a658b351019cd7ee0900ab988d7af83b3bf473c92527071cbf"
+    },
+    {
+      "path": "rusher.glb",
+      "bytes": 294436,
+      "sha256": "0b9ad21d9aa97df27f6e97d7466098b47f9480f2286778b272173e5720f8aed8"
+    },
+    {
+      "path": "sniper.glb",
+      "bytes": 305824,
+      "sha256": "6ffb7b3b7764b39a4e1537d931b5b021236007852b46c415a93bca03c425dc63"
+    }
+  ]
+}

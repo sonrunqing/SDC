@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/industrial_modular/loading_dock.glb" id="1_visual"]
+
+[sub_resource type="BoxShape3D" id="Shape_0"]
+size = Vector3(4.00000000, 0.80000000, 2.00000000)
+
+[sub_resource type="BoxShape3D" id="Shape_1"]
+size = Vector3(4.00000000, 0.18000000, 0.12000000)
+
+[sub_resource type="BoxShape3D" id="Shape_2"]
+size = Vector3(1.10000000, 0.18000000, 0.12000000)
+
+[sub_resource type="BoxShape3D" id="Shape_3"]
+size = Vector3(1.10000000, 0.18000000, 0.12000000)
+
+[node name="loading_dock" type="Node3D"]
+metadata/module_id = "industrial_modular/loading_dock"
+metadata/grid_metres = 4.0
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+position = Vector3(-0.00002504, -0.00013167, -0.00073080)
+scale = Vector3(1.00017670, 1.00068858, 0.99908888)
+
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="Piece0" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.40000000, 0.00000000)
+shape = SubResource("Shape_0")
+
+[node name="Piece1" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.89000000, -0.94000000)
+shape = SubResource("Shape_1")
+
+[node name="Piece2" type="CollisionShape3D" parent="Collision"]
+position = Vector3(-1.45000000, 0.89000000, 0.94000000)
+shape = SubResource("Shape_2")
+
+[node name="Piece3" type="CollisionShape3D" parent="Collision"]
+position = Vector3(1.45000000, 0.89000000, 0.94000000)
+shape = SubResource("Shape_3")

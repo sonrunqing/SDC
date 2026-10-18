@@ -1,0 +1,26 @@
+{
+  "version": "0.4.9",
+  "version_code": 16,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 92760112,
+  "sha256": "95c9b27502932be4166c01815d43af07f6a533f2b41882aacf3c2060203f4650",
+  "reference_version_code": 15,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T16:32:06.9594317+08:00",
+  "apk_file": "SDC-v0.4.9.apk",
+  "reference_apk_file": "SDC-v0.4.8.apk",
+  "checks": {
+    "container_search": 93,
+    "indoor_containers": 26,
+    "enterable_buildings_with_loot": 5,
+    "search_scripts_compiled_in_apk": true,
+    "tools_tests_docs_excluded_from_apk": true,
+    "visual_captures": [
+      "container search page 1280x720",
+      "warehouse cutaway 1600x900"
+    ]
+  },
+  "note": "Container search reveals stable item records and never auto-awards contents. Selected quantities transfer atomically to actual carried grids, with smart orientation and rollback. Fixed containers moved indoors and outdoor freight arranged in groups. Local focused checks, engine rendering and Android export/identity inspection completed. No physical phone installation or touch validation. APK and signing keys remain outside Git."
+}

@@ -1,0 +1,21 @@
+Ashfront visual migration into SDC (2026-10-18)
+
+The user supplied the complete Ashfront source project for reuse in SDC.
+Source: E:/Godot/Documents/Ashfront
+
+operator_animated.glb combines the existing SDC operator mesh with Ashfront's
+20-bone rig and 17 animation clips. The conversion tool is
+SDC/tools/port_ashfront_actor.py. It transfers skin weights and preserves SDC
+materials. The original high-poly hero and its textures are not shipped here.
+
+rusher.glb, sniper.glb, guard_rifle.glb and gait.json come from Ashfront.
+Its CREDITS.md describes these models/animations as project-produced assets
+made with Hunyuan/Blender, with a procedural gun pipeline. The Quaternius
+Universal Animation Library (CC0) was a gait reference in that pipeline,
+not a source of directly copied animation data.
+
+contact_shadow.svg is an SDC-authored gradient contact shading texture.
+No Ashfront third-party background music is included in this migration.
+
+File hashes and source-code provenance: provenance.json.
+Implementation mapping and rendering limits: docs/ASHFRONT_VISUAL_PORT.md.

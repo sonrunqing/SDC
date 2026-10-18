@@ -1,0 +1,42 @@
+{
+  "walk_f": {
+    "stride": 0.78,
+    "duration": 0.75,
+    "nominalSpeed": 3.4667
+  },
+  "walk_b": {
+    "stride": 0.5304,
+    "duration": 0.75,
+    "nominalSpeed": 2.3573
+  },
+  "run_f": {
+    "stride": 0.85,
+    "duration": 0.5833,
+    "nominalSpeed": 6.6234
+  },
+  "run_b": {
+    "stride": 0.578,
+    "duration": 0.5833,
+    "nominalSpeed": 4.5039
+  },
+  "walk_l": {
+    "stride": 0.6396,
+    "duration": 0.75,
+    "nominalSpeed": 2.8427
+  },
+  "walk_r": {
+    "stride": 0.6396,
+    "duration": 0.75,
+    "nominalSpeed": 2.8427
+  },
+  "run_l": {
+    "stride": 0.697,
+    "duration": 0.5833,
+    "nominalSpeed": 5.4312
+  },
+  "run_r": {
+    "stride": 0.697,
+    "duration": 0.5833,
+    "nominalSpeed": 5.4312
+  }
+}

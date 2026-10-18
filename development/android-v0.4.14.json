@@ -1,0 +1,77 @@
+{
+  "version": "0.4.14",
+  "version_code": 21,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 97882660,
+  "sha256": "9e7cede22406458aecb768b931f6af642671fb9bf5166c50dc358144d3646f65",
+  "reference_version_code": 20,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T21:34:17.6091178+08:00",
+  "apk_file": "SDC-v0.4.14.apk",
+  "reference_apk_file": "SDC-v0.4.13.apk",
+  "source_base_version": "0.4.12",
+  "checks": {
+    "android_export": true,
+    "valuable_items": 48,
+    "model_import_targets": 48,
+    "icon_import_targets": 48,
+    "compiled_modules": {
+      "ui_aim_reticle": {
+        "bytes": 1807,
+        "sha256": "cfe58c9601b6cf27151c059b0bf0ab32fae402de269bff73b5cd56369864a153",
+        "changed_from_reference": false
+      },
+      "raid_world": {
+        "bytes": 47833,
+        "sha256": "cf72d801c555336cc72e23acd1a6efa85e5904aaf87b860a1d3b85eaf427228d",
+        "changed_from_reference": true
+      },
+      "raid_presentation": {
+        "bytes": 6434,
+        "sha256": "3f6cf54db855ff1af8ece6850d5f6705dffe9fa8e774aa392b1dab6893444769",
+        "changed_from_reference": false
+      },
+      "ui_inventory_grid": {
+        "bytes": 9302,
+        "sha256": "2704e33ac68b09e2f3f5f0b88aecdc530d5bef630c726bc1a8c620332a6a02bc",
+        "changed_from_reference": false
+      },
+      "item_rarity": {
+        "bytes": 1144,
+        "sha256": "740dac6e1b8cb7f8afaa40d616e57acd106b5c911eeea560f90e2fe7457279a7",
+        "changed_from_reference": false
+      },
+      "control_layout": {
+        "bytes": 5162,
+        "sha256": "11a20d141f7082c47b903bc06d9ebb5ff9fccc65ff5c9111a71ff3265fe4d689",
+        "changed_from_reference": true
+      },
+      "virtual_controls": {
+        "bytes": 10464,
+        "sha256": "7e8fd312c140ae268f3bb4e9c3228a9ca914ecad88edf97943ed889a6834b3aa",
+        "changed_from_reference": true
+      },
+      "main": {
+        "bytes": 46422,
+        "sha256": "15d735046fbe5275418d1b49feebc7d322649d5b6dc52e803d52446a3b46ae3b",
+        "changed_from_reference": true
+      }
+    },
+    "excluded_development_files": [],
+    "automated_tests_run_this_version": false
+  },
+  "features": {
+    "reticle": "World-facing touch-only crosshair, cover stop and independent fire",
+    "inventory": "Solid authored rarity underlay and separate untinted icon CanvasItem; unknown stays neutral",
+    "menu": "Small circular gear, about 28 visible / 44 circular hit diameter at default scale",
+    "search": "Contextual circular control, about 56 visible / 64 circular hit diameter; physical-frame target changes cancel old touches; target is checked again on release"
+  },
+  "production_engine_captures": [
+    "development/previews/SDC-v0.4.14-aim.png",
+    "development/previews/SDC-v0.4.14-near-loot.png",
+    "development/previews/SDC-v0.4.14-rarity.png"
+  ],
+  "note": "Final deliverable for this task, includes intermediate0.4.13 changes. Actual Godot/OpenGL production captures and compiled APK resource inspection. No automated tests or physical phone installation/play/performance result. Fixed signing identity and increasing version preserved."
+}

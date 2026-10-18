@@ -1,0 +1,24 @@
+{
+  "version": "0.4.10",
+  "version_code": 17,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 92768304,
+  "sha256": "151a8bb4ff15ca77f69d66c94cb4e8ca4ab59662d0377b67985a7838edcee557",
+  "reference_version_code": 16,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T17:38:19.2438830+08:00",
+  "apk_file": "SDC-v0.4.10.apk",
+  "reference_apk_file": "SDC-v0.4.9.apk",
+  "checks": {
+    "android_export": true,
+    "updated_compiled_scripts_in_apk": 5,
+    "tools_tests_docs_excluded_from_apk": true,
+    "engine_animation_frames": 195,
+    "engine_animation_seconds": 6.5,
+    "engine_animation_resolution": "1280x720",
+    "automated_tests_run_this_version": false
+  },
+  "note": "Removed explicit take-selected button and destination picker. Container and carried grids share direct double-tap, select-then-place, hold/drag and vertical-scroll interaction, including atomic deposits and known-item rearrangement. Added opening, scan, progress and reveal animation. Actual engine animation captured and PNG/GIF generated; APK package/signature/version and compiled modules inspected. No physical phone interaction or update-install run."
+}

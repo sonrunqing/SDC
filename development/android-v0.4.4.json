@@ -1,0 +1,15 @@
+{
+  "version": "0.4.4",
+  "version_code": 11,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "apk_file": "SDC-v0.4.4.apk",
+  "bytes": 89552175,
+  "sha256": "90fb2c7a0f0b07fa7a2e75183501216a9b2bec3f59e1fea720000c0ebdddc11d",
+  "reference_apk_file": "SDC-v0.4.3.apk",
+  "reference_version_code": 10,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-17T22:14:41.337305+08:00",
+  "note": "Built from the local 0.4.4 source before Git import. Android export and APK identity checks completed; no device run or new tests were performed for this review preparation. APK and private keys are not stored in Git."
+}

@@ -1,0 +1,6700 @@
+{
+  "schema_version": 2,
+  "items": [
+    {
+      "id": "weapon_reed9",
+      "name": "芦苇 R9",
+      "kind": "weapon",
+      "category": "smg",
+      "price": 5200,
+      "sell_price": 2340,
+      "weight": 2.35,
+      "description": "近距离压制见长的 9 mm 冲锋枪，射速高、操控轻快。适合机动搜索和短距离交火。",
+      "caliber": "9x19",
+      "slots": {
+        "muzzle": [
+          "thread_9_13"
+        ],
+        "grip": [
+          "picatinny"
+        ],
+        "stock": [
+          "pdw_slide"
+        ],
+        "magazine": [
+          "mag_reed9"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_reed9"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_reed9.glb",
+      "stats": {
+        "damage": 24,
+        "rpm": 820,
+        "magazine": 30,
+        "recoil": 26,
+        "accuracy": 76,
+        "ergonomics": 76,
+        "range": 23,
+        "noise": 64,
+        "recoil_control": 74,
+        "horizontal_control": 81.8,
+        "suppression": 56
+      },
+      "ballistics": {
+        "muzzle_velocity": 360,
+        "reference_velocity": 360,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 111.512272,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_lynx45",
+      "name": "猞猁 L45",
+      "kind": "weapon",
+      "category": "smg",
+      "price": 7800,
+      "sell_price": 3510,
+      "weight": 2.8,
+      "description": ".45 口径冲锋枪，单发威力较高、射速温和。M 型槽和折叠尾座便于选配握把与枪托。",
+      "caliber": "45acp",
+      "slots": {
+        "muzzle": [
+          "thread_45_16"
+        ],
+        "grip": [
+          "mlok"
+        ],
+        "stock": [
+          "fold_hinge"
+        ],
+        "magazine": [
+          "mag_lynx45"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "mlok"
+        ],
+        "handguard": [
+          "hg_lynx45"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_lynx45.glb",
+      "stats": {
+        "damage": 31,
+        "rpm": 620,
+        "magazine": 25,
+        "recoil": 33,
+        "accuracy": 73,
+        "ergonomics": 67,
+        "range": 21,
+        "noise": 69,
+        "recoil_control": 67,
+        "horizontal_control": 76.9,
+        "suppression": 51
+      },
+      "ballistics": {
+        "muzzle_velocity": 280,
+        "reference_velocity": 280,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 101.815553,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_kestrel57",
+      "name": "红隼 K57",
+      "kind": "weapon",
+      "category": "smg",
+      "price": 9800,
+      "sell_price": 4410,
+      "weight": 2.6,
+      "description": "轻巧的 5.7 mm 冲锋枪，后坐较小，40 发基础弹容适合持续点射。采用微型瞄具底板。",
+      "caliber": "57x28",
+      "slots": {
+        "muzzle": [
+          "thread_57_10"
+        ],
+        "stock": [
+          "pdw_slide"
+        ],
+        "magazine": [
+          "mag_kestrel57"
+        ],
+        "optic": [
+          "microplate"
+        ],
+        "laser": [
+          "picatinny"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_kestrel57.glb",
+      "stats": {
+        "damage": 22,
+        "rpm": 900,
+        "magazine": 40,
+        "recoil": 20,
+        "accuracy": 84,
+        "ergonomics": 73,
+        "range": 28,
+        "noise": 61,
+        "recoil_control": 80,
+        "horizontal_control": 86.0,
+        "suppression": 59
+      },
+      "ballistics": {
+        "muzzle_velocity": 715,
+        "reference_velocity": 715,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 135.754071,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_swift9",
+      "name": "雨燕 S9",
+      "kind": "weapon",
+      "category": "smg",
+      "price": 3900,
+      "sell_price": 1755,
+      "weight": 2.1,
+      "description": "结构紧凑、价格亲民的 9 mm 冲锋枪。灵活性出色，燕尾导轨与专用折叠尾座保留了独特装配选择。",
+      "caliber": "9x19",
+      "slots": {
+        "muzzle": [
+          "thread_9_13"
+        ],
+        "stock": [
+          "swift_hinge"
+        ],
+        "magazine": [
+          "mag_swift9"
+        ],
+        "optic": [
+          "dovetail"
+        ],
+        "laser": [
+          "trigger_rail"
+        ],
+        "handguard": [
+          "hg_swift9"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_swift9.glb",
+      "stats": {
+        "damage": 25,
+        "rpm": 700,
+        "magazine": 32,
+        "recoil": 29,
+        "accuracy": 72,
+        "ergonomics": 82,
+        "range": 20,
+        "noise": 65,
+        "recoil_control": 71,
+        "horizontal_control": 79.7,
+        "suppression": 55
+      },
+      "ballistics": {
+        "muzzle_velocity": 360,
+        "reference_velocity": 360,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 96.967193,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_badger556",
+      "name": "獾 B556",
+      "kind": "weapon",
+      "category": "rifle",
+      "price": 11300,
+      "sell_price": 5085,
+      "weight": 3.35,
+      "description": "均衡的 5.56 mm 突击步枪，适合中距离点射与近距连发。AR 缓冲管和 M 型槽提供多种改装空间。",
+      "caliber": "556x45",
+      "slots": {
+        "muzzle": [
+          "thread_556_12"
+        ],
+        "grip": [
+          "mlok"
+        ],
+        "stock": [
+          "ar_buffer"
+        ],
+        "magazine": [
+          "mag_ar556"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "mlok"
+        ],
+        "handguard": [
+          "hg_ar556"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_badger556.glb",
+      "stats": {
+        "damage": 34,
+        "rpm": 720,
+        "magazine": 30,
+        "recoil": 34,
+        "accuracy": 85,
+        "ergonomics": 65,
+        "range": 36,
+        "noise": 83,
+        "recoil_control": 66,
+        "horizontal_control": 76.2,
+        "suppression": 37
+      },
+      "ballistics": {
+        "muzzle_velocity": 890,
+        "reference_velocity": 890,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 218.176185,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_cedar545",
+      "name": "雪松 C545",
+      "kind": "weapon",
+      "category": "rifle",
+      "price": 9400,
+      "sell_price": 4230,
+      "weight": 3.45,
+      "description": "稳健的 5.45 mm 突击步枪，射速适中。侧挂导轨、钥孔护木与专用尾座需要各自匹配的配件。",
+      "caliber": "545x39",
+      "slots": {
+        "muzzle": [
+          "thread_545_14"
+        ],
+        "grip": [
+          "keymod"
+        ],
+        "stock": [
+          "cedar_trunnion"
+        ],
+        "magazine": [
+          "mag_cedar545"
+        ],
+        "optic": [
+          "side_rail"
+        ],
+        "laser": [
+          "keymod"
+        ],
+        "handguard": [
+          "hg_cedar545"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_cedar545.glb",
+      "stats": {
+        "damage": 32,
+        "rpm": 650,
+        "magazine": 30,
+        "recoil": 36,
+        "accuracy": 82,
+        "ergonomics": 59,
+        "range": 34,
+        "noise": 81,
+        "recoil_control": 64,
+        "horizontal_control": 74.8,
+        "suppression": 39
+      },
+      "ballistics": {
+        "muzzle_velocity": 880,
+        "reference_velocity": 880,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 206.055286,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_jackal762",
+      "name": "胡狼 J762",
+      "kind": "weapon",
+      "category": "rifle",
+      "price": 10100,
+      "sell_price": 4545,
+      "weight": 3.7,
+      "description": "单发威力较强的 7.62 mm 突击步枪，后坐明显。适合短点射，补偿器和支撑枪托能改善连续控制。",
+      "caliber": "762x39",
+      "slots": {
+        "muzzle": [
+          "thread_762_14"
+        ],
+        "grip": [
+          "picatinny"
+        ],
+        "stock": [
+          "fold_hinge"
+        ],
+        "magazine": [
+          "mag_jackal762"
+        ],
+        "optic": [
+          "side_rail"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_jackal762"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_jackal762.glb",
+      "stats": {
+        "damage": 41,
+        "rpm": 600,
+        "magazine": 30,
+        "recoil": 43,
+        "accuracy": 79,
+        "ergonomics": 55,
+        "range": 33,
+        "noise": 88,
+        "recoil_control": 57,
+        "horizontal_control": 69.9,
+        "suppression": 32
+      },
+      "ballistics": {
+        "muzzle_velocity": 715,
+        "reference_velocity": 715,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 199.994836,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_manta300",
+      "name": "蝠鲼 M300",
+      "kind": "weapon",
+      "category": "rifle",
+      "price": 18200,
+      "sell_price": 8190,
+      "weight": 3.1,
+      "description": ".300 口径紧凑步枪，兼顾威力、精度与近距离操控。搭配同口径消音器可降低暴露风险。",
+      "caliber": "300blk",
+      "slots": {
+        "muzzle": [
+          "thread_308_58"
+        ],
+        "grip": [
+          "mlok"
+        ],
+        "stock": [
+          "ar_buffer"
+        ],
+        "magazine": [
+          "mag_manta300"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "mlok"
+        ],
+        "handguard": [
+          "hg_ar556"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_manta300.glb",
+      "stats": {
+        "damage": 39,
+        "rpm": 700,
+        "magazine": 30,
+        "recoil": 31,
+        "accuracy": 87,
+        "ergonomics": 69,
+        "range": 31,
+        "noise": 71,
+        "recoil_control": 69,
+        "horizontal_control": 78.3,
+        "suppression": 49
+      },
+      "ballistics": {
+        "muzzle_velocity": 640,
+        "reference_velocity": 640,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 187.873937,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_heron308",
+      "name": "苍鹭 H308",
+      "kind": "weapon",
+      "category": "sniper",
+      "price": 19600,
+      "sell_price": 8820,
+      "weight": 4.5,
+      "description": ".308 口径精确步枪，单发威力高、基础精度出色。射速慢，支架和可调贴腮托适合远距离交火。",
+      "caliber": "308win",
+      "slots": {
+        "muzzle": [
+          "thread_308_58"
+        ],
+        "grip": [
+          "bipod_stud"
+        ],
+        "stock": [
+          "bolt_cheek"
+        ],
+        "magazine": [
+          "mag_heron308"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_heron308"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_heron308.glb",
+      "stats": {
+        "damage": 79,
+        "rpm": 65,
+        "magazine": 10,
+        "recoil": 54,
+        "accuracy": 95,
+        "ergonomics": 42,
+        "range": 48,
+        "noise": 95,
+        "recoil_control": 46,
+        "horizontal_control": 62.2,
+        "suppression": 25
+      },
+      "ballistics": {
+        "muzzle_velocity": 820,
+        "reference_velocity": 820,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 407.262212,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_falcon762r",
+      "name": "猎隼 F762R",
+      "kind": "weapon",
+      "category": "sniper",
+      "price": 15900,
+      "sell_price": 7155,
+      "weight": 4.2,
+      "description": "使用 7.62×54R 弹药的半自动精确步枪，兼顾威力与补射速度。侧挂瞄具和专用贴腮托适合稳定瞄准。",
+      "caliber": "762x54r",
+      "slots": {
+        "muzzle": [
+          "thread_762_14"
+        ],
+        "stock": [
+          "falcon_cheek"
+        ],
+        "magazine": [
+          "mag_falcon762r"
+        ],
+        "optic": [
+          "side_rail"
+        ],
+        "handguard": [
+          "hg_falcon762r"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_falcon762r.glb",
+      "stats": {
+        "damage": 74,
+        "rpm": 180,
+        "magazine": 10,
+        "recoil": 51,
+        "accuracy": 92,
+        "ergonomics": 46,
+        "range": 45,
+        "noise": 97,
+        "recoil_control": 49,
+        "horizontal_control": 64.3,
+        "suppression": 23
+      },
+      "ballistics": {
+        "muzzle_velocity": 830,
+        "reference_velocity": 830,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 381.808323,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_osprey338",
+      "name": "鱼鹰 O338",
+      "kind": "weapon",
+      "category": "sniper",
+      "price": 38100,
+      "sell_price": 17145,
+      "weight": 6.1,
+      "description": ".338 口径重型精确步枪，拥有最长有效射程与极高单发威力。重量和缓慢射速要求谨慎选择射击时机。",
+      "caliber": "338lm",
+      "slots": {
+        "muzzle": [
+          "thread_338_34"
+        ],
+        "grip": [
+          "bipod_stud"
+        ],
+        "stock": [
+          "bolt_cheek"
+        ],
+        "magazine": [
+          "mag_osprey338"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_osprey338"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_osprey338.glb",
+      "stats": {
+        "damage": 108,
+        "rpm": 42,
+        "magazine": 5,
+        "recoil": 65,
+        "accuracy": 98,
+        "ergonomics": 29,
+        "range": 58,
+        "noise": 100,
+        "recoil_control": 35,
+        "horizontal_control": 54.5,
+        "suppression": 20
+      },
+      "ballistics": {
+        "muzzle_velocity": 900,
+        "reference_velocity": 900,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 492.108506,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_wren556",
+      "name": "鹪鹩 W556",
+      "kind": "weapon",
+      "category": "sniper",
+      "price": 16500,
+      "sell_price": 7425,
+      "weight": 3.85,
+      "description": "轻口径精确步枪，远距离精度优秀，补射较快。与獾共享 AR 供弹标准，前端采用支架固定柱。",
+      "caliber": "556x45",
+      "slots": {
+        "muzzle": [
+          "thread_556_12"
+        ],
+        "grip": [
+          "bipod_stud"
+        ],
+        "stock": [
+          "ar_buffer"
+        ],
+        "magazine": [
+          "mag_ar556"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_ar556"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_wren556.glb",
+      "stats": {
+        "damage": 49,
+        "rpm": 320,
+        "magazine": 20,
+        "recoil": 39,
+        "accuracy": 94,
+        "ergonomics": 53,
+        "range": 43,
+        "noise": 85,
+        "recoil_control": 61,
+        "horizontal_control": 72.7,
+        "suppression": 35
+      },
+      "ballistics": {
+        "muzzle_velocity": 890,
+        "reference_velocity": 890,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 364.839065,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_boar12",
+      "name": "野猪 B12",
+      "kind": "weapon",
+      "category": "shotgun",
+      "price": 7100,
+      "sell_price": 3195,
+      "weight": 3.2,
+      "description": "可靠的泵动 12 号霰弹枪，近距离威力突出。弹仓管容量有限，泵动前握把能改善控枪。",
+      "caliber": "12g",
+      "slots": {
+        "muzzle": [
+          "thread_12_m22"
+        ],
+        "grip": [
+          "pump_rail"
+        ],
+        "stock": [
+          "shotgun_mount"
+        ],
+        "magazine": [
+          "tube_boar12"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_boar12"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_boar12.glb",
+      "stats": {
+        "damage": 76,
+        "rpm": 90,
+        "magazine": 6,
+        "recoil": 58,
+        "accuracy": 66,
+        "ergonomics": 58,
+        "range": 15,
+        "noise": 96,
+        "recoil_control": 42,
+        "horizontal_control": 59.4,
+        "suppression": 24
+      },
+      "ballistics": {
+        "muzzle_velocity": 410,
+        "reference_velocity": 410,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 47.271507,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_ram12",
+      "name": "盘羊 R12",
+      "kind": "weapon",
+      "category": "shotgun",
+      "price": 12500,
+      "sell_price": 5625,
+      "weight": 3.65,
+      "description": "弹匣供弹的 12 号霰弹枪，适合近距离连续交火。折叠尾座与导轨为控制后坐提供多种选择。",
+      "caliber": "12g",
+      "slots": {
+        "muzzle": [
+          "thread_12_m22"
+        ],
+        "grip": [
+          "picatinny"
+        ],
+        "stock": [
+          "fold_hinge"
+        ],
+        "magazine": [
+          "mag_ram12"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_ram12"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_ram12.glb",
+      "stats": {
+        "damage": 72,
+        "rpm": 280,
+        "magazine": 8,
+        "recoil": 51,
+        "accuracy": 69,
+        "ergonomics": 49,
+        "range": 17,
+        "noise": 95,
+        "recoil_control": 49,
+        "horizontal_control": 64.3,
+        "suppression": 25
+      },
+      "ballistics": {
+        "muzzle_velocity": 410,
+        "reference_velocity": 410,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 53.574374,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_fox20",
+      "name": "赤狐 F20",
+      "kind": "weapon",
+      "category": "shotgun",
+      "price": 4700,
+      "sell_price": 2115,
+      "weight": 2.65,
+      "description": "轻巧灵活的 20 号霰弹枪，后坐比 12 号平台温和。适合狭窄区域机动，远距离伤害受限。",
+      "caliber": "20g",
+      "slots": {
+        "muzzle": [
+          "thread_20_m20"
+        ],
+        "stock": [
+          "fox_stock"
+        ],
+        "magazine": [
+          "tube_fox20"
+        ],
+        "optic": [
+          "dovetail"
+        ],
+        "laser": [
+          "trigger_rail"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_fox20.glb",
+      "stats": {
+        "damage": 63,
+        "rpm": 110,
+        "magazine": 5,
+        "recoil": 43,
+        "accuracy": 72,
+        "ergonomics": 72,
+        "range": 14,
+        "noise": 87,
+        "recoil_control": 57,
+        "horizontal_control": 69.9,
+        "suppression": 33
+      },
+      "ballistics": {
+        "muzzle_velocity": 410,
+        "reference_velocity": 410,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 44.120073,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_elk12",
+      "name": "麋鹿 E12",
+      "kind": "weapon",
+      "category": "shotgun",
+      "price": 8700,
+      "sell_price": 3915,
+      "weight": 3.35,
+      "description": "双管 12 号霰弹枪，近距离整次射击威力很高。只有两发装填空间，需要把握出手和装填时机。",
+      "caliber": "12g",
+      "slots": {
+        "muzzle": [
+          "thread_12_m22"
+        ],
+        "stock": [
+          "shotgun_mount"
+        ],
+        "magazine": [
+          "chamber_elk12"
+        ],
+        "optic": [
+          "dovetail"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_elk12.glb",
+      "stats": {
+        "damage": 82,
+        "rpm": 130,
+        "magazine": 2,
+        "recoil": 62,
+        "accuracy": 75,
+        "ergonomics": 60,
+        "range": 19,
+        "noise": 99,
+        "recoil_control": 38,
+        "horizontal_control": 56.6,
+        "suppression": 21
+      },
+      "ballistics": {
+        "muzzle_velocity": 410,
+        "reference_velocity": 410,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 59.877242,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_bison556",
+      "name": "野牛 B556",
+      "kind": "weapon",
+      "category": "machine_gun",
+      "price": 22700,
+      "sell_price": 10215,
+      "weight": 6.4,
+      "description": "5.56 mm 班用机枪，基础供弹量大，适合控制通道。重量较高，支架和缓冲尾托能改善长点射。",
+      "caliber": "556x45",
+      "slots": {
+        "muzzle": [
+          "thread_556_12"
+        ],
+        "grip": [
+          "bipod_stud"
+        ],
+        "stock": [
+          "bison_socket"
+        ],
+        "magazine": [
+          "belt_bison556"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_bison556"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_bison556.glb",
+      "stats": {
+        "damage": 36,
+        "rpm": 780,
+        "magazine": 75,
+        "recoil": 38,
+        "accuracy": 78,
+        "ergonomics": 29,
+        "range": 37,
+        "noise": 93,
+        "recoil_control": 62,
+        "horizontal_control": 73.4,
+        "suppression": 27
+      },
+      "ballistics": {
+        "muzzle_velocity": 890,
+        "reference_velocity": 890,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 233.2061,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_yak762",
+      "name": "牦牛 Y762",
+      "kind": "weapon",
+      "category": "machine_gun",
+      "price": 18400,
+      "sell_price": 8280,
+      "weight": 5.6,
+      "description": "7.62 mm 弹鼓机枪，单发威力和携弹量兼顾。后坐偏大，适合依托掩体进行有节奏的压制。",
+      "caliber": "762x39",
+      "slots": {
+        "muzzle": [
+          "thread_762_14"
+        ],
+        "grip": [
+          "picatinny"
+        ],
+        "stock": [
+          "yak_socket"
+        ],
+        "magazine": [
+          "drum_yak762"
+        ],
+        "optic": [
+          "side_rail"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_yak762"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_yak762.glb",
+      "stats": {
+        "damage": 43,
+        "rpm": 650,
+        "magazine": 60,
+        "recoil": 46,
+        "accuracy": 76,
+        "ergonomics": 33,
+        "range": 35,
+        "noise": 95,
+        "recoil_control": 54,
+        "horizontal_control": 67.8,
+        "suppression": 25
+      },
+      "ballistics": {
+        "muzzle_velocity": 715,
+        "reference_velocity": 715,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 220.600365,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_rhino762r",
+      "name": "犀牛 R762R",
+      "kind": "weapon",
+      "category": "machine_gun",
+      "price": 31700,
+      "sell_price": 14265,
+      "weight": 8.1,
+      "description": "使用全威力 7.62×54R 弹药的重型机枪，基础 100 发供弹。火力强劲但十分沉重，携行与控枪均需取舍。",
+      "caliber": "762x54r",
+      "slots": {
+        "muzzle": [
+          "thread_762_14"
+        ],
+        "grip": [
+          "bipod_stud"
+        ],
+        "stock": [
+          "rhino_socket"
+        ],
+        "magazine": [
+          "belt_rhino762r"
+        ],
+        "optic": [
+          "side_rail"
+        ],
+        "laser": [
+          "picatinny"
+        ],
+        "handguard": [
+          "hg_rhino762r"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_rhino762r.glb",
+      "stats": {
+        "damage": 55,
+        "rpm": 700,
+        "magazine": 100,
+        "recoil": 52,
+        "accuracy": 80,
+        "ergonomics": 20,
+        "range": 42,
+        "noise": 100,
+        "recoil_control": 48,
+        "horizontal_control": 63.6,
+        "suppression": 20
+      },
+      "ballistics": {
+        "muzzle_velocity": 830,
+        "reference_velocity": 830,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 264.720438,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_aurochs556",
+      "name": "原牛 A556",
+      "kind": "weapon",
+      "category": "machine_gun",
+      "price": 20100,
+      "sell_price": 9045,
+      "weight": 5.1,
+      "description": "相对轻便的 5.56 mm 支援机枪，射速高、持续火力充足。采用 AR 缓冲管和 M 型槽，供弹盒则为专用。",
+      "caliber": "556x45",
+      "slots": {
+        "muzzle": [
+          "thread_556_12"
+        ],
+        "grip": [
+          "mlok"
+        ],
+        "stock": [
+          "ar_buffer"
+        ],
+        "magazine": [
+          "mag_aurochs556"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "mlok"
+        ],
+        "handguard": [
+          "hg_aurochs556"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_aurochs556.glb",
+      "stats": {
+        "damage": 35,
+        "rpm": 850,
+        "magazine": 60,
+        "recoil": 36,
+        "accuracy": 81,
+        "ergonomics": 37,
+        "range": 36,
+        "noise": 92,
+        "recoil_control": 64,
+        "horizontal_control": 74.8,
+        "suppression": 28
+      },
+      "ballistics": {
+        "muzzle_velocity": 890,
+        "reference_velocity": 890,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 226.903232,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_finch9",
+      "name": "金雀 F9",
+      "kind": "weapon",
+      "category": "pistol",
+      "price": 2600,
+      "sell_price": 1170,
+      "weight": 0.85,
+      "description": "轻便经济的 9 mm 手枪，适合基础出战或轻装搜索。支持微型红点与手枪激光模块。",
+      "caliber": "9x19",
+      "slots": {
+        "muzzle": [
+          "thread_9_13"
+        ],
+        "magazine": [
+          "mag_finch9"
+        ],
+        "optic": [
+          "microplate"
+        ],
+        "laser": [
+          "pistol_rail"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_finch9.glb",
+      "stats": {
+        "damage": 27,
+        "rpm": 440,
+        "magazine": 15,
+        "recoil": 37,
+        "accuracy": 78,
+        "ergonomics": 88,
+        "range": 19,
+        "noise": 62,
+        "recoil_control": 63,
+        "horizontal_control": 74.1,
+        "suppression": 58
+      },
+      "ballistics": {
+        "muzzle_velocity": 360,
+        "reference_velocity": 360,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 82.90695,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_ember45",
+      "name": "余烬 E45",
+      "kind": "weapon",
+      "category": "pistol",
+      "price": 3400,
+      "sell_price": 1530,
+      "weight": 1.12,
+      "description": ".45 口径手枪，单发威力较高但弹容只有 8 发。无瞄具导轨，可选配扳机护圈激光。",
+      "caliber": "45acp",
+      "slots": {
+        "muzzle": [
+          "thread_45_16"
+        ],
+        "magazine": [
+          "mag_ember45"
+        ],
+        "laser": [
+          "trigger_rail"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_ember45.glb",
+      "stats": {
+        "damage": 34,
+        "rpm": 350,
+        "magazine": 8,
+        "recoil": 46,
+        "accuracy": 76,
+        "ergonomics": 79,
+        "range": 18,
+        "noise": 68,
+        "recoil_control": 54,
+        "horizontal_control": 67.8,
+        "suppression": 52
+      },
+      "ballistics": {
+        "muzzle_velocity": 280,
+        "reference_velocity": 280,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 78.543427,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_moth57",
+      "name": "夜蛾 M57",
+      "kind": "weapon",
+      "category": "pistol",
+      "price": 5400,
+      "sell_price": 2430,
+      "weight": 0.92,
+      "description": "5.7 mm 轻型手枪，后坐较低，基础 20 发弹容。微型瞄具和匹配弹药适合精确补射。",
+      "caliber": "57x28",
+      "slots": {
+        "muzzle": [
+          "thread_57_10"
+        ],
+        "magazine": [
+          "mag_moth57"
+        ],
+        "optic": [
+          "microplate"
+        ],
+        "laser": [
+          "pistol_rail"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_moth57.glb",
+      "stats": {
+        "damage": 25,
+        "rpm": 480,
+        "magazine": 20,
+        "recoil": 28,
+        "accuracy": 84,
+        "ergonomics": 86,
+        "range": 24,
+        "noise": 60,
+        "recoil_control": 72,
+        "horizontal_control": 80.4,
+        "suppression": 60
+      },
+      "ballistics": {
+        "muzzle_velocity": 715,
+        "reference_velocity": 715,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 104.724569,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "weapon_raven9",
+      "name": "渡鸦 R9",
+      "kind": "weapon",
+      "category": "pistol",
+      "price": 4100,
+      "sell_price": 1845,
+      "weight": 1.25,
+      "description": "尺寸较大的 9 mm 手枪，射速和弹容充足。支持专用稳定肩托、顶置导轨瞄具和手枪激光。",
+      "caliber": "9x19",
+      "slots": {
+        "muzzle": [
+          "thread_9_13"
+        ],
+        "stock": [
+          "pistol_brace"
+        ],
+        "magazine": [
+          "mag_raven9"
+        ],
+        "optic": [
+          "picatinny"
+        ],
+        "laser": [
+          "pistol_rail"
+        ]
+      },
+      "visual_model": "res://assets/modular/weapons/weapon_raven9.glb",
+      "stats": {
+        "damage": 28,
+        "rpm": 500,
+        "magazine": 20,
+        "recoil": 31,
+        "accuracy": 80,
+        "ergonomics": 75,
+        "range": 21,
+        "noise": 66,
+        "recoil_control": 69,
+        "horizontal_control": 78.3,
+        "suppression": 54
+      },
+      "ballistics": {
+        "muzzle_velocity": 360,
+        "reference_velocity": 360,
+        "full_damage_distance": 2.0,
+        "screen_reference_distance": 37.4176025390625,
+        "curve_distance": 91.633998,
+        "falloff_exponent": 2.0
+      }
+    },
+    {
+      "id": "att_suppressor_9_13",
+      "name": "静流消音器 · 9 mm / M13",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 3250,
+      "sell_price": 1462,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_9_13"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_9_13.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_9_13",
+      "name": "薄暮消焰器 · 9 mm / M13",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 750,
+      "sell_price": 338,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_9_13"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_9_13.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_9_13",
+      "name": "平衡补偿器 · 9 mm / M13",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1300,
+      "sell_price": 585,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_9_13"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_9_13.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_9_13",
+      "name": "砾岩制退器 · 9 mm / M13",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 1800,
+      "sell_price": 810,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_9_13"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_9_13.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_45_16",
+      "name": "静流消音器 · .45 / M16",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 3450,
+      "sell_price": 1552,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_45_16"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_45_16.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_45_16",
+      "name": "薄暮消焰器 · .45 / M16",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 800,
+      "sell_price": 360,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_45_16"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_45_16.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_45_16",
+      "name": "平衡补偿器 · .45 / M16",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1350,
+      "sell_price": 608,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_45_16"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_45_16.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_45_16",
+      "name": "砾岩制退器 · .45 / M16",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 1850,
+      "sell_price": 832,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_45_16"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_45_16.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_57_10",
+      "name": "静流消音器 · 5.7 mm / M10",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 3650,
+      "sell_price": 1642,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_57_10"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_57_10.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_57_10",
+      "name": "薄暮消焰器 · 5.7 mm / M10",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 850,
+      "sell_price": 382,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_57_10"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_57_10.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_57_10",
+      "name": "平衡补偿器 · 5.7 mm / M10",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1450,
+      "sell_price": 652,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_57_10"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_57_10.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_57_10",
+      "name": "砾岩制退器 · 5.7 mm / M10",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 1950,
+      "sell_price": 878,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_57_10"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_57_10.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_556_12",
+      "name": "静流消音器 · 5.56 / 1/2",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 3900,
+      "sell_price": 1755,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_556_12"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_556_12.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_556_12",
+      "name": "薄暮消焰器 · 5.56 / 1/2",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 900,
+      "sell_price": 405,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_556_12"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_556_12.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_556_12",
+      "name": "平衡补偿器 · 5.56 / 1/2",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1500,
+      "sell_price": 675,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_556_12"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_556_12.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_556_12",
+      "name": "砾岩制退器 · 5.56 / 1/2",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2050,
+      "sell_price": 922,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_556_12"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_556_12.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_545_14",
+      "name": "静流消音器 · 5.45 / M14",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 4100,
+      "sell_price": 1845,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_545_14"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_545_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_545_14",
+      "name": "薄暮消焰器 · 5.45 / M14",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 950,
+      "sell_price": 428,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_545_14"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_545_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_545_14",
+      "name": "平衡补偿器 · 5.45 / M14",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1600,
+      "sell_price": 720,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_545_14"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_545_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_545_14",
+      "name": "砾岩制退器 · 5.45 / M14",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2150,
+      "sell_price": 968,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_545_14"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_545_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_762_14",
+      "name": "静流消音器 · 7.62 / M14",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 4350,
+      "sell_price": 1958,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_762_14"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_762_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_762_14",
+      "name": "薄暮消焰器 · 7.62 / M14",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 1000,
+      "sell_price": 450,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_762_14"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_762_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_762_14",
+      "name": "平衡补偿器 · 7.62 / M14",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_762_14"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_762_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_762_14",
+      "name": "砾岩制退器 · 7.62 / M14",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2250,
+      "sell_price": 1012,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_762_14"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_762_14.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_308_58",
+      "name": "静流消音器 · .30 / 5/8",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 4550,
+      "sell_price": 2048,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_308_58"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_308_58.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_308_58",
+      "name": "薄暮消焰器 · .30 / 5/8",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_308_58"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_308_58.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_308_58",
+      "name": "平衡补偿器 · .30 / 5/8",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1750,
+      "sell_price": 788,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_308_58"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_308_58.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_308_58",
+      "name": "砾岩制退器 · .30 / 5/8",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2300,
+      "sell_price": 1035,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_308_58"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_308_58.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_338_34",
+      "name": "静流消音器 · .338 / 3/4",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 4800,
+      "sell_price": 2160,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_338_34"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_338_34.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_338_34",
+      "name": "薄暮消焰器 · .338 / 3/4",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 1100,
+      "sell_price": 495,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_338_34"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_338_34.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_338_34",
+      "name": "平衡补偿器 · .338 / 3/4",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1800,
+      "sell_price": 810,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_338_34"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_338_34.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_338_34",
+      "name": "砾岩制退器 · .338 / 3/4",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2400,
+      "sell_price": 1080,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_338_34"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_338_34.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_12_m22",
+      "name": "静流消音器 · 12 号 / M22",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 5000,
+      "sell_price": 2250,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_12_m22"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_12_m22.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_12_m22",
+      "name": "薄暮消焰器 · 12 号 / M22",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 1150,
+      "sell_price": 518,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_12_m22"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_12_m22.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_12_m22",
+      "name": "平衡补偿器 · 12 号 / M22",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1900,
+      "sell_price": 855,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_12_m22"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_12_m22.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_12_m22",
+      "name": "砾岩制退器 · 12 号 / M22",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2500,
+      "sell_price": 1125,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_12_m22"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_12_m22.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_suppressor_20_m20",
+      "name": "静流消音器 · 20 号 / M20",
+      "kind": "attachment",
+      "category": "suppressor",
+      "price": 5200,
+      "sell_price": 2340,
+      "weight": 0.48,
+      "description": "压低开火噪声和被敌人听见的距离，增加前端重量。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_20_m20"
+      ],
+      "modifiers": {
+        "suppression": 38,
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "range": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_suppressor_20_m20.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_flash_hider_20_m20",
+      "name": "薄暮消焰器 · 20 号 / M20",
+      "kind": "attachment",
+      "category": "flash_hider",
+      "price": 1200,
+      "sell_price": 540,
+      "weight": 0.12,
+      "description": "遮蔽枪口焰；小幅改善控制和隐蔽。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_20_m20"
+      ],
+      "modifiers": {
+        "suppression": 6,
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_flash_hider_20_m20.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_compensator_20_m20",
+      "name": "平衡补偿器 · 20 号 / M20",
+      "kind": "attachment",
+      "category": "compensator",
+      "price": 1950,
+      "sell_price": 878,
+      "weight": 0.19,
+      "description": "导出上扬气流，明显降低连续射击散布。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_20_m20"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_compensator_20_m20.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_muzzle_brake_20_m20",
+      "name": "砾岩制退器 · 20 号 / M20",
+      "kind": "attachment",
+      "category": "muzzle_brake",
+      "price": 2600,
+      "sell_price": 1170,
+      "weight": 0.24,
+      "description": "更强的后坐抑制，同时让枪声更响。",
+      "slot": "muzzle",
+      "interfaces": [
+        "thread_20_m20"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_muzzle_brake_20_m20.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_vertical",
+      "name": "垂直战术握把",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 850,
+      "sell_price": 382,
+      "weight": 0.17,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "recoil_control": 7,
+        "horizontal_control": 4.2,
+        "ergonomics": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_vertical.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_angled",
+      "name": "轻量斜角握把",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.12,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "ergonomics": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_angled.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_mlok_rubber",
+      "name": "M 槽橡胶握把",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 950,
+      "sell_price": 428,
+      "weight": 0.16,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "mlok"
+      ],
+      "modifiers": {
+        "recoil_control": 6,
+        "horizontal_control": 3.6,
+        "ergonomics": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_mlok_rubber.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_mlok_stop",
+      "name": "M 槽止滑手挡",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 650,
+      "sell_price": 292,
+      "weight": 0.07,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "mlok"
+      ],
+      "modifiers": {
+        "recoil_control": 2,
+        "horizontal_control": 1.2,
+        "ergonomics": 8
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_mlok_stop.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_keymod",
+      "name": "钥孔短握把",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 800,
+      "sell_price": 360,
+      "weight": 0.11,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "keymod"
+      ],
+      "modifiers": {
+        "recoil_control": 5,
+        "horizontal_control": 3.0,
+        "ergonomics": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_keymod.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_bipod",
+      "name": "折叠支撑脚架",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 2200,
+      "sell_price": 990,
+      "weight": 0.45,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "bipod_stud"
+      ],
+      "modifiers": {
+        "recoil_control": 11,
+        "horizontal_control": 6.6,
+        "accuracy": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_bipod.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_bipod_carbon",
+      "name": "碳纤维支撑脚架",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 3600,
+      "sell_price": 1620,
+      "weight": 0.26,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "bipod_stud"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "accuracy": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_bipod_carbon.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_grip_pump",
+      "name": "泵动防滑前握把",
+      "kind": "attachment",
+      "category": "grip",
+      "price": 900,
+      "sell_price": 405,
+      "weight": 0.15,
+      "description": "改善握持与控枪表现；请按前端安装标准选择。",
+      "slot": "grip",
+      "interfaces": [
+        "pump_rail"
+      ],
+      "modifiers": {
+        "recoil_control": 6,
+        "horizontal_control": 3.6,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_grip_pump.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_ar_light",
+      "name": "轻骨伸缩枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1100,
+      "sell_price": 495,
+      "weight": 0.28,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "ar_buffer"
+      ],
+      "modifiers": {
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "ergonomics": 8
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_ar_light.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_ar_heavy",
+      "name": "稳固重型枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 2100,
+      "sell_price": 945,
+      "weight": 0.55,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "ar_buffer"
+      ],
+      "modifiers": {
+        "recoil_control": 12,
+        "horizontal_control": 7.2,
+        "accuracy": 3
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_ar_heavy.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_pdw_compact",
+      "name": "PDW 紧凑滑轨枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.24,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "pdw_slide"
+      ],
+      "modifiers": {
+        "recoil_control": 5,
+        "horizontal_control": 3.0,
+        "ergonomics": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_pdw_compact.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_pdw_padded",
+      "name": "PDW 缓冲滑轨枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1400,
+      "sell_price": 630,
+      "weight": 0.39,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "pdw_slide"
+      ],
+      "modifiers": {
+        "recoil_control": 9,
+        "horizontal_control": 5.4,
+        "ergonomics": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_pdw_padded.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_fold_light",
+      "name": "双销轻量折叠枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.29,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "fold_hinge"
+      ],
+      "modifiers": {
+        "recoil_control": 4,
+        "horizontal_control": 2.4,
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_fold_light.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_fold_braced",
+      "name": "双销支撑折叠枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1850,
+      "sell_price": 832,
+      "weight": 0.46,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "fold_hinge"
+      ],
+      "modifiers": {
+        "recoil_control": 10,
+        "horizontal_control": 6.0,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_fold_braced.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_swift",
+      "name": "雨燕侧折枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 900,
+      "sell_price": 405,
+      "weight": 0.22,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "swift_hinge"
+      ],
+      "modifiers": {
+        "recoil_control": 7,
+        "horizontal_control": 4.2,
+        "ergonomics": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_swift.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_cedar",
+      "name": "雪松尾座枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1350,
+      "sell_price": 608,
+      "weight": 0.43,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "cedar_trunnion"
+      ],
+      "modifiers": {
+        "recoil_control": 10,
+        "horizontal_control": 6.0,
+        "ergonomics": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_cedar.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_bolt",
+      "name": "精确可调贴腮托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 2750,
+      "sell_price": 1238,
+      "weight": 0.63,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "bolt_cheek"
+      ],
+      "modifiers": {
+        "recoil_control": 8,
+        "horizontal_control": 4.8,
+        "accuracy": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_bolt.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_falcon",
+      "name": "猎隼木质贴腮托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1700,
+      "sell_price": 765,
+      "weight": 0.52,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "falcon_cheek"
+      ],
+      "modifiers": {
+        "recoil_control": 7,
+        "horizontal_control": 4.2,
+        "accuracy": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_falcon.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_shotgun",
+      "name": "霰弹缓冲枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1800,
+      "sell_price": 810,
+      "weight": 0.48,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "shotgun_mount"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_shotgun.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_fox",
+      "name": "赤狐轻木枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1000,
+      "sell_price": 450,
+      "weight": 0.31,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "fox_stock"
+      ],
+      "modifiers": {
+        "recoil_control": 7,
+        "horizontal_control": 4.2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_fox.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_bison",
+      "name": "野牛缓冲尾托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 2250,
+      "sell_price": 1012,
+      "weight": 0.62,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "bison_socket"
+      ],
+      "modifiers": {
+        "recoil_control": 13,
+        "horizontal_control": 7.8,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_bison.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_yak",
+      "name": "牦牛支撑枪托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1900,
+      "sell_price": 855,
+      "weight": 0.54,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "yak_socket"
+      ],
+      "modifiers": {
+        "recoil_control": 11,
+        "horizontal_control": 6.6,
+        "accuracy": 3
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_yak.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_rhino",
+      "name": "犀牛重型尾托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 2750,
+      "sell_price": 1238,
+      "weight": 0.76,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "rhino_socket"
+      ],
+      "modifiers": {
+        "recoil_control": 15,
+        "horizontal_control": 9.0,
+        "accuracy": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_rhino.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_stock_brace",
+      "name": "渡鸦稳定肩托",
+      "kind": "attachment",
+      "category": "stock",
+      "price": 1800,
+      "sell_price": 810,
+      "weight": 0.36,
+      "description": "改变后坐与操控手感，需匹配枪械尾座。",
+      "slot": "stock",
+      "interfaces": [
+        "pistol_brace"
+      ],
+      "modifiers": {
+        "recoil_control": 11,
+        "horizontal_control": 6.6,
+        "accuracy": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_stock_brace.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_reed9_quick",
+      "name": "芦苇 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_reed9"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_reed9_quick.glb",
+      "weapon_ids": [
+        "weapon_reed9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_reed9_extended",
+      "name": "芦苇 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_reed9"
+      ],
+      "modifiers": {
+        "magazine": 15
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_reed9_extended.glb",
+      "weapon_ids": [
+        "weapon_reed9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_lynx45_quick",
+      "name": "猞猁 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_lynx45"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_lynx45_quick.glb",
+      "weapon_ids": [
+        "weapon_lynx45"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_lynx45_extended",
+      "name": "猞猁 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1550,
+      "sell_price": 698,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_lynx45"
+      ],
+      "modifiers": {
+        "magazine": 12
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_lynx45_extended.glb",
+      "weapon_ids": [
+        "weapon_lynx45"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_kestrel57_quick",
+      "name": "红隼 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_kestrel57"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_kestrel57_quick.glb",
+      "weapon_ids": [
+        "weapon_kestrel57"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_kestrel57_extended",
+      "name": "红隼 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1700,
+      "sell_price": 765,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_kestrel57"
+      ],
+      "modifiers": {
+        "magazine": 20
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_kestrel57_extended.glb",
+      "weapon_ids": [
+        "weapon_kestrel57"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_swift9_quick",
+      "name": "雨燕 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_swift9"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_swift9_quick.glb",
+      "weapon_ids": [
+        "weapon_swift9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_swift9_extended",
+      "name": "雨燕 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_swift9"
+      ],
+      "modifiers": {
+        "magazine": 16
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_swift9_extended.glb",
+      "weapon_ids": [
+        "weapon_swift9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_badger556_quick",
+      "name": "獾 快拔供弹组件",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 700,
+      "sell_price": 315,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_ar556"
+      ],
+      "modifiers": {
+        "ergonomics": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_badger556_quick.glb",
+      "weapon_ids": [
+        "weapon_badger556",
+        "weapon_wren556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_badger556_extended",
+      "name": "獾 加长供弹组件",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1400,
+      "sell_price": 630,
+      "weight": 0.36,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_ar556"
+      ],
+      "modifiers": {
+        "magazine": 10
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_badger556_extended.glb",
+      "weapon_ids": [
+        "weapon_badger556",
+        "weapon_wren556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_cedar545_quick",
+      "name": "雪松 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_cedar545"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_cedar545_quick.glb",
+      "weapon_ids": [
+        "weapon_cedar545"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_cedar545_extended",
+      "name": "雪松 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_cedar545"
+      ],
+      "modifiers": {
+        "magazine": 15
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_cedar545_extended.glb",
+      "weapon_ids": [
+        "weapon_cedar545"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_jackal762_quick",
+      "name": "胡狼 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_jackal762"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_jackal762_quick.glb",
+      "weapon_ids": [
+        "weapon_jackal762"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_jackal762_extended",
+      "name": "胡狼 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_jackal762"
+      ],
+      "modifiers": {
+        "magazine": 15
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_jackal762_extended.glb",
+      "weapon_ids": [
+        "weapon_jackal762"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_manta300_quick",
+      "name": "蝠鲼 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_manta300"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_manta300_quick.glb",
+      "weapon_ids": [
+        "weapon_manta300"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_manta300_extended",
+      "name": "蝠鲼 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_manta300"
+      ],
+      "modifiers": {
+        "magazine": 15
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_manta300_extended.glb",
+      "weapon_ids": [
+        "weapon_manta300"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_heron308_quick",
+      "name": "苍鹭 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_heron308"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_heron308_quick.glb",
+      "weapon_ids": [
+        "weapon_heron308"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_heron308_extended",
+      "name": "苍鹭 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1450,
+      "sell_price": 652,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_heron308"
+      ],
+      "modifiers": {
+        "magazine": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_heron308_extended.glb",
+      "weapon_ids": [
+        "weapon_heron308"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_falcon762r_quick",
+      "name": "猎隼 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_falcon762r"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_falcon762r_quick.glb",
+      "weapon_ids": [
+        "weapon_falcon762r"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_falcon762r_extended",
+      "name": "猎隼 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1450,
+      "sell_price": 652,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_falcon762r"
+      ],
+      "modifiers": {
+        "magazine": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_falcon762r_extended.glb",
+      "weapon_ids": [
+        "weapon_falcon762r"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_osprey338_quick",
+      "name": "鱼鹰 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_osprey338"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_osprey338_quick.glb",
+      "weapon_ids": [
+        "weapon_osprey338"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_osprey338_extended",
+      "name": "鱼鹰 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1400,
+      "sell_price": 630,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_osprey338"
+      ],
+      "modifiers": {
+        "magazine": 3
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_osprey338_extended.glb",
+      "weapon_ids": [
+        "weapon_osprey338"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_boar12_follower",
+      "name": "野猪 低摩擦托弹簧",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 550,
+      "sell_price": 248,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "tube_boar12"
+      ],
+      "modifiers": {
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_boar12_follower.glb",
+      "weapon_ids": [
+        "weapon_boar12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_boar12_extended",
+      "name": "野猪 延长弹仓管",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1100,
+      "sell_price": 495,
+      "weight": 0.33999999999999997,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "tube_boar12"
+      ],
+      "modifiers": {
+        "magazine": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_boar12_extended.glb",
+      "weapon_ids": [
+        "weapon_boar12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_ram12_quick",
+      "name": "盘羊 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_ram12"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_ram12_quick.glb",
+      "weapon_ids": [
+        "weapon_ram12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_ram12_extended",
+      "name": "盘羊 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1450,
+      "sell_price": 652,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_ram12"
+      ],
+      "modifiers": {
+        "magazine": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_ram12_extended.glb",
+      "weapon_ids": [
+        "weapon_ram12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_fox20_follower",
+      "name": "赤狐 低摩擦托弹簧",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 550,
+      "sell_price": 248,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "tube_fox20"
+      ],
+      "modifiers": {
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_fox20_follower.glb",
+      "weapon_ids": [
+        "weapon_fox20"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_fox20_extended",
+      "name": "赤狐 延长弹仓管",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1100,
+      "sell_price": 495,
+      "weight": 0.33999999999999997,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "tube_fox20"
+      ],
+      "modifiers": {
+        "magazine": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_fox20_extended.glb",
+      "weapon_ids": [
+        "weapon_fox20"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_elk12_speed",
+      "name": "麋鹿 双管快速装填套件",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 650,
+      "sell_price": 292,
+      "weight": 0.24,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "chamber_elk12"
+      ],
+      "modifiers": {
+        "ergonomics": 8
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_elk12_speed.glb",
+      "weapon_ids": [
+        "weapon_elk12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_elk12_reinforced",
+      "name": "麋鹿 双管精密闭锁套件",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1200,
+      "sell_price": 540,
+      "weight": 0.31,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "chamber_elk12"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "recoil_control": 3,
+        "horizontal_control": 1.8
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_elk12_reinforced.glb",
+      "weapon_ids": [
+        "weapon_elk12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_bison556_quick",
+      "name": "野牛 轻型供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.13,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "belt_bison556"
+      ],
+      "modifiers": {
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_bison556_quick.glb",
+      "weapon_ids": [
+        "weapon_bison556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_bison556_extended",
+      "name": "野牛 大容量供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 3750,
+      "sell_price": 1688,
+      "weight": 0.73,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "belt_bison556"
+      ],
+      "modifiers": {
+        "magazine": 40
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_bison556_extended.glb",
+      "weapon_ids": [
+        "weapon_bison556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_yak762_quick",
+      "name": "牦牛 轻型供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.13,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "drum_yak762"
+      ],
+      "modifiers": {
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_yak762_quick.glb",
+      "weapon_ids": [
+        "weapon_yak762"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_yak762_extended",
+      "name": "牦牛 大容量供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 3750,
+      "sell_price": 1688,
+      "weight": 0.73,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "drum_yak762"
+      ],
+      "modifiers": {
+        "magazine": 40
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_yak762_extended.glb",
+      "weapon_ids": [
+        "weapon_yak762"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_rhino762r_quick",
+      "name": "犀牛 轻型供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.13,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "belt_rhino762r"
+      ],
+      "modifiers": {
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_rhino762r_quick.glb",
+      "weapon_ids": [
+        "weapon_rhino762r"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_rhino762r_extended",
+      "name": "犀牛 大容量供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 3750,
+      "sell_price": 1688,
+      "weight": 0.73,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "belt_rhino762r"
+      ],
+      "modifiers": {
+        "magazine": 40
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_rhino762r_extended.glb",
+      "weapon_ids": [
+        "weapon_rhino762r"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_aurochs556_quick",
+      "name": "原牛 轻型供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1050,
+      "sell_price": 472,
+      "weight": 0.13,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_aurochs556"
+      ],
+      "modifiers": {
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_aurochs556_quick.glb",
+      "weapon_ids": [
+        "weapon_aurochs556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_aurochs556_extended",
+      "name": "原牛 大容量供弹盒",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 3750,
+      "sell_price": 1688,
+      "weight": 0.73,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_aurochs556"
+      ],
+      "modifiers": {
+        "magazine": 40
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_aurochs556_extended.glb",
+      "weapon_ids": [
+        "weapon_aurochs556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_finch9_quick",
+      "name": "金雀 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_finch9"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_finch9_quick.glb",
+      "weapon_ids": [
+        "weapon_finch9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_finch9_extended",
+      "name": "金雀 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1500,
+      "sell_price": 675,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_finch9"
+      ],
+      "modifiers": {
+        "magazine": 8
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_finch9_extended.glb",
+      "weapon_ids": [
+        "weapon_finch9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_ember45_quick",
+      "name": "余烬 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_ember45"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_ember45_quick.glb",
+      "weapon_ids": [
+        "weapon_ember45"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_ember45_extended",
+      "name": "余烬 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1450,
+      "sell_price": 652,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_ember45"
+      ],
+      "modifiers": {
+        "magazine": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_ember45_extended.glb",
+      "weapon_ids": [
+        "weapon_ember45"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_moth57_quick",
+      "name": "夜蛾 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_moth57"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_moth57_quick.glb",
+      "weapon_ids": [
+        "weapon_moth57"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_moth57_extended",
+      "name": "夜蛾 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1550,
+      "sell_price": 698,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_moth57"
+      ],
+      "modifiers": {
+        "magazine": 10
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_moth57_extended.glb",
+      "weapon_ids": [
+        "weapon_moth57"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_raven9_quick",
+      "name": "渡鸦 快拔弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 600,
+      "sell_price": 270,
+      "weight": 0.19999999999999998,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_raven9"
+      ],
+      "modifiers": {
+        "ergonomics": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_raven9_quick.glb",
+      "weapon_ids": [
+        "weapon_raven9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_mag_raven9_extended",
+      "name": "渡鸦 扩容弹匣",
+      "kind": "attachment",
+      "category": "magazine",
+      "price": 1550,
+      "sell_price": 698,
+      "weight": 0.38,
+      "description": "为对应供弹平台提供容量或装填操控上的取舍。",
+      "slot": "magazine",
+      "interfaces": [
+        "mag_raven9"
+      ],
+      "modifiers": {
+        "magazine": 10
+      },
+      "visual_model": "res://assets/modular/attachments/att_mag_raven9_extended.glb",
+      "weapon_ids": [
+        "weapon_raven9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_red_dot",
+      "name": "澄光红点",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 1000,
+      "sell_price": 450,
+      "weight": 0.12,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "ergonomics": 3
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_red_dot.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_holo",
+      "name": "窗式全息镜",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 1700,
+      "sell_price": 765,
+      "weight": 0.24,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 6,
+        "ergonomics": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_holo.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_scope2",
+      "name": "林缘 2 倍棱镜",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 2250,
+      "sell_price": 1012,
+      "weight": 0.29,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 8,
+        "range": 3
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_scope2.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_scope4",
+      "name": "远望 4 倍瞄具",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 3900,
+      "sell_price": 1755,
+      "weight": 0.44,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 12,
+        "range": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_scope4.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_scope8",
+      "name": "隼眼 8 倍瞄具",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 6550,
+      "sell_price": 2948,
+      "weight": 0.61,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 15,
+        "range": 12
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_scope8.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_thermal",
+      "name": "侦察复合瞄具",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 9500,
+      "sell_price": 4275,
+      "weight": 0.72,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 10,
+        "range": 8
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_thermal.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_dove_dot",
+      "name": "燕尾导轨红点",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 800,
+      "sell_price": 360,
+      "weight": 0.13,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "dovetail"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "ergonomics": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_dove_dot.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_dove_scope",
+      "name": "燕尾 3 倍镜",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 2650,
+      "sell_price": 1192,
+      "weight": 0.36,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "dovetail"
+      ],
+      "modifiers": {
+        "accuracy": 9,
+        "range": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_dove_scope.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_side_dot",
+      "name": "侧轨反射瞄具",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 1250,
+      "sell_price": 562,
+      "weight": 0.22,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "side_rail"
+      ],
+      "modifiers": {
+        "accuracy": 5,
+        "ergonomics": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_side_dot.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_side_scope",
+      "name": "侧轨 4 倍镜",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 3350,
+      "sell_price": 1508,
+      "weight": 0.48,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "side_rail"
+      ],
+      "modifiers": {
+        "accuracy": 11,
+        "range": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_side_scope.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_micro_dot",
+      "name": "微型开放红点",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 950,
+      "sell_price": 428,
+      "weight": 0.05,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "microplate"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "ergonomics": 4
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_micro_dot.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_optic_micro_enclosed",
+      "name": "微型封闭红点",
+      "kind": "attachment",
+      "category": "optic",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.08,
+      "description": "提升瞄准精度，较重的高倍率瞄具会降低操控性。",
+      "slot": "optic",
+      "interfaces": [
+        "microplate"
+      ],
+      "modifiers": {
+        "accuracy": 6,
+        "ergonomics": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_optic_micro_enclosed.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_rail_red",
+      "name": "导轨红色激光",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 700,
+      "sell_price": 315,
+      "weight": 0.08,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "ergonomics": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_rail_red.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_rail_green",
+      "name": "导轨绿色激光",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 1400,
+      "sell_price": 630,
+      "weight": 0.11,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_rail_green.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_mlok",
+      "name": "M 槽紧凑激光",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 1000,
+      "sell_price": 450,
+      "weight": 0.07,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "mlok"
+      ],
+      "modifiers": {
+        "accuracy": 5,
+        "ergonomics": 1
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_mlok.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_keymod",
+      "name": "钥孔激光模块",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 950,
+      "sell_price": 428,
+      "weight": 0.08,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "keymod"
+      ],
+      "modifiers": {
+        "accuracy": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_keymod.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_trigger",
+      "name": "扳机护圈激光",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 850,
+      "sell_price": 382,
+      "weight": 0.05,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "trigger_rail"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "ergonomics": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_trigger.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_pistol_red",
+      "name": "手枪微型红激光",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 650,
+      "sell_price": 292,
+      "weight": 0.04,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "pistol_rail"
+      ],
+      "modifiers": {
+        "accuracy": 4,
+        "ergonomics": 2
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_pistol_red.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_pistol_green",
+      "name": "手枪绿色激光",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 1250,
+      "sell_price": 562,
+      "weight": 0.06,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "pistol_rail"
+      ],
+      "modifiers": {
+        "accuracy": 6
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_pistol_green.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_laser_rail_ir",
+      "name": "侦察复合激光器",
+      "kind": "attachment",
+      "category": "laser",
+      "price": 2050,
+      "sell_price": 922,
+      "weight": 0.14,
+      "description": "提供辅助指向，提高近距离射击精度。",
+      "slot": "laser",
+      "interfaces": [
+        "picatinny"
+      ],
+      "modifiers": {
+        "accuracy": 7
+      },
+      "visual_model": "res://assets/modular/attachments/att_laser_rail_ir.glb",
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_reed9",
+      "name": "芦苇 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_reed9"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_reed9.glb",
+      "weapon_ids": [
+        "weapon_reed9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_lynx45",
+      "name": "猞猁 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_lynx45"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_lynx45.glb",
+      "weapon_ids": [
+        "weapon_lynx45"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_swift9",
+      "name": "雨燕 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_swift9"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_swift9.glb",
+      "weapon_ids": [
+        "weapon_swift9"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_badger556",
+      "name": "獾 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_ar556"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_badger556.glb",
+      "weapon_ids": [
+        "weapon_badger556",
+        "weapon_manta300",
+        "weapon_wren556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_cedar545",
+      "name": "雪松 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_cedar545"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_cedar545.glb",
+      "weapon_ids": [
+        "weapon_cedar545"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_jackal762",
+      "name": "胡狼 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_jackal762"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_jackal762.glb",
+      "weapon_ids": [
+        "weapon_jackal762"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_heron308",
+      "name": "苍鹭 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_heron308"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_heron308.glb",
+      "weapon_ids": [
+        "weapon_heron308"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_falcon762r",
+      "name": "猎隼 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_falcon762r"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_falcon762r.glb",
+      "weapon_ids": [
+        "weapon_falcon762r"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_osprey338",
+      "name": "鱼鹰 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_osprey338"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_osprey338.glb",
+      "weapon_ids": [
+        "weapon_osprey338"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_boar12",
+      "name": "野猪 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_boar12"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_boar12.glb",
+      "weapon_ids": [
+        "weapon_boar12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_ram12",
+      "name": "盘羊 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_ram12"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_ram12.glb",
+      "weapon_ids": [
+        "weapon_ram12"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_bison556",
+      "name": "野牛 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_bison556"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_bison556.glb",
+      "weapon_ids": [
+        "weapon_bison556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_yak762",
+      "name": "牦牛 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_yak762"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_yak762.glb",
+      "weapon_ids": [
+        "weapon_yak762"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_rhino762r",
+      "name": "犀牛 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_rhino762r"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_rhino762r.glb",
+      "weapon_ids": [
+        "weapon_rhino762r"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "att_handguard_aurochs556",
+      "name": "原牛 散热护木",
+      "kind": "attachment",
+      "category": "handguard",
+      "price": 1650,
+      "sell_price": 742,
+      "weight": 0.24,
+      "description": "专用护木；仅匹配对应机匣，不会凭空增加其他附件插槽。",
+      "slot": "handguard",
+      "interfaces": [
+        "hg_aurochs556"
+      ],
+      "modifiers": {
+        "recoil_control": 3,
+        "horizontal_control": 1.8,
+        "accuracy": 2,
+        "ergonomics": 5
+      },
+      "visual_model": "res://assets/modular/attachments/att_handguard_aurochs556.glb",
+      "weapon_ids": [
+        "weapon_aurochs556"
+      ],
+      "positive_bonus_schema": 1
+    },
+    {
+      "id": "helmet_moss_1a",
+      "name": "1 级 · 苔原轻巡头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 2100,
+      "sell_price": 945,
+      "weight": 0.97,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 1,
+      "protection": 11,
+      "durability": 70,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_1b",
+      "name": "1 级 · 苔原守望头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 2450,
+      "sell_price": 1102,
+      "weight": 1.22,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 1,
+      "protection": 13,
+      "durability": 78,
+      "capacity": 0,
+      "visor_mount": "visor_rail_b",
+      "visor_mounts": [
+        "visor_rail_b"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_1c",
+      "name": "1 级 · 苔原堡垒头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 2850,
+      "sell_price": 1282,
+      "weight": 1.47,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 1,
+      "protection": 15,
+      "durability": 86,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "body_armor_fiber_1a",
+      "name": "1 级 · 纤维轻装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 2850,
+      "sell_price": 1282,
+      "weight": 2.3,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 1,
+      "protection": 11,
+      "durability": 84,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_1b",
+      "name": "1 级 · 复合巡逻防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 3300,
+      "sell_price": 1485,
+      "weight": 3.1,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 1,
+      "protection": 13,
+      "durability": 94,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_1c",
+      "name": "1 级 · 陶瓷重装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 3850,
+      "sell_price": 1732,
+      "weight": 3.9,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 1,
+      "protection": 16,
+      "durability": 104,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "helmet_moss_2a",
+      "name": "2 级 · 苔原轻巡头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 4500,
+      "sell_price": 2025,
+      "weight": 1.09,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 2,
+      "protection": 24,
+      "durability": 85,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_2b",
+      "name": "2 级 · 苔原守望头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 5050,
+      "sell_price": 2272,
+      "weight": 1.34,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 2,
+      "protection": 26,
+      "durability": 93,
+      "capacity": 0,
+      "visor_mount": "visor_rail_b",
+      "visor_mounts": [
+        "visor_rail_b"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_2c",
+      "name": "2 级 · 苔原堡垒头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 5600,
+      "sell_price": 2520,
+      "weight": 1.59,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 2,
+      "protection": 28,
+      "durability": 101,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "body_armor_fiber_2a",
+      "name": "2 级 · 纤维轻装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 6100,
+      "sell_price": 2745,
+      "weight": 2.6,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 2,
+      "protection": 24,
+      "durability": 103,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_2b",
+      "name": "2 级 · 复合巡逻防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 6750,
+      "sell_price": 3038,
+      "weight": 3.4,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 2,
+      "protection": 26,
+      "durability": 113,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_2c",
+      "name": "2 级 · 陶瓷重装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 7550,
+      "sell_price": 3398,
+      "weight": 4.2,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 2,
+      "protection": 29,
+      "durability": 123,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "helmet_moss_3a",
+      "name": "3 级 · 苔原轻巡头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 8000,
+      "sell_price": 3600,
+      "weight": 1.21,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 3,
+      "protection": 37,
+      "durability": 100,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_3b",
+      "name": "3 级 · 苔原守望头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 8700,
+      "sell_price": 3915,
+      "weight": 1.46,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 3,
+      "protection": 39,
+      "durability": 108,
+      "capacity": 0,
+      "visor_mount": "visor_rail_b",
+      "visor_mounts": [
+        "visor_rail_b"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_3c",
+      "name": "3 级 · 苔原堡垒头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 9450,
+      "sell_price": 4252,
+      "weight": 1.71,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 3,
+      "protection": 41,
+      "durability": 116,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "body_armor_fiber_3a",
+      "name": "3 级 · 纤维轻装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 10700,
+      "sell_price": 4815,
+      "weight": 2.9,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 3,
+      "protection": 37,
+      "durability": 122,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_3b",
+      "name": "3 级 · 复合巡逻防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 11600,
+      "sell_price": 5220,
+      "weight": 3.7,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 3,
+      "protection": 39,
+      "durability": 132,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_3c",
+      "name": "3 级 · 陶瓷重装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 12650,
+      "sell_price": 5692,
+      "weight": 4.5,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 3,
+      "protection": 42,
+      "durability": 142,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "helmet_moss_4a",
+      "name": "4 级 · 苔原轻巡头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 13500,
+      "sell_price": 6075,
+      "weight": 1.33,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 4,
+      "protection": 50,
+      "durability": 115,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_4b",
+      "name": "4 级 · 苔原守望头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 14450,
+      "sell_price": 6502,
+      "weight": 1.58,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 4,
+      "protection": 52,
+      "durability": 123,
+      "capacity": 0,
+      "visor_mount": "visor_rail_b",
+      "visor_mounts": [
+        "visor_rail_b"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "helmet_moss_4c",
+      "name": "4 级 · 苔原堡垒头盔",
+      "kind": "armor",
+      "category": "helmet",
+      "price": 15500,
+      "sell_price": 6975,
+      "weight": 1.83,
+      "description": "带一个面罩卡槽；A / B 两种轨道标准互不通用。",
+      "level": 4,
+      "protection": 54,
+      "durability": 131,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "visor_mounts": [
+        "visor_rail_a"
+      ],
+      "armor_zone": "head"
+    },
+    {
+      "id": "body_armor_fiber_4a",
+      "name": "4 级 · 纤维轻装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 18050,
+      "sell_price": 8122,
+      "weight": 3.2,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 4,
+      "protection": 50,
+      "durability": 141,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_4b",
+      "name": "4 级 · 复合巡逻防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 19300,
+      "sell_price": 8685,
+      "weight": 4.0,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 4,
+      "protection": 52,
+      "durability": 151,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "body_armor_fiber_4c",
+      "name": "4 级 · 陶瓷重装防弹衣",
+      "kind": "armor",
+      "category": "body_armor",
+      "price": 20700,
+      "sell_price": 9315,
+      "weight": 4.8,
+      "description": "覆盖躯干；等级影响减伤，重量影响可携物资。",
+      "level": 4,
+      "protection": 55,
+      "durability": 161,
+      "capacity": 0,
+      "armor_zone": "torso"
+    },
+    {
+      "id": "backpack_daypack",
+      "name": "折叠日用背包",
+      "kind": "armor",
+      "category": "backpack",
+      "price": 1250,
+      "sell_price": 562,
+      "weight": 0.65,
+      "description": "不设等级，仅区分容量。储物空间按格子显示，负重上限单独计算。",
+      "capacity": 12,
+      "protection": 0,
+      "durability": 100,
+      "armor_zone": "none",
+      "storage_cells": 12
+    },
+    {
+      "id": "backpack_scout",
+      "name": "侦察背包",
+      "kind": "armor",
+      "category": "backpack",
+      "price": 3000,
+      "sell_price": 1350,
+      "weight": 1.1,
+      "description": "不设等级，仅区分容量。储物空间按格子显示，负重上限单独计算。",
+      "capacity": 20,
+      "protection": 0,
+      "durability": 100,
+      "armor_zone": "none",
+      "storage_cells": 20
+    },
+    {
+      "id": "backpack_patrol",
+      "name": "巡逻背包",
+      "kind": "armor",
+      "category": "backpack",
+      "price": 5650,
+      "sell_price": 2542,
+      "weight": 1.7,
+      "description": "不设等级，仅区分容量。储物空间按格子显示，负重上限单独计算。",
+      "capacity": 30,
+      "protection": 0,
+      "durability": 100,
+      "armor_zone": "none",
+      "storage_cells": 30
+    },
+    {
+      "id": "backpack_hauler",
+      "name": "远征运输背包",
+      "kind": "armor",
+      "category": "backpack",
+      "price": 9100,
+      "sell_price": 4095,
+      "weight": 2.6,
+      "description": "不设等级，仅区分容量。储物空间按格子显示，负重上限单独计算。",
+      "capacity": 42,
+      "protection": 0,
+      "durability": 100,
+      "armor_zone": "none",
+      "storage_cells": 42
+    },
+    {
+      "id": "armored_rig_scout",
+      "name": "紧凑弹挂",
+      "kind": "armor",
+      "category": "rig",
+      "price": 3200,
+      "sell_price": 1440,
+      "weight": 2.1,
+      "description": "普通弹挂，仅提供分区储物格，不具备防弹能力；可与防弹衣、背包同时装备。",
+      "capacity": 8,
+      "storage_cells": 8
+    },
+    {
+      "id": "armored_rig_patrol",
+      "name": "巡逻弹挂",
+      "kind": "armor",
+      "category": "rig",
+      "price": 4700,
+      "sell_price": 2115,
+      "weight": 2.65,
+      "description": "普通弹挂，仅提供分区储物格，不具备防弹能力；可与防弹衣、背包同时装备。",
+      "capacity": 12,
+      "storage_cells": 12
+    },
+    {
+      "id": "armored_rig_operator",
+      "name": "行动弹挂",
+      "kind": "armor",
+      "category": "rig",
+      "price": 6800,
+      "sell_price": 3060,
+      "weight": 3.3,
+      "description": "普通弹挂，仅提供分区储物格，不具备防弹能力；可与防弹衣、背包同时装备。",
+      "capacity": 18,
+      "storage_cells": 18
+    },
+    {
+      "id": "armored_rig_cargo",
+      "name": "装载弹挂",
+      "kind": "armor",
+      "category": "rig",
+      "price": 8750,
+      "sell_price": 3938,
+      "weight": 4.1,
+      "description": "普通弹挂，仅提供分区储物格，不具备防弹能力；可与防弹衣、背包同时装备。",
+      "capacity": 24,
+      "storage_cells": 24
+    },
+    {
+      "id": "armored_rig_guard_scout",
+      "name": "1 级 · 紧凑防弹弹挂",
+      "kind": "armor",
+      "category": "armored_rig",
+      "price": 5350,
+      "sell_price": 2408,
+      "weight": 5.2,
+      "description": "防弹衣与弹挂结合体，提供躯干防护及分区储物格；占用弹挂栏，不能与防弹衣同时装备，可同时携带背包。",
+      "level": 1,
+      "capacity": 8,
+      "storage_cells": 8,
+      "protection": 13,
+      "durability": 94,
+      "armor_zone": "torso",
+      "visual_alias": "armored_rig_scout"
+    },
+    {
+      "id": "armored_rig_guard_patrol",
+      "name": "2 级 · 巡逻防弹弹挂",
+      "kind": "armor",
+      "category": "armored_rig",
+      "price": 11100,
+      "sell_price": 4995,
+      "weight": 6.05,
+      "description": "防弹衣与弹挂结合体，提供躯干防护及分区储物格；占用弹挂栏，不能与防弹衣同时装备，可同时携带背包。",
+      "level": 2,
+      "capacity": 12,
+      "storage_cells": 12,
+      "protection": 26,
+      "durability": 113,
+      "armor_zone": "torso",
+      "visual_alias": "armored_rig_patrol"
+    },
+    {
+      "id": "armored_rig_guard_operator",
+      "name": "3 级 · 行动防弹弹挂",
+      "kind": "armor",
+      "category": "armored_rig",
+      "price": 19900,
+      "sell_price": 8955,
+      "weight": 7.0,
+      "description": "防弹衣与弹挂结合体，提供躯干防护及分区储物格；占用弹挂栏，不能与防弹衣同时装备，可同时携带背包。",
+      "level": 3,
+      "capacity": 18,
+      "storage_cells": 18,
+      "protection": 39,
+      "durability": 132,
+      "armor_zone": "torso",
+      "visual_alias": "armored_rig_operator"
+    },
+    {
+      "id": "armored_rig_guard_cargo",
+      "name": "4 级 · 装载防弹弹挂",
+      "kind": "armor",
+      "category": "armored_rig",
+      "price": 33750,
+      "sell_price": 15188,
+      "weight": 8.1,
+      "description": "防弹衣与弹挂结合体，提供躯干防护及分区储物格；占用弹挂栏，不能与防弹衣同时装备，可同时携带背包。",
+      "level": 4,
+      "capacity": 24,
+      "storage_cells": 24,
+      "protection": 52,
+      "durability": 151,
+      "armor_zone": "torso",
+      "visual_alias": "armored_rig_cargo"
+    },
+    {
+      "id": "visor_1a",
+      "name": "1 级 · A 轨防护面罩",
+      "kind": "armor",
+      "category": "visor",
+      "price": 2000,
+      "sell_price": 900,
+      "weight": 0.42,
+      "description": "仅可装入同标准头盔卡槽；提升头部综合防护。",
+      "level": 1,
+      "protection": 10,
+      "durability": 65,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "armor_zone": "face"
+    },
+    {
+      "id": "visor_1b",
+      "name": "1 级 · B 轨防护面罩",
+      "kind": "armor",
+      "category": "visor",
+      "price": 2000,
+      "sell_price": 900,
+      "weight": 0.42,
+      "description": "仅可装入同标准头盔卡槽；提升头部综合防护。",
+      "level": 1,
+      "protection": 10,
+      "durability": 65,
+      "capacity": 0,
+      "visor_mount": "visor_rail_b",
+      "armor_zone": "face"
+    },
+    {
+      "id": "visor_2a",
+      "name": "2 级 · A 轨防护面罩",
+      "kind": "armor",
+      "category": "visor",
+      "price": 4600,
+      "sell_price": 2070,
+      "weight": 0.54,
+      "description": "仅可装入同标准头盔卡槽；提升头部综合防护。",
+      "level": 2,
+      "protection": 20,
+      "durability": 85,
+      "capacity": 0,
+      "visor_mount": "visor_rail_a",
+      "armor_zone": "face"
+    },
+    {
+      "id": "visor_2b",
+      "name": "2 级 · B 轨防护面罩",
+      "kind": "armor",
+      "category": "visor",
+      "price": 4600,
+      "sell_price": 2070,
+      "weight": 0.54,
+      "description": "仅可装入同标准头盔卡槽；提升头部综合防护。",
+      "level": 2,
+      "protection": 20,
+      "durability": 85,
+      "capacity": 0,
+      "visor_mount": "visor_rail_b",
+      "armor_zone": "face"
+    },
+    {
+      "id": "ammo_9x19_fmj",
+      "name": "9×19 mm · 普通",
+      "kind": "ammo",
+      "category": "9x19",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.008,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "9x19",
+      "penetration": 14,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_9x19_ap",
+      "name": "9×19 mm · 穿甲",
+      "kind": "ammo",
+      "category": "9x19",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.008,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "9x19",
+      "penetration": 39,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_9x19_hp",
+      "name": "9×19 mm · 扩张",
+      "kind": "ammo",
+      "category": "9x19",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.008,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "9x19",
+      "penetration": 3,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_45acp_fmj",
+      "name": ".45 ACP · 普通",
+      "kind": "ammo",
+      "category": "45acp",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.012,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "45acp",
+      "penetration": 21,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_45acp_ap",
+      "name": ".45 ACP · 穿甲",
+      "kind": "ammo",
+      "category": "45acp",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.012,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "45acp",
+      "penetration": 46,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_45acp_hp",
+      "name": ".45 ACP · 扩张",
+      "kind": "ammo",
+      "category": "45acp",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.012,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "45acp",
+      "penetration": 8,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_57x28_fmj",
+      "name": "5.7×28 mm · 普通",
+      "kind": "ammo",
+      "category": "57x28",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.006,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "57x28",
+      "penetration": 18,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_57x28_ap",
+      "name": "5.7×28 mm · 穿甲",
+      "kind": "ammo",
+      "category": "57x28",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.006,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "57x28",
+      "penetration": 43,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_57x28_hp",
+      "name": "5.7×28 mm · 扩张",
+      "kind": "ammo",
+      "category": "57x28",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.006,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "57x28",
+      "penetration": 5,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_556x45_fmj",
+      "name": "5.56×45 mm · 普通",
+      "kind": "ammo",
+      "category": "556x45",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.012,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "556x45",
+      "penetration": 24,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_556x45_ap",
+      "name": "5.56×45 mm · 穿甲",
+      "kind": "ammo",
+      "category": "556x45",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.012,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "556x45",
+      "penetration": 49,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_556x45_hp",
+      "name": "5.56×45 mm · 扩张",
+      "kind": "ammo",
+      "category": "556x45",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.012,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "556x45",
+      "penetration": 11,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_545x39_fmj",
+      "name": "5.45×39 mm · 普通",
+      "kind": "ammo",
+      "category": "545x39",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.01,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "545x39",
+      "penetration": 23,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_545x39_ap",
+      "name": "5.45×39 mm · 穿甲",
+      "kind": "ammo",
+      "category": "545x39",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.01,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "545x39",
+      "penetration": 48,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_545x39_hp",
+      "name": "5.45×39 mm · 扩张",
+      "kind": "ammo",
+      "category": "545x39",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.01,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "545x39",
+      "penetration": 10,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_762x39_fmj",
+      "name": "7.62×39 mm · 普通",
+      "kind": "ammo",
+      "category": "762x39",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.016,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "762x39",
+      "penetration": 29,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_762x39_ap",
+      "name": "7.62×39 mm · 穿甲",
+      "kind": "ammo",
+      "category": "762x39",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.016,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "762x39",
+      "penetration": 54,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_762x39_hp",
+      "name": "7.62×39 mm · 扩张",
+      "kind": "ammo",
+      "category": "762x39",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.016,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "762x39",
+      "penetration": 16,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_300blk_fmj",
+      "name": ".300 BLK · 普通",
+      "kind": "ammo",
+      "category": "300blk",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.016,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "300blk",
+      "penetration": 28,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.0,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_300blk_ap",
+      "name": ".300 BLK · 穿甲",
+      "kind": "ammo",
+      "category": "300blk",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.016,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "300blk",
+      "penetration": 53,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.0,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_300blk_hp",
+      "name": ".300 BLK · 扩张",
+      "kind": "ammo",
+      "category": "300blk",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.016,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "300blk",
+      "penetration": 15,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 5.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_308win_fmj",
+      "name": ".308 Win · 普通",
+      "kind": "ammo",
+      "category": "308win",
+      "price": 21,
+      "sell_price": 5,
+      "weight": 0.024,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "308win",
+      "penetration": 34,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.8,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_308win_ap",
+      "name": ".308 Win · 穿甲",
+      "kind": "ammo",
+      "category": "308win",
+      "price": 101,
+      "sell_price": 25,
+      "weight": 0.024,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "308win",
+      "penetration": 59,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.4,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_308win_hp",
+      "name": ".308 Win · 扩张",
+      "kind": "ammo",
+      "category": "308win",
+      "price": 45,
+      "sell_price": 11,
+      "weight": 0.024,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "308win",
+      "penetration": 21,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 7.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_762x54r_fmj",
+      "name": "7.62×54R · 普通",
+      "kind": "ammo",
+      "category": "762x54r",
+      "price": 21,
+      "sell_price": 5,
+      "weight": 0.024,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "762x54r",
+      "penetration": 36,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.8,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_762x54r_ap",
+      "name": "7.62×54R · 穿甲",
+      "kind": "ammo",
+      "category": "762x54r",
+      "price": 101,
+      "sell_price": 25,
+      "weight": 0.024,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "762x54r",
+      "penetration": 61,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.4,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_762x54r_hp",
+      "name": "7.62×54R · 扩张",
+      "kind": "ammo",
+      "category": "762x54r",
+      "price": 45,
+      "sell_price": 11,
+      "weight": 0.024,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "762x54r",
+      "penetration": 23,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 7.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_338lm_fmj",
+      "name": ".338 LM · 普通",
+      "kind": "ammo",
+      "category": "338lm",
+      "price": 21,
+      "sell_price": 5,
+      "weight": 0.042,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "338lm",
+      "penetration": 45,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.8,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_338lm_ap",
+      "name": ".338 LM · 穿甲",
+      "kind": "ammo",
+      "category": "338lm",
+      "price": 101,
+      "sell_price": 25,
+      "weight": 0.042,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "338lm",
+      "penetration": 70,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.4,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_338lm_hp",
+      "name": ".338 LM · 扩张",
+      "kind": "ammo",
+      "category": "338lm",
+      "price": 45,
+      "sell_price": 11,
+      "weight": 0.042,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "338lm",
+      "penetration": 32,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 7.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_12g_fmj",
+      "name": "12 号霰弹 · 鹿弹",
+      "kind": "ammo",
+      "category": "12g",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.038,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "12g",
+      "penetration": 8,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.4,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_12g_ap",
+      "name": "12 号霰弹 · 独头穿透弹",
+      "kind": "ammo",
+      "category": "12g",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.038,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "12g",
+      "penetration": 33,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.2,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_12g_hp",
+      "name": "12 号霰弹 · 近距散弹",
+      "kind": "ammo",
+      "category": "12g",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.038,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "12g",
+      "penetration": 3,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 6.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "ammo_20g_fmj",
+      "name": "20 号霰弹 · 鹿弹",
+      "kind": "ammo",
+      "category": "20g",
+      "price": 10,
+      "sell_price": 2,
+      "weight": 0.028,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "20g",
+      "penetration": 6,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 2.4,
+        "velocity_multiplier": 1.0,
+        "power_multiplier": 1.0,
+        "drag_multiplier": 1.0
+      }
+    },
+    {
+      "id": "ammo_20g_ap",
+      "name": "20 号霰弹 · 独头穿透弹",
+      "kind": "ammo",
+      "category": "20g",
+      "price": 51,
+      "sell_price": 13,
+      "weight": 0.028,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "20g",
+      "penetration": 31,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 1.2,
+        "velocity_multiplier": 1.025,
+        "power_multiplier": 1.008,
+        "drag_multiplier": 0.92
+      }
+    },
+    {
+      "id": "ammo_20g_hp",
+      "name": "20 号霰弹 · 近距散弹",
+      "kind": "ammo",
+      "category": "20g",
+      "price": 22,
+      "sell_price": 6,
+      "weight": 0.028,
+      "description": "普通弹均衡；穿甲弹对护甲更有效；扩张弹对无甲目标伤害更高。",
+      "caliber": "20g",
+      "penetration": 3,
+      "damage_multiplier": 1.0,
+      "stack_size": 60,
+      "ballistics": {
+        "bonus_damage": 6.0,
+        "velocity_multiplier": 0.985,
+        "power_multiplier": 0.994,
+        "drag_multiplier": 1.12
+      }
+    },
+    {
+      "id": "bandage_basic",
+      "name": "应急绷带",
+      "kind": "consumable",
+      "category": "medical",
+      "price": 180,
+      "sell_price": 81,
+      "weight": 0.12,
+      "description": "战局中恢复 25 点生命。",
+      "heal": 25,
+      "uses": 1
+    },
+    {
+      "id": "medkit_field",
+      "name": "野战急救包",
+      "kind": "consumable",
+      "category": "medical",
+      "price": 700,
+      "sell_price": 315,
+      "weight": 0.5,
+      "description": "战局中恢复 55 点生命。",
+      "heal": 55,
+      "uses": 1
+    },
+    {
+      "id": "medkit_surgical",
+      "name": "综合医疗箱",
+      "kind": "consumable",
+      "category": "medical",
+      "price": 1550,
+      "sell_price": 698,
+      "weight": 0.9,
+      "description": "战局中恢复 85 点生命。",
+      "heal": 85,
+      "uses": 1
+    },
+    {
+      "id": "loot_wire",
+      "name": "绝缘导线",
+      "loot_category": "industrial",
+      "price": 420,
+      "weight": 0.25,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "绑扎成卷的绝缘电缆，保留接线端和规格标签，常见于仓库与机修场所。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 235,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_wire.glb"
+    },
+    {
+      "id": "loot_battery",
+      "name": "工业电池",
+      "loot_category": "industrial",
+      "price": 760,
+      "weight": 0.6,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带防撞端盖和铜接点的工业电源模块，可作为完整设备物资带出变卖。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 426,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_battery.glb"
+    },
+    {
+      "id": "loot_filter",
+      "name": "净化滤芯",
+      "loot_category": "industrial",
+      "price": 1280,
+      "weight": 0.55,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "褶皱式滤材配金属端环与密封垫的净化滤芯，适合工业设备维护。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 717,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_filter.glb"
+    },
+    {
+      "id": "loot_fuel",
+      "name": "燃料罐",
+      "loot_category": "industrial",
+      "price": 1950,
+      "weight": 2.2,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "压制钢板燃料罐，带独立提把、加油口与防丢链；价值尚可但负重较高。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1092,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_fuel.glb"
+    },
+    {
+      "id": "loot_gauge",
+      "name": "管路压力表",
+      "loot_category": "industrial",
+      "price": 2300,
+      "weight": 0.5,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带黄铜螺纹接口的机械压力表，刻度盘与指针完整，属于工业维护物资。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1288,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_gauge.glb"
+    },
+    {
+      "id": "loot_bearing",
+      "name": "精密轴承",
+      "loot_category": "industrial",
+      "price": 1800,
+      "weight": 0.45,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "内外圈、滚珠和保持架齐全的钢制轴承，可回收出售。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1008,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_bearing.glb"
+    },
+    {
+      "id": "loot_sensor",
+      "name": "温控传感器",
+      "loot_category": "industrial",
+      "price": 3400,
+      "weight": 0.18,
+      "rarity": "rare",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带不锈钢探针和密封插头的温控变送器，完整接口提高了回收价值。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1904,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_sensor.glb"
+    },
+    {
+      "id": "loot_documents",
+      "name": "密封档案",
+      "loot_category": "collectibles",
+      "price": 3700,
+      "weight": 0.35,
+      "rarity": "rare",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "港务旧档案，以封绳和蜡印密封，内含具有收藏价值的历史材料。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 2072,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_documents.glb"
+    },
+    {
+      "id": "loot_watch",
+      "name": "机械腕表",
+      "loot_category": "collectibles",
+      "price": 6800,
+      "weight": 0.18,
+      "rarity": "epic",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "金属表链、计时小盘和机械指针完整的旧式腕表，属于较贵重的收藏品。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 3808,
+      "drop_weight": 0.9,
+      "visual_model": "res://assets/valuables/loot_watch.glb"
+    },
+    {
+      "id": "loot_statue",
+      "name": "旧城金像",
+      "loot_category": "collectibles",
+      "price": 12500,
+      "weight": 1.8,
+      "rarity": "legendary",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "立于铭牌底座上的旧城金色港鹰雕像，羽翼与铸造细节完整，是贵重藏品。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 7000,
+      "drop_weight": 0.3,
+      "visual_model": "res://assets/valuables/loot_statue.glb"
+    },
+    {
+      "id": "loot_silver_coin",
+      "name": "港城纪念银币",
+      "loot_category": "collectibles",
+      "price": 7200,
+      "weight": 0.08,
+      "rarity": "epic",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带齿边、港锚浮雕与年代铭文的纪念银币，收藏价值高于普通金属。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 4032,
+      "drop_weight": 0.9,
+      "visual_model": "res://assets/valuables/loot_silver_coin.glb"
+    },
+    {
+      "id": "loot_gem_ring",
+      "name": "蓝宝石戒指",
+      "loot_category": "collectibles",
+      "price": 10800,
+      "weight": 0.045,
+      "rarity": "epic",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "金色戒托以爪镶固定切面蓝色宝石，体积小而价值较高。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 6048,
+      "drop_weight": 0.9,
+      "visual_model": "res://assets/valuables/loot_gem_ring.glb"
+    },
+    {
+      "id": "loot_antique_compass",
+      "name": "古董罗盘",
+      "loot_category": "collectibles",
+      "price": 5900,
+      "weight": 0.28,
+      "rarity": "rare",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "黄铜翻盖、方位刻度和双色指针仍然完整的航海罗盘。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 3304,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_antique_compass.glb"
+    },
+    {
+      "id": "loot_antique_vase",
+      "name": "青花古瓷瓶",
+      "loot_category": "collectibles",
+      "price": 16800,
+      "weight": 1.3,
+      "rarity": "legendary",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "保留青花花饰、双耳与描金口沿的古瓷瓶；易辨认的贵重收藏品。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 9408,
+      "drop_weight": 0.3,
+      "visual_model": "res://assets/valuables/loot_antique_vase.glb"
+    },
+    {
+      "id": "loot_tape",
+      "name": "工业胶带",
+      "loot_category": "everyday",
+      "price": 380,
+      "weight": 0.18,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带纸芯与未撕完胶带尾的布基胶带，是常见的日常维修消耗品。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 213,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_tape.glb"
+    },
+    {
+      "id": "loot_sewing_kit",
+      "name": "缝纫工具包",
+      "loot_category": "everyday",
+      "price": 850,
+      "weight": 0.25,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "装有彩色线轴与小剪刀的缝纫盒，可作为生活物资带出出售。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 476,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_sewing_kit.glb"
+    },
+    {
+      "id": "loot_thermos",
+      "name": "保温杯",
+      "loot_category": "everyday",
+      "price": 980,
+      "weight": 0.45,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "带杯盖和提环的不锈钢保温瓶，外层涂装与密封结构保存完好。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 549,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_thermos.glb"
+    },
+    {
+      "id": "loot_soap",
+      "name": "香皂",
+      "loot_category": "everyday",
+      "price": 160,
+      "weight": 0.12,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "保留纸腰封的日常清洁皂块，价值较低，重量也较轻。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 90,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_soap.glb"
+    },
+    {
+      "id": "loot_toothbrush",
+      "name": "牙刷",
+      "loot_category": "everyday",
+      "price": 140,
+      "weight": 0.045,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "双色防滑刷柄与刷毛完整的个人清洁用品。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 78,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_toothbrush.glb"
+    },
+    {
+      "id": "loot_toothpaste",
+      "name": "牙膏",
+      "loot_category": "everyday",
+      "price": 220,
+      "weight": 0.14,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带压封尾和旋盖的牙膏软管，是常见的生活补给物资。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 123,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_toothpaste.glb"
+    },
+    {
+      "id": "loot_canned_food",
+      "name": "肉类罐头",
+      "loot_category": "everyday",
+      "price": 620,
+      "weight": 0.55,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带拉环的密封食品罐头，当前作为变卖物，不直接恢复人物状态。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 347,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_canned_food.glb"
+    },
+    {
+      "id": "loot_coffee",
+      "name": "速溶咖啡",
+      "loot_category": "everyday",
+      "price": 1400,
+      "weight": 0.6,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "封口完好的咖啡罐，保留标签与旋盖，属于较好的生活物资。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 784,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_coffee.glb"
+    },
+    {
+      "id": "loot_lighter",
+      "name": "金属打火机",
+      "loot_category": "everyday",
+      "price": 1100,
+      "weight": 0.09,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "翻盖式金属打火机，挡风罩、火石轮与铰链均完整。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 616,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_lighter.glb"
+    },
+    {
+      "id": "loot_flashlight",
+      "name": "便携手电",
+      "loot_category": "everyday",
+      "price": 1600,
+      "weight": 0.32,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "带防滑筒身、反光杯和独立开关的便携照明设备，作为生活物资回收。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 896,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_flashlight.glb"
+    },
+    {
+      "id": "loot_matches",
+      "name": "火柴盒",
+      "loot_category": "everyday",
+      "price": 100,
+      "weight": 0.03,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带摩擦边与木质火柴的纸盒，常见且便宜。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 56,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_matches.glb"
+    },
+    {
+      "id": "loot_aa_cells",
+      "name": "四节装电池",
+      "loot_category": "everyday",
+      "price": 440,
+      "weight": 0.1,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "纸卡包装的四节通用电池，可作为生活物资出售。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 246,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_aa_cells.glb"
+    },
+    {
+      "id": "loot_book",
+      "name": "野外笔记本",
+      "loot_category": "everyday",
+      "price": 800,
+      "weight": 0.38,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "带硬封面和装订书脊的野外笔记本，纸页保存完整。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 448,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_book.glb"
+    },
+    {
+      "id": "loot_mug",
+      "name": "陶瓷杯",
+      "loot_category": "everyday",
+      "price": 300,
+      "weight": 0.28,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "蓝色杯沿与白色釉面的陶瓷杯，属于普通生活用品。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 168,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_mug.glb"
+    },
+    {
+      "id": "loot_lens",
+      "name": "光学镜片",
+      "loot_category": "precision",
+      "price": 5200,
+      "weight": 0.3,
+      "rarity": "rare",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "保留镀膜光学面和精密金属镜座的镜片组件，出现较少、回收价值较高。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 2912,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_lens.glb"
+    },
+    {
+      "id": "loot_multimeter",
+      "name": "高精度万用表",
+      "loot_category": "precision",
+      "price": 8200,
+      "weight": 0.7,
+      "rarity": "epic",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "带独立表笔、精密量程旋钮和数字显示的测量仪器，属于贵重仪器。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 4592,
+      "drop_weight": 0.9,
+      "visual_model": "res://assets/valuables/loot_multimeter.glb"
+    },
+    {
+      "id": "loot_binoculars",
+      "name": "测距双筒镜",
+      "loot_category": "precision",
+      "price": 13600,
+      "weight": 0.75,
+      "rarity": "epic",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "双物镜、调焦机构与防护镜筒完整的精密观测仪器，较少见且价值高。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 7616,
+      "drop_weight": 0.9,
+      "visual_model": "res://assets/valuables/loot_binoculars.glb"
+    },
+    {
+      "id": "loot_microscope",
+      "name": "实验室显微镜",
+      "loot_category": "precision",
+      "price": 22000,
+      "weight": 2.6,
+      "rarity": "legendary",
+      "grid_size": [
+        2,
+        2
+      ],
+      "description": "目镜、物镜转盘、载物台和调焦机构完整的实验室仪器，属于少见的高价值物资。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 12320,
+      "drop_weight": 0.3,
+      "visual_model": "res://assets/valuables/loot_microscope.glb"
+    },
+    {
+      "id": "loot_scrap",
+      "name": "合金零件",
+      "loot_category": "metals",
+      "price": 550,
+      "weight": 0.7,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "由法兰、传动齿轮和车制轴组成的可回收合金组件。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 308,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_scrap.glb"
+    },
+    {
+      "id": "loot_copper_ingot",
+      "name": "铜锭",
+      "loot_category": "metals",
+      "price": 2000,
+      "weight": 1.0,
+      "rarity": "uncommon",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "带纯度与批次刻印的铜制金属锭，可按材料价值变卖。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1120,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_copper_ingot.glb"
+    },
+    {
+      "id": "loot_aluminium_ingot",
+      "name": "铝锭",
+      "loot_category": "metals",
+      "price": 1200,
+      "weight": 0.65,
+      "rarity": "common",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "带加工孔与合金牌号的轻质铝锭，体积较大但重量较低。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 672,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_aluminium_ingot.glb"
+    },
+    {
+      "id": "loot_titanium_ingot",
+      "name": "钛合金锭",
+      "loot_category": "metals",
+      "price": 6400,
+      "weight": 0.8,
+      "rarity": "rare",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "表面保留加工纹路与牌号标记的钛合金坯料，比普通工业金属更贵重。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 3584,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_titanium_ingot.glb"
+    },
+    {
+      "id": "loot_gold_bar",
+      "name": "高纯金条",
+      "loot_category": "metals",
+      "price": 28000,
+      "weight": 1.0,
+      "rarity": "legendary",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "带纯度、重量及铸造刻印的两根金条，是金属类中非常贵重的物资。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 15680,
+      "drop_weight": 0.3,
+      "visual_model": "res://assets/valuables/loot_gold_bar.glb"
+    },
+    {
+      "id": "loot_radio",
+      "name": "加密电台",
+      "loot_category": "electronics",
+      "price": 2900,
+      "weight": 0.85,
+      "rarity": "rare",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "密封外壳、显示屏、数字键盘和天线齐全的加密通信设备。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1624,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_radio.glb"
+    },
+    {
+      "id": "loot_processor",
+      "name": "运算芯片",
+      "loot_category": "electronics",
+      "price": 4400,
+      "weight": 0.12,
+      "rarity": "rare",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "保留散热盖、陶瓷封装、金触点和板级元件的运算模块，体积小而价值较高。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 2464,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_processor.glb"
+    },
+    {
+      "id": "loot_hard_drive",
+      "name": "机械硬盘",
+      "loot_category": "electronics",
+      "price": 2100,
+      "weight": 0.45,
+      "rarity": "uncommon",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "保留盘片、磁头执行臂和数据接口的机械存储设备。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 1176,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_hard_drive.glb"
+    },
+    {
+      "id": "loot_memory",
+      "name": "内存模组",
+      "loot_category": "electronics",
+      "price": 1700,
+      "weight": 0.065,
+      "rarity": "uncommon",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "绿色电路基板上装有多颗存储芯片，边缘金触点完整。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 952,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_memory.glb"
+    },
+    {
+      "id": "loot_gpu",
+      "name": "图形运算卡",
+      "loot_category": "electronics",
+      "price": 7600,
+      "weight": 1.1,
+      "rarity": "rare",
+      "grid_size": [
+        2,
+        2
+      ],
+      "description": "带双风扇、散热鳍片和输出接口的图形运算板卡，较占格子但价值较高。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 4256,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_gpu.glb"
+    },
+    {
+      "id": "loot_medical_vial",
+      "name": "医用试剂瓶",
+      "loot_category": "medical",
+      "price": 1300,
+      "weight": 0.1,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "带封口盖和批次标签的医用缓冲试剂瓶；当前作为变卖物处理。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 728,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_medical_vial.glb"
+    },
+    {
+      "id": "loot_blood_kit",
+      "name": "血液采样盒",
+      "loot_category": "medical",
+      "price": 4800,
+      "weight": 0.55,
+      "rarity": "rare",
+      "grid_size": [
+        2,
+        1
+      ],
+      "description": "泡棉架中固定了四支密封采样管，完整包装提高了回收价值。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 2688,
+      "drop_weight": 2.5,
+      "visual_model": "res://assets/valuables/loot_blood_kit.glb"
+    },
+    {
+      "id": "loot_lab_sample",
+      "name": "低温样本罐",
+      "loot_category": "medical",
+      "price": 12500,
+      "weight": 0.65,
+      "rarity": "epic",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "带锁盖、保护圈和实验室标签的低温样本容器，是贵重医疗物资。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 7000,
+      "drop_weight": 0.9,
+      "visual_model": "res://assets/valuables/loot_lab_sample.glb"
+    },
+    {
+      "id": "loot_tools",
+      "name": "精密工具组",
+      "loot_category": "tools",
+      "price": 1700,
+      "weight": 1.2,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        1
+      ],
+      "description": "打开的工具箱中固定着精密螺丝刀、替换批头和数字卡尺。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 952,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_tools.glb"
+    },
+    {
+      "id": "loot_pliers",
+      "name": "绝缘钳",
+      "loot_category": "tools",
+      "price": 1200,
+      "weight": 0.35,
+      "rarity": "uncommon",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "钢制钳口和红色绝缘握柄完整的维修工具，钳口保留防滑齿。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 672,
+      "drop_weight": 6.0,
+      "visual_model": "res://assets/valuables/loot_pliers.glb"
+    },
+    {
+      "id": "loot_screwdriver",
+      "name": "一字螺丝刀",
+      "loot_category": "tools",
+      "price": 520,
+      "weight": 0.2,
+      "rarity": "common",
+      "grid_size": [
+        1,
+        2
+      ],
+      "description": "带防滑握柄、金属刀杆和一字刀头的常见维修工具。",
+      "kind": "loot",
+      "category": "valuable",
+      "sell_price": 291,
+      "drop_weight": 12.0,
+      "visual_model": "res://assets/valuables/loot_screwdriver.glb"
+    }
+  ]
+}

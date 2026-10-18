@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/industrial_modular/roof_edge.glb" id="1_visual"]
+
+[sub_resource type="BoxShape3D" id="Shape_0"]
+size = Vector3(4.00000000, 0.28000000, 0.35000000)
+
+[node name="roof_edge" type="Node3D"]
+metadata/module_id = "industrial_modular/roof_edge"
+metadata/grid_metres = 4.0
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+position = Vector3(0.00150896, 0.00111648, 0.00063256)
+scale = Vector3(0.99953018, 0.99953519, 0.98433199)
+
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="Piece0" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 0.14000000, 0.00000000)
+shape = SubResource("Shape_0")

@@ -1,0 +1,63 @@
+{
+  "version": "0.4.11",
+  "version_code": 18,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 97874305,
+  "sha256": "642368e5699942a3c6f14c1a601fa70372b6dba6e4f2fbeeebe47c8da8d43f80",
+  "reference_version_code": 17,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T20:00:35.6761065+08:00",
+  "apk_file": "SDC-v0.4.11.apk",
+  "reference_apk_file": "SDC-v0.4.10.apk",
+  "checks": {
+    "android_export": true,
+    "valuable_models": {
+      "resources": 48,
+      "missing": [],
+      "import_targets_present": true,
+      "import_count": 48
+    },
+    "valuable_icons": {
+      "resources": 48,
+      "missing": [],
+      "import_targets_present": true,
+      "import_count": 48,
+      "all_compiled_textures_320x320": true
+    },
+    "catalog_items": 296,
+    "valuable_items": 48,
+    "category_counts": {
+      "industrial": 7,
+      "collectibles": 7,
+      "everyday": 14,
+      "precision": 4,
+      "metals": 5,
+      "electronics": 5,
+      "medical": 3,
+      "tools": 3
+    },
+    "compiled_scripts": {
+      "item_rarity": true,
+      "ui_inventory_grid": true,
+      "ui_loot_search": true,
+      "ui_item_details": true,
+      "main": true,
+      "raid_world": true
+    },
+    "tools_tests_docs_art_source_excluded": true,
+    "automated_tests_run_this_version": false
+  },
+  "art": {
+    "original_models": 48,
+    "total_triangles": 142818,
+    "total_glb_bytes": 5569000,
+    "production_ui_captures": [
+      "SDC-v0.4.11-valuables.png",
+      "SDC-v0.4.11-rarity.png",
+      "SDC-v0.4.11-search.png"
+    ]
+  },
+  "note": "48 original detailed valuables and rendered icons in 8 groups. Pastel rarity is shown only after discovery. The old 12 IDs and 1x1 footprints remain compatible. Actual engine production UI captured; no automated tests or physical phone installation/run this version."
+}

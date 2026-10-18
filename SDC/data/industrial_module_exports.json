@@ -1,0 +1,252 @@
+{
+  "assets": [
+    {
+      "id": "industrial_modular/wall_straight",
+      "key": "wall_straight",
+      "source_file": "工业港仓库直墙模块.glb",
+      "path": "res://assets/environment/industrial_modular/wall_straight.glb",
+      "min": [
+        -2,
+        0,
+        -0.1
+      ],
+      "size": [
+        4,
+        3,
+        0.2
+      ],
+      "triangles": 552,
+      "texture_resolution": 0,
+      "object": "Industrial_wall_straight",
+      "repair": "Reconstructed continuous corrugation, frame and plinth"
+    },
+    {
+      "id": "industrial_modular/wall_window",
+      "key": "wall_window",
+      "source_file": "工业仓库带窗墙体glb.glb",
+      "path": "res://assets/environment/industrial_modular/wall_window.glb",
+      "min": [
+        -2,
+        0.0002117223630193621,
+        -0.11005846410989761
+      ],
+      "size": [
+        4,
+        2.999788284301758,
+        0.22005847096443176
+      ],
+      "triangles": 3500,
+      "texture_resolution": 1024,
+      "object": "Industrial_wall_window"
+    },
+    {
+      "id": "industrial_modular/wall_doorway",
+      "key": "wall_doorway",
+      "source_file": "工业建筑门洞墙体.glb",
+      "path": "res://assets/environment/industrial_modular/wall_doorway.glb",
+      "min": [
+        -1.9999998807907104,
+        0,
+        -0.12000000476837158
+      ],
+      "size": [
+        3.999999761581421,
+        3,
+        0.24000000953674316
+      ],
+      "triangles": 3500,
+      "texture_resolution": 1024,
+      "object": "Industrial_wall_doorway"
+    },
+    {
+      "id": "industrial_modular/corner",
+      "key": "corner",
+      "source_file": "工业仓库L形墙角模块.glb",
+      "path": "res://assets/environment/industrial_modular/corner.glb",
+      "min": [
+        -1.0003118515014648,
+        0.000746697885915637,
+        -0.9995253682136536
+      ],
+      "size": [
+        2.000227928161621,
+        2.9972927570343018,
+        1.9996728897094727
+      ],
+      "triangles": 4500,
+      "texture_resolution": 1024,
+      "object": "Industrial_corner"
+    },
+    {
+      "id": "industrial_modular/partition",
+      "key": "partition",
+      "source_file": "工业办公楼室内隔断墙.glb",
+      "path": "res://assets/environment/industrial_modular/partition.glb",
+      "min": [
+        -2.003797769546509,
+        -0.009360591880977154,
+        -0.08491009473800659
+      ],
+      "size": [
+        4.0152387619018555,
+        3.024707555770874,
+        0.18136407434940338
+      ],
+      "triangles": 2000,
+      "texture_resolution": 1024,
+      "object": "Industrial_partition"
+    },
+    {
+      "id": "industrial_modular/floor",
+      "key": "floor",
+      "source_file": "正方形工业建筑地板模块.glb",
+      "path": "res://assets/environment/industrial_modular/floor.glb",
+      "min": [
+        -1.99628484249115,
+        -0.01044384017586708,
+        -1.9983959197998047
+      ],
+      "size": [
+        3.9968018531799316,
+        0.10479244589805603,
+        4.002799034118652
+      ],
+      "triangles": 800,
+      "texture_resolution": 512,
+      "object": "Industrial_floor"
+    },
+    {
+      "id": "industrial_modular/roof_edge",
+      "key": "roof_edge",
+      "source_file": "工业建筑屋顶边缘模块.glb",
+      "path": "res://assets/environment/industrial_modular/roof_edge.glb",
+      "min": [
+        -2.0024497509002686,
+        -0.0011170028010383248,
+        -0.17842817306518555
+      ],
+      "size": [
+        4.001880168914795,
+        0.28013020753860474,
+        0.35557109117507935
+      ],
+      "triangles": 1200,
+      "texture_resolution": 512,
+      "object": "Industrial_roof_edge"
+    },
+    {
+      "id": "industrial_modular/pillar",
+      "key": "pillar",
+      "source_file": "工业仓库方形支撑柱.glb",
+      "path": "res://assets/environment/industrial_modular/pillar.glb",
+      "min": [
+        -0.2097964882850647,
+        0.00018994837591890246,
+        -0.2098381370306015
+      ],
+      "size": [
+        0.4196378290653229,
+        2.9997386932373047,
+        0.41969698667526245
+      ],
+      "triangles": 1799,
+      "texture_resolution": 512,
+      "object": "Industrial_pillar"
+    },
+    {
+      "id": "industrial_modular/beam",
+      "key": "beam",
+      "source_file": "工业建筑横向钢梁.glb",
+      "path": "res://assets/environment/industrial_modular/beam.glb",
+      "min": [
+        -1.9996556043624878,
+        -0.00011609159264480695,
+        -0.1395580917596817
+      ],
+      "size": [
+        3.9982337951660156,
+        0.3543289005756378,
+        0.2870083451271057
+      ],
+      "triangles": 1600,
+      "texture_resolution": 512,
+      "object": "Industrial_beam"
+    },
+    {
+      "id": "industrial_modular/stairs",
+      "key": "stairs",
+      "source_file": "工业建筑直线金属楼梯.glb",
+      "path": "res://assets/environment/industrial_modular/stairs.glb",
+      "min": [
+        -0.7991790771484375,
+        -0.00011859466758323833,
+        -2.3010478019714355
+      ],
+      "size": [
+        1.611147165298462,
+        3.794513702392578,
+        4.5998101234436035
+      ],
+      "triangles": 5999,
+      "texture_resolution": 1024,
+      "object": "Industrial_stairs"
+    },
+    {
+      "id": "industrial_modular/platform",
+      "key": "platform",
+      "source_file": "工业建筑二层金属平台.glb",
+      "path": "res://assets/environment/industrial_modular/platform.glb",
+      "min": [
+        -1.0199999809265137,
+        0,
+        -1.0199999809265137
+      ],
+      "size": [
+        2.0399999618530273,
+        3.8600001335144043,
+        2.0399999618530273
+      ],
+      "triangles": 5850,
+      "texture_resolution": 1024,
+      "object": "Industrial_platform"
+    },
+    {
+      "id": "industrial_modular/door",
+      "key": "door",
+      "source_file": "工业建筑单扇铁门.glb",
+      "path": "res://assets/environment/industrial_modular/door.glb",
+      "min": [
+        -0.5992279052734375,
+        -0.00021960012963972986,
+        -0.07956881076097488
+      ],
+      "size": [
+        1.1990065574645996,
+        2.199836015701294,
+        0.16006170213222504
+      ],
+      "triangles": 3500,
+      "texture_resolution": 1024,
+      "object": "Industrial_door"
+    },
+    {
+      "id": "industrial_modular/ceiling",
+      "key": "ceiling",
+      "source_file": "工业建筑室内天花板模块.glb",
+      "path": "res://assets/environment/industrial_modular/ceiling.glb",
+      "min": [
+        -2.0002944469451904,
+        -0.0017146884929388762,
+        -1.996352195739746
+      ],
+      "size": [
+        3.9973678588867188,
+        0.12254105508327484,
+        3.9955973625183105
+      ],
+      "triangles": 600,
+      "texture_resolution": 512,
+      "object": "Industrial_ceiling"
+    }
+  ]
+}

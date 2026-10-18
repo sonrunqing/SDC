@@ -1,0 +1,29 @@
+# Editor imports and local caches
+**/.godot/
+**/__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+*.blend1
+*.blend2
+
+# Export products and private signing material are delivered separately.
+/builds/
+*.apk
+*.apk.idsig
+*.aab
+*.pck
+*.keystore
+*.jks
+*.p12
+*.pfx
+*.key
+*.pem
+**/export_credentials.cfg
+.env
+.env.*
+
+# Workstation notes contain local tool paths, not project sources.
+/LOCAL_HANDOVER.md

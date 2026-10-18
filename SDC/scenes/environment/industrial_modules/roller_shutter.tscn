@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/environment/industrial_modular/roller_shutter.glb" id="1_visual"]
+
+[sub_resource type="BoxShape3D" id="Shape_0"]
+size = Vector3(4.00000000, 2.60000000, 0.10000000)
+
+[node name="roller_shutter" type="Node3D"]
+metadata/module_id = "industrial_modular/roller_shutter"
+metadata/grid_metres = 4.0
+
+[node name="Visual" parent="." instance=ExtResource("1_visual")]
+position = Vector3(-0.00000882, -0.00023921, -0.00138492)
+scale = Vector3(0.99998093, 1.00009138, 0.97211146)
+
+[node name="Collision" type="StaticBody3D" parent="."]
+
+[node name="Piece0" type="CollisionShape3D" parent="Collision"]
+position = Vector3(0.00000000, 1.30000000, 0.00000000)
+shape = SubResource("Shape_0")
