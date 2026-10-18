@@ -1,24 +1,45 @@
-# SDC 0.3.0
+# SDC 0.4.14
 
-Godot 4.6.3 开发的安卓 ARM64 单机 PvE 2.5D 搜打撤原型。包含人物装备大厅、地图选择、出战整备、搜刮和撤离、仓库与商店，以及可实时显示独立枪体和配件的改枪界面。
+Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型。
 
-## 手机上安装
+## 下载手机版
 
-下载 [Android APK（v0.3.0，约 52 MiB）](https://github.com/sonrunqing/SDC/releases/latest/download/SDC-v0.3.0.apk)。这是 Android 7.0+、ARM64 的调试签名安装包。下载完成后，在手机文件管理器中打开 APK 并允许安装此来源的应用。
+**[下载 SDC 0.4.14 APK](https://github.com/sonrunqing/SDC/releases/download/v0.4.14/SDC-v0.4.14.apk)**（约93.3 MiB）
 
-该仓库是私人仓库，手机浏览器需要登录有权限的 GitHub 账号。若 GitHub App 内不能下载，请复制上面的地址到手机浏览器打开。
+[最新发布页](https://github.com/sonrunqing/SDC/releases/latest) · [0.4.14 更新说明与源码压缩包](https://github.com/sonrunqing/SDC/releases/tag/v0.4.14)
 
-## 项目内容
+当前版本为 **0.4.14 / versionCode 21**。仓库已公开，下载和读取源码无需登录。
+包名保持 `org.prototype.shooter25d`，签名沿用0.4.3起的固定身份；后续同一固定签名版本之间覆盖升级。
+历史云端0.3.0是另一签名，仅作为旧版本保留，不能直接覆盖升级。
 
-- GitHub Release 源码 ZIP：完整 Godot 游戏项目，包括 GDScript、场景、数据、测试、模型、贴图、音效、字体和资源许可证。解压后用 Godot 4.6.3 打开 `SDC/project.godot`。
-- `previews/`：大厅、地图、商店、改枪、仓库和战局截图。
-- `development/`：构建校验记录和工具版本清单。
-- GitHub Release：SDC APK 安装包、可直接导入 Godot 的源码 ZIP 与界面演示视频。
+## 最新游戏代码与 AI 入口
 
-![SDC 人物大厅](previews/lobby.png)
+**完整游戏工程在 [fix-game-bugs 分支](https://github.com/sonrunqing/SDC/tree/fix-game-bugs)**，
+[代码审查 PR #1](https://github.com/sonrunqing/SDC/pull/1)保持打开。
+此 main 页面提供下载与项目入口；读取、开发或审查当前游戏请使用上述工作分支。
 
-游戏玩法见 [`docs/README.md`](docs/README.md)，免费模型来源及授权见 [`docs/THIRD_PARTY_ASSETS.md`](docs/THIRD_PARTY_ASSETS.md)。
+```sh
+git clone --branch fix-game-bugs https://github.com/sonrunqing/SDC.git
+```
+
+用Godot 4.6.3打开 `SDC/project.godot`。审查先读工作分支两级 `AGENTS.md`；无需本机Android私钥或Blender。
+具备联网及GitHub读取能力的AI可直接读取该公开分支。
+
+## 本版更新
+
+- 右下瞄准摇杆驱动四臂十字准星与中心点，显示人物和枪口当前朝向；遮挡截断，暂停和搜索时隐藏。
+- 物品品质底色去除灰雾，灰、绿、蓝、黄、红背景与原色图标分层绘制；未搜索物品不显示品质。
+- 局内菜单改为小圆形齿轮；圆形搜索键只在靠近可直接接触物资时显示，离开或换箱时取消按压。
+- 包含48种原创变卖物、室内容器逐件搜索动画、双击/点选放置/拖动物品转移，以及之前的手机触控与装备改动。
+
+[完整项目说明](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/README.md) ·
+[构建身份](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/development/android-v0.4.14.json) ·
+[本版实际引擎预览](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/development/previews/README.md)
+
+![0.4.14 靠近物资时的圆形搜索键与准星](https://raw.githubusercontent.com/sonrunqing/SDC/fix-game-bugs/development/previews/SDC-v0.4.14-near-loot.png)
 
 ## 项目现状
 
-这是离线单人开发原型。安卓真机帧率、触控手感和音频还没有实机验证；安装包使用调试签名。尚未实现多人服务器、账号和联网经济系统。
+这是离线单人开发原型。Android导出、包名、版本、证书和资源清单已核对；本轮没有新增或运行自动测试，没有物理手机游玩、性能或覆盖安装结果。尚未实现多人服务器、账号和联网经济系统。
+
+原有预览与资料仍保留在main历史目录中；本版素材来源和许可见[当前来源说明](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/THIRD_PARTY_ASSETS.md)。
