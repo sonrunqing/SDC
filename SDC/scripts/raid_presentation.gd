@@ -5,6 +5,7 @@ var world: Node3D
 var _mask: SubViewport
 var _painter: Control
 var _veil: ColorRect
+var _reticle: Control
 var _clock: float=0
 var _fan: PackedVector3Array=[]
 var _near: PackedVector3Array=[]
@@ -45,6 +46,8 @@ func _ready() -> void:
 	shader.set_shader_parameter("visibility_mask",_mask.get_texture())
 	_veil.material=shader
 	add_child(_veil)
+	_reticle=preload("res://scripts/ui_aim_reticle.gd").new()
+	add_child(_reticle)
 	# World shading belongs below the drawn combat cues, all below the phone HUD.
 	show_behind_parent=true
 
@@ -96,6 +99,7 @@ func _sight_point(space: PhysicsDirectSpaceState3D,origin: Vector3,direction: Ve
 
 func _process(delta: float) -> void:
 	if not is_instance_valid(world) or not is_instance_valid(world.camera):return
+	_reticle.present(world.camera,world.aim_indicator())
 	_hit_left=maxf(0,_hit_left-delta)
 	_kill_left=maxf(0,_kill_left-delta)
 	_hurt_left=maxf(0,_hurt_left-delta)

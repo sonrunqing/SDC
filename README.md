@@ -1,7 +1,20 @@
-# SDC 0.4.7
+# SDC 0.4.14
 
 Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型。
 当前完整工程、运行素材和来源说明已纳入 Git，入口为 [`SDC/project.godot`](SDC/project.godot)。
+
+最新游戏代码在 [`fix-game-bugs` 分支](https://github.com/sonrunqing/SDC/tree/fix-game-bugs)，
+代码审查在 [PR #1](https://github.com/sonrunqing/SDC/pull/1)。
+
+## AI 与源码入口
+
+读取本分支即可获得完整游戏；审查先读两级 `AGENTS.md`，再按需读 `DECISIONS.md`、
+`LESSONS.md` 和 `HANDOFF.md`。源码审查不需要 Android 私钥、Blender 或本机工具目录。
+游戏运行输入面向手机原始触摸，不包含键鼠操作回退。
+
+```sh
+git clone --branch fix-game-bugs https://github.com/sonrunqing/SDC.git
+```
 
 ## 打开工程
 
@@ -18,15 +31,19 @@ Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型�
 - 实时枪械拼装、三武器栏、七项枪械性能，以及画面、声音和操控设置。
 - 0.4.4 修正预览页无法出击、重复点击重建地图、背包误卸下等问题；地图支持单指平移、双指缩放与旋转。
 - 0.4.6 修正大厅按钮按下后不恢复且不执行动作：触摸与模拟鼠标不再抢占同一次操作。
-- 0.4.7 全面改为原始手机触摸，移除键鼠操作与输入模拟；仓库单选可查看全部 260 件物品的详情。
+- 0.4.7 全面改为原始手机触摸，移除键鼠操作与输入模拟；当前仓库单选可查看全部 296 件物品的详情。
 - 普通弹挂只储物，可配防弹衣；新增独立分组的防弹弹挂，替代防弹衣并在装备页淡色占位。
+- Ashfront 主体镜头、光照、角色动作、敌人、视野和特效已移接；尚未完全实现旧项目画面一致。
+- 26 个室内物资容器、逐件搜索动画、双击/点选后放置/拖动转移；48种原创模型变卖物、8类掉落池。
+- 右下瞄准摇杆驱动世界十字准星，菜单改为小圆形齿轮；圆形搜索键仅靠近可直接接触物资时显示，按压绑定目标并在离开时取消。
+- 品质实色背景、原色图标与交互提示独立绘制，未知物品不提前显示品质。
 
 详情见 [`SDC/README.md`](SDC/README.md)、[0.4.4 修改记录](SDC/docs/MOBILE_FIXES_0_4_4.md)、
 [0.4.6 按钮修复](SDC/docs/TOUCH_INPUT_FIX_0_4_6.md)和[代码审查入口](docs/CODE_REVIEW.md)。
 
 ## Android 安装与更新
 
-当前交付版本为 **0.4.7 / versionCode 14**，包名保持 `org.prototype.shooter25d`。
+当前交付版本为 **0.4.14 / versionCode 21**，包名保持 `org.prototype.shooter25d`。
 已安装固定签名的 0.4.3 时，可直接覆盖更新；后续沿用同一密钥并增加版本。
 
 旧 GitHub Release 的云端 0.3.0 使用另一签名，是历史产物；它不能被本机新签名直接覆盖。
@@ -34,6 +51,12 @@ Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型�
 详见[签名与更新记录](SDC/docs/ANDROID_UPDATES.md)。
 
 APK 在本机导出，本 PR 不新增 GitHub Release。APK 和签名私钥不存放于 Git 源码目录。
+
+本轮记录见 [准星与物品分层](SDC/docs/MOBILE_RETICLE_0_4_13.md)、
+[圆形上下文按键](SDC/docs/ROUND_CONTEXT_BUTTONS_0_4_14.md) 和
+[公开构建身份](development/android-v0.4.14.json)。
+[实际引擎预览图](development/previews/README.md) 用于展示制作结果，非手机截图；
+本轮没有新增或运行自动测试，没有真机触摸、性能或覆盖安装结果。
 
 ## 项目内容
 

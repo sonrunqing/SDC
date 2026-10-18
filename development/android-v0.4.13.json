@@ -1,0 +1,58 @@
+{
+  "version": "0.4.13",
+  "version_code": 20,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 97882660,
+  "sha256": "1923384724dd5900497e4225fbfc0eb088729eae51c2a62d8969313b8a02be49",
+  "reference_version_code": 19,
+  "same_package_and_signer_as_reference": true,
+  "phone_installation_checked": false,
+  "built_at": "2026-10-18T21:18:03.4069858+08:00",
+  "apk_file": "SDC-v0.4.13.apk",
+  "reference_apk_file": "SDC-v0.4.12.apk",
+  "checks": {
+    "android_export": true,
+    "valuable_items": 48,
+    "model_import_targets": 48,
+    "icon_import_targets": 48,
+    "compiled_modules": {
+      "ui_aim_reticle": {
+        "bytes": 1807,
+        "sha256": "cfe58c9601b6cf27151c059b0bf0ab32fae402de269bff73b5cd56369864a153",
+        "changed_from_previous": true
+      },
+      "raid_world": {
+        "bytes": 47542,
+        "sha256": "4ff28f2cf4f34e44759234d115dfc97fc560d04d6206c3de647ea150b6677874",
+        "changed_from_previous": true
+      },
+      "raid_presentation": {
+        "bytes": 6434,
+        "sha256": "3f6cf54db855ff1af8ece6850d5f6705dffe9fa8e774aa392b1dab6893444769",
+        "changed_from_previous": true
+      },
+      "ui_inventory_grid": {
+        "bytes": 9302,
+        "sha256": "2704e33ac68b09e2f3f5f0b88aecdc530d5bef630c726bc1a8c620332a6a02bc",
+        "changed_from_previous": true
+      },
+      "item_rarity": {
+        "bytes": 1144,
+        "sha256": "740dac6e1b8cb7f8afaa40d616e57acd106b5c911eeea560f90e2fe7457279a7",
+        "changed_from_previous": true
+      }
+    },
+    "excluded_development_files": [],
+    "automated_tests_run_this_version": false
+  },
+  "features": {
+    "reticle": "Four-arm and center dot from Ashfront, driven by existing raw touch aim, world-facing ray with cover stop, no input handling",
+    "inventory": "Opaque authored rarity underlay, separate original-color icon CanvasItem and interaction overlay; unknown records remain neutral"
+  },
+  "production_engine_captures": [
+    "development/previews/SDC-v0.4.13-aim.png",
+    "development/previews/SDC-v0.4.13-rarity.png"
+  ],
+  "note": "Actual Godot/OpenGL production rendering, normal import/export and compiled APK resource inspection. No automated tests or physical phone installation/play/performance result this version. Fixed signing identity and monotonic version preserved."
+}

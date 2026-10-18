@@ -1025,6 +1025,7 @@ func _deploy() -> void:
 	add_child(_world)
 	move_child(_world, 0)
 	_world.hud_changed.connect(_update_hud)
+	_world.interaction_target_changed.connect(_controls.set_interact_target)
 	_world.container_opened.connect(_show_loot_container)
 	_world.container_closed.connect(_hide_loot_container)
 	_world.raid_finished.connect(_raid_finished)
@@ -1109,7 +1110,7 @@ func _build_hud() -> void:
 	_controls.aim_changed.connect(func(value: Vector2) -> void: if is_instance_valid(_world): _world.set_aim(value))
 	_controls.fire_changed.connect(func(pressed: bool) -> void: if is_instance_valid(_world): _world.set_fire(pressed))
 	_controls.reload_pressed.connect(func() -> void: if is_instance_valid(_world): _world.reload_weapon())
-	_controls.interact_pressed.connect(func() -> void: if is_instance_valid(_world): _world.interact())
+	_controls.interact_pressed.connect(func(target: int) -> void: if is_instance_valid(_world): _world.interact(target))
 	_controls.medkit_pressed.connect(func() -> void: if is_instance_valid(_world): _world.use_medkit())
 	_controls.weapon_pressed.connect(func(slot_name: String) -> void: if is_instance_valid(_world): _world.switch_weapon(slot_name))
 	_controls.menu_pressed.connect(_show_pause)
@@ -1119,7 +1120,7 @@ func _build_hud() -> void:
 func _update_hud(info: Dictionary) -> void:
 	if not is_instance_valid(_hud_hp): return
 	_hud_map.call("update_info", info)
-	_controls.call("set_status", int(info.get("medkits",0)), bool(info.get("reloading",false)), bool(info.get("searching",false)))
+	_controls.call("set_status", int(info.get("medkits",0)), bool(info.get("reloading",false)), bool(info.get("searching",false)),int(info.get("interact_target",-1)))
 	_controls.call("set_weapons",info.get("weapons",[]))
 	var hp: float = float(info.get("hp",100))
 	_hud_hp.text = "生命  %d / %d" % [int(hp),int(info.get("max_hp",100))]

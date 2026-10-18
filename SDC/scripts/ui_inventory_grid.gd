@@ -16,6 +16,8 @@ var selected_uid: String = ""
 var hover_spot: Dictionary = {}
 var _font: Font
 var _textures: Dictionary = {}
+var _icons: Node2D
+var _overlays: Node2D
 ## Raid search views provide live carried/container records without using stash.
 var use_source_records: bool=false
 var source_records: Array=[]
@@ -49,6 +51,16 @@ func advance_search_animation(delta: float) -> void:
 func _ready() -> void:
 	_font=load("res://assets/fonts/NotoSansSC.ttf")
 	mouse_filter=Control.MOUSE_FILTER_PASS
+	# Separate CanvasItems keep quality underlays below untinted item artwork.
+	# Use tree order rather than z_index so later modals still cover this grid.
+	_icons=Node2D.new()
+	_icons.name="ItemIcons"
+	_icons.draw.connect(_draw_items)
+	add_child(_icons)
+	_overlays=Node2D.new()
+	_overlays.name="InteractionOverlays"
+	_overlays.draw.connect(_draw_overlays)
+	add_child(_overlays)
 	if equipment_slot.is_empty():custom_minimum_size=Vector2(columns*cell,rows*cell)
 
 func records() -> Array:
@@ -109,24 +121,39 @@ func _draw() -> void:
 		var tone: Color = Rarity.tone(item) if valuable else [Color("53645e"),Color("59755b"),Color("496c82"),Color("77658b"),Color("ad8853")][clampi(level,0,4)]
 		var reveal: float=1.0-pow(1.0-clampf(float(reveal_ages.get(str(record.uid),.55))/.4,0,1),3)
 		var alpha: float=display_alpha*(.12+.88*reveal)
-		# Valuable rarity backgrounds: 1.6x, then another 2x, per visual feedback.
-		draw_rect(rectangle,Color(tone,(.448 if valuable else .24)*alpha))
+		var background: Color=Rarity.background(item) if valuable else Color(tone,.24)
+		background.a*=alpha
+		draw_rect(rectangle,background)
 		if reveal<1 and not valuable:draw_rect(rectangle,Color(.76,.84,.74,(1-reveal)*.20))
 		var border: Color=Color("dfe7e4") if str(record.uid)==selected_uid else tone
 		border.a=display_alpha if str(record.uid)==selected_uid or not valuable else display_alpha*.42
 		draw_rect(rectangle,border,false,3 if str(record.uid)==selected_uid else 1)
+	_icons.queue_redraw()
+	_overlays.queue_redraw()
+
+func _draw_items() -> void:
+	if _font==null:return
+	for record: Dictionary in records():
+		# Concealed records never reach Catalog, texture loading or item text.
+		if concealed_uids.has(str(record.uid)):continue
+		var item: Dictionary=Catalog.get_item(str(record.item))
+		var rectangle: Rect2=record_rect(record)
+		var reveal: float=1.0-pow(1.0-clampf(float(reveal_ages.get(str(record.uid),.55))/.4,0,1),3)
+		var alpha: float=display_alpha*reveal
 		var icon_box: Rect2=rectangle.grow(-4)
 		var scale_reveal: float=.88+.12*reveal
 		icon_box=Rect2(icon_box.get_center()-icon_box.size*scale_reveal*.5+Vector2(0,(1-reveal)*5),icon_box.size*scale_reveal)
-		_draw_icon(str(record.item),icon_box,bool(record.get("rotated",false)),alpha)
-		if int(record.qty)>1:draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color(Color("f7ead3"),alpha))
-		if rectangle.size.x>110:draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color(Color("f2f0e7"),alpha))
-		if not display_note.is_empty():draw_string(_font,rectangle.position+Vector2(4,15),display_note,HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-8,12,Color("b0bdbb"))
-	if animate_search and opening_progress<1:_draw_opening()
+		_draw_icon(_icons,str(record.item),icon_box,bool(record.get("rotated",false)),alpha)
+		if int(record.qty)>1:_icons.draw_string(_font,rectangle.end-Vector2(28,5),str(record.qty),HORIZONTAL_ALIGNMENT_RIGHT,-1,16,Color(Color("f7ead3"),alpha))
+		if rectangle.size.x>110:_icons.draw_string(_font,rectangle.position+Vector2(6,rectangle.size.y-7),str(item.get("name","")),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-12,15,Color(Color("f2f0e7"),alpha))
+		if not display_note.is_empty():_icons.draw_string(_font,rectangle.position+Vector2(4,15),display_note,HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x-8,12,Color("b0bdbb"))
+
+func _draw_overlays() -> void:
+	if animate_search and opening_progress<1:_draw_opening(_overlays)
 	if not hover_spot.is_empty():
 		var rectangle: Rect2 = Rect2(Vector2(int(hover_spot.x),int(hover_spot.y))*cell,Vector2(hover_spot.get("size",Vector2i.ONE))*cell).grow(-1)
-		draw_rect(rectangle,Color(.44,.86,.65,.28))
-		draw_rect(rectangle,Color("91dab3"),false,3)
+		_overlays.draw_rect(rectangle,Color(.44,.86,.65,.28))
+		_overlays.draw_rect(rectangle,Color("91dab3"),false,3)
 
 func _draw_unknown(rectangle: Rect2,active: bool) -> void:
 	var center: Vector2=rectangle.get_center()
@@ -163,27 +190,27 @@ func _draw_unknown(rectangle: Rect2,active: bool) -> void:
 		draw_line(corner,corner+Vector2(horizontal,0),Color("b8bec4"),2)
 		draw_line(corner,corner+Vector2(0,vertical),Color("b8bec4"),2)
 
-func _draw_opening() -> void:
+func _draw_opening(canvas: CanvasItem) -> void:
 	var extent:=Vector2(columns,rows)*cell
 	var eased: float=1.0-pow(1.0-opening_progress,3)
 	var width: float=extent.x*.5*(1.0-eased)
 	for x: float in [0.0,extent.x-width]:
-		draw_rect(Rect2(x,0,width,extent.y),Color("28333a"))
+		canvas.draw_rect(Rect2(x,0,width,extent.y),Color("28333a"))
 	var text: String="打开容器"
 	var text_width: float=_font.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,22).x
-	draw_string(_font,extent*.5+Vector2(-text_width*.5,8),text,HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color(.8,.84,.79,1.0-opening_progress))
+	canvas.draw_string(_font,extent*.5+Vector2(-text_width*.5,8),text,HORIZONTAL_ALIGNMENT_LEFT,-1,22,Color(.8,.84,.79,1.0-opening_progress))
 
-func _draw_icon(id: String, rectangle: Rect2, rotated: bool,alpha: float = 1.0) -> void:
+func _draw_icon(canvas: CanvasItem,id: String, rectangle: Rect2, rotated: bool,alpha: float = 1.0) -> void:
 	if not _textures.has(id):
 		_textures[id]=preload("res://scripts/item_textures.gd").icon(id)
 	var texture: Texture2D = _textures[id]
 	if texture==null:
-		draw_string(_font,rectangle.position+Vector2(3,24),str(Catalog.get_item(id).get("name","")).left(3),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x,15,Color(Color("cbd4cc"),alpha))
+		canvas.draw_string(_font,rectangle.position+Vector2(3,24),str(Catalog.get_item(id).get("name","")).left(3),HORIZONTAL_ALIGNMENT_LEFT,rectangle.size.x,15,Color(Color("cbd4cc"),alpha))
 		return
 	var natural: Vector2 = texture.get_size()
 	if rotated:natural=Vector2(natural.y,natural.x)
 	var scale_factor: float = minf(rectangle.size.x/natural.x,rectangle.size.y/natural.y)
 	var dimensions: Vector2 = texture.get_size()*scale_factor
-	draw_set_transform(rectangle.get_center(),PI*.5 if rotated else 0)
-	draw_texture_rect(texture,Rect2(-dimensions*.5,dimensions),false,Color(1,1,1,alpha))
-	draw_set_transform(Vector2.ZERO)
+	canvas.draw_set_transform(rectangle.get_center(),PI*.5 if rotated else 0)
+	canvas.draw_texture_rect(texture,Rect2(-dimensions*.5,dimensions),false,Color(1,1,1,alpha))
+	canvas.draw_set_transform(Vector2.ZERO)

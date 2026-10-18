@@ -3,9 +3,9 @@ extends RefCounted
 ## inside the display safe area, not stored as device-specific pixel coordinates.
 const IDS: Array[String] = ["move","aim","fire","reload","interact","heal","weapon_primary","weapon_secondary","weapon_sidearm","menu"]
 const REQUIRED: Array[String] = ["move","aim","fire","menu"]
-const CIRCLES: Array[String] = ["move","aim","fire"]
+const CIRCLES: Array[String] = ["move","aim","fire","menu","interact"]
 const TITLES: Dictionary = {"move":"移动摇杆","aim":"瞄准摇杆","fire":"开火","reload":"换弹","interact":"搜索 / 拾取","heal":"治疗","weapon_primary":"主武器","weapon_secondary":"副武器","weapon_sidearm":"手枪","menu":"菜单"}
-const SIZES: Dictionary = {"move":Vector2(152,152),"aim":Vector2(152,152),"fire":Vector2(94,94),"reload":Vector2(112,72),"interact":Vector2(104,72),"heal":Vector2(104,72),"weapon_primary":Vector2(148,64),"weapon_secondary":Vector2(148,64),"weapon_sidearm":Vector2(148,64),"menu":Vector2(110,64)}
+const SIZES: Dictionary = {"move":Vector2(152,152),"aim":Vector2(152,152),"fire":Vector2(94,94),"reload":Vector2(112,72),"interact":Vector2(64,64),"heal":Vector2(104,72),"weapon_primary":Vector2(148,64),"weapon_secondary":Vector2(148,64),"weapon_sidearm":Vector2(148,64),"menu":Vector2(44,44)}
 
 static func usable_rect(view_size: Vector2,safe: Vector4) -> Rect2:
 	return Rect2(Vector2(safe.x,safe.y),Vector2(maxf(1,view_size.x-safe.x-safe.z),maxf(1,view_size.y-safe.y-safe.w)))
@@ -42,7 +42,7 @@ static func defaults(view_size: Vector2,safe: Vector4,legacy_scale: float = 1,op
 		"weapon_primary":Vector2(middle-156,bottom-44),
 		"weapon_secondary":Vector2(middle,bottom-44),
 		"weapon_sidearm":Vector2(middle+156,bottom-44),
-		"menu":Vector2(right-55,area.position.y+128)}
+		"menu":Vector2(right-24,area.position.y+128)}
 	var output: Dictionary={}
 	for id: String in IDS:
 		var point: Vector2=(centers[id]-area.position)/area.size
@@ -61,7 +61,7 @@ static func rectangles(entries: Dictionary,view_size: Vector2,safe: Vector4) -> 
 	for id: String in IDS:
 		var entry: Dictionary=entries[id]
 		var dimensions: Vector2=SIZES[id]*float(entry.scale)*fit
-		var minimum:=Vector2(86,86) if id in ["move","aim"] else (Vector2(64,64) if id=="fire" else Vector2(64,44))
+		var minimum:=Vector2(86,86) if id in ["move","aim"] else (Vector2(64,64) if id in ["fire","interact"] else (Vector2(44,44) if id=="menu" else Vector2(64,44)))
 		dimensions=dimensions.max(minimum).min(area.size)
 		var half: Vector2=dimensions*.5
 		var center: Vector2=area.position+area.size*Vector2(float(entry.x),float(entry.y))

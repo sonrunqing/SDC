@@ -5,6 +5,7 @@ signal hud_changed(info: Dictionary)
 signal raid_finished(extracted: bool, details: Dictionary)
 signal container_opened(index: int)
 signal container_closed(reason: String)
+signal interaction_target_changed(target: int)
 const ContainerState=preload("res://scripts/loot_container_state.gd")
 
 const MAP_HALF := Vector2(80.0, 90.0)
@@ -49,6 +50,9 @@ var _rng := RandomNumberGenerator.new()
 var _move := Vector2.ZERO
 var _stick_aim := Vector2.ZERO
 var _aim_direction := Vector3.FORWARD
+var _aim_marker_range: float=12.0
+var _aim_marker_point:=Vector3.ZERO
+var _aim_marker_ready: bool=false
 var _stick_firing := false
 var _active := false
 var _ui_blocked: bool = false
@@ -64,6 +68,7 @@ var _hud_clock := 0.0
 var _search_left := 0.0
 var _search_target := -1
 var _marker_clock: float=0
+var _interaction_target: int=-1
 var _notice := ""
 var _notice_left := 0.0
 var _hit_marker := 0.0
@@ -109,6 +114,8 @@ func start_raid(selected_entry: String = "south") -> void:
 	_move = Vector2.ZERO
 	_stick_aim = Vector2.ZERO
 	_aim_direction = Vector3.FORWARD
+	_aim_marker_range=12.0
+	_aim_marker_ready=false
 	_stick_firing = false
 	_ui_blocked = false
 	_finished = false
@@ -116,6 +123,7 @@ func start_raid(selected_entry: String = "south") -> void:
 	_shots = 0
 	_looted = 0
 	_search_target = -1
+	_interaction_target=-1
 	_search_left = 0.0
 	_hit_marker = 0.0
 	_recoil = 0.0
@@ -139,6 +147,7 @@ func start_raid(selected_entry: String = "south") -> void:
 	_presentation.world=self
 	presentation_layer.add_child(_presentation)
 	_active = true
+	_update_interaction_target()
 	_emit_hud()
 
 
@@ -157,6 +166,13 @@ func set_input_blocked(blocked: bool) -> void:
 	_move=Vector2.ZERO
 	_stick_aim=Vector2.ZERO
 	_stick_firing=false
+	_update_interaction_target()
+
+func _update_interaction_target() -> void:
+	var target: int=_nearest_container() if _active and not _ui_blocked and _search_target<0 else -1
+	if target==_interaction_target:return
+	_interaction_target=target
+	interaction_target_changed.emit(target)
 
 
 func switch_weapon(slot: String) -> bool:
@@ -206,9 +222,10 @@ func reload_weapon() -> void:
 	_notify("正在换弹…", _reload_left)
 
 
-func interact() -> void:
+func interact(expected_target: int=-1) -> void:
 	if not _active or _ui_blocked or _search_target>=0:return
 	var index: int=_nearest_container()
+	if expected_target>=0 and index!=expected_target:return
 	if index>=0:_open_container(index)
 
 
@@ -229,7 +246,7 @@ func use_medkit() -> void:
 func get_hud() -> Dictionary:
 	var weapon: Dictionary = Catalog.get_item(str(GameState.loadout.get("weapon", "")))
 	var nearby := ""
-	var index := _nearest_container()
+	var index: int=_interaction_target
 	if index >= 0:
 		nearby =  str(_containers[index].get("name", "物资箱"))
 	elif is_instance_valid(player) and player.position.distance_to(EXIT) < 3.2:
@@ -277,7 +294,7 @@ func get_hud() -> Dictionary:
 	return {
 		"hp": ceil(_hp), "max_hp": 100, "ammo": _magazine, "magazine": _magazine_size,
 		"reserve": GameState.raid_ammo, "seconds": ceili(_time_left), "objective": objective,
-		"nearby": nearby, "loot_value": value, "extract_progress": _extract_progress / EXTRACTION_DURATION,
+		"nearby": nearby, "interact_target":index if _active and not _ui_blocked and _search_target<0 else -1,"loot_value": value, "extract_progress": _extract_progress / EXTRACTION_DURATION,
 		"weapon_name": str(weapon.get("name", "未装备")), "medkits": GameState.raid_meds,
 		"weight": GameState.raid_weight(), "capacity": GameState.carry_capacity(),
 		"kills": _kills, "reloading": _reload_left > 0.0, "searching": _search_left > 0.0,
@@ -317,6 +334,7 @@ func _physics_process(delta: float) -> void:
 		_fire_player()
 	_update_guards(delta)
 	_update_search(delta)
+	_update_interaction_target()
 	_update_container_markers(delta)
 	_update_extraction(delta)
 	_update_effects(delta)
@@ -378,6 +396,7 @@ func _update_aim() -> void:
 		var blend: float=1.0-exp(-18.0*float(AppSettings.values.aim_sensitivity)*get_physics_process_delta_time())
 		var angle: float=lerp_angle(current_angle,target_angle,blend)
 		_aim_direction=Vector3(sin(angle),0,-cos(angle))
+		_aim_marker_range=lerpf(5.0,18.0,_stick_aim.length())
 	player_model.rotation.y = atan2(-_aim_direction.x, -_aim_direction.z)
 	var start := _active_muzzle_position()
 	if GameState.attachments.has("laser"):
@@ -390,6 +409,45 @@ func _update_aim() -> void:
 	_set_beam(aim_line, start, start + _aim_direction * length, 0.012)
 	var laser_material: StandardMaterial3D = aim_line.material_override
 	laser_material.albedo_color = Color(0.12, 0.9, 0.78, 0.55) if GameState.attachments.has("laser") else Color(0.27, 0.65, 0.60, 0.24)
+	_update_aim_marker()
+
+func _update_aim_marker() -> void:
+	# Use the same chest-height trace origin as firing, so cover cannot be aimed
+	# through just because the animated muzzle protrudes into a thin wall.
+	var origin: Vector3=player.global_position+Vector3(0,.94,0)
+	var origin_screen: Vector2=camera.unproject_position(origin)
+	var extent: Vector2=get_viewport().get_visible_rect().size
+	var safe:=Rect2(Vector2(44,54),extent-Vector2(88,108))
+	var distance: float=_aim_marker_range
+	var point: Vector3=origin+_aim_direction*distance
+	var projected: Vector2=camera.unproject_position(point)
+	# Keep a world-space point along the facing ray within the phone view.
+	# Shortening the range preserves direction; clamping x/y would bend it.
+	if not safe.has_point(projected) or projected.distance_to(origin_screen)>extent.y*.31:
+		var low: float=.6
+		var high: float=distance
+		for step: int in range(10):
+			var middle: float=(low+high)*.5
+			var candidate: Vector3=origin+_aim_direction*middle
+			var screen: Vector2=camera.unproject_position(candidate)
+			if not camera.is_position_behind(candidate) and safe.has_point(screen) and screen.distance_to(origin_screen)<=extent.y*.31:low=middle
+			else:high=middle
+		distance=low
+		point=origin+_aim_direction*distance
+	var hit: Dictionary=_ray(origin,point,[player.get_rid()])
+	_aim_marker_point=point if hit.is_empty() else Vector3(hit.position)
+	_aim_marker_ready=true
+
+func aim_indicator() -> Dictionary:
+	return {"visible":_active and not _ui_blocked and _aim_marker_ready,"point":_aim_marker_point,"muzzle":_active_muzzle_position(),"spread":_base_shot_spread()}
+
+func _base_shot_spread() -> float:
+	var accuracy: float=float(_weapon_stats.get("accuracy",72.0))
+	if accuracy<=1.0:accuracy*=100.0
+	var horizontal: float=float(_weapon_stats.get("horizontal_recoil",20.0))
+	var spread: float=maxf(.0035,(100.0-accuracy)*.0008)+_recoil*(.45+horizontal/40.0)
+	if Vector2(player.velocity.x,player.velocity.z).length()>.5:spread*=1.45
+	return spread
 
 
 func _fire_player() -> void:
@@ -405,14 +463,7 @@ func _fire_player() -> void:
 	var origin := player.position + Vector3(0, 0.94, 0)
 	var muzzle_origin := _active_muzzle_position()
 	var direction := _assisted_direction(origin, _aim_direction)
-	var accuracy: float = float(_weapon_stats.get("accuracy", 72.0))
-	if accuracy <= 1.0:
-		accuracy *= 100.0
-	var horizontal: float = float(_weapon_stats.get("horizontal_recoil",20.0))
-	var spread := maxf(0.0035, (100.0 - accuracy) * 0.0008) + _recoil*(.45+horizontal/40.0)
-	var moving := Vector2(player.velocity.x, player.velocity.z).length() > 0.5
-	if moving:
-		spread *= 1.45
+	var spread: float=_base_shot_spread()
 	var category: String = str(Catalog.get_item(str(GameState.loadout.get("weapon", ""))).get("category", "rifle"))
 	var pellets := 7 if category == "shotgun" else 1
 	var ammo: Dictionary = GameState.get_selected_ammo()
