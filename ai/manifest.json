@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "SDC Visual Player",
+  "repository": "https://github.com/sonrunqing/SDC",
+  "branch": "fix-game-bugs",
+  "guide": "https://github.com/sonrunqing/SDC/blob/fix-game-bugs/AI_PLAY.md",
+  "engine": "Godot 4.6.3",
+  "python": ">=3.10",
+  "mcp": {"command": "python", "args": ["ai/mcp_server.py"], "requirements": "ai/requirements.txt", "transport": "stdio"},
+  "json_lines": {"command": "python", "args": ["ai/play.py"]},
+  "dockerfile": "ai/Dockerfile",
+  "capabilities": ["production_rendered_frames", "raw_touch", "multitouch", "gesture_film", "isolated_profile"],
+  "coordinates": "normalized 0..1 of the returned image; inspect current frames",
+  "runtime": "agent-owned local or cloud process; display or Xvfb+Mesa required",
+  "acceptance": "Inspect actual final and intermediate images; successful commands alone are insufficient."
+}

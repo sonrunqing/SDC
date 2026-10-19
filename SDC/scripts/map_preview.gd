@@ -63,8 +63,6 @@ func _draw() -> void:
 	var exit_array: Array=_map.layout.extraction
 	var exit_p: Vector2=_point(Vector3(float(exit_array[0]),.2,float(exit_array[2])))
 	draw_rect(Rect2(exit_p-Vector2(6,6),Vector2(12,12)),Color("70d3af"),false,2)
-	var hint: String="单指平移 · 双指缩放 / 旋转"
-	draw_string(_font,Vector2(12,size.y-14),hint,HORIZONTAL_ALIGNMENT_LEFT,size.x-24,16,Color("bac9c5"))
 
 func _ground_point(local: Vector2) -> Variant:
 	if _camera==null or size.x<=0 or size.y<=0:return null

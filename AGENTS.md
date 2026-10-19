@@ -33,6 +33,20 @@ included in `SDC/assets/`. Godot 4.6.3 is the established project version.
   the original cloud 0.3.0 to local 0.4.3; routine later updates must not clear data.
 
 Code review and desktop source inspection do not require Android private keys.
+
+## Player feedback and visual acceptance
+
+- Read `docs/PLAYER_FEEDBACK.md` before changing UI or interaction design. It
+  separates explicit user requests from inferred preferences; later explicit
+  feedback wins. Persist new feedback and read it back in the same turn.
+- Secondary details, instructions and contextual item actions appear only on
+  demand in windows above the page. They must not reserve empty space or shrink
+  inventory/product grids. Item details are an adjacent bounded popover.
+- Player acceptance requires actual production frames and raw ScreenTouch /
+  ScreenDrag journeys, including multitouch. Do not treat successful commands,
+  state snapshots, static source inspection or APK export as proof of usable UI.
+  Development AI tooling runs an isolated profile and submits real phone events;
+  this is not authorization to restore human keyboard/mouse fallback controls.
 Keys, credentials, APKs and Godot import caches stay outside Git. See
 `SDC/AGENTS.md` and `SDC/docs/ANDROID_UPDATES.md` for the signing identity.
 Report bugs with the affected flow and code location; distinguish static

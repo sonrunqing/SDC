@@ -64,6 +64,13 @@ var raid_meds: int:
 		raid_medkits = maxi(0, value)
 
 func _ready() -> void:
+	if OS.get_cmdline_user_args().has("--sdc-ai"):
+		var isolated: String=OS.get_environment("SDC_AI_SAVE")
+		if not isolated.is_absolute_path():
+			push_error("AI mode requires an isolated absolute save path")
+			get_tree().quit(78)
+			return
+		save_path=isolated
 	if not load_game():
 		reset_progress()
 

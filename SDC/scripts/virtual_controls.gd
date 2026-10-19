@@ -78,7 +78,7 @@ func _handle_pointer(index: int,pos: Vector2,pressed: bool,cancelled: bool) -> v
 	if pressed and not cancelled:
 		if owned:return
 		var id: String=Layout.pick(_entries,_rects,pos)
-		if id=="interact" and _interact_target<0:return
+		if not _context_visible(id):return
 		if id=="fire" and _fire_finger==-1:
 			_fire_finger=index
 			fire_changed.emit(true)
@@ -113,7 +113,7 @@ func _handle_pointer(index: int,pos: Vector2,pressed: bool,cancelled: bool) -> v
 		if _action_owners.has(index):
 			var record: Dictionary=_action_owners[index]
 			_action_owners.erase(index)
-			if not cancelled and not bool(record.cancel) and _actions.has(record.action) and Layout.contains(str(record.action),_actions[record.action],pos):_fire_action(str(record.action),int(record.get("target",-1)))
+			if not cancelled and not bool(record.cancel) and _context_visible(str(record.action)) and _actions.has(record.action) and Layout.contains(str(record.action),_actions[record.action],pos):_fire_action(str(record.action),int(record.get("target",-1)))
 	if owned:get_viewport().set_input_as_handled()
 	queue_redraw()
 
@@ -186,7 +186,7 @@ func _draw() -> void:
 	if not enabled or _font==null or _rects.is_empty():return
 	for id: String in Layout.IDS:
 		if not Layout.visible(_entries,id):continue
-		if id=="interact" and not preview_mode and _interact_target<0:continue
+		if not _context_visible(id):continue
 		var rect: Rect2=_rects[id]
 		var opacity: float=float(_entries[id].opacity)
 		if id in ["move","aim"]:
@@ -237,6 +237,19 @@ func _draw() -> void:
 			_draw_caption(caption,rect,17,opacity)
 		if preview_mode and (id==preview_selected or preview_conflicts.has(id)):
 			draw_rect(rect.grow(5),Color("ec9287") if preview_conflicts.has(id) else Color("e4eeea"),false,2)
+
+func _context_visible(id: String) -> bool:
+	if preview_mode:return true
+	if id=="interact":return _interact_target>=0
+	if id.begins_with("weapon_"):
+		var count: int=0
+		var available: bool=false
+		for item: Dictionary in _weapons:
+			if not bool(item.get("available",false)):continue
+			count+=1
+			if str(item.slot)==id.trim_prefix("weapon_"):available=true
+		return count>1 and available
+	return true
 
 func _draw_menu_gear(rect: Rect2,held: bool,opacity: float) -> void:
 	# A 28px face at default scale inside the shared 44px circular touch target.

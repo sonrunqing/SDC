@@ -1,9 +1,7 @@
-extends PanelContainer
-## Inline, read-only details for the selected inventory instance.
+extends "res://scripts/touch_popup.gd"
+## Item details and contextual actions overlay the grid without resizing it.
 const Grid = preload("res://scripts/inventory_grid.gd")
 const Rarity = preload("res://scripts/item_rarity.gd")
-const TouchButton = preload("res://scripts/touch_button.gd")
-const TouchScroll = preload("res://scripts/touch_scroll.gd")
 const TYPE_NAMES := {"smg":"冲锋枪","rifle":"突击步枪","sniper":"精确步枪","shotgun":"霰弹枪","machine_gun":"机枪","pistol":"手枪","helmet":"头盔","visor":"面罩","body_armor":"防弹衣","rig":"弹挂","armored_rig":"防弹弹挂","backpack":"背包","compensator":"补偿器","flash_hider":"消焰器","muzzle_brake":"制退器","suppressor":"消音器","grip":"握把","handguard":"护木","laser":"激光指示器","magazine":"弹匣 / 供弹组件","optic":"瞄具","stock":"枪托","medical":"医疗用品","valuable":"战利品"}
 const SLOT_NAMES := {"primary":"主武器","secondary":"副武器","sidearm":"手枪","helmet":"头盔","visor":"面罩","body_armor":"防弹衣","armored_rig":"弹挂","backpack":"背包","muzzle":"枪口","grip":"握把","stock":"枪托","magazine":"供弹组件","optic":"瞄具","laser":"激光","handguard":"护木"}
 const STAT_NAMES := {"recoil_control":"后坐力控制","horizontal_control":"水平后坐力控制","ergonomics":"人机功效","range":"射程","damage":"击发威力","rpm":"射速","accuracy":"精准度","magazine":"弹容量","suppression":"消音能力"}
@@ -22,82 +20,25 @@ const LOOT_DESCRIPTIONS := {
 	"loot_fuel":"装有燃料的容器，单位重量较高，携行时需留意负重。",
 	"loot_scrap":"合金工业零件，可在撤离后出售。"
 }
-var _title: Label
-var _toggle: TouchButton
-var _scroll: TouchScroll
 var _text: Label
-var _drag_hint: Label
-var _expanded: bool = true
-var _signature: String = ""
-var _uid: String = ""
+var _signature: String=""
+var _uid: String=""
 
 func _ready() -> void:
-	mouse_filter=Control.MOUSE_FILTER_PASS
-	size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	var style:=StyleBoxFlat.new()
-	style.bg_color=Color("17252b")
-	style.border_color=Color("3b5057")
-	style.set_border_width_all(1)
-	style.set_content_margin_all(8)
-	add_theme_stylebox_override("panel",style)
-	var column:=VBoxContainer.new()
-	column.add_theme_constant_override("separation",4)
-	add_child(column)
-	var heading:=HBoxContainer.new()
-	column.add_child(heading)
-	_title=Label.new()
-	_title.add_theme_font_size_override("font_size",19)
-	_title.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_title.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
-	_title.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	heading.add_child(_title)
-	_toggle=TouchButton.new()
-	_toggle.minimum_touch_height=44
-	_toggle.custom_minimum_size=Vector2(98,44)
-	_toggle.pressed.connect(_toggle_expanded)
-	heading.add_child(_toggle)
-	_scroll=TouchScroll.new()
-	_scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_scroll.custom_minimum_size.y=100
-	column.add_child(_scroll)
-	var body:=VBoxContainer.new()
-	body.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_scroll.add_child(body)
+	super._ready()
 	_text=Label.new()
 	_text.add_theme_font_size_override("font_size",17)
-	_text.add_theme_color_override("font_color",Color("d6e2df"))
+	_text.add_theme_color_override("font_color",Color("e3e9e7"))
 	_text.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	_text.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_text.mouse_filter=Control.MOUSE_FILTER_PASS
 	body.add_child(_text)
-	_drag_hint=Label.new()
-	_drag_hint.text="拖动物品中，松手放置。"
-	_drag_hint.add_theme_font_size_override("font_size",17)
-	_drag_hint.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	body.add_child(_drag_hint)
-	_drag_hint.hide()
-	_show_empty()
-
-func set_available_height(height: float) -> void:
-	# Keep the inventory grid available even on short landscape screens.
-	_scroll.custom_minimum_size.y=clampf(height*.23,48,138)
 
 func present(record: Dictionary,dragging: bool = false) -> void:
-	_toggle.disabled=dragging
-	_text.visible=not dragging
-	_drag_hint.visible=dragging
-	if dragging:
-		# Preserve the allocated panel space during a drag, so cells do not move
-		# beneath the owning finger. This panel never overlays the grid.
-		_scroll.cancel_gesture()
-		return
-	if record.is_empty():
-		_show_empty()
+	if dragging or record.is_empty():
+		dismiss()
 		return
 	var item: Dictionary=Catalog.get_item(str(record.get("item","")))
-	if item.is_empty():
-		_show_empty()
-		return
+	if item.is_empty():dismiss();return
 	var next_uid: String=str(record.get("uid",""))
 	var signature: String=JSON.stringify([record,GameState.weapon_builds,GameState.weapon_ammo,GameState.loadout,GameState.inventory_items])
 	if next_uid!=_uid:
@@ -106,29 +47,8 @@ func present(record: Dictionary,dragging: bool = false) -> void:
 	_uid=next_uid
 	if signature!=_signature:
 		_signature=signature
-		_title.text="%s ×%d · 物品详情"%[str(item.get("name","物品")),int(record.get("qty",1))]
+		_title.text="%s ×%d"%[str(item.get("name","物品")),int(record.get("qty",1))]
 		_text.text=_describe(item,record)
-	_update_expanded()
-
-func _show_empty() -> void:
-	_uid=""
-	_signature=""
-	_title.text="物品详情"
-	_text.text="轻点物品查看说明与规格。\n选中后可点格子放置，也可双击快捷转移。"
-	_text.show()
-	_drag_hint.hide()
-	_scroll.cancel_gesture()
-	_scroll.scroll_vertical=0
-	_update_expanded()
-
-func _toggle_expanded() -> void:
-	_expanded=not _expanded
-	_scroll.cancel_gesture()
-	_update_expanded()
-
-func _update_expanded() -> void:
-	_scroll.visible=_expanded
-	_toggle.text="收起详情" if _expanded else "展开详情"
 
 func _describe(item: Dictionary,record: Dictionary) -> String:
 	var lines: Array[String]=[]

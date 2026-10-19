@@ -8,6 +8,7 @@ const ContainerState=preload("res://scripts/loot_container_state.gd")
 const TouchButton=preload("res://scripts/touch_button.gd")
 const TouchScroll=preload("res://scripts/touch_scroll.gd")
 const TouchQuantity=preload("res://scripts/touch_quantity.gd")
+const ItemDetails=preload("res://scripts/ui_item_details.gd")
 var world: Node3D
 var _views: Array=[]
 var _source: Control
@@ -17,7 +18,7 @@ var _title: Label
 var _status: Label
 var _health: Label
 var _summary: Label
-var _details: Label
+var _details: PanelContainer
 var _message: Label
 var _pause: Button
 var _quantity: Control
@@ -38,6 +39,7 @@ var _mode: String=""
 var _last_tap: String=""
 var _last_time: int=0
 var _ghost: Label
+var _message_left: float=0
 
 func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -63,6 +65,8 @@ func _ready() -> void:
 	header.add_child(_title)
 	_health=_label("",18)
 	header.add_child(_health)
+	_pause=_button("暂停搜索",func() -> void:world.toggle_container_search();_refresh(),132)
+	header.add_child(_pause)
 	header.add_child(_button("关闭容器",request_cancel,164))
 	var columns:=HBoxContainer.new()
 	columns.add_theme_constant_override("separation",16)
@@ -106,31 +110,29 @@ func _ready() -> void:
 	_source.cell=64
 	right.add_child(_source)
 	_views.append(_source)
-	var hint:=_label("双击快捷转移 · 点选后点目标格 · 长按拖动",17)
-	hint.modulate=Color("a9b3ae")
-	right.add_child(hint)
-	_details=_label("轻点物品查看详情；双击快捷拿取。",18)
-	_details.custom_minimum_size.y=56
-	_details.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	_details.max_lines_visible=3
-	root.add_child(_details)
-	var actions:=HBoxContainer.new()
-	actions.add_theme_constant_override("separation",12)
-	root.add_child(actions)
-	_pause=_button("暂停搜索",func() -> void:world.toggle_container_search();_refresh(),150)
-	actions.add_child(_pause)
-	actions.add_child(_label("转移数量",18))
+	var popup_layer:=CanvasLayer.new()
+	popup_layer.layer=28
+	add_child(popup_layer)
+	_details=ItemDetails.new()
+	popup_layer.add_child(_details)
+	_details.actions.columns=2
+	_details.actions.add_child(_label("转移数量",18))
 	_quantity=TouchQuantity.new()
 	_quantity.min_value=1
 	_quantity.max_value=1
 	_quantity.value=1
-	_quantity.custom_minimum_size=Vector2(205,64)
+	_quantity.custom_minimum_size=Vector2(180,48)
 	_quantity.editable=false
-	actions.add_child(_quantity)
+	_details.actions.add_child(_quantity)
 	_message=_label("",17)
 	_message.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	_message.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	actions.add_child(_message)
+	_message.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	_message.position=Vector2(40,get_viewport_rect().size.y-56)
+	_message.size.x=get_viewport_rect().size.x-80
+	_message.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	add_child(_message)
+	_message.hide()
 	_ghost=_label("",20)
 	_ghost.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	_ghost.add_theme_color_override("font_color",Color("f0e8cf"))
@@ -251,13 +253,8 @@ func _refresh() -> void:
 		view.queue_redraw()
 	var selected: Dictionary=_selected_record()
 	_quantity.editable=not selected.is_empty() and int(selected.qty)>1
-	if selected.is_empty():
-		_details.text="轻点物品查看详情；双击快捷转移，或点目标格子、拖动放置。"
-	else:
-		var item: Dictionary=Catalog.get_item(str(selected.item))
-		var cells: Vector2i=Grid.item_size(str(selected.item))
-		var category: String=Rarity.group_label(item)+" · "+Rarity.label(item)+" · " if str(item.get("kind",""))=="loot" else ""
-		_details.text="%s ×%d    %d×%d 格    单件 %.2f kg    出售 ◈ %d\n%s%s"%[str(item.get("name","")),int(selected.qty),cells.x,cells.y,float(item.get("weight",0)),int(item.get("sell_price",0)),category,"双击拿取，或点左侧目标格子放置。" if _selected.begins_with("loot/") else "双击放回容器，也可点格子或拖动整理。"]
+	_details.present(selected,_mode=="drag")
+	_details.actions.visible=_quantity.editable
 	_layout()
 
 func _choose(uid: String) -> void:
@@ -283,6 +280,8 @@ func _transfer_to(destination: String,block: String,cell: Vector2i) -> void:
 		ok=world.take_container_item(_selected,int(_quantity.value),destination,block,cell)
 	else:ok=GameState.move_raid_item(_selected,destination,block,cell,int(_quantity.value))
 	_message.text=("已放回容器" if destination=="loot" and not from_container else "已放置") if ok else GameState.last_error
+	_message.show()
+	_message_left=2.5
 	if ok:AppSettings.ui_feedback()
 	_last_tap=""
 	_last_time=0
@@ -335,6 +334,8 @@ func _tap(hit: Dictionary) -> void:
 	var chosen: Dictionary=_selected_record()
 	if _source.concealed_uids.has(uid):
 		_message.text="该物品尚未完成搜索"
+		_message_left=2.5
+		_message.show()
 		_last_tap=""
 		_last_time=0
 		return
@@ -348,10 +349,12 @@ func _tap(hit: Dictionary) -> void:
 		_transfer_to(str(hit.container),str(hit.block),hit.cell)
 		return
 	_choose(uid)
+	if not _selected_record().is_empty():_details.open_at(Rect2(_point-Vector2(24,24),Vector2(48,48)),self)
 	_last_tap=uid
 	_last_time=now
 
 func _begin_drag() -> void:
+	_details.dismiss()
 	if _source.concealed_uids.has(_source_uid) or _source_uid.is_empty():
 		_mode="scroll"
 		return
@@ -366,6 +369,8 @@ func _begin_drag() -> void:
 	_ghost.show()
 
 func _process(delta: float) -> void:
+	_message_left=maxf(0,_message_left-delta)
+	_message.visible=_message_left>0
 	if is_instance_valid(_source):_source.advance_search_animation(delta)
 	_refresh_clock-=delta
 	if _refresh_clock<=0:

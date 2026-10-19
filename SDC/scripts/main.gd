@@ -73,6 +73,8 @@ var _market_group: String = ""
 var _entry_id: String = "south"
 var _loadout_parent: String = "home"
 var _inventory_view: Control
+var _browser_popup: PanelContainer
+var _browser_scroll: ScrollContainer
 var _settings_button: Button
 var _hud_health: Control
 var _control_layout_editor: Control
@@ -262,6 +264,10 @@ func _build_lobby() -> void:
 	_bottom_nav.add_child(start)
 
 func _mobile_back() -> void:
+	var popups: Array[Node]=get_tree().get_nodes_in_group("mobile_touch_popup")
+	if not popups.is_empty():
+		popups.back().dismiss()
+		return
 	var touch_modals: Array[Node]=get_tree().get_nodes_in_group("mobile_touch_modal")
 	if not touch_modals.is_empty():
 		touch_modals.back().request_cancel()
@@ -293,12 +299,12 @@ func _mobile_back() -> void:
 func _go_back() -> void:
 	if _tab=="market" and not _market_group.is_empty():
 		_market_group="";_selected="";_filter="all";_refresh();return
-	_select_tab(_loadout_parent if _tab=="loadout" else "home")
+	_select_tab(_loadout_parent if _tab in ["loadout","stash"] else "home")
 
 func _select_tab(tab_id: String) -> void:
 	var destination: String="stash" if tab_id=="loadout" else tab_id
 	if _tab==destination:return
-	if tab_id=="loadout":_loadout_parent="maps" if _tab in ["maps","deploy"] else "home"
+	if destination=="stash":_loadout_parent="maps" if tab_id=="loadout" and _tab in ["maps","deploy"] else "home"
 	_tab = destination
 	_selected = ""
 	_filter = "all"
@@ -312,6 +318,9 @@ func _state_changed() -> void:
 		_inventory_view.refresh_inventory()
 		return
 	if _tab in ["maps","deploy"]:return
+	if _tab in ["market","catalog"] and is_instance_valid(_browser_popup):
+		if _browser_popup.visible:_show_detail()
+		return
 	if _refresh_pending:return
 	_refresh_pending=true
 	call_deferred("_refresh")
@@ -324,7 +333,7 @@ func _refresh() -> void:
 	_inventory_view=null
 	_clear(_content)
 	var page_parent: Control=_content
-	if _tab not in ["maps","deploy","stash","loadout","settings"]:
+	if _tab not in ["maps","deploy","stash","loadout","settings","catalog"] and not (_tab=="market" and not _market_group.is_empty()):
 		var page_scroll:=preload("res://scripts/touch_scroll.gd").new()
 		page_scroll.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		page_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
@@ -469,14 +478,14 @@ func _open_market_group(id: String) -> void:
 
 func _render_market_groups() -> void:
 	var root:=_vbox(_render_host,14)
-	var grid:=GridContainer.new();grid.columns=3;grid.size_flags_vertical=Control.SIZE_EXPAND_FILL;grid.add_theme_constant_override("h_separation",16);grid.add_theme_constant_override("v_separation",16);root.add_child(grid)
+	var grid:=GridContainer.new();grid.columns=4;grid.size_flags_vertical=Control.SIZE_EXPAND_FILL;grid.add_theme_constant_override("h_separation",16);grid.add_theme_constant_override("v_separation",16);root.add_child(grid)
 	var groups:Array=[["weapons","枪械","weapon_badger556"],["attachments","枪械配件","att_optic_scope4"],["protection","防护装备","helmet_moss_1a"],["capacity","背包与弹挂","backpack_patrol"],["armored_rigs","防弹弹挂","armored_rig_guard_patrol"],["ammo","弹药","ammo_9x19_fmj"],["medical","医疗补给","medkit_field"]]
 	for group:Array in groups:
 		var id:String=str(group[0]);var card:=_button("",func() -> void: _open_market_group(id))
-		card.name="Category_"+id;card.custom_minimum_size=Vector2(330,204);card.size_flags_horizontal=Control.SIZE_EXPAND_FILL;card.size_flags_vertical=Control.SIZE_EXPAND_FILL
+		card.name="Category_"+id;card.custom_minimum_size=Vector2(220,164);card.size_flags_horizontal=Control.SIZE_EXPAND_FILL;card.size_flags_vertical=Control.SIZE_EXPAND_FILL
 		grid.add_child(card)
 		var inside:=VBoxContainer.new();inside.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);inside.offset_left=24;inside.offset_right=-24;inside.offset_top=12;inside.offset_bottom=-20;card.add_child(inside)
-		inside.add_child(_item_picture(str(group[2]),Vector2(240,122)))
+		inside.add_child(_item_picture(str(group[2]),Vector2(210,90)))
 		var name:=_label(str(group[1]),24);inside.add_child(name);_ignore_pointer(inside)
 
 func _browser_categories() -> Array:
@@ -522,9 +531,12 @@ func _render_browser() -> void:
 	var columns:=_hbox(root,16);columns.size_flags_vertical=Control.SIZE_EXPAND_FILL
 	var list_panel:=_panel(columns);list_panel.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	var scroll:=preload("res://scripts/touch_scroll.gd").new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;list_panel.add_child(scroll)
+	_browser_scroll=scroll
 	var grid:=GridContainer.new();grid.columns=3;grid.add_theme_constant_override("h_separation",8);grid.add_theme_constant_override("v_separation",8);grid.size_flags_horizontal=Control.SIZE_EXPAND_FILL;scroll.add_child(grid);_list_box=grid
-	var detail_panel:=_panel(columns,Vector2(340,0));var detail_scroll:=preload("res://scripts/touch_scroll.gd").new();detail_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;detail_panel.add_child(detail_scroll)
-	_detail_box=_vbox(detail_scroll,9);_detail_box.custom_minimum_size.x=294;_detail_box.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	var popup_layer:=CanvasLayer.new();popup_layer.layer=28;_render_host.add_child(popup_layer)
+	_browser_popup=preload("res://scripts/touch_popup.gd").new();popup_layer.add_child(_browser_popup)
+	_detail_box=_browser_popup.body
+	grid.resized.connect(func() -> void:grid.columns=clampi(floori(scroll.size.x/224),3,6))
 	_populate_list()
 
 func _matches(item: Dictionary) -> bool:
@@ -559,10 +571,11 @@ func _populate_list() -> void:
 		matches.append(item_id)
 	if matches.is_empty():
 		_list_box.add_child(_label("暂无物品",16,MUTED))
-	if _selected.is_empty() or not matches.has(_selected):_selected=matches[0] if not matches.is_empty() else ""
+	if not matches.has(_selected):_selected=""
 	for item_id:String in matches:
 		var item:Dictionary=Catalog.get_item(item_id)
-		var row:=_button("",func() -> void: _selected=item_id;_populate_list())
+		var row:=_button("",func() -> void:pass)
+		row.pressed.connect(_open_browser_item.bind(item_id,row))
 		row.custom_minimum_size=Vector2(202,188);row.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		row.add_theme_stylebox_override("normal",_style(Color("303e43") if item_id==_selected else PANEL_LIGHT,Color("b7c5c0") if item_id==_selected else Color("46554f"),3))
 		_list_box.add_child(row)
@@ -574,7 +587,13 @@ func _populate_list() -> void:
 		bottom.add_child(_label("◈ "+_number(int(item.price)),13,AMBER))
 		_ignore_pointer(inner)
 
+	if is_instance_valid(_browser_popup):_browser_popup.dismiss()
+
+func _open_browser_item(item_id: String,source: Control) -> void:
+	_selected=item_id
 	_show_detail()
+	_browser_popup._title.text=str(Catalog.get_item(item_id).get("name","物品资料"))
+	_browser_popup.open_at(source.get_global_rect(),_render_host,Vector2(410,460))
 
 func _glyph(item: Dictionary) -> String:
 	match str(item.get("kind", "")):
@@ -631,10 +650,9 @@ func _show_detail() -> void:
 	if item.is_empty():
 		_detail_box.add_child(_label("选择一件装备", 21))
 		return
-	_detail_box.add_child(_label("装备详情", 12, TEAL))
-	_detail_box.add_child(_wrap(str(item.get("name", "")), 23, TEXT))
 	_detail_box.add_child(_wrap(_item_meta(item), 13, _rarity_color(item)))
-	_detail_box.add_child(_item_picture(_selected,Vector2(270,116)))
+	_stat_line(_detail_box, "购入 / 售出", "%s / %s" % [_number(int(item.get("price", 0))), _number(int(item.get("sell_price", 0)))], AMBER)
+	_detail_box.add_child(_item_picture(_selected,Vector2(270,90)))
 	_stat_line(_detail_box, "重量", "%s kg" % item.get("weight", 0))
 	var kind: String = str(item.get("kind", ""))
 	match kind:
@@ -673,7 +691,6 @@ func _show_detail() -> void:
 			_stat_line(_detail_box, "穿透", str(item.get("penetration", 0)))
 			_stat_line(_detail_box, "每包发数", str(item.get("stack_size", 1)))
 	_stat_line(_detail_box, "仓库存量", str(GameState.stash.get(_selected, 0)), TEAL)
-	_stat_line(_detail_box, "购入 / 售出", "%s / %s" % [_number(int(item.get("price", 0))), _number(int(item.get("sell_price", 0)))], AMBER)
 	var action_start: int = _detail_box.get_child_count()
 	var quantity: TouchQuantity = null
 	if kind == "ammo" or kind == "consumable" or kind == "loot":
@@ -726,7 +743,10 @@ func _show_detail() -> void:
 	for index in range(action_start, _detail_box.get_child_count()):
 		action_nodes.append(_detail_box.get_child(index))
 	for index in range(action_nodes.size()):
-		_detail_box.move_child(action_nodes[index], 4 + index)
+		_detail_box.move_child(action_nodes[index], 3 + index)
+		if action_nodes[index] is Button:
+			action_nodes[index].minimum_touch_height=48
+			action_nodes[index].custom_minimum_size.y=48
 
 func _stat_caption(key: String) -> String:
 	return str({"damage":"击发威力","rpm":"枪速","magazine":"弹匣容量","recoil":"后坐力","recoil_control":"后坐力","horizontal_control":"水平后坐力","accuracy":"精准度","ergonomics":"人机功效","range":"射程","noise":"消声能力","suppression":"消声能力"}.get(key,key))
@@ -800,7 +820,7 @@ func _render_workbench() -> void:
 	var sockets_panel:=_panel(columns,Vector2(152,0))
 	var socket_scroll:=preload("res://scripts/touch_scroll.gd").new()
 	sockets_panel.add_child(socket_scroll)
-	_wb_sockets=_vbox(socket_scroll,8)
+	_wb_sockets=_vbox(socket_scroll,6)
 	_wb_sockets.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	var center:=_vbox(columns,8)
 	center.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -906,12 +926,10 @@ func _update_assembly(update_model: bool = true) -> void:
 	if not slots.has(_slot): _slot = str(slots.keys()[0]) if not slots.is_empty() else ""
 	for raw_slot: Variant in slots:
 		var slot_name: String = str(raw_slot)
-		var part: String = str(_draft_parts.get(slot_name, ""))
 		var caption: String = str(SLOT_NAMES.get(slot_name, slot_name)) + ("  ●" if slot_name == _slot else "")
-		var slot_button := _button(caption, func() -> void: _select_draft_socket(slot_name))
+		var slot_button := _button(caption, func() -> void: _select_draft_socket(slot_name),false,0,46)
 		slot_button.add_theme_color_override("font_color", TEAL if slot_name == _slot else TEXT)
 		_wb_sockets.add_child(slot_button)
-		_wb_sockets.add_child(_wrap(_item_name(part) if not part.is_empty() else "基础部件 / 空接口", 11, TEAL if not part.is_empty() else MUTED))
 	_clear(_wb_stats)
 	var stats: Dictionary = Catalog.weapon_stats(_draft_weapon, _draft_parts)
 	_weapon_stats_panel(_wb_stats, stats)

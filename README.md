@@ -1,12 +1,23 @@
-# SDC 0.4.14
+# SDC 0.4.16
 
 Godot 4.6.3 / GDScript 开发的 Android ARM64 单机 PvE 2.5D 搜打撤原型。
-当前完整工程、运行素材和来源说明已纳入 Git，入口为 [`SDC/project.godot`](SDC/project.godot)。
+当前完整工程、运行素材和来源说明已纳入 Git，入口为 [`SDC/project.godot`](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/project.godot)。
 
 最新游戏代码在 [`fix-game-bugs` 分支](https://github.com/sonrunqing/SDC/tree/fix-game-bugs)，
 代码审查在 [PR #1](https://github.com/sonrunqing/SDC/pull/1)。
 
+## 下载手机版
+
+**[下载 SDC 0.4.16 APK](https://github.com/sonrunqing/SDC/releases/download/v0.4.16/SDC-v0.4.16.apk)**（约93.4 MiB），
+或打开[最新发布页](https://github.com/sonrunqing/SDC/releases/latest)。
+仓库已公开，下载与读取源码无需登录。下方安装与更新说明列出了固定签名版本的升级规则。
+
 ## AI 与源码入口
+
+**[视觉 Agent 游玩指南](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/AI_PLAY.md)** ·
+[机器可读入口](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/ai/manifest.json)。
+Agent 在自己的本地或云环境启动副本，通过 MCP 真实图片、原始触摸、多指和过程帧游玩；
+独立存档，不依赖作者电脑在线。[本轮实玩与画面记录](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/docs/VISUAL_ACCEPTANCE_0_4_16.md)。
 
 读取本分支即可获得完整游戏；审查先读两级 `AGENTS.md`，再按需读 `DECISIONS.md`、
 `LESSONS.md` 和 `HANDOFF.md`。源码审查不需要 Android 私钥、Blender 或本机工具目录。
@@ -37,26 +48,29 @@ git clone --branch fix-game-bugs https://github.com/sonrunqing/SDC.git
 - 26 个室内物资容器、逐件搜索动画、双击/点选后放置/拖动转移；48种原创模型变卖物、8类掉落池。
 - 右下瞄准摇杆驱动世界十字准星，菜单改为小圆形齿轮；圆形搜索键仅靠近可直接接触物资时显示，按压绑定目标并在离开时取消。
 - 品质实色背景、原色图标与交互提示独立绘制，未知物品不提前显示品质。
+- 装备/仓库、商店、图鉴和搜索详情改为点击后的上层窗口，主格子不再被固定详情挤压；购买后保留列表位置。
+- 主流程真实触摸实玩覆盖室内搜索、三种拾取手势、战斗、治疗、换弹、撤离和返回整备；准星与开火共用辅助方向及霰弹散布。
 
-详情见 [`SDC/README.md`](SDC/README.md)、[0.4.4 修改记录](SDC/docs/MOBILE_FIXES_0_4_4.md)、
-[0.4.6 按钮修复](SDC/docs/TOUCH_INPUT_FIX_0_4_6.md)和[代码审查入口](docs/CODE_REVIEW.md)。
+详情见 [`SDC/README.md`](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/README.md)、[0.4.4 修改记录](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/docs/MOBILE_FIXES_0_4_4.md)、
+[0.4.6 按钮修复](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/docs/TOUCH_INPUT_FIX_0_4_6.md)和[代码审查入口](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/docs/CODE_REVIEW.md)。
 
 ## Android 安装与更新
 
-当前交付版本为 **0.4.14 / versionCode 21**，包名保持 `org.prototype.shooter25d`。
+当前交付版本为 **0.4.16 / versionCode 23**，包名保持 `org.prototype.shooter25d`。
 已安装固定签名的 0.4.3 时，可直接覆盖更新；后续沿用同一密钥并增加版本。
 
 旧 GitHub Release 的云端 0.3.0 使用另一签名，是历史产物；它不能被本机新签名直接覆盖。
 用户已同意在 0.4.3 迁移时进行一次卸载重装。不要把这种一次迁移变成今后每次更新的流程。
-详见[签名与更新记录](SDC/docs/ANDROID_UPDATES.md)。
+详见[签名与更新记录](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/docs/ANDROID_UPDATES.md)。
 
-APK 在本机导出，本 PR 不新增 GitHub Release。APK 和签名私钥不存放于 Git 源码目录。
+APK 在本机导出，以 [v0.4.16 Release 附件](https://github.com/sonrunqing/SDC/releases/tag/v0.4.16)发布。
+Release 标签固定到该版本实际游戏提交；自动生成的源码 ZIP 包含完整工程。
+APK 和签名私钥不存放于 Git 源码目录。
 
-本轮记录见 [准星与物品分层](SDC/docs/MOBILE_RETICLE_0_4_13.md)、
-[圆形上下文按键](SDC/docs/ROUND_CONTEXT_BUTTONS_0_4_14.md) 和
-[公开构建身份](development/android-v0.4.14.json)。
-[实际引擎预览图](development/previews/README.md) 用于展示制作结果，非手机截图；
-本轮没有新增或运行自动测试，没有真机触摸、性能或覆盖安装结果。
+本轮见[视觉验收](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/docs/VISUAL_ACCEPTANCE_0_4_16.md)和
+[公开构建身份](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/development/android-v0.4.16.json)。
+Windows 生产引擎真实触摸/渲染与 MCP 图片已运行；GDScript438项及Python2组回归通过。
+本次没有实体手机触摸、性能或覆盖安装结果；Linux/Docker/macOS启动路线尚未实跑。
 
 ## 项目内容
 
@@ -66,13 +80,13 @@ APK 在本机导出，本 PR 不新增 GitHub Release。APK 和签名私钥不�
 - `previews/`：历史大厅、地图、商店、改枪和战局预览。
 - `development/`：历史工具记录及当前 APK 的公开构建身份。
 
-![SDC 人物大厅](previews/lobby.png)
+![SDC 人物大厅](https://raw.githubusercontent.com/sonrunqing/SDC/fix-game-bugs/previews/lobby.png)
 
-当前玩法见 [`SDC/README.md`](SDC/README.md)，素材来源见
-[`SDC/THIRD_PARTY_ASSETS.md`](SDC/THIRD_PARTY_ASSETS.md)。预览图可能早于当前界面。
+当前玩法见 [`SDC/README.md`](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/README.md)，素材来源见
+[`SDC/THIRD_PARTY_ASSETS.md`](https://github.com/sonrunqing/SDC/blob/fix-game-bugs/SDC/THIRD_PARTY_ASSETS.md)。预览图可能早于当前界面。
 
 ## 项目现状
 
 这是离线单人开发原型，尚未实现多人服务器、账号和联网经济系统。
 各版本的导出和 APK 身份记录见 `development/android-v*.json`；开发侧尚未完成这版的真机操作验证。
-既有检查脚本已随源码保留，本次为建立代码审查入口没有新增或执行测试，也没有自动合并 PR。
+检查脚本与视觉证据随源码保留；PR保持打开，不自动合并。

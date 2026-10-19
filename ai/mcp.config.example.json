@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sdc-visual-player": {
+      "command": "/absolute/path/to/SDC/.venv/bin/python",
+      "args": ["/absolute/path/to/SDC/ai/mcp_server.py"]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+.git
+.venv
+**/.godot
+**/__pycache__
+SDC/assets/art_source
+SDC/tests
+*.apk
+*.keystore
+*.jks
+*.log

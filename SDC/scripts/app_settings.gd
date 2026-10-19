@@ -3,6 +3,7 @@ signal changed
 signal controls_changed
 const ControlLayout = preload("res://scripts/control_layout.gd")
 const PATH := "user://settings.cfg"
+var _path: String=PATH
 const DEFAULTS := {"fps":60,"resolution":1.0,"quality":1,"brightness":1.0,"camera_height":31.0,"camera_pitch":55.0,"camera_fov":45.0,"camera_shake":.65,"master":.85,"sfx":.8,"ui_audio":.55,"control_scale":1.0,"control_opacity":.8,"aim_sensitivity":1.0,"deadzone":.14,"ui_scale":1.0,"safe_margin":24,"vibration":true}
 var values: Dictionary = DEFAULTS.duplicate(true)
 var _click: AudioStreamPlayer
@@ -10,8 +11,13 @@ var _save_delay: float = -1
 var control_profiles: Array=[{},{},{}]
 var active_control_profile: int=0
 func _ready() -> void:
+	if OS.get_cmdline_user_args().has("--sdc-ai"):
+		_path=OS.get_environment("SDC_AI_SETTINGS")
+		if not _path.is_absolute_path():
+			get_tree().quit(78)
+			return
 	var file:=ConfigFile.new()
-	var loaded: bool=file.load(PATH)==OK
+	var loaded: bool=file.load(_path)==OK
 	if loaded:
 		for key: String in DEFAULTS:
 			var stored: Variant = file.get_value("settings",key,DEFAULTS[key])
@@ -52,7 +58,7 @@ func _save_config() -> Error:
 	file.set_value("controls","version",1)
 	file.set_value("controls","active",active_control_profile)
 	file.set_value("controls","profiles",control_profiles)
-	return file.save(PATH)
+	return file.save(_path)
 
 func get_control_layout(profile: int = -1) -> Dictionary:
 	var index: int=active_control_profile if profile<0 else clampi(profile,0,2)

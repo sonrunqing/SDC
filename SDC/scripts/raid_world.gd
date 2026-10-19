@@ -415,11 +415,12 @@ func _update_aim_marker() -> void:
 	# Use the same chest-height trace origin as firing, so cover cannot be aimed
 	# through just because the animated muzzle protrudes into a thin wall.
 	var origin: Vector3=player.global_position+Vector3(0,.94,0)
+	var direction: Vector3=_assisted_direction(origin,_aim_direction)
 	var origin_screen: Vector2=camera.unproject_position(origin)
 	var extent: Vector2=get_viewport().get_visible_rect().size
 	var safe:=Rect2(Vector2(44,54),extent-Vector2(88,108))
 	var distance: float=_aim_marker_range
-	var point: Vector3=origin+_aim_direction*distance
+	var point: Vector3=origin+direction*distance
 	var projected: Vector2=camera.unproject_position(point)
 	# Keep a world-space point along the facing ray within the phone view.
 	# Shortening the range preserves direction; clamping x/y would bend it.
@@ -428,25 +429,26 @@ func _update_aim_marker() -> void:
 		var high: float=distance
 		for step: int in range(10):
 			var middle: float=(low+high)*.5
-			var candidate: Vector3=origin+_aim_direction*middle
+			var candidate: Vector3=origin+direction*middle
 			var screen: Vector2=camera.unproject_position(candidate)
 			if not camera.is_position_behind(candidate) and safe.has_point(screen) and screen.distance_to(origin_screen)<=extent.y*.31:low=middle
 			else:high=middle
 		distance=low
-		point=origin+_aim_direction*distance
+		point=origin+direction*distance
 	var hit: Dictionary=_ray(origin,point,[player.get_rid()])
 	_aim_marker_point=point if hit.is_empty() else Vector3(hit.position)
 	_aim_marker_ready=true
 
 func aim_indicator() -> Dictionary:
-	return {"visible":_active and not _ui_blocked and _aim_marker_ready,"point":_aim_marker_point,"muzzle":_active_muzzle_position(),"spread":_base_shot_spread()}
+	return {"visible":_active and not _ui_blocked and _aim_marker_ready,"point":_aim_marker_point,"muzzle":_active_muzzle_position(),"spread":_shot_spread()}
 
-func _base_shot_spread() -> float:
+func _shot_spread() -> float:
 	var accuracy: float=float(_weapon_stats.get("accuracy",72.0))
 	if accuracy<=1.0:accuracy*=100.0
 	var horizontal: float=float(_weapon_stats.get("horizontal_recoil",20.0))
 	var spread: float=maxf(.0035,(100.0-accuracy)*.0008)+_recoil*(.45+horizontal/40.0)
 	if Vector2(player.velocity.x,player.velocity.z).length()>.5:spread*=1.45
+	if str(Catalog.get_item(str(GameState.loadout.get("weapon",""))).get("category",""))=="shotgun":spread=maxf(spread,.09)
 	return spread
 
 
@@ -463,14 +465,12 @@ func _fire_player() -> void:
 	var origin := player.position + Vector3(0, 0.94, 0)
 	var muzzle_origin := _active_muzzle_position()
 	var direction := _assisted_direction(origin, _aim_direction)
-	var spread: float=_base_shot_spread()
+	var spread: float=_shot_spread()
 	var category: String = str(Catalog.get_item(str(GameState.loadout.get("weapon", ""))).get("category", "rifle"))
 	var pellets := 7 if category == "shotgun" else 1
 	var ammo: Dictionary = GameState.get_selected_ammo()
 	var shot: Dictionary = Catalog.shot_profile(str(GameState.loadout.get("weapon", "")), str(ammo.get("id", "")), GameState.attachments)
 	var penetration := float(ammo.get("penetration", 15.0))
-	if pellets > 1:
-		spread = maxf(spread, 0.09)
 	for pellet in range(pellets):
 		var ray_direction := direction.rotated(Vector3.UP, _rng.randf_range(-spread, spread))
 		var distance: float = float(shot.get("zero_damage_distance", 60.0))

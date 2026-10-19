@@ -1,0 +1,55 @@
+{
+  "observed_at": "2026-10-18T14:03:38.703222+00:00",
+  "verification": "anonymous GitHub REST; no Authorization header",
+  "repository": {
+    "full_name": "sonrunqing/SDC",
+    "visibility": "public",
+    "private": false,
+    "default_branch": "main"
+  },
+  "source_branch": {
+    "name": "fix-game-bugs",
+    "observed_head": "7c32635baff735e31313c879e459f65201996985",
+    "game_commit": "7c32635baff735e31313c879e459f65201996985"
+  },
+  "source_file": {
+    "path": "SDC/scripts/ui_aim_reticle.gd",
+    "blob_sha": "c63baa901dc16b22b5ad4c8cf0492bf29052750f",
+    "bytes": 1711,
+    "content_returned": true
+  },
+  "main_landing": {
+    "commit": "20f09079f43c1d85dd43ac3d51828e7d9ee76006",
+    "change": "README only; current version and download links; game PR not merged"
+  },
+  "latest_release": {
+    "id": 416481701,
+    "tag": "v0.4.14",
+    "url": "https://github.com/sonrunqing/SDC/releases/tag/v0.4.14",
+    "published_at": "2026-10-18T13:58:58Z",
+    "draft": false,
+    "prerelease": false
+  },
+  "apk_asset": {
+    "id": 653613144,
+    "name": "SDC-v0.4.14.apk",
+    "size": 97882660,
+    "digest": "sha256:9e7cede22406458aecb768b931f6af642671fb9bf5166c50dc358144d3646f65",
+    "state": "uploaded",
+    "browser_download_url": "https://github.com/sonrunqing/SDC/releases/download/v0.4.14/SDC-v0.4.14.apk"
+  },
+  "download_headers": {
+    "method": "anonymous HEAD",
+    "requested": "https://github.com/sonrunqing/SDC/releases/download/v0.4.14/SDC-v0.4.14.apk",
+    "status": 200,
+    "final_host": "release-assets.githubusercontent.com",
+    "content_length": "97882660"
+  },
+  "review": {
+    "url": "https://github.com/sonrunqing/SDC/pull/1",
+    "request_comment_id": 6250819677,
+    "request_game_commit": "7c32635baff735e31313c879e459f65201996985",
+    "mode": "static only; no tests, automatic edits or merge"
+  },
+  "note": "Public permits unauthenticated readers with internet/GitHub access; it does not make every AI service automatically browse or index the project. Publication evidence is separate from phone validation."
+}

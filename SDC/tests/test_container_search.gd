@@ -116,7 +116,7 @@ func run() -> void:
 	touch.pressed=false
 	page._input(touch)
 	check(page._selected==str(item.uid),"a deliberate raw-touch release selects the revealed record")
-	check(not page._details.text.is_empty(),"selection shows real item data")
+	check(page._details.visible and page._details.body.get_child_count()>0,"selection opens real item data above the grids")
 	page.cancel_gesture()
 	check(page._pointer==-1 and page._last_tap.is_empty(),"modal cancellation clears pointers and pending double-tap chains")
 	page.queue_free()

@@ -13,7 +13,6 @@ var _right: ScrollContainer
 var _left_content: VBoxContainer
 var _right_content: VBoxContainer
 var _summary: Label
-var _selection: Label
 var _buttons: Dictionary = {}
 var _loadout_signature: String = ""
 var selected_uid: String = ""
@@ -41,7 +40,6 @@ func _ready() -> void:
 	_summary=_label("",20)
 	_summary.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	heading.add_child(_summary)
-	heading.add_child(_label("点击选择 · 双击快捷转移",17,Color("a7b8b5")))
 	var columns:=HBoxContainer.new()
 	columns.add_theme_constant_override("separation",18)
 	columns.size_flags_vertical=Control.SIZE_EXPAND_FILL
@@ -50,23 +48,20 @@ func _ready() -> void:
 	_right=_column(columns)
 	_left_content=_content(_left)
 	_right_content=_content(_right)
-	var toolbar:=HBoxContainer.new()
-	toolbar.add_theme_constant_override("separation",8)
-	add_child(toolbar)
-	_selection=_label("选择物品后，可点格子放置",18)
-	_selection.size_flags_horizontal=Control.SIZE_EXPAND_FILL
-	_selection.text_overrun_behavior=TextServer.OVERRUN_TRIM_ELLIPSIS
-	toolbar.add_child(_selection)
+	var details_layer:=CanvasLayer.new()
+	details_layer.layer=28
+	add_child(details_layer)
+	_details=ItemDetails.new()
+	details_layer.add_child(_details)
 	for action: String in ["旋转","拆分","快捷转移","出售","改枪"]:
 		var button:=TouchButton.new()
 		button.text=action
-		button.custom_minimum_size=Vector2(92 if action!="快捷转移" else 132,60)
+		button.minimum_touch_height=44
+		button.custom_minimum_size=Vector2(96,44)
+		button.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		button.pressed.connect(_action.bind(action))
-		toolbar.add_child(button)
+		_details.actions.add_child(button)
 		_buttons[action]=button
-	add_child(_label("长按物品后拖动；快速上下划动翻页。物品放入区块时自动选择横竖方向。",16,Color("94aaa7")))
-	_details=ItemDetails.new()
-	add_child(_details)
 	var drag_layer:=CanvasLayer.new()
 	drag_layer.layer=30
 	add_child(drag_layer)
@@ -87,11 +82,6 @@ func _ready() -> void:
 	_rebuild_equipment()
 	refresh_inventory()
 	resized.connect(_resize_stash)
-	resized.connect(_resize_details)
-	_resize_details()
-
-func _resize_details() -> void:
-	if is_instance_valid(_details):_details.set_available_height(size.y)
 
 func _column(parent: Node) -> ScrollContainer:
 	var panel:=PanelContainer.new()
@@ -251,7 +241,6 @@ func refresh_inventory() -> void:
 		view.selected_uid=selected_uid
 		view.queue_redraw()
 	var record: Dictionary = _selected_record()
-	_selection.text="选择物品后，可点格子放置" if record.is_empty() else str(Catalog.get_item(str(record.item)).get("name",""))+" ×"+str(record.get("qty",1))
 	for key: String in _buttons:_buttons[key].disabled=record.is_empty()
 	if not record.is_empty():
 		_buttons["改枪"].disabled=str(Catalog.get_item(str(record.item)).get("kind",""))!="weapon"
@@ -308,6 +297,7 @@ func _drag(point: Vector2) -> void:
 
 func _begin_drag() -> void:
 	_mode="drag"
+	_details.dismiss()
 	_last_tap_uid=""
 	_last_tap_time=0
 	selected_uid=_source_uid
@@ -317,6 +307,7 @@ func _begin_drag() -> void:
 	refresh_inventory()
 
 func _release(point: Vector2,cancelled: bool) -> void:
+	var was_scrolling: bool=_mode=="scroll"
 	var hit: Dictionary = _hit(point)
 	if not cancelled and _mode=="drag" and not hit.is_empty():_perform(GameState.inventory_transfer(_source_uid,str(hit.container),str(hit.block),hit.cell))
 	elif not cancelled and _mode=="pending" and not hit.is_empty():_tap(hit)
@@ -328,8 +319,9 @@ func _release(point: Vector2,cancelled: bool) -> void:
 	for view: Control in _views:
 		view.hover_spot={}
 		view.queue_redraw()
-	_left.cancel_gesture()
-	_right.cancel_gesture()
+	if not was_scrolling:
+		_left.cancel_gesture()
+		_right.cancel_gesture()
 	queue_redraw()
 	refresh_inventory()
 
@@ -347,6 +339,7 @@ func _tap(hit: Dictionary) -> void:
 	else:
 		selected_uid=uid
 		refresh_inventory()
+		if not uid.is_empty():_details.open_at(Rect2(_point-Vector2(24,24),Vector2(48,48)),self)
 	_last_tap_uid=uid
 	_last_tap_time=now
 
@@ -397,6 +390,7 @@ func cancel_gesture() -> void:
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_PAUSED] or (what==NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree()):
 		cancel_gesture()
+		if is_instance_valid(_details):_details.dismiss()
 
 func _action(action: String) -> void:
 	if action=="旋转":_perform(GameState.inventory_rotate(selected_uid),false)

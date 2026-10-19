@@ -1,0 +1,92 @@
+{
+  "inventory-before.png": {
+    "frame": 4,
+    "sha256": "d92cf40e95917489bfbe0ce320ced0da89d6d4277d34f2b0c882e442e6be534e"
+  },
+  "inventory-after.png": {
+    "frame": 3,
+    "sha256": "de00e30e1a0dfaacd8cbd489135c850a7bbf458e64142c86073422401541a835"
+  },
+  "inventory-popup.png": {
+    "frame": 5,
+    "sha256": "2782e615a2dbe6a4cd8d7a186e1326ebd8e0b701a283c652e3f64dcbbdc039d0"
+  },
+  "inventory-drag.png": {
+    "frame": 12,
+    "sha256": "fc6c9ed79d20284656783d2098a253dec2051a27d542d7af240dff88bbf450e1"
+  },
+  "shop-purchase.png": {
+    "frame": 28,
+    "sha256": "e91b38f5b96588488a569a2b55d359132a675fa1d58099a860645ee481fb8713"
+  },
+  "rig-backpack-armor.png": {
+    "frame": 34,
+    "sha256": "d10f3d7380a16bf8445158d8987051c6fcf2a6a214003ee0cc3b5528bfe0b245"
+  },
+  "workbench.png": {
+    "frame": 36,
+    "sha256": "601a3bd1d46c9885a850bf1e30a25cfd49a05b9a3cc9d49b2bd4b3ee4075317e"
+  },
+  "custom-controls.png": {
+    "frame": 54,
+    "sha256": "44a8fbf1af43a9a9b49e654a322a100307f4d1e2404c718f1d4c3eba2385ac2b"
+  },
+  "two-fingers.png": {
+    "frame": 77,
+    "sha256": "aa95f5f520acf1cd6a5e017857f0b811a1de1571ccce20a0ee019c7636ae25ae"
+  },
+  "three-fingers.png": {
+    "frame": 88,
+    "sha256": "08459a19f3275687021a1f7f3d73b8f9bbc2a14e0aecae5a430d4fa3fbec8ba5"
+  },
+  "search-unknown.png": {
+    "frame": 84,
+    "sha256": "e0cb691a4831e75f7b0d9ca698cacf9dfbcc049d6c136aa2c46d61b752b0836f"
+  },
+  "search-popup.png": {
+    "frame": 121,
+    "sha256": "1755d71cc80e299b244b660ba41a78ec086508acce2d22ef1be1f79a688d044f"
+  },
+  "search-quantity.png": {
+    "frame": 129,
+    "sha256": "e19ac455b0355158653822fac0a96496d2d5d4cfb182f0a51ceb01bfdbeb6f3a"
+  },
+  "search-picked.png": {
+    "frame": 137,
+    "sha256": "33f4250a6657083d2e5bbac9c28b7908861b112ef97f43c918cc69831ebeecba"
+  },
+  "combat.png": {
+    "frame": 349,
+    "sha256": "237f7e16f9643673e718b320bd9369178783dc9451f5abd0cb212ee78226ec38"
+  },
+  "extraction-countdown.png": {
+    "frame": 377,
+    "sha256": "2171c131e4b50f68df604c1e7fba3c0a415fb8f722e7d32803f7e864d9fbf612"
+  },
+  "extraction-success.png": {
+    "frame": 400,
+    "sha256": "d8a39eaa1b0067244efc4fef2b275ecdecad01ab0d7a79078293cf9b62fc9984"
+  },
+  "short-inventory.png": {
+    "transport": "stdio MCP",
+    "sha256": "10ce0dfcfcc45a0e735ef3ce81b0a0499c0d3bdc628a7ef4fa7e5ef95cab8b96"
+  },
+  "short-popup.png": {
+    "transport": "stdio MCP",
+    "sha256": "72d8c31f0aebf063e317b31b20c8fb3676b8639075a60aa9855ccbd02861ef87"
+  },
+  "short-back.png": {
+    "transport": "stdio MCP",
+    "sha256": "78b1edd221c48452f4d17d971424f478e5e4008ce2dc458857b7601608b2600e"
+  },
+  "final-assisted-aim.png": {
+    "frame": 10,
+    "source_version": "0.4.16",
+    "sha256": "7ff814d5127c5fb604a52e8545651e10f8491892beda1cb70ff3aff02f9f9520"
+  },
+  "final-assisted-shot.png": {
+    "frame": 16,
+    "source_version": "0.4.16",
+    "sha256": "1a473696f4f6b0be0d1f921a68d6cb713d650cd6f521d54f67c8264d2887c218"
+  }
+}

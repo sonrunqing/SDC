@@ -22,7 +22,23 @@ func run() -> void:
 	main._map_preview.focus_zone("terminal")
 	check(float(main._map_preview._zoom)<100,"District selection opens a larger inspection view")
 	main._select_tab("loadout");await process_frame
-	check(str(main._tab)=="loadout" and main._loadout_parent=="maps","Map selection has its own preparation step")
+	check(str(main._tab)=="stash" and main._loadout_parent=="maps","Map preparation uses the shared equipment and stash")
+	var inventory: Control=main._inventory_view
+	var stash_view: Control=inventory._views.back()
+	var grid_before: Rect2=stash_view.get_global_rect()
+	check(not inventory._details.visible,"Idle inventory has no reserved detail window")
+	var record: Dictionary={}
+	for candidate: Dictionary in state.inventory_items:
+		if str(candidate.container)=="stash":record=candidate;break
+	var touch:=InputEventScreenTouch.new()
+	touch.index=0;touch.position=stash_view.get_global_transform_with_canvas()*stash_view.record_rect(record).get_center();touch.pressed=true
+	inventory._input(touch)
+	touch.pressed=false;inventory._input(touch)
+	await process_frame
+	check(inventory._details.visible,"Raw single tap opens adjacent details")
+	check(stash_view.get_global_rect().is_equal_approx(grid_before),"Details never resize or move the stash grid")
+	main._mobile_back();await process_frame
+	check(main._tab=="stash" and not inventory._details.visible,"System back closes only the item window first")
 	main._go_back();check(str(main._tab)=="maps","Preparation returns to map selection")
 	main._select_tab("market");await process_frame
 	check(main._market_group.is_empty(),"Shop opens with distinct category choices")
@@ -45,14 +61,16 @@ func run() -> void:
 	body=main._home_preview.get_loadout_summary()
 	check(body.armor.helmet==helmet_id,"Lobby model synchronizes after an actual equipment change")
 	for item:Dictionary in catalog.items.values():
-		check(ResourceLoader.exists("res://assets/icons/items/"+str(item.id)+".png"),"Real equipment icon available: "+str(item.id))
+		check(load("res://scripts/item_textures.gd").icon(str(item.id))!=null,"Real equipment icon or visual alias available: "+str(item.id))
 	main._bottom_nav.get_node("StartAction").pressed.emit();await process_frame
-	var entry_choice:OptionButton=main._content.find_child("EntryChoice",true,false)
+	var entry_choice:Button=main._content.find_child("EntryChoice",true,false)
 	entry_choice.select(2);entry_choice.item_selected.emit(2)
 	check(main._entry_id=="west","Map dropdown selects the western entry")
 	main._content.find_child("PrepareAction",true,false).pressed.emit();await process_frame
-	check(main._tab=="loadout","Visible map preparation button opens the independent loadout page")
-	main._content.find_child("DeployAction",true,false).pressed.emit();await physics_frame;await physics_frame
+	check(main._tab=="stash","Visible map preparation button opens the shared equipment and stash")
+	main._go_back();await process_frame
+	check(main._tab=="maps","Back from preparation preserves the map route")
+	main._bottom_nav.get_node("StartAction").pressed.emit();await physics_frame;await physics_frame
 	check(state.raid_active and main._world!=null and main._world._active,"Visible preparation button starts a real raid")
 	check(main._world.entry_position.is_equal_approx(Vector3(-68,0,55)),"Chosen UI entry is propagated to the actual raid")
 	main._world._finish(false,"frontend test cleanup")

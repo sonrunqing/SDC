@@ -1,6 +1,7 @@
 # Editor imports and local caches
 **/.godot/
 **/__pycache__/
+/.venv/
 *.py[cod]
 .DS_Store
 Thumbs.db

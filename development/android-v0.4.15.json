@@ -1,0 +1,77 @@
+{
+  "version": "0.4.15",
+  "version_code": 22,
+  "application_id": "org.prototype.shooter25d",
+  "certificate_sha256": "caf122605c0d8479de1e5cef3e957b6149f9da7af8771ea27981fd5781f08fae",
+  "bytes": 97886913,
+  "sha256": "302b372ba267d76678f5baccb80ea4eae003c736c5ff6001311fbfe1af3e1ac2",
+  "reference_version_code": 21,
+  "same_package_and_signer_as_reference": true,
+  "signature_matches_legacy_phone_app": false,
+  "legacy_phone_requires_uninstall_before_install": true,
+  "user_approved_legacy_data_reset": true,
+  "fixed_signing_first_version": "0.4.3",
+  "phone_installation_checked": false,
+  "built_at": "2026-10-19T19:23:24.1198862+08:00",
+  "apk_file": "SDC-v0.4.15.apk",
+  "reference_apk_file": "SDC-v0.4.14.apk",
+  "checks": {
+    "android_export": true,
+    "excluded_development_files": [],
+    "compiled_modules": {
+      "touch_popup": {
+        "sha256": "edcacd8b78897d9a304521b651d39bbb1efcc9c2d94dfbf93de90635438e56f5",
+        "bytes": 3127,
+        "changed_from_reference": true
+      },
+      "ui_inventory": {
+        "sha256": "c53c6ce6e3104353588a3bf71d332c143b0fbf43aedc4ac8339706847c1396a0",
+        "bytes": 14184,
+        "changed_from_reference": true
+      },
+      "ui_item_details": {
+        "sha256": "ce0742d586973dc32d2c667dcb3a0c129f13a2825b27c4efa933b384fd8c9eba",
+        "bytes": 14145,
+        "changed_from_reference": true
+      },
+      "ui_loot_search": {
+        "sha256": "fa36af9aa0165eaca520aa888e4a71245eb5fff5ffc852c04c56f055d3020c36",
+        "bytes": 15935,
+        "changed_from_reference": true
+      },
+      "main": {
+        "sha256": "d9ad2353ad4bc59715a4206d3052be194a23cd96dcce54f56deae475654d963d",
+        "bytes": 47126,
+        "changed_from_reference": true
+      },
+      "map_preview": {
+        "sha256": "f85d9981d1b5d4bacef2912545a61989713f26d9a17f2fb96ed973f93a14708c",
+        "bytes": 5536,
+        "changed_from_reference": true
+      },
+      "virtual_controls": {
+        "sha256": "a199a808aa6a3f482d9aae2e585a8f339f2eab557e9c081b75fd87eb2acd8280",
+        "bytes": 10836,
+        "changed_from_reference": true
+      }
+    },
+    "touch_checks": 12,
+    "container_checks": 93,
+    "frontend_checks": 324,
+    "python_boundary_test_cases": 2,
+    "real_mcp_stdio_and_images": true,
+    "windows_visual_sizes": [
+      [
+        1600,
+        720
+      ],
+      [
+        1280,
+        576
+      ]
+    ]
+  },
+  "visual_acceptance": "docs/VISUAL_ACCEPTANCE_0_4_16.md",
+  "note": "Production Godot rendering with raw phone touch on Windows; no physical Android installation or performance result.",
+  "status": "superseded unpublished candidate; final delivery0.4.16"
+}
